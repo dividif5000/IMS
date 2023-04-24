@@ -1,0 +1,534 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<usuarios xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="XSD_usuarios_usuarios.xsd">
+    
+    <usuario>
+        <id>1</id>
+        <nombre>JUAN</nombre>
+        <contraseña>1234</contraseña>
+        <sede>INER EUSKADI</sede>
+        <privilegios>ADMIN</privilegios>
+        <idagente>5</idagente>
+        <mail>jperez@inereus.com</mail>
+    </usuario>
+
+    <usuario>
+        <id>2</id>
+        <nombre>LUR GORRI BARAÑAIN GESTION SLU</nombre>
+        <contraseña>1234567890</contraseña>
+        <sede>INER EUSKADI</sede>
+        <privilegios>COMERCIAL</privilegios>
+        <idagente>0</idagente>
+        <mail>plizarraga@lurgorriasesores.es</mail>
+    </usuario>
+
+    <usuario>
+        <id>3</id>
+        <nombre>UNAI URRUTIA</nombre>
+        <contraseña>UNAIURRUTIA</contraseña>
+        <sede>INER EUSKADI</sede>
+        <privilegios>COMERCIAL</privilegios>
+        <idagente>29</idagente>
+        <mail>unaiurrutia4626@gmail.com</mail>
+    </usuario>
+
+    <usuario>
+        <id>4</id>
+        <nombre>GRUPO GONCLA ENERGIA SOLUCIONES SLU</nombre>
+        <contraseña>12345</contraseña>
+        <sede>INER EUSKADI</sede>
+        <privilegios>COMERCIAL</privilegios>
+        <idagente>0</idagente>
+        <mail>gonclaenergiasoluciones@gmail.com</mail>
+    </usuario>
+
+    <usuario>
+        <id>5</id>
+        <nombre>EKON SOLUCIONES</nombre>
+        <contraseña>1234567890</contraseña>
+        <sede>INER EUSKADI</sede>
+        <privilegios>COMERCIAL</privilegios>
+        <idagente>30</idagente>
+        <mail>alex@ekonsoluciones.com</mail>
+    </usuario>
+
+    <usuario>
+        <id>6</id>
+        <nombre>AJ ASESORES</nombre>
+        <contraseña>1234567890</contraseña>
+        <sede>INER EUSKADI</sede>
+        <privilegios>COMERCIAL</privilegios>
+        <idagente>32</idagente>
+        <mail>jaimevillargarciacalzada@gmail.com</mail>
+    </usuario>
+
+    <usuario>
+        <id>7</id>
+        <nombre>PATRICIA GARCIA SOLLA</nombre>
+        <contraseña>PGSOLLA</contraseña>
+        <sede>INER EUSKADI</sede>
+        <privilegios>COMERCIAL</privilegios>
+        <idagente>33</idagente>
+        <mail>patriciaa.dlife@hotmail.com</mail>
+    </usuario>
+
+    <usuario>
+        <id>8</id>
+        <nombre>ANTXON SAGASTUME LARRAÑAGA</nombre>
+        <contraseña>1234567890</contraseña>
+        <sede>INER EUSKADI</sede>
+        <privilegios>COMERCIAL</privilegios>
+        <idagente>34</idagente>
+        <mail>sagastume@vascastec.com</mail>
+    </usuario>
+
+    <usuario>
+        <id>9</id>
+        <nombre>OSCISA</nombre>
+        <contraseña>1234567890</contraseña>
+        <sede>INER EUSKADI</sede>
+        <privilegios>COMERCIAL</privilegios>
+        <idagente>35</idagente>
+        <mail>yolanda@oscisa.es</mail>
+    </usuario>
+
+    <usuario>
+        <id>10</id>
+        <nombre>JUAN IGNACIO AGUIRRE URIA</nombre>
+        <contraseña>1234567890</contraseña>
+        <sede>INER EUSKADI</sede>
+        <privilegios>COMERCIAL</privilegios>
+        <idagente>36</idagente>
+        <mail>ji.agirre@gmail.com</mail>
+    </usuario>
+
+    <usuario>
+        <id>11</id>
+        <nombre>ALFER ENERGIA SL</nombre>
+        <contraseña>1234567890</contraseña>
+        <sede>INER EUSKADI</sede>
+        <privilegios>COMERCIAL</privilegios>
+        <idagente>37</idagente>
+        <mail>fernando.diaz@grupoalfer.es</mail>
+    </usuario>
+
+    <usuario>
+        <id>12</id>
+        <nombre>ALBERTO OSCISA</nombre>
+        <contraseña>1234567890</contraseña>
+        <sede>INER EUSKADI</sede>
+        <privilegios>COMERCIAL</privilegios>
+        <idagente>38</idagente>
+        <mail>contratacioneuskadi@inerenergia.es</mail>
+    </usuario>
+
+    <usuario>
+        <id>13</id>
+        <nombre>TEIBA SOLUCIONES ENERGETICAS</nombre>
+        <contraseña>1234567890</contraseña>
+        <sede>INER EUSKADI</sede>
+        <privilegios>COMERCIAL</privilegios>
+        <idagente>40</idagente>
+        <mail>solucionesteiba@gmail.com</mail>
+    </usuario>
+
+    <usuario>
+        <id>14</id>
+        <nombre>JOSE MANUEL GRAU</nombre>
+        <contraseña>1234567890</contraseña>
+        <sede>INER CASTILLA</sede>
+        <privilegios>COMERCIAL</privilegios>
+        <idagente>0</idagente>
+        <mail>josegrau999@gmail.com</mail>
+    </usuario>
+
+    <usuario>
+        <id>15</id>
+        <nombre>JAB ENERGIA</nombre>
+        <contraseña>1234567890</contraseña>
+        <sede>INER EUSKADI</sede>
+        <privilegios>COMERCIAL</privilegios>
+        <idagente>6</idagente>
+        <mail>jobeotsl@gmail.com</mail>
+    </usuario>
+
+    <usuario>
+        <id>16</id>
+        <nombre>EDURNE ARRIETA</nombre>
+        <contraseña>1234567890</contraseña>
+        <sede>INER EUSKADI</sede>
+        <privilegios>COMERCIAL</privilegios>
+        <idagente>7</idagente>
+        <mail>edurnearrieta@gmail.com</mail>
+    </usuario>
+
+    <usuario>
+        <id>17</id>
+        <nombre>JAIME HERNANDEZ CALDERERO</nombre>
+        <contraseña>JCALDERERO</contraseña>
+        <sede>INER EUSKADI</sede>
+        <privilegios>COMERCIAL</privilegios>
+        <idagente>8</idagente>
+        <mail>jhcalderero@gmail.com</mail>
+    </usuario>
+
+    <usuario>
+        <id>18</id>
+        <nombre>JAVIER CARRERA</nombre>
+        <contraseña>1234567890</contraseña>
+        <sede>INER EUSKADI</sede>
+        <privilegios>COMERCIAL</privilegios>
+        <idagente>9</idagente>
+        <mail>jjcc60@hotmail.es</mail>
+    </usuario>
+
+    <usuario>
+        <id>19</id>
+        <nombre>ELENA ALONSO</nombre>
+        <contraseña>1234567890</contraseña>
+        <sede>INER EUSKADI</sede>
+        <privilegios>COMERCIAL</privilegios>
+        <idagente>10</idagente>
+        <mail>e.alonso@inerenergia.es</mail>
+    </usuario>
+
+    <usuario>
+        <id>20</id>
+        <nombre>JOSEBA ETXEBERRIA</nombre>
+        <contraseña>JOSEBA</contraseña>
+        <sede>INER EUSKADI</sede>
+        <privilegios>COMERCIAL</privilegios>
+        <idagente>11</idagente>
+        <mail>jooseba66608@gmail.com</mail>
+    </usuario>
+
+    <usuario>
+        <id>21</id>
+        <nombre>OIHAN IRURIETA</nombre>
+        <contraseña>1234567890</contraseña>
+        <sede>INER EUSKADI</sede>
+        <privilegios>COMERCIAL</privilegios>
+        <idagente>13</idagente>
+        <mail>contratacioneuskadi@inerenergia.es</mail>
+    </usuario>
+
+    <usuario>
+        <id>22</id>
+        <nombre>MAITE IRASTORZA</nombre>
+        <contraseña>1234567890</contraseña>
+        <sede>INER EUSKADI</sede>
+        <privilegios>COMERCIAL</privilegios>
+        <idagente>14</idagente>
+        <mail>iras.maite@gmail.com</mail>
+    </usuario>
+
+    <usuario>
+        <id>23</id>
+        <nombre>INNOLUX</nombre>
+        <contraseña>1234567890</contraseña>
+        <sede>INER EUSKADI</sede>
+        <privilegios>COMERCIAL</privilegios>
+        <idagente>15</idagente>
+        <mail>info@innolux.es</mail>
+    </usuario>
+
+    <usuario>
+        <id>24</id>
+        <nombre>EDUARDO ALBA</nombre>
+        <contraseña>1234567890</contraseña>
+        <sede>INER EUSKADI</sede>
+        <privilegios>COMERCIAL</privilegios>
+        <idagente>16</idagente>
+        <mail>edualbaelias@yahoo.es</mail>
+    </usuario>
+
+    <usuario>
+        <id>25</id>
+        <nombre>OLIVER ADRIAN</nombre>
+        <contraseña>1234567890</contraseña>
+        <sede>INER EUSKADI</sede>
+        <privilegios>COMERCIAL</privilegios>
+        <idagente>17</idagente>
+        <mail>oadrian1980@gmail.com</mail>
+    </usuario>
+
+    <usuario>
+        <id>26</id>
+        <nombre>MANUEL ALBERTO GARCIA</nombre>
+        <contraseña>1234567890</contraseña>
+        <sede>INER EUSKADI</sede>
+        <privilegios>COMERCIAL</privilegios>
+        <idagente>18</idagente>
+        <mail>energiagestiones245@gmail.com</mail>
+    </usuario>
+
+    <usuario>
+        <id>27</id>
+        <nombre>PATRICIA MADRID</nombre>
+        <contraseña>1234567890</contraseña>
+        <sede>INER EUSKADI</sede>
+        <privilegios>COMERCIAL</privilegios>
+        <idagente>20</idagente>
+        <mail>asesoriaenergeticavillarino@gmail.com</mail>
+    </usuario>
+
+    <usuario>
+        <id>28</id>
+        <nombre>NORA LEGORBURU</nombre>
+        <contraseña>1234567890</contraseña>
+        <sede>INER EUSKADI</sede>
+        <privilegios>COMERCIAL</privilegios>
+        <idagente>21</idagente>
+        <mail>contratacioneuskadi@inerenergia.es</mail>
+    </usuario>
+
+    <usuario>
+        <id>29</id>
+        <nombre>EDURNE BARTOLOME</nombre>
+        <contraseña>1234567890</contraseña>
+        <sede>INER EUSKADI</sede>
+        <privilegios>COMERCIAL</privilegios>
+        <idagente>22</idagente>
+        <mail>contratacioneuskadi@inerenergia.es</mail>
+    </usuario>
+
+    <usuario>
+        <id>30</id>
+        <nombre>VALORIZACIONES ENERGETICAS SL</nombre>
+        <contraseña>1234567890</contraseña>
+        <sede>INER EUSKADI</sede>
+        <privilegios>COMERCIAL</privilegios>
+        <idagente>23</idagente>
+        <mail>contratacioneuskadi@inerenergia.es</mail>
+    </usuario>
+
+    <usuario>
+        <id>31</id>
+        <nombre>IVAN LOPEZ</nombre>
+        <contraseña>IVANLOPEZ</contraseña>
+        <sede>INER EUSKADI</sede>
+        <privilegios>ADMIN</privilegios>
+        <idagente>1</idagente>
+        <mail>contratacioneuskadi@inerenergia.es</mail>
+    </usuario>
+
+    <usuario>
+        <id>32</id>
+        <nombre>JOSE CASAS</nombre>
+        <contraseña>JCASAS</contraseña>
+        <sede>INER EUSKADI</sede>
+        <privilegios>ADMIN</privilegios>
+        <idagente>1</idagente>
+        <mail>contratacioneuskadi@inerenergia.es</mail>
+    </usuario>
+
+    <usuario>
+        <id>33</id>
+        <nombre>RAMON BAGLIETTO</nombre>
+        <contraseña>RBAGLIETTO</contraseña>
+        <sede>INER EUSKADI</sede>
+        <privilegios>ADMIN</privilegios>
+        <idagente>1</idagente>
+        <mail>gerenciaeuskadi@inerenergia.es</mail>
+    </usuario>
+
+    <usuario>
+        <id>34</id>
+        <nombre>SERGIO BAGLIETTO</nombre>
+        <contraseña>SBAGLIETTO</contraseña>
+        <sede>INER EUSKADI</sede>
+        <privilegios>ADMIN</privilegios>
+        <idagente>1</idagente>
+        <mail>contratacioneuskadi@inerenergia.es</mail>
+    </usuario>
+
+    <usuario>
+        <id>35</id>
+        <nombre>SERGIO LUHIA</nombre>
+        <contraseña>SLUHIA</contraseña>
+        <sede>INER EUSKADI</sede>
+        <privilegios>ADMIN</privilegios>
+        <idagente>1</idagente>
+        <mail>programacion@inerenergia.es</mail>
+    </usuario>
+
+    <usuario>
+        <id>36</id>
+        <nombre>OSCAR CID GIL LUHIA</nombre>
+        <contraseña>OSCARCID</contraseña>
+        <sede>INER EUSKADI</sede>
+        <privilegios>NOMINA</privilegios>
+        <idagente>4</idagente>
+        <mail>oscarcgeuskadi@inerenergia.es</mail>
+    </usuario>
+
+    <usuario>
+        <id>37</id>
+        <nombre>ADMINEUS</nombre>
+        <contraseña>ADMINEUS</contraseña>
+        <sede>INER EUSKADI</sede>
+        <privilegios>ADMIN</privilegios>
+        <idagente>1</idagente>
+        <mail>contratacioneuskadi@inerenergia.es</mail>
+    </usuario>
+
+    <usuario>
+        <id>38</id>
+        <nombre>ADMIN</nombre>
+        <contraseña>ADMIN</contraseña>
+        <sede>INER CASTILLA</sede>
+        <privilegios>ADMIN</privilegios>
+        <idagente>0</idagente>
+        <mail>contratacioneuskadi@inerenergia.es</mail>
+    </usuario>
+
+    <usuario>
+        <id>39</id>
+        <nombre>INERCASTILLA</nombre>
+        <contraseña>INER</contraseña>
+        <sede>INER CASTILLA</sede>
+        <privilegios>OFICINA</privilegios>
+        <idagente>24</idagente>
+        <mail>contratacioneuskadi@inerenergia.es</mail>
+    </usuario>
+
+    <usuario>
+        <id>40</id>
+        <nombre>INEREUSKADI</nombre>
+        <contraseña>INER</contraseña>
+        <sede>INER EUSKADI</sede>
+        <privilegios>OFICINA</privilegios>
+        <idagente>5</idagente>
+        <mail>contratacioneuskadi@inerenergia.es</mail>
+    </usuario>
+
+    <usuario>
+        <id>41</id>
+        <nombre>JESUS PEINADO</nombre>
+        <contraseña>JESUSPEINADO</contraseña>
+        <sede>INER EUSKADI</sede>
+        <privilegios>OFICINA</privilegios>
+        <idagente>28</idagente>
+        <mail>contratacioneuskadi@inerenergia.es</mail>
+    </usuario>
+
+    <usuario>
+        <id>42</id>
+        <nombre>comercial</nombre>
+        <contraseña>comercial</contraseña>
+        <sede>INER EUSKADI</sede>
+        <privilegios>COMERCIAL</privilegios>
+        <idagente>0</idagente>
+        <mail>contratacioneuskadi@inerenergia.es</mail>
+    </usuario>
+
+    <usuario>
+        <id>43</id>
+        <nombre>PEDRO MERINO</nombre>
+        <contraseña>PEDRO</contraseña>
+        <sede>INER EUSKADI</sede>
+        <privilegios>COMERCIAL</privilegios>
+        <idagente>12</idagente>
+        <mail>deluxespecialista@gmail.com</mail>
+    </usuario>
+
+    <usuario>
+        <id>44</id>
+        <nombre>ARGIEDER. S.L.</nombre>
+        <contraseña>ARGIEDER</contraseña>
+        <sede>INER EUSKADI</sede>
+        <privilegios>COMERCIAL</privilegios>
+        <idagente>27</idagente>
+        <mail>janire@argieder.es</mail>
+    </usuario>
+
+    <usuario>
+        <id>45</id>
+        <nombre>JOSEBENITO</nombre>
+        <contraseña>JOSEBENITO</contraseña>
+        <sede>INER EUSKADI</sede>
+        <privilegios>COMERCIAL</privilegios>
+        <idagente>0</idagente>
+        <mail>jobeotsl@gmail.com</mail>
+    </usuario>
+
+    <usuario>
+        <id>46</id>
+        <nombre>ELENA</nombre>
+        <contraseña>ELENA</contraseña>
+        <sede>INER EUSKADI</sede>
+        <privilegios>COMERCIAL</privilegios>
+        <idagente>0</idagente>
+        <mail>contratacioneuskadi@inerenergia.es</mail>
+    </usuario>
+
+    <usuario>
+        <id>47</id>
+        <nombre>JAIME</nombre>
+        <contraseña>JAIME</contraseña>
+        <sede>INER EUSKADI</sede>
+        <privilegios>COMERCIAL</privilegios>
+        <idagente>0</idagente>
+        <mail>contratacioneuskadi@inerenergia.es</mail>
+    </usuario>
+
+    <usuario>
+        <id>48</id>
+        <nombre>XABIER EIZAGIRRE</nombre>
+        <contraseña>XABIER</contraseña>
+        <sede>INER EUSKADI</sede>
+        <privilegios>NOMINA</privilegios>
+        <idagente>26</idagente>
+        <mail>xeizagirre.euskadi@inerenergia.es</mail>
+    </usuario>
+
+    <usuario>
+        <id>49</id>
+        <nombre>VICTOR BALZATEGUI</nombre>
+        <contraseña>VICTORBALZATEGUI</contraseña>
+        <sede>INER EUSKADI</sede>
+        <privilegios>COMERCIAL</privilegios>
+        <idagente>19</idagente>
+        <mail>victorbal1953@gmail.com</mail>
+    </usuario>
+
+    <usuario>
+        <id>50</id>
+        <nombre>JOSE FRANCISCO RAMON FRESNEDA</nombre>
+        <contraseña>FRESNEDA</contraseña>
+        <sede>INER EUSKADI</sede>
+        <privilegios>COMERCIAL</privilegios>
+        <idagente>25</idagente>
+        <mail>energiagestcom@gmail.com</mail>
+    </usuario>
+
+    <usuario>
+        <id>51</id>
+        <nombre>FOTON ASESORES SOCIEDAD LIMITADA</nombre>
+        <contraseña>FASESORES</contraseña>
+        <sede>INER CASTILLA</sede>
+        <privilegios>COMERCIAL</privilegios>
+        <idagente>356</idagente>
+        <mail>fasesoreslimitada@gmail.com</mail>
+    </usuario>
+
+    <usuario>
+        <id>52</id>
+        <nombre>DAVID</nombre>
+        <contraseña>1234</contraseña>
+        <sede>INER EUSKADI</sede>
+        <privilegios>ADMIN</privilegios>
+        <idagente>5</idagente>
+        <mail>david.r.g.12.5.99@gmail.com</mail>
+    </usuario>
+
+    <usuario>
+        <id>53</id>
+        <nombre>LOPEZ</nombre>
+        <contraseña>1234</contraseña>
+        <sede>INER EUSKADI</sede>
+        <privilegios>ADMIN</privilegios>
+        <idagente>2</idagente>
+        <mail>ilopez@inerenergia.es</mail>
+    </usuario>
+    
+</usuarios>

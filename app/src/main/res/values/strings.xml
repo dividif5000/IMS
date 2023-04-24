@@ -1,0 +1,104 @@
+<resources>
+
+    <!--Strings para LoginActivity y CrearUsuario-->
+    <string name="app_name">Iner IMS</string>
+    <string name="hintUsuario">Nombre de Usuario</string>
+    <string name="hitnContraseña">Contraseña de Usuario</string>
+    <string name="Introducir">Introducir datos</string>
+    <string name="Usuario">Usuario:</string>
+    <string name="Contraseña">Contraseña:</string>
+    <string name="chkRecordar">Recordar datos</string>
+    <string name="btnInicio">Iniciar Sesión</string>
+    <string name="btnCrear">Crear Usuario</string>
+    <string name="hintConfirmaCon">Confirmar Contraseña</string>
+    <string name="hintSede">Sede Perteneciente</string>
+    <string name="hintPrivilegio">Privilegios de Usuario</string>
+    <string name="hintIdAgente">Identificador del Agente</string>
+    <string name="hintCorreo">Correo Electrónico</string>
+    <string name="Crear">Crear</string>
+    <string-array name="listaSede">
+        <item>INER EUSKADI</item>
+        <item>INER CASTILLA</item>
+    </string-array>
+
+    <!--Strings para MainActivity-->
+    <string name="btnGas">Simulacion Gas</string>
+    <string name="btnLuz">Simulacion Luz</string>
+    <string name="btnSips">Sips</string>
+    <string name="btnContratos">Contratos</string>
+    <string name="btnAdministrar">Administrar</string>
+    <string name="btnComisionado">Comisionado</string>
+    <string name="btnCerrarSesion">Cerrar Sesión</string>
+    <string name="btnSituacionMercado">Mercado</string>
+
+    <!--Strings para Activity simulacionLuz y simulacionGas parte 1-->
+    <string name="btnAtras">Atras</string>
+    <string name="btnAnterior">⬅️ Anterior</string>
+    <string name="btnSiguiente">Siguiente ➡️</string>
+    <string name="lblRellene">Rellene los datos</string>
+    <string name="hintCliente">Nombre del cliente</string>
+    <string name="hintCUPS">CUPS</string>
+    <string name="chkRecordar1">Recordar</string>
+    <string name="hintMesInicio">-</string>
+    <string name="hintMesFinal">-</string>
+
+    <!--Strings para Activity simulacionLuz y simulacionGas parte 2-->
+    <string name="hintFechaInicio">Fecha Inicial</string>
+    <string name="hintFechaFin">Fecha Final</string>
+    <string name="hintDiasFacturados">Total Días Facturados</string>
+    <string name="lblE1">E1</string>
+    <string name="lblE2">E2</string>
+    <string name="lblE3">E3</string>
+    <string name="lblE4">E4</string>
+    <string name="lblE5">E5</string>
+    <string name="lblE6">E6</string>
+    <string name="lblP1">P1</string>
+    <string name="lblP2">P2</string>
+    <string name="lblP3">P3</string>
+    <string name="lblP4">P4</string>
+    <string name="lblP5">P5</string>
+    <string name="lblP6">P6</string>
+    <string name="lblImporteEnergia">Concepto</string>
+    <string name="lblTotalEnergia">Total</string>
+    <string name="chkRecordar2">Recordar</string>
+    <string name="btnAnterior1">⬅️Anterior</string>
+    <string name="btnSiguiente1">Siguiente➡️</string>
+    <string name="lblTerminoEnergia">Termino Energia</string>
+    <string name="lblTerminoPotencia">Termino Potencia</string>
+    <string name="lblTerminoFijo">Termino Fijo</string>
+    <string name="lblAlquilerEquipo">Alquiler Equipo Distribuidora</string>
+
+
+    <!--Strings para Activity simulacionLuz y simulacionGas parte 3-->
+    <string name="lblEnergia">Energia</string>
+    <string name="lblPotencia">Potencia</string>
+    <string name="btnAnterior2">⬅️Anterior</string>
+    <string name="btnSiguiente2">Siguiente➡️</string>
+
+    <!--String para Activity simulacionLuz y simulacionGas parte 5-->
+    <string name="lblTotales">TOTALES</string>
+    <string name="lblGestion">GESTION INER</string>
+    <string name="lblImpuestoNum">IMPUESTO ELECTRICIDAD</string>
+    <string name="lblImpuestoHidrocarburos">IMPUESTO HIDROCARBUROS</string>
+    <string name="lblBaseImponible">BASE IMPONIBLE</string>
+    <string name="lblIVA">IVA</string>
+    <string name="lblTotal">TOTAL</string>
+    <string name="btnHome">Home</string>
+    <string name="btnPdf">Guardar PDF</string>
+    <string name="btnPrecios">Ver Precios</string>
+
+    <!--Buscador de Cups-->
+    <string name="hintBuscaCups">Ponga el cups que desea buscar</string>
+    <string name="btnBuscaCups">Buscar</string>
+    <string name="lblConsumoCups">Consumo</string>
+    <string name="lblPotenciaCups">Potencia</string>
+    <string name="btnAnteriorBuscaCups">Atras</string>
+    <string name="btnSiguienteBuscaCups">Enlazar️</string>
+    <string name="lblPotencia1Cups">P1️</string>
+    <string name="lblPotencia2Cups">P2️</string>
+    <string name="lblPotencia3Cups">P3</string>
+    <string name="lblPotencia4Cups">P4️</string>
+    <string name="lblPotencia5Cups">P5</string>
+    <string name="lblPotencia6Cups">P6</string>
+
+</resources>

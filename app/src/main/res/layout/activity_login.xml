@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:backgroundTint="@android:color/holo_orange_dark"
+    tools:context=".LoginActivity">
+
+    <!--Imagenes del login-->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/fondo_dgv">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/imgIMS"
+                    android:layout_width="match_parent"
+                    android:layout_height="195dp"
+                    app:srcCompat="@drawable/captura_fondotransparente" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="213dp"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/lblIntroduzcaDatos"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="20dp"
+                        android:text="@string/Introducir"
+                        android:textColor="@color/black"
+                        android:textSize="20sp" />
+
+                    <EditText
+                        android:id="@+id/txtUsuario"
+                        android:layout_width="244dp"
+                        android:layout_height="58dp"
+                        android:background="@drawable/fondo_edittext"
+                        android:ems="10"
+                        android:gravity="center"
+                        android:hint="@string/hintUsuario"
+                        android:inputType="textPersonName"
+                        android:textColor="@color/white"
+                        android:textColorHint="@color/white" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="105dp"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <EditText
+                            android:id="@+id/txtPassword"
+                            android:layout_width="247dp"
+                            android:layout_height="65dp"
+                            android:layout_marginLeft="80dp"
+                            android:background="@drawable/fondo_edittext"
+                            android:ems="10"
+                            android:gravity="center"
+                            android:hint="@string/hitnContraseña"
+                            android:inputType="textPassword"
+                            android:textColor="@color/white"
+                            android:textColorHint="@color/white" />
+
+                        <ImageView
+                            android:id="@+id/imgMostrar"
+                            android:layout_width="78dp"
+                            android:layout_height="49dp"
+                            app:srcCompat="@drawable/ojo" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="122dp"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <CheckBox
+                        android:id="@+id/chkRecordar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/chkRecordar"
+                        android:textSize="16sp" />
+
+                    <Spinner
+                        android:id="@+id/spnSucursal"
+                        android:layout_width="255dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/fondo_edittext"
+                        android:gravity="center" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="89dp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btnIniciarSesion"
+                        android:layout_width="120dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="10dp"
+                        android:background="@drawable/boton_naranja"
+                        android:text="@string/btnInicio"
+                        android:textColor="@color/white"
+                        android:textSize="16sp" />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btnCrearUsuario"
+                        android:layout_width="120dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:background="@drawable/boton_naranja"
+                        android:text="@string/btnCrear"
+                        android:textColor="@color/white"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

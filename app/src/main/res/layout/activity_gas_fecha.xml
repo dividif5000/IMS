@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".gas.ActivityGas_Fecha">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/pngwing_com"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="34dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="219dp"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/imageView2"
+                    android:layout_width="220dp"
+                    android:layout_height="168dp"
+                    android:layout_gravity="center"
+                    app:srcCompat="@drawable/inergas_logo_transparente" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="205dp"
+                android:layout_margin="10dp"
+                android:orientation="vertical">
+
+                <EditText
+                    android:id="@+id/txtFechaInicioGas"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/th"
+                    android:clickable="true"
+                    android:ems="10"
+                    android:focusable="false"
+                    android:gravity="center"
+                    android:hint="@string/hintFechaInicio"
+                    android:inputType="date"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white" />
+
+                <EditText
+                    android:id="@+id/txtFechaFinGas"
+                    android:layout_width="match_parent"
+                    android:layout_height="53dp"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/th"
+                    android:clickable="true"
+                    android:ems="10"
+                    android:focusable="false"
+                    android:gravity="center"
+                    android:hint="@string/hintFechaFin"
+                    android:inputType="date"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white" />
+
+                <EditText
+                    android:id="@+id/txtDiasFacturadosGas"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/th"
+                    android:ems="10"
+                    android:gravity="center"
+                    android:hint="@string/hintDiasFacturados"
+                    android:inputType="number"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/lblTerminoEnergiaGas"
+                android:layout_width="match_parent"
+                android:layout_height="39dp"
+                android:layout_margin="10dp"
+                android:background="@drawable/fondogas"
+                android:gravity="center"
+                android:text="@string/lblTerminoEnergia"
+                android:textSize="24sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="140dp"
+                android:layout_margin="20dp"
+                android:background="@drawable/th"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <EditText
+                    android:id="@+id/txtE1InicioGas"
+                    android:layout_width="match_parent"
+                    android:layout_height="19dp"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:gravity="center"
+                    android:inputType="numberDecimal" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="7dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/lblMesInicioGas"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="-"
+                        android:textColor="@android:color/holo_red_dark"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:id="@+id/lblMesFinGas"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="-"
+                        android:textColor="@android:color/holo_red_dark"
+                        android:textSize="20sp" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/lblAlquilerEquipoDisGas"
+                android:layout_width="match_parent"
+                android:layout_height="37dp"
+                android:layout_margin="10dp"
+                android:background="@drawable/fondogas"
+                android:gravity="center"
+                android:text="@string/lblAlquilerEquipo"
+                android:textSize="24sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <EditText
+                    android:id="@+id/txtP1Gas"
+                    android:layout_width="match_parent"
+                    android:layout_height="82dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/th"
+                    android:ems="10"
+                    android:gravity="center"
+                    android:inputType="numberDecimal" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/chkRecordar2Gas"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="100dp"
+                    android:gravity="center"
+                    android:text="@string/chkRecordar2"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:layout_margin="10dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnAnterior1Gas"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/boton_verde_presionado"
+                    android:text="@string/btnAnterior1" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnSiguiente1Gas"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/boton_verde_presionado"
+                    android:text="@string/btnSiguiente1" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
