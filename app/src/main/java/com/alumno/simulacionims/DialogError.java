@@ -9,6 +9,15 @@ import androidx.fragment.app.DialogFragment;
 
 public class DialogError extends DialogFragment {
 
+    //region Dialogo
+
+    /**
+     * Este método se utiliza para poder generar un dialogo de error para utilizar en otras actividades
+     * @param savedInstancedState The last saved instance state of the Fragment,
+     * or null if this is a freshly created Fragment.
+     *
+     * @return
+     */
     public Dialog onCreateDialog(Bundle savedInstancedState) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 
@@ -24,5 +33,6 @@ public class DialogError extends DialogFragment {
 
         return builder.create();
     }
+    //endregion
 }
 

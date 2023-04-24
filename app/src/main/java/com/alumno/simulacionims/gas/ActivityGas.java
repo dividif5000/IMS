@@ -30,6 +30,7 @@ import java.util.List;
 import java.util.Locale;
 
 public class ActivityGas extends AppCompatActivity {
+    //region Variables
     private EditText cliente;
     private EditText cups;
     private Spinner tarifa;
@@ -38,16 +39,19 @@ public class ActivityGas extends AppCompatActivity {
     private Button atras;
     private Button siguiente;
     private CheckBox recordar;
+    private SharedPreferences prefs;
     private SQLiteDatabase db;
 
     private List<CodigosPrecio> codigos;
     CodigosPrecio codigo ;
 
 
-    private ActivityResultLauncher activityResultLauncher;
+    private ActivityResultLauncher activityLauncher;
 
     private final String[] TARI ={"COSTE GESTION FIJO","COSTE GESTION INDEXADO"} ;
     private final String[] PEA ={"RL.1","RL.2","RL.3","RL.4"} ;
+    //endregion
+    //region onCreate
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,20 +69,12 @@ public class ActivityGas extends AppCompatActivity {
         DataBaseHelper inerbase = new DataBaseHelper(ActivityGas.this, "IMS.db", null, 1);
         db = inerbase.getWritableDatabase();
 
-        try {
-            //Recuperar los valores guardados en SharedPreferences
-            SharedPreferences prefs = getSharedPreferences("datos", Context.MODE_PRIVATE);
-            recordar.setChecked(prefs.getBoolean("Checked", false));
-            cliente.setText(prefs.getString("cliente", ""));
-            cups.setText(prefs.getString("cups", ""));
-        } catch(Exception e){
-            Toast.makeText(getApplicationContext(),"Vuelve a escribir los datos a rellenar",Toast.LENGTH_SHORT).show();
-        }
+        Cargar(prefs);
 
 
-        activityResultLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), null);
+        activityLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), null);
 
-
+        //region spnTarifa
         ArrayAdapter<String> adaptador = new ArrayAdapter<String>
                 (getApplicationContext(), R.layout.spinnergas,TARI);
         adaptador.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -99,7 +95,8 @@ public class ActivityGas extends AppCompatActivity {
 
 
         });
-
+        //endregion
+        //region spnPeaje
         ArrayAdapter<String> adaptado = new ArrayAdapter<String>
                 (getApplicationContext(), R.layout.spinnergas,PEA);
         adaptado.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -141,9 +138,8 @@ public class ActivityGas extends AppCompatActivity {
 
 
         });
-
-
-
+        //endregion
+        //region spnOferta
         oferta.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -162,7 +158,8 @@ public class ActivityGas extends AppCompatActivity {
 
 
         });
-
+        //endregion
+        //region chkRecordar
         recordar.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -170,56 +167,54 @@ public class ActivityGas extends AppCompatActivity {
                     Guardar();
                     Toast.makeText(getApplicationContext(), "Se recordaran los datos insertados", Toast.LENGTH_SHORT).show();
                 } else {
-                    cliente.setText("");
-                    cups.setText("");
+                    Vaciar();
                     Guardar();
                     Toast.makeText(getApplicationContext(), "No se guardaran los datos insertados", Toast.LENGTH_SHORT).show();
                 }
 
             }
         });
-
+        //endregion
+        //region btnAtras
         atras.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getApplicationContext(), MainActivity.class);
-                startActivity(i);
-                finish();
+                anteriorActividad();
             }
         });
-
+        //endregion
+        //region btnSiguiente
         siguiente.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(cliente.length() == 0 && cups.length() == 0 || oferta.getSelectedItem().toString().equalsIgnoreCase("No hay precios") ){
                     Toast.makeText(getApplicationContext(), "Tiene que rellenar los campos o debe de haber una OFERTA", Toast.LENGTH_SHORT).show();
                 }else{
-                    System.out.println("Tarifa: ");
-                    System.out.println(tarifa.getSelectedItem().toString());
-                    System.out.println("Peaje: ");
-                    System.out.println(peaje.getSelectedItem().toString());
-                    System.out.println("Oferta: ");
-                    System.out.println(oferta.getSelectedItem().toString());
-                    String actualizar= "UPDATE SIMULACION SET CLIENTE = '"+cliente.getText().toString().toUpperCase(Locale.ROOT).trim()+"', CUPS = '"+cups.getText().toString().toUpperCase(Locale.ROOT).trim()+"',TARIFA = '"+tarifa.getSelectedItem().toString()+"',PEAJE = '"+peaje.getSelectedItem().toString()+"',OFERTA = '"+oferta.getSelectedItem().toString()+"',FEE = '"+codigo.getFeecuota()+"',PRECIO_POTENCIA ='"+codigo.getPrpotencia()+"' WHERE ID = 1";
-                    System.out.println(actualizar);
-                    db.execSQL(actualizar);
-                    Toast.makeText(getApplicationContext(),"Los datos fuerón guardados en la base de datos interna",Toast.LENGTH_SHORT).show();
+                    actualizaDB();
                     lanzarActividad_fecha(null);
                 }
             }
         });
-
-
+        //endregion
     }
+    //endregion
+    //region onBackPress
+
+    /**
+     * Mediante este método el usuario puede ir a la actividad anterior
+     */
     //TODO Este metodo sirve para volver a la Main activity
     @Override
     public void onBackPressed() {
         //super.onBackPressed();
-        Intent i = new Intent(this, MainActivity.class);
-        startActivity(i);
-        finish();
+        anteriorActividad();
     }
+    //endregion
+    //region Guardar_Cargar
 
+    /**
+     * Mediante este método se consigue que los datos escritos por el usuario se guarden
+     */
     public void Guardar() {
         SharedPreferences preferencias = getSharedPreferences("datos", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = preferencias.edit();
@@ -229,12 +224,68 @@ public class ActivityGas extends AppCompatActivity {
         editor.commit();
     }
 
+    public void Cargar(SharedPreferences prefs){
+        try {
+            //Recuperar los valores guardados en SharedPreferences
+            prefs = getSharedPreferences("datos", Context.MODE_PRIVATE);
+            recordar.setChecked(prefs.getBoolean("Checked", false));
+            cliente.setText(prefs.getString("cliente", ""));
+            cups.setText(prefs.getString("cups", ""));
+        } catch(Exception e){
+            Toast.makeText(getApplicationContext(),"Vuelve a escribir los datos a rellenar",Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    /**
+     * Este metodo vacia los campos de texto de la actividad
+     */
+    public void Vaciar(){
+        cliente.setText("");
+        cups.setText("");
+    }
+    //endregion
+    //region ModificaDB
+
+    /**
+     * Mediante este método se recogen los valores de los spinner como string
+     * y todos lo datos de la actividad se almacenan en la base de datos interna
+     */
+    public void actualizaDB(){
+        System.out.println("Tarifa: ");
+        System.out.println(tarifa.getSelectedItem().toString());
+        System.out.println("Peaje: ");
+        System.out.println(peaje.getSelectedItem().toString());
+        System.out.println("Oferta: ");
+        System.out.println(oferta.getSelectedItem().toString());
+        String actualizar= "UPDATE SIMULACION SET CLIENTE = '"+cliente.getText().toString().toUpperCase(Locale.ROOT).trim()+"', CUPS = '"+cups.getText().toString().toUpperCase(Locale.ROOT).trim()+"',TARIFA = '"+tarifa.getSelectedItem().toString()+"',PEAJE = '"+peaje.getSelectedItem().toString()+"',OFERTA = '"+oferta.getSelectedItem().toString()+"',FEE = '"+codigo.getFeecuota()+"',PRECIO_POTENCIA ='"+codigo.getPrpotencia()+"' WHERE ID = 1";
+        System.out.println(actualizar);
+        db.execSQL(actualizar);
+        Toast.makeText(getApplicationContext(),"Los datos fuerón guardados en la base de datos interna",Toast.LENGTH_SHORT).show();
+    }
+    //endregion
+    //region ActividadLanzada
+
+    /**
+     * Mediante este método se consigue ir a la siguiente actividad
+     * @param view
+     */
     public void lanzarActividad_fecha(View view) {
         String peaj = peaje.getSelectedItem().toString();
         String ofer = oferta.getSelectedItem().toString();
         Intent intent = new Intent(getApplicationContext(), ActivityGas_Fecha.class);
         intent.putExtra("peaje", peaj);
         intent.putExtra("oferta", ofer);
-        activityResultLauncher.launch(intent);
+        activityLauncher.launch(intent);
     }
+
+    /**
+     * Mediante este método se consigue ir a la anterior actividad
+     */
+    public void anteriorActividad(){
+        Intent i = new Intent(this, MainActivity.class);
+        startActivity(i);
+        finish();
+    }
+    //endregion
+
 }

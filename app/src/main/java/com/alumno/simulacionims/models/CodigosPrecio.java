@@ -6,7 +6,7 @@ package com.alumno.simulacionims.models;
  * Estos datos son recogidos mediate una conexión a un servidor externo
  */
 public class CodigosPrecio {
-
+    //region Atributos
     //Atributos
 
     /**
@@ -63,7 +63,8 @@ public class CodigosPrecio {
      * Atributo tipo double el cual recoge la comision
      */
     public double comision;
-
+    //endregion
+    //region Constructores
     //Constructores
 
     /**
@@ -99,7 +100,8 @@ public class CodigosPrecio {
         this.codigovisible = codigovisible;
         this.comision = comision;
     }
-
+    //endregion
+    //region Getter&Setter
     //Getters y Setters
 
     /**
@@ -277,7 +279,8 @@ public class CodigosPrecio {
     public void setComision(double comision) {
         this.comision = comision;
     }
-
+    //endregion
+    //region toString
     /**
      * Devuelve un String con todos los atributos de la clase Molde CodigosPrecio mediate el método toString()
      * @return
@@ -298,4 +301,5 @@ public class CodigosPrecio {
                 ", comision=" + comision +
                 '}';
     }
+    //endregion
 }

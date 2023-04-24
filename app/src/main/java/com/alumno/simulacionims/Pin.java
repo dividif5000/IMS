@@ -18,13 +18,27 @@ import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.FragmentActivity;
 
 public class Pin extends DialogFragment {
-
+    //region Variables
     private EditText pinEditText;
+    //endregion
+    //region PinDialog
 
+    /**
+     * Mediante este método se habre un dialogo para poder escribir el pin
+     */
     public interface PinDialogListener {
         void onPinEntered(String pin);
     }
+    //endregion
+    //region Dialog
 
+    /**
+     * Mediante este método se de que es lo que debe de poner el usuario dentro del dialogo para el pin
+     * @param savedInstanceState The last saved instance state of the Fragment,
+     * or null if this is a freshly created Fragment.
+     *
+     * @return
+     */
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
@@ -61,4 +75,5 @@ public class Pin extends DialogFragment {
 
         return builder.create();
     }
+    //endregion
 }

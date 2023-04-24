@@ -38,7 +38,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 
 public class ActivityGas_Totales extends AppCompatActivity {
-
+    //region Variables
     private String downloadPath = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).toString();
     private EditText gestion;
     private EditText impuesto;
@@ -48,7 +48,6 @@ public class ActivityGas_Totales extends AppCompatActivity {
     private Button anterior;
     private Button home;
     private Button pdf;
-    private Button precios;
     private static final int STORAGE_PERMISSION_CODE = 101;
     private float gest;
     private float impues;
@@ -56,12 +55,12 @@ public class ActivityGas_Totales extends AppCompatActivity {
     private float iv;
     private float tot;
     private final double hidrocarburo = 0.00234;
-
     private ActivityResultLauncher activityLauncher;
     private SQLiteDatabase db ;
     private Simulacion simula = new Simulacion();
-    private PdfEditado_Simulacion simula_luz = new PdfEditado_Simulacion() ;
-
+    private PdfEditado_Simulacion simula_gas = new PdfEditado_Simulacion() ;
+    //endregion
+    //region onCreate
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -80,6 +79,67 @@ public class ActivityGas_Totales extends AppCompatActivity {
 
         simula= costeFijo();
         deshabilitar();
+        calcular_totales();
+
+        actualizarDB();
+
+        //region btnAnterior
+        anterior.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                anteriorActividad();
+            }
+        });
+        //endregion
+        //region btnHome
+        home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                homeActividad();
+            }
+        });
+        //endregion
+        //region btnPdf
+        pdf.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                descargarPDF();
+            }
+        });
+        //endregion
+    }
+    //endregion
+    //region onBackPress
+    //TODO Este metodo sirve para volver a la Main activity
+
+    /**
+     * Mediante este método permitimos que el usuario pueda ir a la actividad anterior
+     */
+    @Override
+    public void onBackPressed() {
+        //super.onBackPressed();
+        anteriorActividad();
+    }
+    //endregion
+    //region deshabilitar
+
+    /**
+     * Mediate este método se dehabilita el campo de dias facturados para que este no sea modificable
+     */
+    private void deshabilitar(){
+        gestion.setEnabled(false);
+        impuesto.setEnabled(false);
+        base.setEnabled(false);
+        iva.setEnabled(false);
+        total.setEnabled(false);
+    }
+    //endregion
+    //region CalcularTotales
+
+    /**
+     * Método el cuanl dependiendo de la tarifa que se le pase de unos valores totales
+     */
+    public void calcular_totales(){
         if(simula.getTarifa().contains("COSTE GESTION")) {
             gest = 0.0f;
 
@@ -102,170 +162,14 @@ public class ActivityGas_Totales extends AppCompatActivity {
         impuesto.setText(euroFormat.format(impues));
         iva.setText(euroFormat.format(iv));
         total.setText(euroFormat.format(tot));
-
-        String actualizar = "UPDATE SIMULACION SET   GESTION_INER = '" + gest + "', BASE_IMPONIBLE = '" + bas + "', IMPUESTO = '" + impues + "',IVA =' " + iv + "',TOTAL ='" + tot + "'";
-        System.out.println(actualizar);
-        db.execSQL(actualizar);
-
-        anterior.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(getApplicationContext(), ActivityGas_Importe_Total.class);
-                activityLauncher.launch(i);
-            }
-        });
-
-        home.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(ActivityGas_Totales.this);
-                builder.setTitle("Home");
-                builder.setMessage("¿Está seguro de que desea volver al Home?");
-
-                builder.setPositiveButton("Si", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        Intent i = new Intent(getApplicationContext(), MainActivity.class);
-                        activityLauncher.launch(i);
-                        //finish();
-                    }
-                });
-
-                builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.dismiss();
-                    }
-                });
-
-                AlertDialog dialog = builder.create();
-                dialog.show();
-            }
-        });
-
-        pdf.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String fecha = "";
-                DateTimeFormatter dtf = null;
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                    dtf = DateTimeFormatter.ofPattern("yyyy_MM_dd HH-mm-ss");
-                }
-                LocalDateTime now = null;
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                    now = LocalDateTime.now();
-                }
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                    fecha =dtf.format(now);
-                }
-
-                AlertDialog.Builder builder = new AlertDialog.Builder(ActivityGas_Totales.this);
-                builder.setTitle("PDF");
-                builder.setMessage("¿Está seguro de que desea generar un PDF?");
-
-                String finalFecha = fecha;
-                builder.setPositiveButton("Si", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
-                            // TODO Verificar si se tienen los permisos necesarios para guardar el archivo
-                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                                if (checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)
-                                        == PackageManager.PERMISSION_DENIED) {
-                                    String[] permissions = {Manifest.permission.WRITE_EXTERNAL_STORAGE};
-                                    requestPermissions(permissions, STORAGE_PERMISSION_CODE);
-
-                                } else {
-                                    simula = costeFijo();
-                                    // TODO Crear el archivo PDF
-                                    simula_luz.createPDF_Gas(getApplicationContext(), simula);
-
-                                    File pdfFile = new File(downloadPath,  "Simulacion-Gas"+ simula.getCups().toUpperCase(Locale.ROOT)+""+ finalFecha +".pdf"); ;
-                                    System.out.println(pdfFile);
-                                    Intent target = new Intent(Intent.ACTION_VIEW);
-                                    target.setDataAndType(Uri.fromFile(pdfFile),"application/pdf");
-                                    target.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
-
-                                    Intent intent = Intent.createChooser(target, "Open File");
-                                    try {
-                                        if(Build.VERSION.SDK_INT>=24){
-                                            try{
-                                                Method m = StrictMode.class.getMethod("disableDeathOnFileUriExposure");
-                                                m.invoke(null);
-                                            }catch(Exception e){
-                                                e.printStackTrace();
-                                            }
-                                        }
-                                        startActivity(intent);
-                                    } catch (ActivityNotFoundException e) {
-                                        // Instruct the user to install a PDF reader here, or something
-                                    }
-                                }
-
-                            } else {
-                                simula = costeFijo();
-                                // TODO Crear el archivo PDF
-                                simula_luz.createPDF_Luz(getApplicationContext(), simula);
-
-                                File pdfFile = new File(downloadPath,  "Simulacion-Gas"+ simula.getCups().toUpperCase(Locale.ROOT)+""+ finalFecha +".pdf"); ;
-                                System.out.println(pdfFile);
-                                Intent target = new Intent(Intent.ACTION_VIEW);
-                                target.setDataAndType(Uri.fromFile(pdfFile),"application/pdf");
-                                target.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
-
-                                Intent intent = Intent.createChooser(target, "Open File");
-                                try {
-                                    if(Build.VERSION.SDK_INT>=24){
-                                        try{
-                                            Method m = StrictMode.class.getMethod("disableDeathOnFileUriExposure");
-                                            m.invoke(null);
-                                        }catch(Exception e){
-                                            e.printStackTrace();
-                                        }
-                                    }
-                                    startActivity(intent);
-                                } catch (ActivityNotFoundException e) {
-                                    // Instruct the user to install a PDF reader here, or something
-                                }
-                            }
-                        } else {
-                            Toast.makeText(getApplicationContext(), "Error: La tarjeta SD no está montada", Toast.LENGTH_SHORT).show();
-                        }
-                    }
-
-                });
-                builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.dismiss();
-                    }
-                });
-
-                AlertDialog dialog = builder.create();
-                dialog.show();
-
-
-            }
-        });
-
     }
+    //endregion
+    //region ModificaDB
 
-    //TODO Este metodo sirve para volver a la Main activity
-    @Override
-    public void onBackPressed() {
-        //super.onBackPressed();
-        Intent i = new Intent(this, ActivityGas_Importe_Total.class);
-        activityLauncher.launch(i);
-    }
-
-    private void deshabilitar(){
-        gestion.setEnabled(false);
-        impuesto.setEnabled(false);
-        base.setEnabled(false);
-        iva.setEnabled(false);
-        total.setEnabled(false);
-    }
-
+    /**
+     * Devuelve el Objeto Simulacion con los datos de las potencias que recogeremos de la base de datos interna
+     * @return
+     */
     @SuppressLint("Range")
     private Simulacion costeFijo(){
         String sentencia;
@@ -340,8 +244,25 @@ public class ActivityGas_Totales extends AppCompatActivity {
         return simu;
     }
 
+    /**
+     * Mediante este metodo los datos de la base de datos interna son modificados
+     * mediante los datos que se recogen de la actividad
+     */
+    public void actualizarDB(){
+        String actualizar = "UPDATE SIMULACION SET   GESTION_INER = '" + gest + "', BASE_IMPONIBLE = '" + bas + "', IMPUESTO = '" + impues + "',IVA =' " + iv + "',TOTAL ='" + tot + "'";
+        System.out.println(actualizar);
+        db.execSQL(actualizar);
+    }
+    //endregion
+    //region Permisos
 
-
+    /**
+     * Mediante este método pediremos al usuario que conceda los permisos para poder hace uso de los archivos internos
+     * @param requestCode The request code passed in
+     * @param permissions The requested permissions. Never null.
+     * @param grantResults The grant results for the corresponding permissions
+     *
+     */
     // TODO Manejar el resultado de la solicitud de permisos
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
@@ -349,10 +270,151 @@ public class ActivityGas_Totales extends AppCompatActivity {
         if (requestCode == STORAGE_PERMISSION_CODE) {
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 // Crear el archivo PDF
-                simula_luz.createPDF_Luz(getApplicationContext(), simula);
+                simula_gas.createPDF_Gas(getApplicationContext(), simula);
             } else {
                 Toast.makeText(this, "Permiso denegado para guardar el archivo", Toast.LENGTH_SHORT).show();
             }
         }
     }
+    //endregion
+    //region ActividadLanzada
+
+    /**
+     * Mediante este método se consigue ir a la anterior actividad
+     */
+    public void anteriorActividad(){
+        Intent i = new Intent(getApplicationContext(), ActivityGas_Importe_Total.class);
+        activityLauncher.launch(i);
+    }
+
+    /**
+     * Mediante este método se consigue ir a la actividad menú
+     */
+    public void homeActividad() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(ActivityGas_Totales.this);
+        builder.setTitle("Home");
+        builder.setMessage("¿Está seguro de que desea volver al Home?");
+
+        builder.setPositiveButton("Si", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Intent i = new Intent(getApplicationContext(), MainActivity.class);
+                activityLauncher.launch(i);
+                //finish();
+            }
+        });
+
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+        AlertDialog dialog = builder.create();
+        dialog.show();
+    }
+
+    /**
+     * Mediante este método permite descargar pdf con toda la infromación de la simulacion
+     */
+    public void descargarPDF(){
+            String fecha = "";
+            DateTimeFormatter dtf = null;
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                dtf = DateTimeFormatter.ofPattern("yyyy_MM_dd HH-mm-ss");
+            }
+            LocalDateTime now = null;
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                now = LocalDateTime.now();
+            }
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                fecha =dtf.format(now);
+            }
+
+            AlertDialog.Builder builder = new AlertDialog.Builder(ActivityGas_Totales.this);
+            builder.setTitle("PDF");
+            builder.setMessage("¿Está seguro de que desea generar un PDF?");
+
+            String finalFecha = fecha;
+            builder.setPositiveButton("Si", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
+                        // TODO Verificar si se tienen los permisos necesarios para guardar el archivo
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                            if (checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                                    == PackageManager.PERMISSION_DENIED) {
+                                String[] permissions = {Manifest.permission.WRITE_EXTERNAL_STORAGE};
+                                requestPermissions(permissions, STORAGE_PERMISSION_CODE);
+
+                            } else {
+                                simula = costeFijo();
+                                // TODO Crear el archivo PDF
+                                simula_gas.createPDF_Gas(getApplicationContext(), simula);
+
+                                File pdfFile = new File(downloadPath,  "Simulacion-Gas"+ simula.getCups().toUpperCase(Locale.ROOT)+""+ finalFecha +".pdf"); ;
+                                System.out.println(pdfFile);
+                                Intent target = new Intent(Intent.ACTION_VIEW);
+                                target.setDataAndType(Uri.fromFile(pdfFile),"application/pdf");
+                                target.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+
+                                Intent intent = Intent.createChooser(target, "Open File");
+                                try {
+                                    if(Build.VERSION.SDK_INT>=24){
+                                        try{
+                                            Method m = StrictMode.class.getMethod("disableDeathOnFileUriExposure");
+                                            m.invoke(null);
+                                        }catch(Exception e){
+                                            e.printStackTrace();
+                                        }
+                                    }
+                                    startActivity(intent);
+                                } catch (ActivityNotFoundException e) {
+                                    // Instruct the user to install a PDF reader here, or something
+                                }
+                            }
+
+                        } else {
+                            simula = costeFijo();
+                            // TODO Crear el archivo PDF
+                            simula_gas.createPDF_Gas(getApplicationContext(), simula);
+
+                            File pdfFile = new File(downloadPath,  "Simulacion-Gas"+ simula.getCups().toUpperCase(Locale.ROOT)+""+ finalFecha +".pdf"); ;
+                            System.out.println(pdfFile);
+                            Intent target = new Intent(Intent.ACTION_VIEW);
+                            target.setDataAndType(Uri.fromFile(pdfFile),"application/pdf");
+                            target.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+
+                            Intent intent = Intent.createChooser(target, "Open File");
+                            try {
+                                if(Build.VERSION.SDK_INT>=24){
+                                    try{
+                                        Method m = StrictMode.class.getMethod("disableDeathOnFileUriExposure");
+                                        m.invoke(null);
+                                    }catch(Exception e){
+                                        e.printStackTrace();
+                                    }
+                                }
+                                startActivity(intent);
+                            } catch (ActivityNotFoundException e) {
+                                // Instruct the user to install a PDF reader here, or something
+                            }
+                        }
+                    } else {
+                        Toast.makeText(getApplicationContext(), "Error: La tarjeta SD no está montada", Toast.LENGTH_SHORT).show();
+                    }
+                }
+
+            });
+            builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    dialog.dismiss();
+                }
+            });
+
+            AlertDialog dialog = builder.create();
+            dialog.show();
+        }
+        //endregion
 }

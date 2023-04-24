@@ -6,7 +6,7 @@ package com.alumno.simulacionims.models;
  * Estos datos son recogidos mediate una conexión a un servidor externo
  */
 public class Pricing {
-
+    //region Atributos
     //Atributos
     private int id;
     private String peaje;
@@ -22,7 +22,8 @@ public class Pricing {
     private double p4p;
     private double p5p;
     private double p6p;
-
+    //endregion
+    //region Constructores
     //Constructores
 
     /**
@@ -66,7 +67,8 @@ public class Pricing {
         this.p5p = p5p;
         this.p6p = p6p;
     }
-
+    //endregion
+    //region Getter&Setter
     //Getters y Setters
 
     /**
@@ -320,7 +322,8 @@ public class Pricing {
     public void setP6p(double p6p) {
         this.p6p = p6p;
     }
-
+    //endregion
+    //region toString
     /**
      * Devuelve un String con todos los atributos de la clase Molde Pricing mediate el método toString()
      *
@@ -345,4 +348,5 @@ public class Pricing {
                 ", p6p=" + p6p +
                 '}';
     }
+    //endregion
 }

@@ -6,15 +6,15 @@ package com.alumno.simulacionims.models;
  * Estos datos son recogidos mediate una conexión a un servidor externo
  */
 public class PricingGas {
-
+    //region Atributos
     //Atributos
     private int id;
     private String peaje;
     private double termino_fijo;
     private double termino_variable;
     private String tarifa;
-
-
+    //endregion
+    //region Constructores
     //Constructor
 
     /**
@@ -39,7 +39,8 @@ public class PricingGas {
         this.termino_variable = termino_variable;
         this.tarifa = tarifa;
     }
-
+    //endregion
+    //region Getter&Setter
     //Getters y Setters
 
     /**
@@ -131,7 +132,8 @@ public class PricingGas {
     public void setTarifa(String tarifa) {
         this.tarifa = tarifa;
     }
-
+    //endregion
+    //region toString
     /**
      * Devuelve un String con todos los atributos de la clase Molde PricingGas mediate el método toString()
      *
@@ -147,4 +149,5 @@ public class PricingGas {
                 ", tarifa='" + tarifa + '\'' +
                 '}';
     }
+    //endregion
 }

@@ -7,17 +7,31 @@ import android.database.sqlite.SQLiteOpenHelper;
 import androidx.annotation.Nullable;
 
 public class DataBaseHelper extends SQLiteOpenHelper {
+    //region Variables
+    private Context contexto;
+    //endregion
+    //region Contructor
 
-    public Context contexto;
-
+    /**
+     * Mediante este contructor pasamos todos los parametros necesarios para poder crear las tablas de la base de datos interna
+     * @param context
+     * @param nombre
+     * @param factory
+     * @param version
+     */
     public DataBaseHelper(@Nullable Context context, String nombre, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
         super(context, nombre,factory ,version);
         contexto=context;
     }
-
+    //endregion
+    //region onCreate
     @Override
     public void onCreate(SQLiteDatabase db) {
 
+        //region TablaUsuarios
+        /**
+         * En esta sentencia se genera la tabla usuario
+         */
         // TODO Creacion de la base de la tabla de Usuarios
         String sentencia;
         sentencia="CREATE TABLE USUARIO("+
@@ -31,7 +45,11 @@ public class DataBaseHelper extends SQLiteOpenHelper {
                 "LOGUEADO BOOLEAN"+
                 ")";
         db.execSQL(sentencia);
-
+        //endregion
+        //region TablaLog_Usuario
+        /**
+         * En esta sentencia se genera la tabla temporal Log_Usuario
+         */
         // TODO Creacion de la base de la tabla temporal de Usuarios
         sentencia="CREATE TABLE LOG_USUARIO("+
                 "IDUSUARIO INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,"+
@@ -44,7 +62,11 @@ public class DataBaseHelper extends SQLiteOpenHelper {
                 "LOGUEADO BOOLEAN"+
                 ")";
         db.execSQL(sentencia);
-
+        //endregion
+        //region Tabla_Simulacion
+        /**
+         * En esta sentencia se genera la tabla Simulacion
+         */
         // TODO Creacion de la base de la tabla de los datos para Simulacion
         sentencia="CREATE TABLE IF NOT EXISTS SIMULACION("+
                 "ID INTEGER NOT NULL PRIMARY KEY,"+
@@ -108,12 +130,13 @@ public class DataBaseHelper extends SQLiteOpenHelper {
                 "TOTAL DOUBLE"+
                 ")";
         db.execSQL(sentencia);
-
+        //endregion
     }
-
+    //endregion
+    //region onUpgrade
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int oldVersion, int newVersion) {
 
     }
-
+    //endregion
 }

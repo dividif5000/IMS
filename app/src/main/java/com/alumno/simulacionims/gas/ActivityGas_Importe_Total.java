@@ -31,7 +31,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class ActivityGas_Importe_Total extends AppCompatActivity {
-
+    //region Variables
     private String P1str;
 
     private String mesiGas;
@@ -72,7 +72,8 @@ public class ActivityGas_Importe_Total extends AppCompatActivity {
     private ActivityResultLauncher activityLauncher;
     private SQLiteDatabase db;
     private SQLPostgresHelper pdb = new SQLPostgresHelper();
-
+    //endregion
+    //region onCreate
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -94,7 +95,89 @@ public class ActivityGas_Importe_Total extends AppCompatActivity {
 
         deshabilitar();
         simula = costeFij();
-        /*if (simula.getTarifa().contains("GESTION INER")) {
+        calcula_impo_tot();
+
+        //region btnAnterior
+        anterior.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                anteriorActividad();
+            }
+        });
+        //endregion
+        //region btnSiguiente
+        siguiente.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                actualizaDB();
+                siguienteActividad();
+            }
+        });
+        //endregion
+    }
+    //endregion
+    //region onBackPress
+
+    /**
+     * Mediante este método permitimos que el usuario pueda ir a la actividad anterior
+     */
+    //TODO Este metodo sirve para volver a la Main activity
+    @Override
+    public void onBackPressed() {
+        //super.onBackPressed();
+        anteriorActividad();
+    }
+    //endregion
+    //region deshabilitar
+
+    /**
+     * Mediate este método se dehabilita el campo de dias facturados para que este no sea modificable
+     */
+    private void deshabilitar() {
+        FijoImporte.setEnabled(false);
+
+        FijoTotal.setEnabled(false);
+
+        VariableImporte.setEnabled(false);
+
+        VariableTotal.setEnabled(false);
+
+    }
+    //endregion
+    //region Oferta
+
+    /**
+     * Método de que en caso de que la oferta sea = a INER BOE de 0
+     * @param cadena
+     * @return
+     */
+    // TODO Función para extraer el número de un String
+    public static String extraerNumero(String cadena) {
+        // TODO Definir la expresión regular para encontrar el número
+        String patron = "\\d+";
+
+        // TODO Crear un objeto Pattern y Matcher
+        Pattern p = Pattern.compile(patron);
+        Matcher m = p.matcher(cadena.replaceAll("INER BOE", "0"));
+        // TODO Buscar el número en la cadena
+        if (m.find()) {
+            String numero = m.group();
+
+            // TODO Devolver el número
+            return numero;
+        } else {
+            // TODO Si no se encuentra ningún número, devolver una cadena vacía
+            return "0";
+        }
+    }
+    //endregion
+    //region CalculaCampos
+
+    /**
+     * Método el cuanl dependiendo de la tarifa que se le pase de unos valores u otros tanto a la energia/consumo como a la potencia
+     */
+    public void calcula_impo_tot(){
+                /*if (simula.getTarifa().contains("GESTION INER")) {
             if (simula.getPeaje() != null) {
                 costFijo = pdb.getCGFG(simula.getPeaje());
 
@@ -195,49 +278,33 @@ public class ActivityGas_Importe_Total extends AppCompatActivity {
                 }
             }
         }
-
-
-        anterior.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(getApplicationContext(), ActivityGas_Fecha.class);
-                activityLauncher.launch(i);
-            }
-        });
-
-        siguiente.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String actualizar = "UPDATE SIMULACION SET   E1_IMPORTE = '" + Double.parseDouble(VariableImporte.getText().toString()) + "',E1_TOTAL = '" + Double.parseDouble(VariableTotal.getText().toString()) +
-                        "', P1_IMPORTE = '" + Double.parseDouble(FijoImporte.getText().toString()) + "',P1_TOTAL = '" + Double.parseDouble(FijoTotal.getText().toString()) + "'";
-                System.out.println(actualizar);
-                db.execSQL(actualizar);
-                Intent i = new Intent(getApplicationContext(), ActivityGas_Totales.class);
-                activityLauncher.launch(i);
-            }
-        });
-
     }
+    //endregion
+    //region ModificaFecha
 
-    //TODO Este metodo sirve para volver a la Main activity
-    @Override
-    public void onBackPressed() {
-        //super.onBackPressed();
-        Intent i = new Intent(this, ActivityGas_Fecha.class);
-        activityLauncher.launch(i);
+    /**
+     * Mediates este metodo se consige el numero del mes de las 2 fechas recogidas en la actividad anterior
+     * @param fecha_inicio
+     * @param fecha_fin
+     * @return
+     */
+    public static boolean obtenerNumeroMes(String fecha_inicio, String fecha_fin) {
+        int inicio;
+        int fin;
+        if (fecha_inicio.split("-")[1].equals(fecha_fin.split("-")[1])) {
+            return true;
+            //Son iguales
+        } else {
+            return false;
+        }
     }
+    //endregion
+    //region ModificaDB
 
-    private void deshabilitar() {
-        FijoImporte.setEnabled(false);
-
-        FijoTotal.setEnabled(false);
-
-        VariableImporte.setEnabled(false);
-
-        VariableTotal.setEnabled(false);
-
-    }
-
+    /**
+     * Devuelve el Objeto Simulacion con los datos de las potencias que recogeremos de la base de datos interna
+     * @return
+     */
     @SuppressLint("Range")
     private Simulacion costeFij() {
         String sentencia;
@@ -269,37 +336,32 @@ public class ActivityGas_Importe_Total extends AppCompatActivity {
         return simu;
     }
 
-
-    public static boolean obtenerNumeroMes(String fecha_inicio, String fecha_fin) {
-        int inicio;
-        int fin;
-        if (fecha_inicio.split("-")[1].equals(fecha_fin.split("-")[1])) {
-            return true;
-            //Son iguales
-        } else {
-            return false;
-        }
+    /**
+     * Mediante este metodo los datos de la base de datos interna son modificados
+     * mediante los datos que se recogen de la actividad
+     */
+    public void actualizaDB(){
+        String actualizar = "UPDATE SIMULACION SET   E1_IMPORTE = '" + Double.parseDouble(VariableImporte.getText().toString()) + "',E1_TOTAL = '" + Double.parseDouble(VariableTotal.getText().toString()) +
+                "', P1_IMPORTE = '" + Double.parseDouble(FijoImporte.getText().toString()) + "',P1_TOTAL = '" + Double.parseDouble(FijoTotal.getText().toString()) + "'";
+        System.out.println(actualizar);
+        db.execSQL(actualizar);
+    }
+    //endregion
+    //region ActividadLanzada
+    /**
+     * Mediante este método se consigue ir a la siguiente actividad
+     */
+    public void siguienteActividad(){
+        Intent i = new Intent(getApplicationContext(), ActivityGas_Totales.class);
+        activityLauncher.launch(i);
     }
 
-    // TODO Función para extraer el número de un String
-    private static String extraerNumero(String cadena) {
-        // TODO Definir la expresión regular para encontrar el número
-        String patron = "\\d+";
-
-        // TODO Crear un objeto Pattern y Matcher
-        Pattern p = Pattern.compile(patron);
-        Matcher m = p.matcher(cadena.replaceAll("INER BOE", "0"));
-        // TODO Buscar el número en la cadena
-        if (m.find()) {
-            String numero = m.group();
-
-            // TODO Devolver el número
-            return numero;
-        } else {
-            // TODO Si no se encuentra ningún número, devolver una cadena vacía
-            return "0";
-        }
+    /**
+     * Mediante este método se consigue ir a la anterior actividad
+     */
+    public void anteriorActividad(){
+        Intent i = new Intent(getApplicationContext(), ActivityGas_Fecha.class);
+        activityLauncher.launch(i);
     }
-
-
+    //endregion
 }

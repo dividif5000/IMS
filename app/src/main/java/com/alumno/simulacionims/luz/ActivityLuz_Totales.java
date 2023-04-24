@@ -38,7 +38,7 @@ import java.text.NumberFormat;
 import java.util.Locale;
 
 public class ActivityLuz_Totales extends AppCompatActivity {
-
+    //region Variables
     private String downloadPath = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).toString();
     private EditText gestion;
     private EditText impuesto;
@@ -57,12 +57,11 @@ public class ActivityLuz_Totales extends AppCompatActivity {
     private float tot;
 
     private ActivityResultLauncher activityLauncher;
-    private SQLiteDatabase db ;
+    private SQLiteDatabase db;
     private Simulacion simula = new Simulacion();
-    private PdfEditado_Simulacion simula_luz = new PdfEditado_Simulacion() ;
-
-
-
+    private PdfEditado_Simulacion simula_luz = new PdfEditado_Simulacion();
+    //endregion
+    //region onCreate
     @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,13 +79,71 @@ public class ActivityLuz_Totales extends AppCompatActivity {
 
         activityLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), null);
 
-        simula= costeFijo();
+        simula = costeFijo();
         deshabilitar();
-        if(simula.getTarifa().contains("COSTE GESTION")) {
+        calcular_totales();
+
+        actualizaDB();
+
+        anterior.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                anteriorActividad();
+            }
+        });
+
+        home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                homeActividad();
+            }
+        });
+
+        pdf.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                descargarPDF();
+            }
+        });
+
+    }
+
+    //endregion
+    //region onBackPress
+    /**
+     * Mediante este método permitimos que el usuario pueda ir a la actividad anterior
+     */
+    //TODO Este metodo sirve para volver a la Main activity
+    @Override
+    public void onBackPressed() {
+        //super.onBackPressed();
+        anteriorActividad();
+    }
+    //endregion
+    //region deshabilitar
+
+    /**
+     * Mediate este método se dehabilita el campo de dias facturados para que este no sea modificable
+     */
+    private void deshabilitar() {
+        gestion.setEnabled(false);
+        impuesto.setEnabled(false);
+        base.setEnabled(false);
+        iva.setEnabled(false);
+        total.setEnabled(false);
+    }
+    //endregion
+    //region CalculaTotales
+
+    /**
+     * Método el cuanl dependiendo de la tarifa que se le pase de unos valores totales
+     */
+    public void calcular_totales() {
+        if (simula.getTarifa().contains("COSTE GESTION")) {
             gest = 0.0f;
 
-        }else if(simula.getTarifa().contains("GESTION INER")){
-            gest = Float.parseFloat(simula.getFee().replaceAll(",","."))*simula.getDias();
+        } else if (simula.getTarifa().contains("GESTION INER")) {
+            gest = Float.parseFloat(simula.getFee().replaceAll(",", ".")) * simula.getDias();
         }
         bas = (float) (simula.getE1Total() + simula.getE2Total() + simula.getE3Total() + simula.getE4Total() + simula.getE5Total() + simula.getE6Total() + simula.getP1Total() + simula.getP2Total() + simula.getP3Total() + simula.getP4Total() + simula.getP5Total() + simula.getP6Total());
         impues = (float) (bas * 0.5 / 100);
@@ -104,164 +161,21 @@ public class ActivityLuz_Totales extends AppCompatActivity {
         impuesto.setText(euroFormat.format(impues));
         iva.setText(euroFormat.format(iv));
         total.setText(euroFormat.format(tot));
-
-        String actualizar = "UPDATE SIMULACION SET   GESTION_INER = '" + gest + "', BASE_IMPONIBLE = '" + bas + "',IMPUESTO = '" + impues + "',IVA =' " + iv + "',TOTAL ='" + tot + "'";
-        System.out.println(actualizar);
-        db.execSQL(actualizar);
-
-        anterior.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(getApplicationContext(), ActivityLuz_Importe_Total.class);
-                activityLauncher.launch(i);
-            }
-        });
-
-        home.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(ActivityLuz_Totales.this);
-                builder.setTitle("Home");
-                builder.setMessage("¿Está seguro de que desea volver al Home?");
-
-                builder.setPositiveButton("Si", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        Intent i = new Intent(getApplicationContext(), MainActivity.class);
-                        activityLauncher.launch(i);
-                        //finish();
-                    }
-                });
-
-                builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.dismiss();
-                    }
-                });
-
-                AlertDialog dialog = builder.create();
-                dialog.show();
-            }
-        });
-
-       pdf.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(ActivityLuz_Totales.this);
-                builder.setTitle("PDF");
-                builder.setMessage("¿Está seguro de que desea generar un PDF?");
-
-                builder.setPositiveButton("Si", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
-                            // TODO Verificar si se tienen los permisos necesarios para guardar el archivo
-                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                                if (checkSelfPermission(permission.WRITE_EXTERNAL_STORAGE)
-                                        == PackageManager.PERMISSION_DENIED) {
-                                    String[] permissions = {permission.WRITE_EXTERNAL_STORAGE};
-                                    requestPermissions(permissions, STORAGE_PERMISSION_CODE);
-
-                                } else {
-                                    simula = costeFijo();
-                                    // TODO Crear el archivo PDF
-                                    simula_luz.createPDF_Luz(getApplicationContext(), simula);
-
-                                    File pdfFile = new File(downloadPath,  "Simulacion-Luz"+ simula.getCups().toUpperCase(Locale.ROOT)+".pdf"); ;
-                                    System.out.println(pdfFile);
-                                    Intent target = new Intent(Intent.ACTION_VIEW);
-                                    target.setDataAndType(Uri.fromFile(pdfFile),"application/pdf");
-                                    target.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
-
-                                    Intent intent = Intent.createChooser(target, "Open File");
-                                    try {
-                                        if(Build.VERSION.SDK_INT>=24){
-                                            try{
-                                                Method m = StrictMode.class.getMethod("disableDeathOnFileUriExposure");
-                                                m.invoke(null);
-                                            }catch(Exception e){
-                                                e.printStackTrace();
-                                            }
-                                        }
-                                        startActivity(intent);
-                                    } catch (ActivityNotFoundException e) {
-                                        // Instruct the user to install a PDF reader here, or something
-                                    }
-                                }
-
-                            } else {
-                                simula = costeFijo();
-                                // TODO Crear el archivo PDF
-                                simula_luz.createPDF_Luz(getApplicationContext(), simula);
-
-                                File pdfFile = new File(downloadPath,  "Simulacion-Luz"+ simula.getCups().toUpperCase(Locale.ROOT)+".pdf"); ;
-                                System.out.println(pdfFile);
-                                Intent target = new Intent(Intent.ACTION_VIEW);
-                                target.setDataAndType(Uri.fromFile(pdfFile),"application/pdf");
-                                target.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
-
-                                Intent intent = Intent.createChooser(target, "Open File");
-                                try {
-                                    if(Build.VERSION.SDK_INT>=24){
-                                        try{
-                                            Method m = StrictMode.class.getMethod("disableDeathOnFileUriExposure");
-                                            m.invoke(null);
-                                        }catch(Exception e){
-                                            e.printStackTrace();
-                                        }
-                                    }
-                                    startActivity(intent);
-                                } catch (ActivityNotFoundException e) {
-                                    // Instruct the user to install a PDF reader here, or something
-                                }
-                            }
-                        } else {
-                            Toast.makeText(getApplicationContext(), "Error: La tarjeta SD no está montada", Toast.LENGTH_SHORT).show();
-                        }
-                    }
-
-                });
-                builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.dismiss();
-                    }
-                });
-
-                AlertDialog dialog = builder.create();
-                dialog.show();
-
-
-            }
-       });
-
     }
-
-    //TODO Este metodo sirve para volver a la Main activity
-    @Override
-    public void onBackPressed() {
-        //super.onBackPressed();
-        Intent i = new Intent(this, ActivityLuz_Importe_Total.class);
-        activityLauncher.launch(i);
-    }
-
-    private void deshabilitar(){
-        gestion.setEnabled(false);
-        impuesto.setEnabled(false);
-        base.setEnabled(false);
-        iva.setEnabled(false);
-        total.setEnabled(false);
-    }
-
+    //endregion
+    //region ModificaDB
+    /**
+     * Devuelve el Objeto Simulacion con los datos de las potencias que recogeremos de la base de datos interna
+     * @return
+     */
     @SuppressLint("Range")
-    private Simulacion costeFijo(){
+    private Simulacion costeFijo() {
         String sentencia;
         //Pricing cosFijo = new Pricing();
         Simulacion simu = new Simulacion();
         DataBaseHelper inerbase = new DataBaseHelper(ActivityLuz_Totales.this, "IMS.db", null, 1);
         db = inerbase.getWritableDatabase();
-        sentencia ="SELECT * FROM SIMULACION";
+        sentencia = "SELECT * FROM SIMULACION";
         System.out.println(sentencia);
         Cursor c = db.rawQuery(sentencia, null);
 
@@ -328,8 +242,25 @@ public class ActivityLuz_Totales extends AppCompatActivity {
         return simu;
     }
 
+    /**
+     * Mediante este metodo los datos de la base de datos interna son modificados
+     * mediante los datos que se recogen de la actividad
+     */
+    public void actualizaDB() {
+        String actualizar = "UPDATE SIMULACION SET   GESTION_INER = '" + gest + "', BASE_IMPONIBLE = '" + bas + "',IMPUESTO = '" + impues + "',IVA =' " + iv + "',TOTAL ='" + tot + "'";
+        System.out.println(actualizar);
+        db.execSQL(actualizar);
+    }
+    //endregion
+    //region Permisos
 
-
+    /**
+     * Mediante este método pediremos al usuario que conceda los permisos para poder hace uso de los archivos internos
+     * @param requestCode The request code passed in
+     * @param permissions The requested permissions. Never null.
+     * @param grantResults The grant results for the corresponding permissions
+     *
+     */
     // TODO Manejar el resultado de la solicitud de permisos
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
@@ -343,4 +274,135 @@ public class ActivityLuz_Totales extends AppCompatActivity {
             }
         }
     }
+    //endregion
+    //region ActividadLanzada
+
+    /**
+     * Mediante este método se consigue ir a la anterior actividad
+     */
+    public void anteriorActividad(){
+        Intent i = new Intent(getApplicationContext(), ActivityLuz_Importe_Total.class);
+        activityLauncher.launch(i);
+    }
+
+    /**
+     * Mediante este método se consigue ir a la actividad menú
+     */
+    public void homeActividad(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(ActivityLuz_Totales.this);
+        builder.setTitle("Home");
+        builder.setMessage("¿Está seguro de que desea volver al Home?");
+
+        builder.setPositiveButton("Si", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Intent i = new Intent(getApplicationContext(), MainActivity.class);
+                activityLauncher.launch(i);
+                //finish();
+            }
+        });
+
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
+    }
+
+    /**
+     * Mediante este método permite descargar pdf con toda la infromación de la simulacion
+     */
+    public void descargarPDF(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(ActivityLuz_Totales.this);
+        builder.setTitle("PDF");
+        builder.setMessage("¿Está seguro de que desea generar un PDF?");
+
+        builder.setPositiveButton("Si", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
+                    // TODO Verificar si se tienen los permisos necesarios para guardar el archivo
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                        if (checkSelfPermission(permission.WRITE_EXTERNAL_STORAGE)
+                                == PackageManager.PERMISSION_DENIED) {
+                            String[] permissions = {permission.WRITE_EXTERNAL_STORAGE};
+                            requestPermissions(permissions, STORAGE_PERMISSION_CODE);
+
+                        } else {
+                            simula = costeFijo();
+                            // TODO Crear el archivo PDF
+                            simula_luz.createPDF_Luz(getApplicationContext(), simula);
+
+                            File pdfFile = new File(downloadPath, "Simulacion-Luz" + simula.getCups().toUpperCase(Locale.ROOT) + ".pdf");
+                            ;
+                            System.out.println(pdfFile);
+                            Intent target = new Intent(Intent.ACTION_VIEW);
+                            target.setDataAndType(Uri.fromFile(pdfFile), "application/pdf");
+                            target.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+
+                            Intent intent = Intent.createChooser(target, "Open File");
+                            try {
+                                if (Build.VERSION.SDK_INT >= 24) {
+                                    try {
+                                        Method m = StrictMode.class.getMethod("disableDeathOnFileUriExposure");
+                                        m.invoke(null);
+                                    } catch (Exception e) {
+                                        e.printStackTrace();
+                                    }
+                                }
+                                startActivity(intent);
+                            } catch (ActivityNotFoundException e) {
+                                // Instruct the user to install a PDF reader here, or something
+                            }
+                        }
+
+                    } else {
+                        simula = costeFijo();
+                        // TODO Crear el archivo PDF
+                        simula_luz.createPDF_Luz(getApplicationContext(), simula);
+
+                        File pdfFile = new File(downloadPath, "Simulacion-Luz" + simula.getCups().toUpperCase(Locale.ROOT) + ".pdf");
+                        ;
+                        System.out.println(pdfFile);
+                        Intent target = new Intent(Intent.ACTION_VIEW);
+                        target.setDataAndType(Uri.fromFile(pdfFile), "application/pdf");
+                        target.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+
+                        Intent intent = Intent.createChooser(target, "Open File");
+                        try {
+                            if (Build.VERSION.SDK_INT >= 24) {
+                                try {
+                                    Method m = StrictMode.class.getMethod("disableDeathOnFileUriExposure");
+                                    m.invoke(null);
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                }
+                            }
+                            startActivity(intent);
+                        } catch (ActivityNotFoundException e) {
+                            // Instruct the user to install a PDF reader here, or something
+                        }
+                    }
+                } else {
+                    Toast.makeText(getApplicationContext(), "Error: La tarjeta SD no está montada", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+        });
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
+    }
+    //endregion
+
 }

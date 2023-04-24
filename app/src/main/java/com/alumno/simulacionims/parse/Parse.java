@@ -9,7 +9,16 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class Parse {
-    //PARTNERS
+    //region xmlUSUARIOS
+    //USUARIOS
+
+    /**
+     * Mediante este metodo se recorren los datos de los usuarios que se importaran desde un xml
+     * @param parser
+     * @return
+     * @throws IOException
+     * @throws XmlPullParserException
+     */
     public static ArrayList<Usuario> processParsingPartners(XmlPullParser parser) throws IOException, XmlPullParserException {
         ArrayList<Usuario> listaMecenas = new ArrayList<Usuario>();
 
@@ -71,5 +80,5 @@ public class Parse {
             return listaMecenas;
 
     }
-
+    //endregion
 }

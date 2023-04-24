@@ -6,7 +6,7 @@ package com.alumno.simulacionims.models;
  * Todos los datos que se obtengas con esta clase se obtiene gracias a la libreria de API OkHTTP
  */
 public class ClientesSips {
-
+    //region Atributos
     /**
      * Atributo tipo String el cual recoge el codigo CUPS
      */
@@ -575,7 +575,8 @@ public class ClientesSips {
      * Atributo tipo String el cual recoge el nombre de la ciudad
      */
     public String CiudadNombre;
-
+    //endregion
+    //region Constructores
     //Constructores
 
     /**
@@ -817,7 +818,8 @@ public class ClientesSips {
         NombreCompletoTitular = nombreCompletoTitular;
         CiudadNombre = ciudadNombre;
     }
-
+    //endregion
+    //region Getter&Setter
     //Getters y Setters
 
     /**
@@ -2639,7 +2641,8 @@ public class ClientesSips {
     public void setCiudadNombre(String ciudadNombre) {
         CiudadNombre = ciudadNombre;
     }
-
+    //endregion
+    //region toString
     /**
      * Devuelve un String con todos los atributos de la clase Molde CodigosPrecio mediate el método toString()
      * @return
@@ -2763,5 +2766,6 @@ public class ClientesSips {
                 ", CiudadNombre='" + CiudadNombre + '\'' +
                 '}';
     }
+    //endregion
 }
 

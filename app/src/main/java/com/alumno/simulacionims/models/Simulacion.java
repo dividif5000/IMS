@@ -5,7 +5,7 @@ package com.alumno.simulacionims.models;
  * Objeto Molde para hacer uso de los datos de las Simulaciones
  */
 public class Simulacion {
-
+    //region Atributos
     //atributos
     private int id;
     private String cliente;
@@ -66,7 +66,8 @@ public class Simulacion {
     private double alquiler_equipo;
     private double iva;
     private double total;
-
+    //endregion
+    //region Constructores
     //Constructores
 
     /**
@@ -200,8 +201,8 @@ public class Simulacion {
         this.iva = iva;
         this.total = total;
     }
-
-
+    //endregion
+    //region Getter&Setter
     //Getters y Setter
 
     /**
@@ -1265,7 +1266,8 @@ public class Simulacion {
     public void setTotal(double total) {
         this.total = total;
     }
-
+    //endregion
+    //region toString
     /**
      * Devuelve un String con todos los atributos de la clase Molde Simulacion mediate el método toString()
      *
@@ -1335,4 +1337,5 @@ public class Simulacion {
                 ", total=" + total +
                 '}';
     }
+    //endregion
 }

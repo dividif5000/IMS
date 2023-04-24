@@ -13,10 +13,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.alumno.simulacionims.MainActivity;
 import com.alumno.simulacionims.R;
 import com.alumno.simulacionims.gas.ActivityGas_Importe_Total;
 import com.alumno.simulacionims.luz.ActivityLuz_Fecha;
-import com.alumno.simulacionims.models.ClaseSips;
+import com.alumno.simulacionims.models.ConsumosSips;
 import com.alumno.simulacionims.models.ClasesSipsExtensa;
 import com.alumno.simulacionims.models.ClientesSips;
 import com.google.gson.Gson;
@@ -33,7 +34,7 @@ import okhttp3.RequestBody;
 import okhttp3.Response;
 
 public class ActivitySips extends AppCompatActivity {
-
+    //region Variables
     private EditText txtcups;
     private EditText txtactiva;
     private EditText txtpotencia1;
@@ -50,7 +51,8 @@ public class ActivitySips extends AppCompatActivity {
 
     private SQLiteDatabase db;
     private ActivityResultLauncher activityLauncher;
-
+    //endregion
+    //region onCreate
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,6 +71,7 @@ public class ActivitySips extends AppCompatActivity {
         btnenlazar = findViewById(R.id.btnSiguienteBuscaCups);
 
         activityLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), null);
+        //region btnCUPS
         btncups.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -89,35 +92,46 @@ public class ActivitySips extends AppCompatActivity {
 
             }
         });
-
+        //endregion
+        //region btnAtras
         btnatras.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getApplicationContext(), ActivityGas_Importe_Total.class);
+                Intent i = new Intent(getApplicationContext(), MainActivity.class);
                 activityLauncher.launch(i);
             }
         });
-
+        //endregion
+        //region btnEnlazar
         btnenlazar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String actualizar = "UPDATE SIMULACION SET P1 ="+Double.parseDouble(txtpotencia1.getText().toString())+", P2 = "+Double.parseDouble(txtpotencia2.getText().toString())+", P3 = "+Double.parseDouble(txtpotencia3.getText().toString())+", P4 = "+Double.parseDouble(txtpotencia4.getText().toString())+", P5 = "+Double.parseDouble(txtpotencia5.getText().toString())+", P6 = "+Double.parseDouble(txtpotencia6.getText().toString())+"WHERE ID = 1";
-                System.out.println(actualizar);
-                db.execSQL(actualizar);
+                actualizaDB();
                 Intent i = new Intent(getApplicationContext(), ActivityLuz_Fecha.class);
                 activityLauncher.launch(i);
             }
         });
-
+        //endregion
     }
+    //endregion
+    //region onBackPress
+
+    /**
+     * Mediante este método el usuario puede ir a la actividad anterior
+     */
     //TODO Este metodo sirve para volver a la Main activity
     @Override
     public void onBackPressed() {
         //super.onBackPressed();
-        Intent i = new Intent(this, ActivityGas_Importe_Total.class);
+        Intent i = new Intent(this, MainActivity.class);
         activityLauncher.launch(i);
     }
+    //endregion
+    //region Consumo
 
+    /**
+     * Mediante este método se consigue sacar la el valor de consumo anual según CUPS
+     */
     public void ConsumoAnual(){
         OkHttpClient client = new OkHttpClient().newBuilder()
                 .build();
@@ -134,8 +148,8 @@ public class ActivitySips extends AppCompatActivity {
             Response response = client.newCall(request).execute();
 
             Gson gson = new Gson();
-            Type type = new TypeToken<List<ClaseSips>>() {}.getType();
-            List<ClaseSips> myList = gson.fromJson(response.body().string(), type);
+            Type type = new TypeToken<List<ConsumosSips>>() {}.getType();
+            List<ConsumosSips> myList = gson.fromJson(response.body().string(), type);
             System.out.println(myList.size());
             for (int i = myList.size()-1; i >myList.size()-13 ; i--) {
                 sumaactiva += myList.get(i).Activa1+myList.get(i).Activa2+myList.get(i).Activa3+myList.get(i).Activa4+myList.get(i).Activa5+myList.get(i).Activa6;
@@ -151,7 +165,12 @@ public class ActivitySips extends AppCompatActivity {
             throw new RuntimeException(e);
         }
     }
+    //endregion
+    //region Pontecia
 
+    /**
+     * Mediantes este método se consigue sacar la el valor de las potencias del ultimo mes según CUPS
+     */
     public void PonteciaUltimoMes(){
         OkHttpClient cliente = new OkHttpClient().newBuilder()
                 .build();
@@ -201,4 +220,16 @@ public class ActivitySips extends AppCompatActivity {
             throw new RuntimeException(e);
         }
     }
+    //endregion
+    //region ModificaDB
+
+    /**
+     * Mediante este método se consigo medificar la tabla de simulacion al menos lo valores de las potencias
+     */
+    public void actualizaDB(){
+        String actualizar = "UPDATE SIMULACION SET P1 ="+Double.parseDouble(txtpotencia1.getText().toString())+", P2 = "+Double.parseDouble(txtpotencia2.getText().toString())+", P3 = "+Double.parseDouble(txtpotencia3.getText().toString())+", P4 = "+Double.parseDouble(txtpotencia4.getText().toString())+", P5 = "+Double.parseDouble(txtpotencia5.getText().toString())+", P6 = "+Double.parseDouble(txtpotencia6.getText().toString())+"WHERE ID = 1";
+        System.out.println(actualizar);
+        db.execSQL(actualizar);
+    }
+    //endregion
 }

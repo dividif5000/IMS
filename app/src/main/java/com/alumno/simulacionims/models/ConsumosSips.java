@@ -6,7 +6,7 @@ package com.alumno.simulacionims.models;
  * Todos los datos que se obtengas con esta clase se obtiene gracias a la libreria de API OkHTTP
  */
 public class ConsumosSips {
-
+    //region Atributos
     /**
      * Atributo de tipo String el cual recoge el Codigo Cups
      */
@@ -171,7 +171,8 @@ public class ConsumosSips {
      * Atributo de tipo Object el cual recoge el Porcentaje Consumo Nocturno
      */
     public Object PorcentajeConsumoNocturno;
-
+    //endregion
+    //region Constructores
     //Constructores
 
     /**
@@ -252,7 +253,8 @@ public class ConsumosSips {
         CaudalMaximoDiario = caudalMaximoDiario;
         PorcentajeConsumoNocturno = porcentajeConsumoNocturno;
     }
-
+    //endregion
+    //region Getter&Setter
     //Getters y Setters
 
     /**
@@ -848,7 +850,8 @@ public class ConsumosSips {
     public void setPorcentajeConsumoNocturno(Object porcentajeConsumoNocturno) {
         PorcentajeConsumoNocturno = porcentajeConsumoNocturno;
     }
-
+    //endregion
+    //region toString
     /**
      * Devuelve un String con todos los atributos de la clase Molde ConsumosSips mediate el método toString()
      *
@@ -892,4 +895,5 @@ public class ConsumosSips {
                 ", PorcentajeConsumoNocturno=" + PorcentajeConsumoNocturno +
                 '}';
     }
+    //endregion
 }
