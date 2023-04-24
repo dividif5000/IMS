@@ -47,7 +47,7 @@ import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 
 public class CreaUsuario extends AppCompatActivity {
-
+    //region Variables
     private int idag;
     private EditText nombre;
     private EditText contraseña;
@@ -64,7 +64,8 @@ public class CreaUsuario extends AppCompatActivity {
     private boolean isPasswordVisible = false;
 
     final String [] sucursales = {"INER EUSKADI","INER CASTILLA"};
-
+    //endregion
+    //region onCreate
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -80,6 +81,10 @@ public class CreaUsuario extends AppCompatActivity {
         mail = findViewById(R.id.txtCorreo);
         crear = findViewById(R.id.btnCrear2);
 
+        DataBaseHelper inerbase = new DataBaseHelper(CreaUsuario.this, "IMS.db", null, 1);
+        db = inerbase.getWritableDatabase();
+
+        //region spnSede
         ArrayAdapter<String> adaptador = new ArrayAdapter<String>
                 (this, R.layout.spinneriner,sucursales);
         adaptador.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -99,26 +104,21 @@ public class CreaUsuario extends AppCompatActivity {
 
 
         });
-
-        DataBaseHelper inerbase = new DataBaseHelper(CreaUsuario.this, "IMS.db", null, 1);
-        db = inerbase.getWritableDatabase();
-
+        //endregion
+        //region btnMostrar
         mostrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 isPasswordVisible = !isPasswordVisible;
                 if (isPasswordVisible) {
-                    contraseña.setTransformationMethod(null);// Mostrar contraseña
-                    confirma.setTransformationMethod(null);// Mostrar contraseña
-                    mostrar.setImageResource(R.drawable.ojo__1_);//Cambiar de imagen
+                    muestra();
                 } else {
-                    contraseña.setTransformationMethod(new PasswordTransformationMethod()); //Ocultar contraseña
-                    confirma.setTransformationMethod(new PasswordTransformationMethod()); //Ocultar contraseña
-                    mostrar.setImageResource(R.drawable.ojo);
+                    oculta();
                 }
             }
         });
-
+        //endregion
+        //region btnCrear
         crear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -131,7 +131,7 @@ public class CreaUsuario extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), "No coinciden las contraseñas", Toast.LENGTH_SHORT).show();
                     } else {
                         idag = Integer.parseInt(idAgente.getText().toString());
-                        db.execSQL("INSERT INTO USUARIO (NOMBRE,CONTRASEÑA,SEDE,PRIVILEGIOS,IDAGENTE,MAIL) VALUES ('" + nombre.getText().toString().toUpperCase(Locale.ROOT) + "','" + confirma.getText().toString() + "','" + ((String) sede.getSelectedItem().toString()) + "','" + privilegios.getText().toString().toUpperCase(Locale.ROOT) + "'," + idAgente.getText() + ",'" + mail.getText().toString().toLowerCase(Locale.ROOT) + "')");
+                        actualizaDB();
                         try {
                             writeToXmlFile(null);
                         } catch (ParserConfigurationException e) {
@@ -149,8 +149,42 @@ public class CreaUsuario extends AppCompatActivity {
                 }
             }
         });
+        //endregion
     }
+    //endregion
+    //region ModificaDB
+    public void actualizaDB(){
+        db.execSQL("INSERT INTO USUARIO (NOMBRE,CONTRASEÑA,SEDE,PRIVILEGIOS,IDAGENTE,MAIL) VALUES ('" + nombre.getText().toString().toUpperCase(Locale.ROOT) + "','" + confirma.getText().toString() + "','" + ((String) sede.getSelectedItem().toString()) + "','" + privilegios.getText().toString().toUpperCase(Locale.ROOT) + "'," + idAgente.getText() + ",'" + mail.getText().toString().toLowerCase(Locale.ROOT) + "')");
+    }
+    //endregion
+    //region Mostrado
+    /**
+     * Mediante este metodo se muestras los campos de las contraseñas
+     */
+    public void muestra(){
+        contraseña.setTransformationMethod(null);// Mostrar contraseña
+        confirma.setTransformationMethod(null);// Mostrar contraseña
+        mostrar.setImageResource(R.drawable.ojo__1_);//Cambiar de imagen
+    }
+    /**
+     * Mediante este metodo se ocultan los campos de las contraseñas
+     */
+    public void oculta(){
+        contraseña.setTransformationMethod(new PasswordTransformationMethod()); //Ocultar contraseña
+        confirma.setTransformationMethod(new PasswordTransformationMethod()); //Ocultar contraseña
+        mostrar.setImageResource(R.drawable.ojo);
+    }
+    //endregion
+    //region XML
 
+    /**
+     * Mediante este método podemos escribir en un xml
+     * @param view
+     * @throws ParserConfigurationException
+     * @throws IOException
+     * @throws SAXException
+     * @throws TransformerException
+     */
     private void writeToXmlFile(View view) throws ParserConfigurationException, IOException, SAXException, TransformerException {
         System.out.println("**************************************************************************************************************************");
         String ruta;
@@ -285,5 +319,6 @@ public class CreaUsuario extends AppCompatActivity {
         Toast.makeText(this, "Usuarios agregados al archivo XML.", Toast.LENGTH_SHORT).show();
 
     }
+    //endregion
 
 }

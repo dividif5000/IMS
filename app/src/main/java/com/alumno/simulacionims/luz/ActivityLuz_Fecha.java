@@ -204,7 +204,7 @@ public class ActivityLuz_Fecha extends AppCompatActivity {
                     Guardar();
                     Toast.makeText(getApplicationContext(), "Se recordaran los datos insertados", Toast.LENGTH_SHORT).show();
                 } else {
-                    vaciaCampos();
+                    Vaciar();
                     Guardar();
                     Toast.makeText(getApplicationContext(), "No se guardaran los datos insertados", Toast.LENGTH_SHORT).show();
                 }
@@ -215,9 +215,7 @@ public class ActivityLuz_Fecha extends AppCompatActivity {
         anterior.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getApplicationContext(), ActivityLuz.class);
-                activityLauncher.launch(i);
-
+                anteriorActividad();
             }
         });
         //endregion
@@ -228,18 +226,8 @@ public class ActivityLuz_Fecha extends AppCompatActivity {
                 validaFecha = validateDates();
                 validaCampos = validaCampos();
                 if (validaFecha == true && validaCampos == true) {
-                    String actualizar = "UPDATE SIMULACION SET FECHA_INICIO = '" + fechainicio.getText().toString() + "', FECHA_FIN = '" + fechafin.getText().toString() + "',DIAS = '" + Integer.parseInt(diasfacturados.getText().toString()) +
-                            "',E1_INICIO = " + Double.parseDouble(E1inicio.getText().toString()) + " ,E2_INICIO = " + Double.parseDouble(E2inicio.getText().toString()) + ",E3_INICIO = " + Double.parseDouble(E3inicio.getText().toString()) + ",E4_INICIO = " + Double.parseDouble(E4inicio.getText().toString()) + ",E5_INICIO = " + Double.parseDouble(E5inicio.getText().toString()) + ",E6_INICIO = " + Double.parseDouble(E6inicio.getText().toString()) +
-                            ",E1_FIN = " + Double.parseDouble(E1fin.getText().toString()) + ",E2_FIN = " + Double.parseDouble(E2fin.getText().toString()) + ",E3_FIN = " + Double.parseDouble(E3fin.getText().toString()) + ",E4_FIN = " + Double.parseDouble(E4fin.getText().toString()) + ",E5_FIN = " + Double.parseDouble(E5fin.getText().toString()) + ",E6_FIN = " + Double.parseDouble(E6fin.getText().toString()) +
-                            " WHERE ID = 1";
-                    System.out.println(actualizar);
-                    db.execSQL(actualizar);
-                    String mesInicio = mesinicio.getText().toString();
-                    String mesFin = mesfin.getText().toString();
-                    Intent i = new Intent(getApplicationContext(), ActivityLuz_Importe_Total.class);
-                    i.putExtra("mesInicio", mesInicio);
-                    i.putExtra("mesFin", mesFin);
-                    activityLauncher.launch(i);
+                    actualizaDB();
+                    siguienteActividad();
                 }
 
             }
@@ -256,11 +244,10 @@ public class ActivityLuz_Fecha extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         //super.onBackPressed();
-        Intent i = new Intent(this, ActivityLuz.class);
-        activityLauncher.launch(i);
+        anteriorActividad();
     }
     //endregion
-    //region deshabilita
+    //region deshabilitar
     /**
      * Mediate este método se dehabilita el campo de dias facturados para que este no sea modificable
      */
@@ -508,6 +495,108 @@ public class ActivityLuz_Fecha extends AppCompatActivity {
         diasfacturados.setText(String.valueOf(diffInDays));
     }
     //endregion
+    //region Guardar_Cargar
+
+    /**
+     * Mediante este metodo se guardan los datos con el uso del Objeto SharedPreferences
+     */
+    public void Guardar() {
+        SharedPreferences preferencias = getSharedPreferences("datos", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferencias.edit();
+        editor.putString("fecha_inicio", fechainicio.getText().toString());
+        editor.putString("fecha_fin", fechafin.getText().toString());
+        editor.putString("dias", diasfacturados.getText().toString());
+        editor.putString("e1_inicio", E1inicio.getText().toString());
+        editor.putString("e2_inicio", E2inicio.getText().toString());
+        editor.putString("e3_inicio", E3inicio.getText().toString());
+        editor.putString("e4_inicio", E4inicio.getText().toString());
+        editor.putString("e5_inicio", E5inicio.getText().toString());
+        editor.putString("e6_inicio", E6inicio.getText().toString());
+        editor.putString("e1_fin", E1fin.getText().toString());
+        editor.putString("e2_fin", E2fin.getText().toString());
+        editor.putString("e3_fin", E3fin.getText().toString());
+        editor.putString("e4_fin", E4fin.getText().toString());
+        editor.putString("e5_fin", E5fin.getText().toString());
+        editor.putString("e6_fin", E6fin.getText().toString());
+        editor.putString("mes_inicio", mesinicio.getText().toString());
+        editor.putString("mes_fin", mesfin.getText().toString());
+        editor.putString("p1", txtP1.getText().toString());
+        editor.putString("p2", txtP2.getText().toString());
+        editor.putString("p3", txtP3.getText().toString());
+        editor.putString("p4", txtP4.getText().toString());
+        editor.putString("p5", txtP5.getText().toString());
+        editor.putString("p6", txtP6.getText().toString());
+        editor.putBoolean("Checked", recordar.isChecked());
+        editor.commit();
+    }
+
+    /**
+     * Mediante este metodo se cargan los datos guardados previamente con el Objeto SharedPreferences
+     * @param prefs este es el objeto utilizado para poder cargar los datos
+     */
+    public void Cargar(SharedPreferences prefs) {
+
+        try {
+            //Recuperar los valores guardados en SharedPreferences
+            prefs = getSharedPreferences("datos", Context.MODE_PRIVATE);
+            recordar.setChecked(prefs.getBoolean("Checked", false));
+            fechainicio.setText(prefs.getString("fecha_inicio", ""));
+            fechafin.setText(prefs.getString("fecha_fin", ""));
+            diasfacturados.setText(prefs.getString("dias", ""));
+            E1inicio.setText(prefs.getString("e1_inicio", ""));
+            E2inicio.setText(prefs.getString("e2_inicio", ""));
+            E3inicio.setText(prefs.getString("e3_inicio", ""));
+            E4inicio.setText(prefs.getString("e4_inicio", ""));
+            E5inicio.setText(prefs.getString("e5_inicio", ""));
+            E6inicio.setText(prefs.getString("e6_inicio", ""));
+            E1fin.setText(prefs.getString("e1_fin", ""));
+            E2fin.setText(prefs.getString("e2_fin", ""));
+            E3fin.setText(prefs.getString("e3_fin", ""));
+            E4fin.setText(prefs.getString("e4_fin", ""));
+            E5fin.setText(prefs.getString("e5_fin", ""));
+            E6fin.setText(prefs.getString("e6_fin", ""));
+            mesinicio.setText(prefs.getString("mes_inicio", ""));
+            mesfin.setText(prefs.getString("mes_fin", ""));
+            txtP1.setText(prefs.getString("p1", ""));
+            txtP2.setText(prefs.getString("p2", ""));
+            txtP3.setText(prefs.getString("p3", ""));
+            txtP4.setText(prefs.getString("p4", ""));
+            txtP5.setText(prefs.getString("p5", ""));
+            txtP6.setText(prefs.getString("p6", ""));
+        } catch (Exception e) {
+            Toast.makeText(getApplicationContext(), "Vuelve a escribir los datos a rellenar", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    /**
+     * Este metodo vacia los campos de texto de la actividad
+     */
+    public void Vaciar() {
+        fechainicio.setText("");
+        fechafin.setText("");
+        diasfacturados.setText("");
+        mesinicio.setText("");
+        mesfin.setText("");
+        E1inicio.setText("");
+        E2inicio.setText("");
+        E3inicio.setText("");
+        E4inicio.setText("");
+        E5inicio.setText("");
+        E6inicio.setText("");
+        E1fin.setText("");
+        E2fin.setText("");
+        E3fin.setText("");
+        E4fin.setText("");
+        E5fin.setText("");
+        E6fin.setText("");
+        txtP1.setText("");
+        txtP2.setText("");
+        txtP3.setText("");
+        txtP4.setText("");
+        txtP5.setText("");
+        txtP6.setText("");
+    }
+    //endregion
     //region ModificaDB
     /**
      * Devuelve el Objeto Simulacion con los datos de las potencias que recogeremos de la base de datos interna
@@ -549,106 +638,40 @@ public class ActivityLuz_Fecha extends AppCompatActivity {
         txtP5.setText(String.valueOf(simula.getP5()));
         txtP6.setText(String.valueOf(simula.getP6()));
     }
+
+    /**
+     * Mediante este metodo los datos de la base de datos interna son modificados
+     * mediante los datos que se recogen de la actividad
+     */
+    public void actualizaDB(){
+        String actualizar = "UPDATE SIMULACION SET FECHA_INICIO = '" + fechainicio.getText().toString() + "', FECHA_FIN = '" + fechafin.getText().toString() + "',DIAS = '" + Integer.parseInt(diasfacturados.getText().toString()) +
+                "',E1_INICIO = " + Double.parseDouble(E1inicio.getText().toString()) + " ,E2_INICIO = " + Double.parseDouble(E2inicio.getText().toString()) + ",E3_INICIO = " + Double.parseDouble(E3inicio.getText().toString()) + ",E4_INICIO = " + Double.parseDouble(E4inicio.getText().toString()) + ",E5_INICIO = " + Double.parseDouble(E5inicio.getText().toString()) + ",E6_INICIO = " + Double.parseDouble(E6inicio.getText().toString()) +
+                ",E1_FIN = " + Double.parseDouble(E1fin.getText().toString()) + ",E2_FIN = " + Double.parseDouble(E2fin.getText().toString()) + ",E3_FIN = " + Double.parseDouble(E3fin.getText().toString()) + ",E4_FIN = " + Double.parseDouble(E4fin.getText().toString()) + ",E5_FIN = " + Double.parseDouble(E5fin.getText().toString()) + ",E6_FIN = " + Double.parseDouble(E6fin.getText().toString()) +
+                " WHERE ID = 1";
+        System.out.println(actualizar);
+        db.execSQL(actualizar);
+    }
     //endregion
-    //region Guarda_Carga
+    //region ActividadLanzada
+
     /**
-     * Mediante este metodo se guardan los datos con el uso del Objeto SharedPreferences
+     * Mediante este método se consigue ir a la siguiente actividad
      */
-    public void Guardar() {
-        SharedPreferences preferencias = getSharedPreferences("datos", Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = preferencias.edit();
-        editor.putString("fecha_inicio", fechainicio.getText().toString());
-        editor.putString("fecha_fin", fechafin.getText().toString());
-        editor.putString("dias", diasfacturados.getText().toString());
-        editor.putString("e1_inicio", E1inicio.getText().toString());
-        editor.putString("e2_inicio", E2inicio.getText().toString());
-        editor.putString("e3_inicio", E3inicio.getText().toString());
-        editor.putString("e4_inicio", E4inicio.getText().toString());
-        editor.putString("e5_inicio", E5inicio.getText().toString());
-        editor.putString("e6_inicio", E6inicio.getText().toString());
-        editor.putString("e1_fin", E1fin.getText().toString());
-        editor.putString("e2_fin", E2fin.getText().toString());
-        editor.putString("e3_fin", E3fin.getText().toString());
-        editor.putString("e4_fin", E4fin.getText().toString());
-        editor.putString("e5_fin", E5fin.getText().toString());
-        editor.putString("e6_fin", E6fin.getText().toString());
-        editor.putString("mes_inicio", mesinicio.getText().toString());
-        editor.putString("mes_fin", mesfin.getText().toString());
-        editor.putString("p1", txtP1.getText().toString());
-        editor.putString("p2", txtP2.getText().toString());
-        editor.putString("p3", txtP3.getText().toString());
-        editor.putString("p4", txtP4.getText().toString());
-        editor.putString("p5", txtP5.getText().toString());
-        editor.putString("p6", txtP6.getText().toString());
-        editor.putBoolean("Checked", recordar.isChecked());
-        editor.commit();
+    public void siguienteActividad(){
+        String mesInicio = mesinicio.getText().toString();
+        String mesFin = mesfin.getText().toString();
+        Intent i = new Intent(getApplicationContext(), ActivityLuz_Importe_Total.class);
+        i.putExtra("mesInicio", mesInicio);
+        i.putExtra("mesFin", mesFin);
+        activityLauncher.launch(i);
     }
 
     /**
-     * Este metodo vacia los campos de texto de la actividad
+     * Mediante este método se consigue ir a la anterior actividad
      */
-    public void vaciaCampos() {
-        fechainicio.setText("");
-        fechafin.setText("");
-        diasfacturados.setText("");
-        mesinicio.setText("");
-        mesfin.setText("");
-        E1inicio.setText("");
-        E2inicio.setText("");
-        E3inicio.setText("");
-        E4inicio.setText("");
-        E5inicio.setText("");
-        E6inicio.setText("");
-        E1fin.setText("");
-        E2fin.setText("");
-        E3fin.setText("");
-        E4fin.setText("");
-        E5fin.setText("");
-        E6fin.setText("");
-        txtP1.setText("");
-        txtP2.setText("");
-        txtP3.setText("");
-        txtP4.setText("");
-        txtP5.setText("");
-        txtP6.setText("");
-    }
-
-    /**
-     * Mediante este metodo se cargan los datos guardados previamente con el Objeto SharedPreferences
-     * @param prefs este es el objeto utilizado para poder cargar los datos
-     */
-    public void Cargar(SharedPreferences prefs) {
-
-        try {
-            //Recuperar los valores guardados en SharedPreferences
-            prefs = getSharedPreferences("datos", Context.MODE_PRIVATE);
-            recordar.setChecked(prefs.getBoolean("Checked", false));
-            fechainicio.setText(prefs.getString("fecha_inicio", ""));
-            fechafin.setText(prefs.getString("fecha_fin", ""));
-            diasfacturados.setText(prefs.getString("dias", ""));
-            E1inicio.setText(prefs.getString("e1_inicio", ""));
-            E2inicio.setText(prefs.getString("e2_inicio", ""));
-            E3inicio.setText(prefs.getString("e3_inicio", ""));
-            E4inicio.setText(prefs.getString("e4_inicio", ""));
-            E5inicio.setText(prefs.getString("e5_inicio", ""));
-            E6inicio.setText(prefs.getString("e6_inicio", ""));
-            E1fin.setText(prefs.getString("e1_fin", ""));
-            E2fin.setText(prefs.getString("e2_fin", ""));
-            E3fin.setText(prefs.getString("e3_fin", ""));
-            E4fin.setText(prefs.getString("e4_fin", ""));
-            E5fin.setText(prefs.getString("e5_fin", ""));
-            E6fin.setText(prefs.getString("e6_fin", ""));
-            mesinicio.setText(prefs.getString("mes_inicio", ""));
-            mesfin.setText(prefs.getString("mes_fin", ""));
-            txtP1.setText(prefs.getString("p1", ""));
-            txtP2.setText(prefs.getString("p2", ""));
-            txtP3.setText(prefs.getString("p3", ""));
-            txtP4.setText(prefs.getString("p4", ""));
-            txtP5.setText(prefs.getString("p5", ""));
-            txtP6.setText(prefs.getString("p6", ""));
-        } catch (Exception e) {
-            Toast.makeText(getApplicationContext(), "Vuelve a escribir los datos a rellenar", Toast.LENGTH_SHORT).show();
-        }
+    public void anteriorActividad(){
+        Intent i = new Intent(getApplicationContext(), ActivityLuz.class);
+        activityLauncher.launch(i);
     }
     //endregion
 }

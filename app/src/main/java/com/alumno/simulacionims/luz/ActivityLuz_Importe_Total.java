@@ -27,7 +27,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class ActivityLuz_Importe_Total extends AppCompatActivity {
-
+    //region Variables
     private String P1str;
     private String P2str;
     private String P3str;
@@ -106,7 +106,8 @@ public class ActivityLuz_Importe_Total extends AppCompatActivity {
     private ActivityResultLauncher activityLauncher;
     private SQLiteDatabase db;
     private SQLPostgresHelper pdb = new SQLPostgresHelper();
-
+    //endregion
+    //region onCreate
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -149,40 +150,42 @@ public class ActivityLuz_Importe_Total extends AppCompatActivity {
         calcula_impo_tot();
 
 
-
+        //region btnAnterior
         anterior.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getApplicationContext(), ActivityLuz_Fecha.class);
-                activityLauncher.launch(i);
+                anteriorActividad();
             }
         });
 
+        //region btnSiguiente
         siguiente.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String actualizar = "UPDATE SIMULACION SET   E1_IMPORTE = '" + Double.parseDouble(E1Importe.getText().toString()) + "', E2_IMPORTE= '" + Double.parseDouble(E2Importe.getText().toString()) + "',E3_IMPORTE = '" + Double.parseDouble(E3Importe.getText().toString()) + "',E4_IMPORTE =' " + Double.parseDouble(E4Importe.getText().toString()) + "',E5_IMPORTE ='" + Double.parseDouble(E5Importe.getText().toString()) + "',E6_IMPORTE = '" + Double.parseDouble(E6Importe.getText().toString()) + "'," +
-                        "E1_TOTAL = '" + Double.parseDouble(E1Total.getText().toString()) + "', E2_TOTAL= '" + Double.parseDouble(E2Total.getText().toString()) + "',E3_TOTAL = '" + Double.parseDouble(E3Total.getText().toString()) + "',E4_TOTAL =' " + Double.parseDouble(E4Total.getText().toString()) + "',E5_TOTAL ='" + Double.parseDouble(E5Total.getText().toString()) + "',E6_TOTAL = '" + Double.parseDouble(E6Total.getText().toString()) + "'," +
-                        "P1_IMPORTE = '" + Double.parseDouble(P1Importe.getText().toString()) + "', P2_IMPORTE= '" + Double.parseDouble(P2Importe.getText().toString()) + "',P3_IMPORTE = '" + Double.parseDouble(P3Importe.getText().toString()) + "',P4_IMPORTE =' " + Double.parseDouble(P4Importe.getText().toString()) + "',P5_IMPORTE ='" + Double.parseDouble(P5Importe.getText().toString()) + "',P6_IMPORTE = '" + Double.parseDouble(P6Importe.getText().toString()) + "'," +
-                        "P1_TOTAL = '" + Double.parseDouble(P1Total.getText().toString()) + "', P2_TOTAL= '" + Double.parseDouble(P2Total.getText().toString()) + "',P3_TOTAL = '" + Double.parseDouble(P3Total.getText().toString()) + "',P4_TOTAL =' " + Double.parseDouble(P4Total.getText().toString()) + "',P5_TOTAL ='" + Double.parseDouble(P5Total.getText().toString()) + "',P6_TOTAL = '" + Double.parseDouble(P6Total.getText().toString()) + "'";
-                System.out.println(actualizar);
-                db.execSQL(actualizar);
-                Intent i = new Intent(getApplicationContext(), ActivityLuz_Totales.class);
-                activityLauncher.launch(i);
+                actualizaDB();
+                siguienteActividad();
             }
         });
 
     }
+    //endregion
+    //region onBackPress
 
-
+    /**
+     * Mediante este método permitimos que el usuario pueda ir a la actividad anterior
+     */
     //TODO Este metodo sirve para volver a la Main activity
     @Override
     public void onBackPressed() {
         //super.onBackPressed();
-        Intent i = new Intent(this, ActivityLuz_Fecha.class);
-        activityLauncher.launch(i);
+        anteriorActividad();
     }
+    //endregion
+    //region deshabilitar
 
+    /**
+     * Mediate este método se dehabilita el campo de dias facturados para que este no sea modificable
+     */
     private void deshabilitar() {
         E1Importe.setEnabled(false);
         E2Importe.setEnabled(false);
@@ -209,89 +212,14 @@ public class ActivityLuz_Importe_Total extends AppCompatActivity {
         P5Total.setEnabled(false);
         P6Total.setEnabled(false);
     }
+    //endregion
+    //region Oferta
 
-    @SuppressLint("Range")
-    private Simulacion costeFijo() {
-        String sentencia;
-        Pricing cosFijo = new Pricing();
-        Simulacion simu = new Simulacion();
-        DataBaseHelper inerbase = new DataBaseHelper(ActivityLuz_Importe_Total.this, "IMS.db", null, 1);
-        db = inerbase.getWritableDatabase();
-        sentencia = "SELECT * FROM SIMULACION";
-        System.out.println(sentencia);
-        Cursor c = db.rawQuery(sentencia, null);
-
-        c.moveToFirst();
-        System.out.println(c.getString(c.getColumnIndex("PEAJE")));
-        simu.setFecha_inicio(c.getString(c.getColumnIndex("FECHA_INICIO")));
-        simu.setFecha_final(c.getString(c.getColumnIndex("FECHA_FIN")));
-        simu.setDias(c.getInt(c.getColumnIndex("DIAS")));
-        simu.setTarifa(c.getString(c.getColumnIndex("TARIFA")));
-        simu.setPeaje(c.getString(c.getColumnIndex("PEAJE")));
-        simu.setFee(c.getString(c.getColumnIndex("FEE")));
-        simu.setPrecio_potencia(c.getString(c.getColumnIndex("PRECIO_POTENCIA")));
-        simu.setE1inicio(c.getDouble(c.getColumnIndex("E1_INICIO")));
-        simu.setE2inicio(c.getDouble(c.getColumnIndex("E2_INICIO")));
-        simu.setE3inicio(c.getDouble(c.getColumnIndex("E3_INICIO")));
-        simu.setE4inicio(c.getDouble(c.getColumnIndex("E4_INICIO")));
-        simu.setE5inicio(c.getDouble(c.getColumnIndex("E5_INICIO")));
-        simu.setE6inicio(c.getDouble(c.getColumnIndex("E6_INICIO")));
-        simu.setE1fin(c.getDouble(c.getColumnIndex("E1_FIN")));
-        simu.setE2fin(c.getDouble(c.getColumnIndex("E2_FIN")));
-        simu.setE3fin(c.getDouble(c.getColumnIndex("E3_FIN")));
-        simu.setE4fin(c.getDouble(c.getColumnIndex("E4_FIN")));
-        simu.setE5fin(c.getDouble(c.getColumnIndex("E5_FIN")));
-        simu.setE6fin(c.getDouble(c.getColumnIndex("E6_FIN")));
-        simu.setP1(c.getDouble(c.getColumnIndex("P1")));
-        simu.setP2(c.getDouble(c.getColumnIndex("P2")));
-        simu.setP3(c.getDouble(c.getColumnIndex("P3")));
-        simu.setP4(c.getDouble(c.getColumnIndex("P4")));
-        simu.setP5(c.getDouble(c.getColumnIndex("P5")));
-        simu.setP6(c.getDouble(c.getColumnIndex("P6")));
-        simu.setE1Importe(c.getDouble(c.getColumnIndex("E1_IMPORTE")));
-        simu.setE2Importe(c.getDouble(c.getColumnIndex("E2_IMPORTE")));
-        simu.setE3Importe(c.getDouble(c.getColumnIndex("E3_IMPORTE")));
-        simu.setE4Importe(c.getDouble(c.getColumnIndex("E4_IMPORTE")));
-        simu.setE5Importe(c.getDouble(c.getColumnIndex("E5_IMPORTE")));
-        simu.setE6Importe(c.getDouble(c.getColumnIndex("E6_IMPORTE")));
-        simu.setP1Importe(c.getDouble(c.getColumnIndex("P1_IMPORTE")));
-        simu.setP6Importe(c.getDouble(c.getColumnIndex("P2_IMPORTE")));
-        simu.setP6Importe(c.getDouble(c.getColumnIndex("P3_IMPORTE")));
-        simu.setP6Importe(c.getDouble(c.getColumnIndex("P4_IMPORTE")));
-        simu.setP6Importe(c.getDouble(c.getColumnIndex("P5_IMPORTE")));
-        simu.setP6Importe(c.getDouble(c.getColumnIndex("P6_IMPORTE")));
-
-        cosFijo.setPeaje(c.getString(1));
-        cosFijo.setP1e(c.getDouble(2));
-        cosFijo.setP2e(c.getDouble(3));
-        cosFijo.setP3e(c.getDouble(4));
-        cosFijo.setP4e(c.getDouble(5));
-        cosFijo.setP5e(c.getDouble(6));
-        cosFijo.setP6e(c.getDouble(7));
-        cosFijo.setP1p(c.getDouble(8));
-        cosFijo.setP2p(c.getDouble(9));
-        cosFijo.setP3p(c.getDouble(10));
-        cosFijo.setP4p(c.getDouble(11));
-        cosFijo.setP5p(c.getDouble(12));
-        cosFijo.setP6p(c.getDouble(13));
-
-
-        c.close();
-        return simu;
-    }
-
-
-    public static boolean obtenerNumeroMes(String fecha_inicio, String fecha_fin) {
-        int inicio;
-        int fin;
-        if (fecha_inicio.split("-")[1].equals(fecha_fin.split("-")[1])) {
-            return true;
-            //Son iguales
-        } else {
-            return false;
-        }
-    }
-
+    /**
+     * Método de que en caso de que la oferta sea = a INER BOE de 0
+     * @param cadena
+     * @return
+     */
     // TODO Función para extraer el número de un String
     private static String extraerNumero(String cadena) {
         // TODO Definir la expresión regular para encontrar el número
@@ -311,7 +239,12 @@ public class ActivityLuz_Importe_Total extends AppCompatActivity {
             return "0";
         }
     }
+    //endregion
+    //region CalculaCampos
 
+    /**
+     * Método el cuanl dependiendo de la tarifa que se le pase de unos valores u otros tanto a la energia/consumo como a la potencia
+     */
     public void calcula_impo_tot(){
         if (simula.getTarifa().contains("GESTION INER")) {
             if (simula.getPeaje() != null) {
@@ -654,5 +587,131 @@ public class ActivityLuz_Importe_Total extends AppCompatActivity {
         P6Total.setText(String.valueOf(p6total));
 
     }
+    //endregion
+    //region ModificaFecha
 
+    /**
+     * Mediates este metodo se consige el numero del mes de las 2 fechas recogidas en la actividad anterior
+     * @param fecha_inicio
+     * @param fecha_fin
+     * @return
+     */
+    public static boolean obtenerNumeroMes(String fecha_inicio, String fecha_fin) {
+        int inicio;
+        int fin;
+        if (fecha_inicio.split("-")[1].equals(fecha_fin.split("-")[1])) {
+            return true;
+            //Son iguales
+        } else {
+            return false;
+        }
+    }
+    //endregion
+    //region ModificaDB
+
+    /**
+     * Devuelve el Objeto Simulacion con los datos de las potencias que recogeremos de la base de datos interna
+     * @return
+     */
+    @SuppressLint("Range")
+    private Simulacion costeFijo() {
+        String sentencia;
+        Pricing cosFijo = new Pricing();
+        Simulacion simu = new Simulacion();
+        DataBaseHelper inerbase = new DataBaseHelper(ActivityLuz_Importe_Total.this, "IMS.db", null, 1);
+        db = inerbase.getWritableDatabase();
+        sentencia = "SELECT * FROM SIMULACION";
+        System.out.println(sentencia);
+        Cursor c = db.rawQuery(sentencia, null);
+
+        c.moveToFirst();
+        System.out.println(c.getString(c.getColumnIndex("PEAJE")));
+        simu.setFecha_inicio(c.getString(c.getColumnIndex("FECHA_INICIO")));
+        simu.setFecha_final(c.getString(c.getColumnIndex("FECHA_FIN")));
+        simu.setDias(c.getInt(c.getColumnIndex("DIAS")));
+        simu.setTarifa(c.getString(c.getColumnIndex("TARIFA")));
+        simu.setPeaje(c.getString(c.getColumnIndex("PEAJE")));
+        simu.setFee(c.getString(c.getColumnIndex("FEE")));
+        simu.setPrecio_potencia(c.getString(c.getColumnIndex("PRECIO_POTENCIA")));
+        simu.setE1inicio(c.getDouble(c.getColumnIndex("E1_INICIO")));
+        simu.setE2inicio(c.getDouble(c.getColumnIndex("E2_INICIO")));
+        simu.setE3inicio(c.getDouble(c.getColumnIndex("E3_INICIO")));
+        simu.setE4inicio(c.getDouble(c.getColumnIndex("E4_INICIO")));
+        simu.setE5inicio(c.getDouble(c.getColumnIndex("E5_INICIO")));
+        simu.setE6inicio(c.getDouble(c.getColumnIndex("E6_INICIO")));
+        simu.setE1fin(c.getDouble(c.getColumnIndex("E1_FIN")));
+        simu.setE2fin(c.getDouble(c.getColumnIndex("E2_FIN")));
+        simu.setE3fin(c.getDouble(c.getColumnIndex("E3_FIN")));
+        simu.setE4fin(c.getDouble(c.getColumnIndex("E4_FIN")));
+        simu.setE5fin(c.getDouble(c.getColumnIndex("E5_FIN")));
+        simu.setE6fin(c.getDouble(c.getColumnIndex("E6_FIN")));
+        simu.setP1(c.getDouble(c.getColumnIndex("P1")));
+        simu.setP2(c.getDouble(c.getColumnIndex("P2")));
+        simu.setP3(c.getDouble(c.getColumnIndex("P3")));
+        simu.setP4(c.getDouble(c.getColumnIndex("P4")));
+        simu.setP5(c.getDouble(c.getColumnIndex("P5")));
+        simu.setP6(c.getDouble(c.getColumnIndex("P6")));
+        simu.setE1Importe(c.getDouble(c.getColumnIndex("E1_IMPORTE")));
+        simu.setE2Importe(c.getDouble(c.getColumnIndex("E2_IMPORTE")));
+        simu.setE3Importe(c.getDouble(c.getColumnIndex("E3_IMPORTE")));
+        simu.setE4Importe(c.getDouble(c.getColumnIndex("E4_IMPORTE")));
+        simu.setE5Importe(c.getDouble(c.getColumnIndex("E5_IMPORTE")));
+        simu.setE6Importe(c.getDouble(c.getColumnIndex("E6_IMPORTE")));
+        simu.setP1Importe(c.getDouble(c.getColumnIndex("P1_IMPORTE")));
+        simu.setP6Importe(c.getDouble(c.getColumnIndex("P2_IMPORTE")));
+        simu.setP6Importe(c.getDouble(c.getColumnIndex("P3_IMPORTE")));
+        simu.setP6Importe(c.getDouble(c.getColumnIndex("P4_IMPORTE")));
+        simu.setP6Importe(c.getDouble(c.getColumnIndex("P5_IMPORTE")));
+        simu.setP6Importe(c.getDouble(c.getColumnIndex("P6_IMPORTE")));
+
+        cosFijo.setPeaje(c.getString(1));
+        cosFijo.setP1e(c.getDouble(2));
+        cosFijo.setP2e(c.getDouble(3));
+        cosFijo.setP3e(c.getDouble(4));
+        cosFijo.setP4e(c.getDouble(5));
+        cosFijo.setP5e(c.getDouble(6));
+        cosFijo.setP6e(c.getDouble(7));
+        cosFijo.setP1p(c.getDouble(8));
+        cosFijo.setP2p(c.getDouble(9));
+        cosFijo.setP3p(c.getDouble(10));
+        cosFijo.setP4p(c.getDouble(11));
+        cosFijo.setP5p(c.getDouble(12));
+        cosFijo.setP6p(c.getDouble(13));
+
+
+        c.close();
+        return simu;
+    }
+
+    /**
+     * Mediante este metodo los datos de la base de datos interna son modificados
+     * mediante los datos que se recogen de la actividad
+     */
+    public void actualizaDB(){
+        String actualizar = "UPDATE SIMULACION SET   E1_IMPORTE = '" + Double.parseDouble(E1Importe.getText().toString()) + "', E2_IMPORTE= '" + Double.parseDouble(E2Importe.getText().toString()) + "',E3_IMPORTE = '" + Double.parseDouble(E3Importe.getText().toString()) + "',E4_IMPORTE =' " + Double.parseDouble(E4Importe.getText().toString()) + "',E5_IMPORTE ='" + Double.parseDouble(E5Importe.getText().toString()) + "',E6_IMPORTE = '" + Double.parseDouble(E6Importe.getText().toString()) + "'," +
+                "E1_TOTAL = '" + Double.parseDouble(E1Total.getText().toString()) + "', E2_TOTAL= '" + Double.parseDouble(E2Total.getText().toString()) + "',E3_TOTAL = '" + Double.parseDouble(E3Total.getText().toString()) + "',E4_TOTAL =' " + Double.parseDouble(E4Total.getText().toString()) + "',E5_TOTAL ='" + Double.parseDouble(E5Total.getText().toString()) + "',E6_TOTAL = '" + Double.parseDouble(E6Total.getText().toString()) + "'," +
+                "P1_IMPORTE = '" + Double.parseDouble(P1Importe.getText().toString()) + "', P2_IMPORTE= '" + Double.parseDouble(P2Importe.getText().toString()) + "',P3_IMPORTE = '" + Double.parseDouble(P3Importe.getText().toString()) + "',P4_IMPORTE =' " + Double.parseDouble(P4Importe.getText().toString()) + "',P5_IMPORTE ='" + Double.parseDouble(P5Importe.getText().toString()) + "',P6_IMPORTE = '" + Double.parseDouble(P6Importe.getText().toString()) + "'," +
+                "P1_TOTAL = '" + Double.parseDouble(P1Total.getText().toString()) + "', P2_TOTAL= '" + Double.parseDouble(P2Total.getText().toString()) + "',P3_TOTAL = '" + Double.parseDouble(P3Total.getText().toString()) + "',P4_TOTAL =' " + Double.parseDouble(P4Total.getText().toString()) + "',P5_TOTAL ='" + Double.parseDouble(P5Total.getText().toString()) + "',P6_TOTAL = '" + Double.parseDouble(P6Total.getText().toString()) + "'";
+        System.out.println(actualizar);
+        db.execSQL(actualizar);
+    }
+    //endregion
+    //region ActividadLanzada
+    /**
+     * Mediante este método se consigue ir a la siguiente actividad
+     */
+    public void siguienteActividad(){
+        Intent i = new Intent(getApplicationContext(), ActivityLuz_Totales.class);
+        activityLauncher.launch(i);
+
+    }
+
+    /**
+     * Mediante este método se consigue ir a la anterior actividad
+     */
+    public void anteriorActividad(){
+        Intent i = new Intent(getApplicationContext(), ActivityLuz_Fecha.class);
+        activityLauncher.launch(i);
+    }
+    //endregion
 }

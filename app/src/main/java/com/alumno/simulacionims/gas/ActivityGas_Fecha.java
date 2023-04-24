@@ -35,6 +35,7 @@ import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 
 public class ActivityGas_Fecha extends AppCompatActivity {
+    //region Variables
     private String inicio="";
     private String fin="";
     private String peaje;
@@ -51,7 +52,7 @@ public class ActivityGas_Fecha extends AppCompatActivity {
     private EditText terminoFijo;
     private EditText AlquilerEquipo;
 
-
+    private SharedPreferences prefs;
     private SQLiteDatabase db;
 
     private Button anterior;
@@ -59,7 +60,8 @@ public class ActivityGas_Fecha extends AppCompatActivity {
     private CheckBox recordar;
 
     private ActivityResultLauncher activityLauncher;
-
+    //endregion
+    //region onCreate
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -84,27 +86,14 @@ public class ActivityGas_Fecha extends AppCompatActivity {
         peaje = extras.getString("peaje");
         oferta = extras.getString("oferta");
 
-        try {
-            //Recuperar los valores guardados en SharedPreferences
-            SharedPreferences prefs = getSharedPreferences("datos", Context.MODE_PRIVATE);
-            recordar.setChecked(prefs.getBoolean("Checked", false));
-            fechainicio.setText(prefs.getString("fecha_inicio", ""));
-            fechafin.setText(prefs.getString("fecha_fin", ""));
-            diasfacturados.setText(prefs.getString("dias", ""));
-            mesinicio.setText(prefs.getString("mes_inicio",""));
-            mesfin.setText(prefs.getString("mes_fin",""));
-            terminoFijo.setText(prefs.getString("termino_fijo", ""));
-            AlquilerEquipo.setText(prefs.getString("alquiler_equipo", ""));
-        } catch(Exception e){
-            Toast.makeText(getApplicationContext(),"Vuelve a escribir los datos a rellenar",Toast.LENGTH_SHORT).show();
-        }
+        Cargar(prefs);
 
         activityLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), null);
 
 
         deshabilitar();
 
-
+        //region dtpFechaInicio
         fechainicio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -132,7 +121,8 @@ public class ActivityGas_Fecha extends AppCompatActivity {
 
             }
         });
-
+        //endregion
+        //region dtpFechaFin
         fechafin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -159,8 +149,8 @@ public class ActivityGas_Fecha extends AppCompatActivity {
                 datePickerDialog.show();
             }
         });
-
-
+        //endregion
+        //region chkRecordar
         recordar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -168,66 +158,107 @@ public class ActivityGas_Fecha extends AppCompatActivity {
                     Guardar();
                     Toast.makeText(getApplicationContext(), "Se recordaran los datos insertados", Toast.LENGTH_SHORT).show();
                 } else {
-                    fechainicio.setText("");
-                    fechafin.setText("");
-                    diasfacturados.setText("");
-                    mesinicio.setText((""));
-                    mesfin.setText((""));
-                    terminoFijo.setText("");
-                    AlquilerEquipo.setText("");
+                    Vaciar();
                     Guardar();
                     Toast.makeText(getApplicationContext(), "No se guardaran los datos insertados", Toast.LENGTH_SHORT).show();
                 }
             }
         });
-
+        //endregion
+        //region btnAnterior
         anterior.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getApplicationContext(), ActivityGas.class);
-                activityLauncher.launch(i);
-
+                anteriorActividad();
             }
         });
-
+        //endregion
+        //region btmSiguiente
         siguiente.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 validaFecha = validateDates();
                 validaCampos = validaCampos();
                 if(validaFecha==true && validaCampos == true) {
-                    String actualizar= "UPDATE SIMULACION SET FECHA_INICIO = '"+fechainicio.getText().toString()+"', FECHA_FIN = '"+fechafin.getText().toString()+"',DIAS = '"+Integer.parseInt(diasfacturados.getText().toString())+
-                            "',E1_INICIO = "+Double.parseDouble(terminoFijo.getText().toString())+",ALQUILER_EQUIPO = "+Double.parseDouble(AlquilerEquipo.getText().toString())+" WHERE ID = 1";
-                    System.out.println(actualizar);
-                    db.execSQL(actualizar);
-                    String mesInicio = mesinicio.getText().toString();
-                    String mesFin = mesfin.getText().toString();
-                    System.out.println(mesInicio);
-                    System.out.println(mesFin);
-                    Intent i = new Intent(getApplicationContext(), ActivityGas_Importe_Total.class);
-                    i.putExtra("mesInicioGas",mesInicio);
-                    i.putExtra("mesFinGas",mesFin);
-                    activityLauncher.launch(i);
+                    actualizaDB();
+                    siguienteActividad();
                 }
 
             }
         });
+        //endregion
 
     }
+    //endregion
+    //region onBackPress
+
+    /**
+     * Mediante este método el usuario puede ir a la actividad anterior
+     */
     //TODO Este metodo sirve para volver a la Main activity
     @Override
     public void onBackPressed() {
         //super.onBackPressed();
-        Intent i = new Intent(this, ActivityGas.class);
-        activityLauncher.launch(i);
+        anteriorActividad();
     }
+    //endregion
+    //region deshabilitar
 
+    /**
+     * Mediante este método bloquea la escritura en los campo que deseo que no sean modificables
+     */
     private void deshabilitar(){
         diasfacturados.setEnabled(false);
     }
+    //endregion
+    //region ModificaCampos
 
+    /**
+     * Revisa que todos los que si los campos estan vacios automaticamento les pone valor 0
+     * @return
+     */
+    private boolean validaCampos(){
+        boolean validado;
+        ArrayList<EditText> listaEdit = new ArrayList<EditText>();
 
+        listaEdit.add(terminoFijo);
+        listaEdit.add(AlquilerEquipo);
 
+        try {
+            for (int i = 0; i < listaEdit.size(); i++) {
+                String valor;
+                Double numero;
+
+                if (!(listaEdit.get(i).getText().toString().length() > 0)) {
+                    listaEdit.get(i).setText("0");
+
+                }
+                valor = listaEdit.get(i).getText().toString();
+
+                try{
+
+                    numero = Double.parseDouble(valor);
+
+                }catch(Exception e){
+
+                    Toast.makeText(getApplicationContext(), "No habido un error con la conversion de datos.", Toast.LENGTH_SHORT).show();
+                    return validado = false;
+                }
+            }
+        }catch(Exception e){
+            Toast.makeText(getApplicationContext(),"Ha habido un error con los campos a rellenar.",Toast.LENGTH_SHORT).show();
+            return validado = false;
+        }
+        return validado=true;
+    }
+    //endregion
+    //region ModificaFechas
+
+    /**
+     * Mediante este método se obtiene el mes de la fecha seleccionada pasandole por parametro el mes como número
+     * @param monthnum este es el valor que se le pasa para sacar el mes
+     * @return
+     */
     private String getMonthByNumber(int monthnum) {
         Calendar c = Calendar.getInstance();
         SimpleDateFormat month_date = new SimpleDateFormat("MMMM");
@@ -236,6 +267,11 @@ public class ActivityGas_Fecha extends AppCompatActivity {
         return month_date.format(date);
     }
 
+    /**
+     * Mediante este método se valida si las fechas ingresadas nohagan cosas raras como
+     * que la fecha de inicio sea mayor a la de fin y viceversa
+     * @return
+     */
     private boolean validateDates() {
         if (TextUtils.isEmpty(fechainicio.getText().toString())) {
             Toast.makeText(ActivityGas_Fecha.this, "Ingrese una fecha de inicio", Toast.LENGTH_SHORT).show();
@@ -280,42 +316,9 @@ public class ActivityGas_Fecha extends AppCompatActivity {
         return true;
     }
 
-
-    private boolean validaCampos(){
-        boolean validado;
-        ArrayList<EditText> listaEdit = new ArrayList<EditText>();
-
-        listaEdit.add(terminoFijo);
-        listaEdit.add(AlquilerEquipo);
-
-        try {
-            for (int i = 0; i < listaEdit.size(); i++) {
-                String valor;
-                Double numero;
-
-                if (!(listaEdit.get(i).getText().toString().length() > 0)) {
-                    listaEdit.get(i).setText("0");
-
-                }
-                valor = listaEdit.get(i).getText().toString();
-
-                try{
-
-                    numero = Double.parseDouble(valor);
-
-                }catch(Exception e){
-
-                    Toast.makeText(getApplicationContext(), "No habido un error con la conversion de datos.", Toast.LENGTH_SHORT).show();
-                    return validado = false;
-                }
-            }
-        }catch(Exception e){
-            Toast.makeText(getApplicationContext(),"Ha habido un error con los campos a rellenar.",Toast.LENGTH_SHORT).show();
-            return validado = false;
-        }
-        return validado=true;
-    }
-
+    /**
+     *  Mediante este metodo se calcula la diferencia de dia que hay entre los dias para sacar el total de dias facturados
+     */
     private void calcularDiferenciaFechas() {
         // TODO Parsear las fechas seleccionadas
         SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault());
@@ -337,7 +340,12 @@ public class ActivityGas_Fecha extends AppCompatActivity {
         // TODO Mostrar el resultado en el EditText
         diasfacturados.setText(String.valueOf(diffInDays));
     }
+    //endregion
+    //region Guardar_Cargar
 
+    /**
+     * Mediante este metodo se guardan los datos con el uso del Objeto SharedPreferences
+     */
     public void Guardar() {
         SharedPreferences preferencias = getSharedPreferences("datos", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = preferencias.edit();
@@ -351,4 +359,77 @@ public class ActivityGas_Fecha extends AppCompatActivity {
         editor.putBoolean("Checked", recordar.isChecked());
         editor.commit();
     }
+
+    /**
+     * Mediante este metodo se cargan los datos guardados previamente con el Objeto SharedPreferences
+     * @param prefs este es el objeto utilizado para poder cargar los datos
+     */
+    public void Cargar(SharedPreferences prefs){
+        try {
+            //Recuperar los valores guardados en SharedPreferences
+            prefs = getSharedPreferences("datos", Context.MODE_PRIVATE);
+            recordar.setChecked(prefs.getBoolean("Checked", false));
+            fechainicio.setText(prefs.getString("fecha_inicio", ""));
+            fechafin.setText(prefs.getString("fecha_fin", ""));
+            diasfacturados.setText(prefs.getString("dias", ""));
+            mesinicio.setText(prefs.getString("mes_inicio",""));
+            mesfin.setText(prefs.getString("mes_fin",""));
+            terminoFijo.setText(prefs.getString("termino_fijo", ""));
+            AlquilerEquipo.setText(prefs.getString("alquiler_equipo", ""));
+        } catch(Exception e){
+            Toast.makeText(getApplicationContext(),"Vuelve a escribir los datos a rellenar",Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    /**
+     * Este metodo vacia los campos de texto de la actividad
+     */
+    public void Vaciar(){
+        fechainicio.setText("");
+        fechafin.setText("");
+        diasfacturados.setText("");
+        mesinicio.setText((""));
+        mesfin.setText((""));
+        terminoFijo.setText("");
+        AlquilerEquipo.setText("");
+    }
+    //endregion
+    //region ModificaDB
+
+    /**
+     * Mediante este metodo los datos de la base de datos interna son modificados
+     * mediante los datos que se recogen de la actividad
+     */
+    public void actualizaDB(){
+        String actualizar= "UPDATE SIMULACION SET FECHA_INICIO = '"+fechainicio.getText().toString()+"', FECHA_FIN = '"+fechafin.getText().toString()+"',DIAS = '"+Integer.parseInt(diasfacturados.getText().toString())+
+                "',E1_INICIO = "+Double.parseDouble(terminoFijo.getText().toString())+",ALQUILER_EQUIPO = "+Double.parseDouble(AlquilerEquipo.getText().toString())+" WHERE ID = 1";
+        System.out.println(actualizar);
+        db.execSQL(actualizar);
+    }
+    //endregion
+    //region ActividadLanzada
+
+    /**
+     * Mediante este método se consigue ir a la siguiente actividad
+     */
+    public void siguienteActividad(){
+        String mesInicio = mesinicio.getText().toString();
+        String mesFin = mesfin.getText().toString();
+        System.out.println(mesInicio);
+        System.out.println(mesFin);
+        Intent i = new Intent(getApplicationContext(), ActivityGas_Importe_Total.class);
+        i.putExtra("mesInicioGas",mesInicio);
+        i.putExtra("mesFinGas",mesFin);
+        activityLauncher.launch(i);
+    }
+
+    /**
+     * Mediante este método se consigue ir a la anterior actividad
+     */
+    public void anteriorActividad(){
+        Intent i = new Intent(getApplicationContext(), ActivityGas.class);
+        activityLauncher.launch(i);
+    }
+    //endregion
+
 }

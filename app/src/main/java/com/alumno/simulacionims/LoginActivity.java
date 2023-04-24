@@ -107,102 +107,18 @@ public class LoginActivity extends AppCompatActivity implements Pin.PinDialogLis
 
         Cargar(prefs);
 
-        //region consultaDB
         DataBaseHelper inerbase = new DataBaseHelper(LoginActivity.this, "IMS.db", null, 1);
         db = inerbase.getWritableDatabase();
-
-
-        //db.execSQL("INSERT INTO USUARIOS (IDUSUARIO,NOMBRE,CONTRASEÑA,SEDE,PRIVILEGIOS,IDAGENTE,MAIL) VALUES("+idusuario+",'"+nombre+"','"+contra+"','"+sede+"','"+privilegios+"',"+idagente+","+mail+")");
-
-        //SQLiteDatabase db = new DataBaseOpenHelper(getApplicationContext()).getReadableDatabase();
-
-
-        if (db != null) {
-            final String usuario[] = {
-                    "INSERT INTO USUARIO (NOMBRE, CONTRASEÑA, SEDE, PRIVILEGIOS, IDAGENTE, MAIL) SELECT 'JUAN', '1234','INER EUSKADI','ADMIN',5,'jperez@inereus.com' WHERE NOT EXISTS(SELECT * FROM USUARIO WHERE NOMBRE = 'JUAN')",
-                    "INSERT INTO USUARIO (NOMBRE, CONTRASEÑA, SEDE, PRIVILEGIOS, IDAGENTE, MAIL) SELECT 'UNAI URRUTIA', 'UNAIURRUTIA', 'INER EUSKADI',  'COMERCIAL', 29, 'unaiurrutia4626@gmail.com' WHERE NOT EXISTS(SELECT * FROM USUARIO WHERE NOMBRE = 'UNAI URRUTIA')",
-                    "INSERT INTO USUARIO (NOMBRE, CONTRASEÑA, SEDE, PRIVILEGIOS, IDAGENTE, MAIL) SELECT 'LUR GORRI BARAÑAIN GESTION SLU', '1234567890', 'INER EUSKADI',  'COMERCIAL', 0, 'plizarraga@lurgorriasesores.es' WHERE NOT EXISTS(SELECT * FROM USUARIO WHERE NOMBRE = 'LUR GORRI BARAÑAIN GESTION SLU')",
-                    "INSERT INTO USUARIO (NOMBRE, CONTRASEÑA, SEDE, PRIVILEGIOS, IDAGENTE, MAIL) SELECT 'GRUPO GONCLA ENERGIA SOLUCIONES SLU', '12345', 'INER EUSKADI', 'COMERCIAL', 0, 'gonclaenergiasoluciones@gmail.com' WHERE NOT EXISTS(SELECT * FROM USUARIO WHERE NOMBRE = 'GRUPO GONCLA ENERGIA SOLUCIONES SLU')",
-                    "INSERT INTO USUARIO (NOMBRE, CONTRASEÑA, SEDE, PRIVILEGIOS, IDAGENTE, MAIL) SELECT 'EKON SOLUCIONES', '1234567890', 'INER EUSKADI',  'COMERCIAL', 30, 'alex@ekonsoluciones.com' WHERE NOT EXISTS(SELECT * FROM USUARIO WHERE NOMBRE = 'EKON SOLUCIONES')",
-                    "INSERT INTO USUARIO (NOMBRE, CONTRASEÑA, SEDE, PRIVILEGIOS, IDAGENTE, MAIL) SELECT 'AJ ASESORES', '1234567890', 'INER EUSKADI', 'COMERCIAL', 0, 'javier@ajasesores.com' WHERE NOT EXISTS(SELECT * FROM USUARIO WHERE NOMBRE = 'AJ ASESORES')",
-                    "INSERT INTO USUARIO (NOMBRE, CONTRASEÑA, SEDE, PRIVILEGIOS, IDAGENTE, MAIL) SELECT 'JAIME GARCIA-CALZADA VILLAR', '1234567890', 'INER EUSKADI', 'COMERCIAL', 32, 'jaimevillargarciacalzada@gmail.com' WHERE NOT EXISTS(SELECT * FROM USUARIO WHERE NOMBRE = 'JAIME GARCIA-CALZADA VILLAR')",
-                    "INSERT INTO USUARIO (NOMBRE, CONTRASEÑA, SEDE, PRIVILEGIOS, IDAGENTE, MAIL) SELECT 'PATRICIA GARCIA SOLLA', 'PGSOLLA', 'INER EUSKADI', 'COMERCIAL', 33, 'patriciaa.dlife@hotmail.com' WHERE NOT EXISTS(SELECT * FROM USUARIO WHERE NOMBRE = 'PATRICIA GARCIA SOLLA')",
-                    "INSERT INTO USUARIO (NOMBRE, CONTRASEÑA, SEDE, PRIVILEGIOS, IDAGENTE, MAIL) SELECT 'ANTXON SAGASTUME LARRAÑAGA', '1234567890', 'INER EUSKADI', 'COMERCIAL', 34, 'sagastume@vascastec.com' WHERE NOT EXISTS(SELECT * FROM USUARIO WHERE NOMBRE = 'ANTXON SAGASTUME LARRAÑAGA')",
-                    "INSERT INTO USUARIO (NOMBRE, CONTRASEÑA, SEDE, PRIVILEGIOS, IDAGENTE, MAIL) SELECT 'OSCISA', '1234567890', 'INER EUSKADI', 'COMERCIAL', 35, 'yolanda@oscisa.es' WHERE NOT EXISTS(SELECT * FROM USUARIO WHERE NOMBRE = 'OSCISA')",
-                    "INSERT INTO USUARIO (NOMBRE, CONTRASEÑA, SEDE, PRIVILEGIOS, IDAGENTE, MAIL) SELECT 'JUAN IGNACIO AGUIRRE URIA', '1234567890', 'INER EUSKADI', 'COMERCIAL', 36, 'ji.agirre@gmail.com' WHERE NOT EXISTS(SELECT * FROM USUARIO WHERE NOMBRE = 'JUAN IGNACIO AGUIRRE URIA')",
-                    "INSERT INTO USUARIO (NOMBRE, CONTRASEÑA, SEDE, PRIVILEGIOS, IDAGENTE, MAIL) SELECT 'ALFER ENERGIA SL', '1234567890', 'INER EUSKADI', 'COMERCIAL', 37, 'fernando.diaz@grupoalfer.es' WHERE NOT EXISTS(SELECT * FROM USUARIO WHERE NOMBRE = 'ALFER ENERGIA SL')",
-                    "INSERT INTO USUARIO (NOMBRE, CONTRASEÑA, SEDE, PRIVILEGIOS, IDAGENTE, MAIL) SELECT 'ALBERTO OSCISA', '1234567890', 'INER EUSKADI', 'COMERCIAL', 38, 'contratacioneuskadi@inerenergia.es' WHERE NOT EXISTS(SELECT * FROM USUARIO WHERE NOMBRE = 'ALBERTO OSCISA')",
-                    "INSERT INTO USUARIO (NOMBRE, CONTRASEÑA, SEDE, PRIVILEGIOS, IDAGENTE, MAIL) SELECT 'TEIBA SOLUCIONES ENERGETICAS', '1234567890', 'INER EUSKADI', 'COMERCIAL', 40, 'solucionesteiba@gmail.com' WHERE NOT EXISTS(SELECT * FROM USUARIO WHERE NOMBRE = 'TEIBA SOLUCIONES ENERGETICAS')",
-                    "INSERT INTO USUARIO (NOMBRE, CONTRASEÑA, SEDE, PRIVILEGIOS, IDAGENTE, MAIL) SELECT 'JOSE MANUEL GRAU', '1234567890', 'INER CASTILLA', 'COMERCIAL', 0, 'josegrau999@gmail.com' WHERE NOT EXISTS(SELECT * FROM USUARIO WHERE NOMBRE = 'JOSE MANUEL GRAU')",
-                    "INSERT INTO USUARIO (NOMBRE, CONTRASEÑA, SEDE, PRIVILEGIOS, IDAGENTE, MAIL) SELECT 'JAB ENERGIA', '1234567890', 'INER EUSKADI', 'COMERCIAL', 6, 'jobeotsl@gmail.com' WHERE NOT EXISTS(SELECT * FROM USUARIO WHERE NOMBRE = 'JAB ENERGIA')",
-                    "INSERT INTO USUARIO (NOMBRE, CONTRASEÑA, SEDE, PRIVILEGIOS, IDAGENTE, MAIL) SELECT 'EDURNE ARRIETA', '1234567890', 'INER EUSKADI', 'COMERCIAL', 7, 'edurnearrieta@gmail.com' WHERE NOT EXISTS(SELECT * FROM USUARIO WHERE NOMBRE = 'EDURNE ARRIETA')",
-                    "INSERT INTO USUARIO (NOMBRE, CONTRASEÑA, SEDE, PRIVILEGIOS, IDAGENTE, MAIL) SELECT 'JAIME HERNANDEZ CALDERERO', 'JCALDERERO', 'INER EUSKADI',  'COMERCIAL', 8, 'jhcalderero@gmail.com' WHERE NOT EXISTS(SELECT * FROM USUARIO WHERE NOMBRE = 'JAIME HERNANDEZ CALDERERO')",
-                    "INSERT INTO USUARIO (NOMBRE, CONTRASEÑA, SEDE, PRIVILEGIOS, IDAGENTE, MAIL) SELECT 'JAVIER CARRERA', '1234567890', 'INER EUSKADI', 'COMERCIAL', 9, 'jjcc60@hotmail.es' WHERE NOT EXISTS(SELECT * FROM USUARIO WHERE NOMBRE = 'JAVIER CARRERA')",
-                    "INSERT INTO USUARIO (NOMBRE, CONTRASEÑA, SEDE, PRIVILEGIOS, IDAGENTE, MAIL) SELECT 'ELENA ALONSO', '1234567890', 'INER EUSKADI', 'COMERCIAL', 10, 'e.alonso@inerenergia.es' WHERE NOT EXISTS(SELECT * FROM USUARIO WHERE NOMBRE = 'ELENA ALONSO')",
-                    "INSERT INTO USUARIO (NOMBRE, CONTRASEÑA, SEDE, PRIVILEGIOS, IDAGENTE, MAIL) SELECT 'JOSEBA ETXEBERRIA', 'JOSEBA', 'INER EUSKADI', 'COMERCIAL', 11, 'jooseba66608@gmail.com' WHERE NOT EXISTS(SELECT * FROM USUARIO WHERE NOMBRE = 'JOSEBA ETXEBERRIA')",
-                    "INSERT INTO USUARIO (NOMBRE, CONTRASEÑA, SEDE, PRIVILEGIOS, IDAGENTE, MAIL) SELECT 'OIHAN IRURIETA', '1234567890', 'INER EUSKADI', 'COMERCIAL', 13, 'contratacioneuskadi@inerenergia.es' WHERE NOT EXISTS(SELECT * FROM USUARIO WHERE NOMBRE = 'OIHAN IRURIETA')",
-                    "INSERT INTO USUARIO (NOMBRE, CONTRASEÑA, SEDE, PRIVILEGIOS, IDAGENTE, MAIL) SELECT 'MAITE IRASTORZA', '1234567890', 'INER EUSKADI', 'COMERCIAL', 14, 'iras.maite@gmail.com' WHERE NOT EXISTS(SELECT * FROM USUARIO WHERE NOMBRE = 'MAITE IRASTORZA')",
-                    "INSERT INTO USUARIO (NOMBRE, CONTRASEÑA, SEDE, PRIVILEGIOS, IDAGENTE, MAIL) SELECT 'INNOLUX', '1234567890', 'INER EUSKADI', 'COMERCIAL', 15, 'info@innolux.es' WHERE NOT EXISTS(SELECT * FROM USUARIO WHERE NOMBRE = 'INNOLUX')",
-                    "INSERT INTO USUARIO (NOMBRE, CONTRASEÑA, SEDE, PRIVILEGIOS, IDAGENTE, MAIL) SELECT 'EDUARDO ALBA', '1234567890', 'INER EUSKADI', 'COMERCIAL', 16, 'edualbaelias@yahoo.es' WHERE NOT EXISTS(SELECT * FROM USUARIO WHERE NOMBRE = 'EDUARDO ALBA')",
-                    "INSERT INTO USUARIO (NOMBRE, CONTRASEÑA, SEDE, PRIVILEGIOS, IDAGENTE, MAIL) SELECT 'OLIVER ADRIAN', '1234567890', 'INER EUSKADI', 'COMERCIAL', 17, 'oadrian1980@gmail.com' WHERE NOT EXISTS(SELECT * FROM USUARIO WHERE NOMBRE = 'OLIVER ADRIAN')",
-                    "INSERT INTO USUARIO (NOMBRE, CONTRASEÑA, SEDE, PRIVILEGIOS, IDAGENTE, MAIL) SELECT 'MANUEL ALBERTO GARCIA', '1234567890', 'INER EUSKADI', 'COMERCIAL', 18, 'energiagestiones245@gmail.com' WHERE NOT EXISTS(SELECT * FROM USUARIO WHERE NOMBRE = 'MANUEL ALBERTO GARCIA')",
-                    "INSERT INTO USUARIO (NOMBRE, CONTRASEÑA, SEDE, PRIVILEGIOS, IDAGENTE, MAIL) SELECT 'PATRICIA MADRID', '1234567890', 'INER EUSKADI', 'COMERCIAL', 20, 'asesoriaenergeticavillarino@gmail.com' WHERE NOT EXISTS(SELECT * FROM USUARIO WHERE NOMBRE = 'PATRICIA MADRID')",
-                    "INSERT INTO USUARIO (NOMBRE, CONTRASEÑA, SEDE, PRIVILEGIOS, IDAGENTE, MAIL) SELECT 'NORA LEGORBURU', '1234567890', 'INER EUSKADI', 'COMERCIAL', 21, 'contratacioneuskadi@inerenergia.es' WHERE NOT EXISTS(SELECT * FROM USUARIO WHERE NOMBRE = 'NORA LEGORBURU')",
-                    "INSERT INTO USUARIO (NOMBRE, CONTRASEÑA, SEDE, PRIVILEGIOS, IDAGENTE, MAIL) SELECT 'EDURNE BARTOLOME', '1234567890', 'INER EUSKADI', 'COMERCIAL', 22, 'contratacioneuskadi@inerenergia.es' WHERE NOT EXISTS(SELECT * FROM USUARIO WHERE NOMBRE = 'EDURNE BARTOLOME')",
-                    "INSERT INTO USUARIO (NOMBRE, CONTRASEÑA, SEDE, PRIVILEGIOS, IDAGENTE, MAIL) SELECT 'VALORIZACIONES ENERGETICAS SL', '1234567890', 'INER EUSKADI', 'COMERCIAL', 23, 'contratacioneuskadi@inerenergia.es' WHERE NOT EXISTS(SELECT * FROM USUARIO WHERE NOMBRE = 'VALORIZACIONES ENERGETICAS SL')",
-                    "INSERT INTO USUARIO (NOMBRE, CONTRASEÑA, SEDE, PRIVILEGIOS, IDAGENTE, MAIL) SELECT 'IVAN LOPEZ', 'IVANLOPEZ', 'INER EUSKADI', 'ADMIN', 1, 'contratacioneuskadi@inerenergia.es' WHERE NOT EXISTS(SELECT * FROM USUARIO WHERE NOMBRE = 'IVAN LOPEZ')",
-                    "INSERT INTO USUARIO (NOMBRE, CONTRASEÑA, SEDE, PRIVILEGIOS, IDAGENTE, MAIL) SELECT 'JOSE CASAS', 'JCASAS', 'INER EUSKADI', 'ADMIN', 1, 'contratacioneuskadi@inerenergia.es' WHERE NOT EXISTS(SELECT * FROM USUARIO WHERE NOMBRE = 'JOSE CASAS')",
-                    "INSERT INTO USUARIO (NOMBRE, CONTRASEÑA, SEDE, PRIVILEGIOS, IDAGENTE, MAIL) SELECT 'RAMON BAGLIETTO', 'RBAGLIETTO', 'INER EUSKADI', 'ADMIN', 1, 'gerenciaeuskadi@inerenergia.es' WHERE NOT EXISTS(SELECT * FROM USUARIO WHERE NOMBRE = 'RAMON BAGLIETTO')",
-                    "INSERT INTO USUARIO (NOMBRE, CONTRASEÑA, SEDE, PRIVILEGIOS, IDAGENTE, MAIL) SELECT 'SERGIO BAGLIETTO', 'SBAGLIETTO', 'INER EUSKADI', 'ADMIN', 1, 'contratacioneuskadi@inerenergia.es' WHERE NOT EXISTS(SELECT * FROM USUARIO WHERE NOMBRE = 'SERGIO BAGLIETTO')",
-                    "INSERT INTO USUARIO (NOMBRE, CONTRASEÑA, SEDE, PRIVILEGIOS, IDAGENTE, MAIL) SELECT 'SERGIO LUHIA', 'SLUHIA', 'INER EUSKADI', 'ADMIN', 1, 'programacion@inerenergia.es' WHERE NOT EXISTS(SELECT * FROM USUARIO WHERE NOMBRE = 'SERGIO LUHIA')",
-                    "INSERT INTO USUARIO (NOMBRE, CONTRASEÑA, SEDE, PRIVILEGIOS, IDAGENTE, MAIL) SELECT 'OSCAR CID GIL', 'OSCARCID', 'INER EUSKADI', 'NOMINA', 4, 'oscarcgeuskadi@inerenergia.es' WHERE NOT EXISTS(SELECT * FROM USUARIO WHERE NOMBRE = 'OSCAR CID GIL')",
-                    "INSERT INTO USUARIO (NOMBRE, CONTRASEÑA, SEDE, PRIVILEGIOS, IDAGENTE, MAIL) SELECT 'ADMINEUS', 'ADMINEUS', 'INER EUSKADI', 'ADMIN', 1, 'contratacioneuskadi@inerenergia.es' WHERE NOT EXISTS(SELECT * FROM USUARIO WHERE NOMBRE = 'ADMINEUS')",
-                    "INSERT INTO USUARIO (NOMBRE, CONTRASEÑA, SEDE, PRIVILEGIOS, IDAGENTE, MAIL) SELECT 'ADMIN', 'ADMIN', 'INER CASTILLA', 'ADMIN', 0, 'contratacioneuskadi@inerenergia.es' WHERE NOT EXISTS(SELECT * FROM USUARIO WHERE NOMBRE = 'ADMIN')",
-                    "INSERT INTO USUARIO (NOMBRE, CONTRASEÑA, SEDE, PRIVILEGIOS, IDAGENTE, MAIL) SELECT 'INERCASTILLA', 'INER', 'INER CASTILLA', 'OFICINA', 24, 'contratacioneuskadi@inerenergia.es' WHERE NOT EXISTS(SELECT * FROM USUARIO WHERE NOMBRE = 'INERCASTILLA')",
-                    "INSERT INTO USUARIO (NOMBRE, CONTRASEÑA, SEDE, PRIVILEGIOS, IDAGENTE, MAIL) SELECT 'INEREUSKADI', 'INER', 'INER EUSKADI', 'OFICINA', 0, 'contratacioneuskadi@inerenergia.es' WHERE NOT EXISTS(SELECT * FROM USUARIO WHERE NOMBRE = 'INEREUSKADI')",
-                    "INSERT INTO USUARIO (NOMBRE, CONTRASEÑA, SEDE, PRIVILEGIOS, IDAGENTE, MAIL) SELECT 'JESUS PEINADO', 'JESUSPEINADO', 'INER EUSKADI', 'OFICINA', 28, 'contratacioneuskadi@inerenergia.es' WHERE NOT EXISTS(SELECT * FROM USUARIO WHERE NOMBRE = 'JESUS PEINADO')",
-                    "INSERT INTO USUARIO (NOMBRE, CONTRASEÑA, SEDE, PRIVILEGIOS, IDAGENTE, MAIL) SELECT 'comercial', 'comercial', 'INER EUSKADI', 'COMERCIAL', 0, 'contratacioneuskadi@inerenergia.es' WHERE NOT EXISTS(SELECT * FROM USUARIO WHERE NOMBRE = 'comercial')",
-                    "INSERT INTO USUARIO (NOMBRE, CONTRASEÑA, SEDE, PRIVILEGIOS, IDAGENTE, MAIL) SELECT 'PEDRO MERINO', 'PEDRO', 'INER EUSKADI', 'COMERCIAL', 12, 'deluxespecialista@gmail.com' WHERE NOT EXISTS(SELECT * FROM USUARIO WHERE NOMBRE = 'PEDRO MERINO')",
-                    "INSERT INTO USUARIO (NOMBRE, CONTRASEÑA, SEDE, PRIVILEGIOS, IDAGENTE, MAIL) SELECT 'ARGIEDER. S.L.', 'ARGIEDER', 'INER EUSKADI', 'COMERCIAL', 27, 'janire@argieder.es' WHERE NOT EXISTS(SELECT * FROM USUARIO WHERE NOMBRE = 'ARGIEDER. S.L.')",
-                    "INSERT INTO USUARIO (NOMBRE, CONTRASEÑA, SEDE, PRIVILEGIOS, IDAGENTE, MAIL) SELECT 'JOSEBENITO', 'JOSEBENITO', 'INER EUSKADI', 'COMERCIAL', 0, 'jobeotsl@gmail.com' WHERE NOT EXISTS(SELECT * FROM USUARIO WHERE NOMBRE = 'JOSEBENITO')",
-                    "INSERT INTO USUARIO (NOMBRE, CONTRASEÑA, SEDE, PRIVILEGIOS, IDAGENTE, MAIL) SELECT 'ELENA', 'ELENA', 'INER EUSKADI', 'COMERCIAL', 0, 'contratacioneuskadi@inerenergia.es' WHERE NOT EXISTS(SELECT * FROM USUARIO WHERE NOMBRE = 'ELENA')",
-                    "INSERT INTO USUARIO (NOMBRE, CONTRASEÑA, SEDE, PRIVILEGIOS, IDAGENTE, MAIL) SELECT 'JAIME', 'JAIME', 'INER EUSKADI', 'COMERCIAL', 0, 'contratacioneuskadi@inerenergia.es' WHERE NOT EXISTS(SELECT * FROM USUARIO WHERE NOMBRE = 'JAIME')",
-                    "INSERT INTO USUARIO (NOMBRE, CONTRASEÑA, SEDE, PRIVILEGIOS, IDAGENTE, MAIL) SELECT 'XABIER EIZAGIRRE', 'XABIER', 'INER EUSKADI', 'NOMINA', 26, 'xeizagirre.euskadi@inerenergia.es' WHERE NOT EXISTS(SELECT * FROM USUARIO WHERE NOMBRE = 'XABIER EIZAGIRRE')",
-                    "INSERT INTO USUARIO (NOMBRE, CONTRASEÑA, SEDE, PRIVILEGIOS, IDAGENTE, MAIL) SELECT 'VICTOR BALZATEGUI', 'VICTORBALZATEGUI', 'INER EUSKADI', 'COMERCIAL', 19, 'victorbal1953@gmail.com' WHERE NOT EXISTS(SELECT * FROM USUARIO WHERE NOMBRE = 'VICTOR BALZATEGUI')",
-                    "INSERT INTO USUARIO (NOMBRE, CONTRASEÑA, SEDE, PRIVILEGIOS, IDAGENTE, MAIL) SELECT 'JOSE FRANCISCO RAMON FRESNEDA', 'FRESNEDA', 'INER EUSKADI', 'COMERCIAL', 25, 'energiagestcom@gmail.com' WHERE NOT EXISTS(SELECT * FROM USUARIO WHERE NOMBRE = 'JOSE FRANCISCO RAMON FRESNEDA')",
-                    "INSERT INTO USUARIO (NOMBRE, CONTRASEÑA, SEDE, PRIVILEGIOS, IDAGENTE, MAIL) SELECT 'FOTON ASESORES SOCIEDAD LIMITADA', 'FASESORES', 'INER CASTILLA', 'COMERCIAL', 356, 'fasesoreslimitada@gmail.com' WHERE NOT EXISTS(SELECT * FROM USUARIO WHERE NOMBRE = 'FOTON ASESORES SOCIEDAD LIMITADA')",
-                    "INSERT INTO USUARIO (NOMBRE, CONTRASEÑA, SEDE, PRIVILEGIOS, IDAGENTE, MAIL) SELECT 'DAVID', '1234', 'INER EUSKADI', 'ADMIN', 5, 'david.r.g.12.5.99@gmail.com' WHERE NOT EXISTS(SELECT * FROM USUARIO WHERE NOMBRE = 'DAVID')",
-                    "INSERT INTO USUARIO (NOMBRE, CONTRASEÑA, SEDE, PRIVILEGIOS, IDAGENTE, MAIL) SELECT 'LOPEZ', '1234', 'INER EUSKADI', 'ADMIN', 2, 'ilopez@inerenergia.es' WHERE NOT EXISTS(SELECT * FROM USUARIO WHERE NOMBRE = 'LOPEZ')"
-            };
-
-            for (String insert : usuario) {
-                System.out.println(insert);
-                db.execSQL(insert);
-            }
-        }
-        //endregion
+        actualizaDB();
 
         //region btnIniciar
         // TODO En caso de que se haga click en el boton de inicio de sesion revisara si los campos estan vacios
         iniciar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                db.execSQL("UPDATE USUARIO SET LOGUEADO = 0");
+                actualizaUsuario();
                 if (usuario.length() > 0 && contraseña.length() > 0) {
-                    String consulta = "SELECT * FROM USUARIO WHERE LOWER(NOMBRE) = '" + usuario.getText().toString().toLowerCase() + "' AND CONTRASEÑA = '" + contraseña.getText().toString() + "'";
-                    Cursor c;
-                    System.out.println(consulta);
-                    c = db.rawQuery(consulta, null);
-                    if (c.moveToFirst()) {
-                        db.execSQL("UPDATE USUARIO SET LOGUEADO = 1 WHERE NOMBRE = '" + usuario.getText().toString() + "'");
-                        importarDatos();
-                        Intent intento = new Intent(LoginActivity.this, MainActivity.class);
-                        startActivity(intento);
-                        //db.close();
-                        finish();
-                    } else {
-                        Toast.makeText(getApplicationContext(), "No existe ese usuario con esa contraseña", Toast.LENGTH_SHORT).show();
-                    }
+                    buscaDB();
                 } else {
                     Toast.makeText(getApplicationContext(), "Rellena los campos", Toast.LENGTH_SHORT).show();
                 }
@@ -216,11 +132,9 @@ public class LoginActivity extends AppCompatActivity implements Pin.PinDialogLis
             public void onClick(View v) {
                 isPasswordVisible = !isPasswordVisible;
                 if (isPasswordVisible) {
-                    contraseña.setTransformationMethod(null);// Mostrar contraseña
-                    mostrar.setImageResource(R.drawable.ojo__1_);//Cambiar de imagen
+                    muestra();
                 } else {
-                    contraseña.setTransformationMethod(new PasswordTransformationMethod()); //Ocultar contraseña
-                    mostrar.setImageResource(R.drawable.ojo);
+                    oculta();
                 }
             }
         });
@@ -233,8 +147,7 @@ public class LoginActivity extends AppCompatActivity implements Pin.PinDialogLis
                     Guardar();
                     Toast.makeText(LoginActivity.this, "Se recordaran los datos insertados", Toast.LENGTH_SHORT).show();
                 } else {
-                    usuario.setText("");
-                    contraseña.setText("");
+                    Vaciar();
                     Guardar();
                     Toast.makeText(LoginActivity.this, "No se guardaran los datos insertados", Toast.LENGTH_SHORT).show();
                 }
@@ -272,7 +185,6 @@ public class LoginActivity extends AppCompatActivity implements Pin.PinDialogLis
 
     /**
      * Mediante este metodo se cargan los datos guardados previamente con el Objeto SharedPreferences
-     *
      * @param prefs este es el objeto utilizado para poder cargar los datos
      */
     public void Cargar(SharedPreferences prefs) {
@@ -281,6 +193,31 @@ public class LoginActivity extends AppCompatActivity implements Pin.PinDialogLis
         recordar.setChecked(prefs.getBoolean("isChecked", false));
         usuario.setText(prefs.getString("usuario", ""));
         contraseña.setText(prefs.getString("contraseña", ""));
+    }
+
+    /**
+     * Este metodo vacia los campos de texto de la actividad
+     */
+    public void Vaciar(){
+        usuario.setText("");
+        contraseña.setText("");
+    }
+    //endregion
+    //region Mostrado
+
+    /**
+     * Mediante este metodo se muestras los campos de las contraseñas
+     */
+    public void muestra(){
+        contraseña.setTransformationMethod(null);// Mostrar contraseña
+        mostrar.setImageResource(R.drawable.ojo__1_);//Cambiar de imagen
+    }
+    /**
+     * Mediante este metodo se ocultan los campos de las contraseñas
+     */
+    public void oculta(){
+        contraseña.setTransformationMethod(new PasswordTransformationMethod()); //Ocultar contraseña
+        mostrar.setImageResource(R.drawable.ojo);
     }
     //endregion
     //region Pin
@@ -373,6 +310,16 @@ public class LoginActivity extends AppCompatActivity implements Pin.PinDialogLis
         return xml;
     }
 
+
+
+    //endregion
+    //region ActividadLanzada
+
+    /**
+     * Verifica de que la base de datos este vacio o no
+     * @param tabla
+     * @return
+     */
     public boolean verifyEmpty(String tabla) {
         boolean vacio = false;
         String sql = "SELECT * FROM " + tabla;
@@ -385,6 +332,109 @@ public class LoginActivity extends AppCompatActivity implements Pin.PinDialogLis
         return vacio;
     }
 
+    /**
+     * Metodo para poder lanza avanzar a la siguiente actividad guardando ciertos datos
+     */
+    public void siguienteActividad(){
+        Intent intento = new Intent(LoginActivity.this, MainActivity.class);
+        startActivity(intento);
+        //db.close();
+        finish();
+    }
+    //endregion
+    //region ModificaDB
+
+    public void actualizaUsuario(){
+        db.execSQL("UPDATE USUARIO SET LOGUEADO = 0");
+    }
+    /**
+     * Mediante este metodo se insertan todos y cada uno de los usuarios en la base de datos interna de la aplicación
+     */
+    public void actualizaDB(){
+        //db.execSQL("INSERT INTO USUARIOS (IDUSUARIO,NOMBRE,CONTRASEÑA,SEDE,PRIVILEGIOS,IDAGENTE,MAIL) VALUES("+idusuario+",'"+nombre+"','"+contra+"','"+sede+"','"+privilegios+"',"+idagente+","+mail+")");
+
+        //SQLiteDatabase db = new DataBaseOpenHelper(getApplicationContext()).getReadableDatabase();
+        if (db != null) {
+            final String usuario[] = {
+                    "INSERT INTO USUARIO (NOMBRE, CONTRASEÑA, SEDE, PRIVILEGIOS, IDAGENTE, MAIL) SELECT 'JUAN', '1234','INER EUSKADI','ADMIN',5,'jperez@inereus.com' WHERE NOT EXISTS(SELECT * FROM USUARIO WHERE NOMBRE = 'JUAN')",
+                    "INSERT INTO USUARIO (NOMBRE, CONTRASEÑA, SEDE, PRIVILEGIOS, IDAGENTE, MAIL) SELECT 'UNAI URRUTIA', 'UNAIURRUTIA', 'INER EUSKADI',  'COMERCIAL', 29, 'unaiurrutia4626@gmail.com' WHERE NOT EXISTS(SELECT * FROM USUARIO WHERE NOMBRE = 'UNAI URRUTIA')",
+                    "INSERT INTO USUARIO (NOMBRE, CONTRASEÑA, SEDE, PRIVILEGIOS, IDAGENTE, MAIL) SELECT 'LUR GORRI BARAÑAIN GESTION SLU', '1234567890', 'INER EUSKADI',  'COMERCIAL', 0, 'plizarraga@lurgorriasesores.es' WHERE NOT EXISTS(SELECT * FROM USUARIO WHERE NOMBRE = 'LUR GORRI BARAÑAIN GESTION SLU')",
+                    "INSERT INTO USUARIO (NOMBRE, CONTRASEÑA, SEDE, PRIVILEGIOS, IDAGENTE, MAIL) SELECT 'GRUPO GONCLA ENERGIA SOLUCIONES SLU', '12345', 'INER EUSKADI', 'COMERCIAL', 0, 'gonclaenergiasoluciones@gmail.com' WHERE NOT EXISTS(SELECT * FROM USUARIO WHERE NOMBRE = 'GRUPO GONCLA ENERGIA SOLUCIONES SLU')",
+                    "INSERT INTO USUARIO (NOMBRE, CONTRASEÑA, SEDE, PRIVILEGIOS, IDAGENTE, MAIL) SELECT 'EKON SOLUCIONES', '1234567890', 'INER EUSKADI',  'COMERCIAL', 30, 'alex@ekonsoluciones.com' WHERE NOT EXISTS(SELECT * FROM USUARIO WHERE NOMBRE = 'EKON SOLUCIONES')",
+                    "INSERT INTO USUARIO (NOMBRE, CONTRASEÑA, SEDE, PRIVILEGIOS, IDAGENTE, MAIL) SELECT 'AJ ASESORES', '1234567890', 'INER EUSKADI', 'COMERCIAL', 0, 'javier@ajasesores.com' WHERE NOT EXISTS(SELECT * FROM USUARIO WHERE NOMBRE = 'AJ ASESORES')",
+                    "INSERT INTO USUARIO (NOMBRE, CONTRASEÑA, SEDE, PRIVILEGIOS, IDAGENTE, MAIL) SELECT 'JAIME GARCIA-CALZADA VILLAR', '1234567890', 'INER EUSKADI', 'COMERCIAL', 32, 'jaimevillargarciacalzada@gmail.com' WHERE NOT EXISTS(SELECT * FROM USUARIO WHERE NOMBRE = 'JAIME GARCIA-CALZADA VILLAR')",
+                    "INSERT INTO USUARIO (NOMBRE, CONTRASEÑA, SEDE, PRIVILEGIOS, IDAGENTE, MAIL) SELECT 'PATRICIA GARCIA SOLLA', 'PGSOLLA', 'INER EUSKADI', 'COMERCIAL', 33, 'patriciaa.dlife@hotmail.com' WHERE NOT EXISTS(SELECT * FROM USUARIO WHERE NOMBRE = 'PATRICIA GARCIA SOLLA')",
+                    "INSERT INTO USUARIO (NOMBRE, CONTRASEÑA, SEDE, PRIVILEGIOS, IDAGENTE, MAIL) SELECT 'ANTXON SAGASTUME LARRAÑAGA', '1234567890', 'INER EUSKADI', 'COMERCIAL', 34, 'sagastume@vascastec.com' WHERE NOT EXISTS(SELECT * FROM USUARIO WHERE NOMBRE = 'ANTXON SAGASTUME LARRAÑAGA')",
+                    "INSERT INTO USUARIO (NOMBRE, CONTRASEÑA, SEDE, PRIVILEGIOS, IDAGENTE, MAIL) SELECT 'OSCISA', '1234567890', 'INER EUSKADI', 'COMERCIAL', 35, 'yolanda@oscisa.es' WHERE NOT EXISTS(SELECT * FROM USUARIO WHERE NOMBRE = 'OSCISA')",
+                    "INSERT INTO USUARIO (NOMBRE, CONTRASEÑA, SEDE, PRIVILEGIOS, IDAGENTE, MAIL) SELECT 'JUAN IGNACIO AGUIRRE URIA', '1234567890', 'INER EUSKADI', 'COMERCIAL', 36, 'ji.agirre@gmail.com' WHERE NOT EXISTS(SELECT * FROM USUARIO WHERE NOMBRE = 'JUAN IGNACIO AGUIRRE URIA')",
+                    "INSERT INTO USUARIO (NOMBRE, CONTRASEÑA, SEDE, PRIVILEGIOS, IDAGENTE, MAIL) SELECT 'ALFER ENERGIA SL', '1234567890', 'INER EUSKADI', 'COMERCIAL', 37, 'fernando.diaz@grupoalfer.es' WHERE NOT EXISTS(SELECT * FROM USUARIO WHERE NOMBRE = 'ALFER ENERGIA SL')",
+                    "INSERT INTO USUARIO (NOMBRE, CONTRASEÑA, SEDE, PRIVILEGIOS, IDAGENTE, MAIL) SELECT 'ALBERTO OSCISA', '1234567890', 'INER EUSKADI', 'COMERCIAL', 38, 'contratacioneuskadi@inerenergia.es' WHERE NOT EXISTS(SELECT * FROM USUARIO WHERE NOMBRE = 'ALBERTO OSCISA')",
+                    "INSERT INTO USUARIO (NOMBRE, CONTRASEÑA, SEDE, PRIVILEGIOS, IDAGENTE, MAIL) SELECT 'TEIBA SOLUCIONES ENERGETICAS', '1234567890', 'INER EUSKADI', 'COMERCIAL', 40, 'solucionesteiba@gmail.com' WHERE NOT EXISTS(SELECT * FROM USUARIO WHERE NOMBRE = 'TEIBA SOLUCIONES ENERGETICAS')",
+                    "INSERT INTO USUARIO (NOMBRE, CONTRASEÑA, SEDE, PRIVILEGIOS, IDAGENTE, MAIL) SELECT 'JOSE MANUEL GRAU', '1234567890', 'INER CASTILLA', 'COMERCIAL', 0, 'josegrau999@gmail.com' WHERE NOT EXISTS(SELECT * FROM USUARIO WHERE NOMBRE = 'JOSE MANUEL GRAU')",
+                    "INSERT INTO USUARIO (NOMBRE, CONTRASEÑA, SEDE, PRIVILEGIOS, IDAGENTE, MAIL) SELECT 'JAB ENERGIA', '1234567890', 'INER EUSKADI', 'COMERCIAL', 6, 'jobeotsl@gmail.com' WHERE NOT EXISTS(SELECT * FROM USUARIO WHERE NOMBRE = 'JAB ENERGIA')",
+                    "INSERT INTO USUARIO (NOMBRE, CONTRASEÑA, SEDE, PRIVILEGIOS, IDAGENTE, MAIL) SELECT 'EDURNE ARRIETA', '1234567890', 'INER EUSKADI', 'COMERCIAL', 7, 'edurnearrieta@gmail.com' WHERE NOT EXISTS(SELECT * FROM USUARIO WHERE NOMBRE = 'EDURNE ARRIETA')",
+                    "INSERT INTO USUARIO (NOMBRE, CONTRASEÑA, SEDE, PRIVILEGIOS, IDAGENTE, MAIL) SELECT 'JAIME HERNANDEZ CALDERERO', 'JCALDERERO', 'INER EUSKADI',  'COMERCIAL', 8, 'jhcalderero@gmail.com' WHERE NOT EXISTS(SELECT * FROM USUARIO WHERE NOMBRE = 'JAIME HERNANDEZ CALDERERO')",
+                    "INSERT INTO USUARIO (NOMBRE, CONTRASEÑA, SEDE, PRIVILEGIOS, IDAGENTE, MAIL) SELECT 'JAVIER CARRERA', '1234567890', 'INER EUSKADI', 'COMERCIAL', 9, 'jjcc60@hotmail.es' WHERE NOT EXISTS(SELECT * FROM USUARIO WHERE NOMBRE = 'JAVIER CARRERA')",
+                    "INSERT INTO USUARIO (NOMBRE, CONTRASEÑA, SEDE, PRIVILEGIOS, IDAGENTE, MAIL) SELECT 'ELENA ALONSO', '1234567890', 'INER EUSKADI', 'COMERCIAL', 10, 'e.alonso@inerenergia.es' WHERE NOT EXISTS(SELECT * FROM USUARIO WHERE NOMBRE = 'ELENA ALONSO')",
+                    "INSERT INTO USUARIO (NOMBRE, CONTRASEÑA, SEDE, PRIVILEGIOS, IDAGENTE, MAIL) SELECT 'JOSEBA ETXEBERRIA', 'JOSEBA', 'INER EUSKADI', 'COMERCIAL', 11, 'jooseba66608@gmail.com' WHERE NOT EXISTS(SELECT * FROM USUARIO WHERE NOMBRE = 'JOSEBA ETXEBERRIA')",
+                    "INSERT INTO USUARIO (NOMBRE, CONTRASEÑA, SEDE, PRIVILEGIOS, IDAGENTE, MAIL) SELECT 'OIHAN IRURIETA', '1234567890', 'INER EUSKADI', 'COMERCIAL', 13, 'contratacioneuskadi@inerenergia.es' WHERE NOT EXISTS(SELECT * FROM USUARIO WHERE NOMBRE = 'OIHAN IRURIETA')",
+                    "INSERT INTO USUARIO (NOMBRE, CONTRASEÑA, SEDE, PRIVILEGIOS, IDAGENTE, MAIL) SELECT 'MAITE IRASTORZA', '1234567890', 'INER EUSKADI', 'COMERCIAL', 14, 'iras.maite@gmail.com' WHERE NOT EXISTS(SELECT * FROM USUARIO WHERE NOMBRE = 'MAITE IRASTORZA')",
+                    "INSERT INTO USUARIO (NOMBRE, CONTRASEÑA, SEDE, PRIVILEGIOS, IDAGENTE, MAIL) SELECT 'INNOLUX', '1234567890', 'INER EUSKADI', 'COMERCIAL', 15, 'info@innolux.es' WHERE NOT EXISTS(SELECT * FROM USUARIO WHERE NOMBRE = 'INNOLUX')",
+                    "INSERT INTO USUARIO (NOMBRE, CONTRASEÑA, SEDE, PRIVILEGIOS, IDAGENTE, MAIL) SELECT 'EDUARDO ALBA', '1234567890', 'INER EUSKADI', 'COMERCIAL', 16, 'edualbaelias@yahoo.es' WHERE NOT EXISTS(SELECT * FROM USUARIO WHERE NOMBRE = 'EDUARDO ALBA')",
+                    "INSERT INTO USUARIO (NOMBRE, CONTRASEÑA, SEDE, PRIVILEGIOS, IDAGENTE, MAIL) SELECT 'OLIVER ADRIAN', '1234567890', 'INER EUSKADI', 'COMERCIAL', 17, 'oadrian1980@gmail.com' WHERE NOT EXISTS(SELECT * FROM USUARIO WHERE NOMBRE = 'OLIVER ADRIAN')",
+                    "INSERT INTO USUARIO (NOMBRE, CONTRASEÑA, SEDE, PRIVILEGIOS, IDAGENTE, MAIL) SELECT 'MANUEL ALBERTO GARCIA', '1234567890', 'INER EUSKADI', 'COMERCIAL', 18, 'energiagestiones245@gmail.com' WHERE NOT EXISTS(SELECT * FROM USUARIO WHERE NOMBRE = 'MANUEL ALBERTO GARCIA')",
+                    "INSERT INTO USUARIO (NOMBRE, CONTRASEÑA, SEDE, PRIVILEGIOS, IDAGENTE, MAIL) SELECT 'PATRICIA MADRID', '1234567890', 'INER EUSKADI', 'COMERCIAL', 20, 'asesoriaenergeticavillarino@gmail.com' WHERE NOT EXISTS(SELECT * FROM USUARIO WHERE NOMBRE = 'PATRICIA MADRID')",
+                    "INSERT INTO USUARIO (NOMBRE, CONTRASEÑA, SEDE, PRIVILEGIOS, IDAGENTE, MAIL) SELECT 'NORA LEGORBURU', '1234567890', 'INER EUSKADI', 'COMERCIAL', 21, 'contratacioneuskadi@inerenergia.es' WHERE NOT EXISTS(SELECT * FROM USUARIO WHERE NOMBRE = 'NORA LEGORBURU')",
+                    "INSERT INTO USUARIO (NOMBRE, CONTRASEÑA, SEDE, PRIVILEGIOS, IDAGENTE, MAIL) SELECT 'EDURNE BARTOLOME', '1234567890', 'INER EUSKADI', 'COMERCIAL', 22, 'contratacioneuskadi@inerenergia.es' WHERE NOT EXISTS(SELECT * FROM USUARIO WHERE NOMBRE = 'EDURNE BARTOLOME')",
+                    "INSERT INTO USUARIO (NOMBRE, CONTRASEÑA, SEDE, PRIVILEGIOS, IDAGENTE, MAIL) SELECT 'VALORIZACIONES ENERGETICAS SL', '1234567890', 'INER EUSKADI', 'COMERCIAL', 23, 'contratacioneuskadi@inerenergia.es' WHERE NOT EXISTS(SELECT * FROM USUARIO WHERE NOMBRE = 'VALORIZACIONES ENERGETICAS SL')",
+                    "INSERT INTO USUARIO (NOMBRE, CONTRASEÑA, SEDE, PRIVILEGIOS, IDAGENTE, MAIL) SELECT 'IVAN LOPEZ', 'IVANLOPEZ', 'INER EUSKADI', 'ADMIN', 1, 'contratacioneuskadi@inerenergia.es' WHERE NOT EXISTS(SELECT * FROM USUARIO WHERE NOMBRE = 'IVAN LOPEZ')",
+                    "INSERT INTO USUARIO (NOMBRE, CONTRASEÑA, SEDE, PRIVILEGIOS, IDAGENTE, MAIL) SELECT 'JOSE CASAS', 'JCASAS', 'INER EUSKADI', 'ADMIN', 1, 'contratacioneuskadi@inerenergia.es' WHERE NOT EXISTS(SELECT * FROM USUARIO WHERE NOMBRE = 'JOSE CASAS')",
+                    "INSERT INTO USUARIO (NOMBRE, CONTRASEÑA, SEDE, PRIVILEGIOS, IDAGENTE, MAIL) SELECT 'RAMON BAGLIETTO', 'RBAGLIETTO', 'INER EUSKADI', 'ADMIN', 1, 'gerenciaeuskadi@inerenergia.es' WHERE NOT EXISTS(SELECT * FROM USUARIO WHERE NOMBRE = 'RAMON BAGLIETTO')",
+                    "INSERT INTO USUARIO (NOMBRE, CONTRASEÑA, SEDE, PRIVILEGIOS, IDAGENTE, MAIL) SELECT 'SERGIO BAGLIETTO', 'SBAGLIETTO', 'INER EUSKADI', 'ADMIN', 1, 'contratacioneuskadi@inerenergia.es' WHERE NOT EXISTS(SELECT * FROM USUARIO WHERE NOMBRE = 'SERGIO BAGLIETTO')",
+                    "INSERT INTO USUARIO (NOMBRE, CONTRASEÑA, SEDE, PRIVILEGIOS, IDAGENTE, MAIL) SELECT 'SERGIO LUHIA', 'SLUHIA', 'INER EUSKADI', 'ADMIN', 1, 'programacion@inerenergia.es' WHERE NOT EXISTS(SELECT * FROM USUARIO WHERE NOMBRE = 'SERGIO LUHIA')",
+                    "INSERT INTO USUARIO (NOMBRE, CONTRASEÑA, SEDE, PRIVILEGIOS, IDAGENTE, MAIL) SELECT 'OSCAR CID GIL', 'OSCARCID', 'INER EUSKADI', 'NOMINA', 4, 'oscarcgeuskadi@inerenergia.es' WHERE NOT EXISTS(SELECT * FROM USUARIO WHERE NOMBRE = 'OSCAR CID GIL')",
+                    "INSERT INTO USUARIO (NOMBRE, CONTRASEÑA, SEDE, PRIVILEGIOS, IDAGENTE, MAIL) SELECT 'ADMINEUS', 'ADMINEUS', 'INER EUSKADI', 'ADMIN', 1, 'contratacioneuskadi@inerenergia.es' WHERE NOT EXISTS(SELECT * FROM USUARIO WHERE NOMBRE = 'ADMINEUS')",
+                    "INSERT INTO USUARIO (NOMBRE, CONTRASEÑA, SEDE, PRIVILEGIOS, IDAGENTE, MAIL) SELECT 'ADMIN', 'ADMIN', 'INER CASTILLA', 'ADMIN', 0, 'contratacioneuskadi@inerenergia.es' WHERE NOT EXISTS(SELECT * FROM USUARIO WHERE NOMBRE = 'ADMIN')",
+                    "INSERT INTO USUARIO (NOMBRE, CONTRASEÑA, SEDE, PRIVILEGIOS, IDAGENTE, MAIL) SELECT 'INERCASTILLA', 'INER', 'INER CASTILLA', 'OFICINA', 24, 'contratacioneuskadi@inerenergia.es' WHERE NOT EXISTS(SELECT * FROM USUARIO WHERE NOMBRE = 'INERCASTILLA')",
+                    "INSERT INTO USUARIO (NOMBRE, CONTRASEÑA, SEDE, PRIVILEGIOS, IDAGENTE, MAIL) SELECT 'INEREUSKADI', 'INER', 'INER EUSKADI', 'OFICINA', 0, 'contratacioneuskadi@inerenergia.es' WHERE NOT EXISTS(SELECT * FROM USUARIO WHERE NOMBRE = 'INEREUSKADI')",
+                    "INSERT INTO USUARIO (NOMBRE, CONTRASEÑA, SEDE, PRIVILEGIOS, IDAGENTE, MAIL) SELECT 'JESUS PEINADO', 'JESUSPEINADO', 'INER EUSKADI', 'OFICINA', 28, 'contratacioneuskadi@inerenergia.es' WHERE NOT EXISTS(SELECT * FROM USUARIO WHERE NOMBRE = 'JESUS PEINADO')",
+                    "INSERT INTO USUARIO (NOMBRE, CONTRASEÑA, SEDE, PRIVILEGIOS, IDAGENTE, MAIL) SELECT 'comercial', 'comercial', 'INER EUSKADI', 'COMERCIAL', 0, 'contratacioneuskadi@inerenergia.es' WHERE NOT EXISTS(SELECT * FROM USUARIO WHERE NOMBRE = 'comercial')",
+                    "INSERT INTO USUARIO (NOMBRE, CONTRASEÑA, SEDE, PRIVILEGIOS, IDAGENTE, MAIL) SELECT 'PEDRO MERINO', 'PEDRO', 'INER EUSKADI', 'COMERCIAL', 12, 'deluxespecialista@gmail.com' WHERE NOT EXISTS(SELECT * FROM USUARIO WHERE NOMBRE = 'PEDRO MERINO')",
+                    "INSERT INTO USUARIO (NOMBRE, CONTRASEÑA, SEDE, PRIVILEGIOS, IDAGENTE, MAIL) SELECT 'ARGIEDER. S.L.', 'ARGIEDER', 'INER EUSKADI', 'COMERCIAL', 27, 'janire@argieder.es' WHERE NOT EXISTS(SELECT * FROM USUARIO WHERE NOMBRE = 'ARGIEDER. S.L.')",
+                    "INSERT INTO USUARIO (NOMBRE, CONTRASEÑA, SEDE, PRIVILEGIOS, IDAGENTE, MAIL) SELECT 'JOSEBENITO', 'JOSEBENITO', 'INER EUSKADI', 'COMERCIAL', 0, 'jobeotsl@gmail.com' WHERE NOT EXISTS(SELECT * FROM USUARIO WHERE NOMBRE = 'JOSEBENITO')",
+                    "INSERT INTO USUARIO (NOMBRE, CONTRASEÑA, SEDE, PRIVILEGIOS, IDAGENTE, MAIL) SELECT 'ELENA', 'ELENA', 'INER EUSKADI', 'COMERCIAL', 0, 'contratacioneuskadi@inerenergia.es' WHERE NOT EXISTS(SELECT * FROM USUARIO WHERE NOMBRE = 'ELENA')",
+                    "INSERT INTO USUARIO (NOMBRE, CONTRASEÑA, SEDE, PRIVILEGIOS, IDAGENTE, MAIL) SELECT 'JAIME', 'JAIME', 'INER EUSKADI', 'COMERCIAL', 0, 'contratacioneuskadi@inerenergia.es' WHERE NOT EXISTS(SELECT * FROM USUARIO WHERE NOMBRE = 'JAIME')",
+                    "INSERT INTO USUARIO (NOMBRE, CONTRASEÑA, SEDE, PRIVILEGIOS, IDAGENTE, MAIL) SELECT 'XABIER EIZAGIRRE', 'XABIER', 'INER EUSKADI', 'NOMINA', 26, 'xeizagirre.euskadi@inerenergia.es' WHERE NOT EXISTS(SELECT * FROM USUARIO WHERE NOMBRE = 'XABIER EIZAGIRRE')",
+                    "INSERT INTO USUARIO (NOMBRE, CONTRASEÑA, SEDE, PRIVILEGIOS, IDAGENTE, MAIL) SELECT 'VICTOR BALZATEGUI', 'VICTORBALZATEGUI', 'INER EUSKADI', 'COMERCIAL', 19, 'victorbal1953@gmail.com' WHERE NOT EXISTS(SELECT * FROM USUARIO WHERE NOMBRE = 'VICTOR BALZATEGUI')",
+                    "INSERT INTO USUARIO (NOMBRE, CONTRASEÑA, SEDE, PRIVILEGIOS, IDAGENTE, MAIL) SELECT 'JOSE FRANCISCO RAMON FRESNEDA', 'FRESNEDA', 'INER EUSKADI', 'COMERCIAL', 25, 'energiagestcom@gmail.com' WHERE NOT EXISTS(SELECT * FROM USUARIO WHERE NOMBRE = 'JOSE FRANCISCO RAMON FRESNEDA')",
+                    "INSERT INTO USUARIO (NOMBRE, CONTRASEÑA, SEDE, PRIVILEGIOS, IDAGENTE, MAIL) SELECT 'FOTON ASESORES SOCIEDAD LIMITADA', 'FASESORES', 'INER CASTILLA', 'COMERCIAL', 356, 'fasesoreslimitada@gmail.com' WHERE NOT EXISTS(SELECT * FROM USUARIO WHERE NOMBRE = 'FOTON ASESORES SOCIEDAD LIMITADA')",
+                    "INSERT INTO USUARIO (NOMBRE, CONTRASEÑA, SEDE, PRIVILEGIOS, IDAGENTE, MAIL) SELECT 'DAVID', '1234', 'INER EUSKADI', 'ADMIN', 5, 'david.r.g.12.5.99@gmail.com' WHERE NOT EXISTS(SELECT * FROM USUARIO WHERE NOMBRE = 'DAVID')",
+                    "INSERT INTO USUARIO (NOMBRE, CONTRASEÑA, SEDE, PRIVILEGIOS, IDAGENTE, MAIL) SELECT 'LOPEZ', '1234', 'INER EUSKADI', 'ADMIN', 2, 'ilopez@inerenergia.es' WHERE NOT EXISTS(SELECT * FROM USUARIO WHERE NOMBRE = 'LOPEZ')"
+            };
+
+            for (String insert : usuario) {
+                System.out.println(insert);
+                db.execSQL(insert);
+            }
+        }
+    }
+
+    /**
+     * Este consulta ss utiliza para buscar si existe el usuario y la constraseña que se introducen en la actividad
+     */
+    public void buscaDB() {
+        String consulta = "SELECT * FROM USUARIO WHERE LOWER(NOMBRE) = '" + usuario.getText().toString().toLowerCase() + "' AND CONTRASEÑA = '" + contraseña.getText().toString() + "'";
+        Cursor c;
+        System.out.println(consulta);
+        c = db.rawQuery(consulta, null);
+        if (c.moveToFirst()) {
+            db.execSQL("UPDATE USUARIO SET LOGUEADO = 1 WHERE NOMBRE = '" + usuario.getText().toString() + "'");
+            importarDatos();
+            siguienteActividad();
+        } else {
+            Toast.makeText(getApplicationContext(), "No existe ese usuario con esa contraseña", Toast.LENGTH_SHORT).show();
+        }
+    }
     //endregion
     //region Permisos
 

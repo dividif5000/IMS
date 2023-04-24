@@ -29,6 +29,7 @@ import com.alumno.simulacionims.pdf.PdfEditado_Simulacion;
 
 public class MainActivity extends AppCompatActivity {
 
+    //region Variables
     private String downloadPath = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).toString();
     private String borrar= "DELETE FROM SIMULACION WHERE 1 = 1";
     private static final int STORAGE_PERMISSION_CODE = 101;
@@ -45,6 +46,8 @@ public class MainActivity extends AppCompatActivity {
     private ActivityResultLauncher activityResultLauncher;
     private PdfEditado_Simulacion simula_luz = new PdfEditado_Simulacion() ;
 
+    //endregion
+    //region onCreate
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,23 +67,11 @@ public class MainActivity extends AppCompatActivity {
         DataBaseHelper inerbase = new DataBaseHelper(MainActivity.this, "IMS.db", null, 1);
         db = inerbase.getWritableDatabase();
 
-
-
-
-       if (db != null) {
-            final String simulaLuz = "INSERT OR REPLACE INTO SIMULACION VALUES(1,' ' ,'' ,' ' ,' ' ,0,'' ,' ' ,' ' ,' ' ,' ',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0)";
-            System.out.println(simulaLuz);
-            db.execSQL(simulaLuz);
-       }
-
-        /*if (db != null) {
-            final String simulaLuz = "INSERT OR REPLACE INTO SIMULACION VALUES(1,'pedro' ,'hfgg' ,'15-03-2023' ,'14-04-2023' ,29,'COSTE GESTION FIJO' ,'RL.1' ,'RL.1ZZ10' ,'10' ,'INER 10',27,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0.2287350000000000,0.184455,0.168265,0.01,0.01,0.01,52.15158,24.71697,34.32606,0,0,0,0.0969398802739726,0.031675930273972603,0.0273972602739726,0.0273972602739726,0.0273972602739726,0.0273972602739726,35.82897974926027,11.485663829260274,0,0,0,0,0,158.50925,0.7925462,33.28694,192.58873)";
-            System.out.println(simulaLuz);
-            db.execSQL(simulaLuz);
-        }*/
+       insertaDB();
 
         simula = costeFijo();
 
+        //region btnLuz
         luz.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -88,7 +79,8 @@ public class MainActivity extends AppCompatActivity {
                 activityResultLauncher.launch(intento);
             }
         });
-
+        //endregion
+        //region btnGas
         gas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -96,7 +88,8 @@ public class MainActivity extends AppCompatActivity {
                 activityResultLauncher.launch(intento);
             }
         });
-
+        //endregion
+        //region btnOferta
         oferta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -104,7 +97,8 @@ public class MainActivity extends AppCompatActivity {
                 activityResultLauncher.launch(intento);
             }
         });
-
+        //endregion
+        //region btnContrato
         contrato.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -112,7 +106,8 @@ public class MainActivity extends AppCompatActivity {
                 activityResultLauncher.launch(intento);
             }
         });
-
+        //endregion
+        //region btnComisionado
         comisionado.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -120,7 +115,8 @@ public class MainActivity extends AppCompatActivity {
                 activityResultLauncher.launch(intento);
             }
         });
-
+        //endregion
+        //region btnAdministrar
         administrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -128,7 +124,8 @@ public class MainActivity extends AppCompatActivity {
                 activityResultLauncher.launch(intento);
             }
         });
-
+        //endregion
+        //region btnMercado
         mercado.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -136,7 +133,8 @@ public class MainActivity extends AppCompatActivity {
                 activityResultLauncher.launch(intento);
             }
         });
-
+        //endregion
+        //region btnSalir
         salir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -168,9 +166,14 @@ public class MainActivity extends AppCompatActivity {
                 dialog.show();
             }
         });
-
+        //endregion
     }
+    //endregion
+    //region onBackPress
 
+    /**
+     * Mediante este método permitimos que el usuario pueda ir a la actividad anterior
+     */
     //TODO Este metodo sirve para volver a la Main activity
     @Override
     public void onBackPressed() {
@@ -203,9 +206,31 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+    //endregion
+    //region ModificaDB
+    /**
+     * Mediante este método se pueden insertar los datos predetenrminados para el uso de la tabla temporal de simulación
+     */
+    public void insertaDB(){
+        if (db != null) {
+            final String simulaLuz = "INSERT OR REPLACE INTO SIMULACION VALUES(1,' ' ,'' ,' ' ,' ' ,0,'' ,' ' ,' ' ,' ' ,' ',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0)";
+            System.out.println(simulaLuz);
+            db.execSQL(simulaLuz);
 
+            /*if (db != null) {
+            final String simulaLuz = "INSERT OR REPLACE INTO SIMULACION VALUES(1,'pedro' ,'hfgg' ,'15-03-2023' ,'14-04-2023' ,29,'COSTE GESTION FIJO' ,'RL.1' ,'RL.1ZZ10' ,'10' ,'INER 10',27,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0.2287350000000000,0.184455,0.168265,0.01,0.01,0.01,52.15158,24.71697,34.32606,0,0,0,0.0969398802739726,0.031675930273972603,0.0273972602739726,0.0273972602739726,0.0273972602739726,0.0273972602739726,35.82897974926027,11.485663829260274,0,0,0,0,0,158.50925,0.7925462,33.28694,192.58873)";
+            System.out.println(simulaLuz);
+            db.execSQL(simulaLuz);
+            }*/
+        }
+    }
+
+    /**
+     * Mediante este método podremos sacar la informacion de la base de datos devuolviendo el objeto simulacion
+     * @return
+     */
     @SuppressLint("Range")
-    private Simulacion costeFijo(){
+    public Simulacion costeFijo(){
         String sentencia;
         //Pricing cosFijo = new Pricing();
         Simulacion simu = new Simulacion();
@@ -277,9 +302,15 @@ public class MainActivity extends AppCompatActivity {
         c.close();
         return simu;
     }
+    //endregion
+    //region Permisos
 
-
-
+    /**
+     * Este método permite que al usuario le pregunte por los permisos de guardado dentro de su sipositivo
+     * @param requestCode
+     * @param permissions .
+     * @param grantResults
+     */
     // TODO Manejar el resultado de la solicitud de permisos
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
@@ -292,4 +323,6 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
+    //endregion
+
 }

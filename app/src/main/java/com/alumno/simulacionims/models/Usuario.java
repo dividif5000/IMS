@@ -5,7 +5,7 @@ package com.alumno.simulacionims.models;
  * Objeto Molde para hacer uso de los datos de los Usuarios
  */
 public class Usuario {
-
+    //region Atributos
     //Declaración de atributos del Objeto Usuario
     private int id;
     private String nombre;
@@ -15,7 +15,8 @@ public class Usuario {
     private int idAgente;
     private String mail;
     private boolean logueado;
-
+    //endregion
+    //region Constructores
     //Constructores
 
     /**
@@ -107,7 +108,9 @@ public class Usuario {
         this.mail = mail;
         this.logueado = logueado;
     }
-
+    //endregion
+    //region Getter&Setter
+    //Getters y Setters
     /**
      * Devuelve  un int para el id de Usuario
      *
@@ -251,7 +254,8 @@ public class Usuario {
     public void setLogueado(boolean logueado) {
         this.logueado = logueado;
     }
-
+    //endregion
+    //region toString
     /**
      * Devuelve un String con todos los atributos de la clase Molde Usuario mediate el método toString()
      *
@@ -270,4 +274,5 @@ public class Usuario {
                 ", logueado=" + logueado +
                 '}';
     }
+    //endregion
 }

@@ -29,6 +29,7 @@ import java.util.Locale;
 import java.util.Properties;
 
 public class SQLPostgresHelper {
+    //region Variables
     private final String host = "192.168.0.29";
     private final String database = "ITSAPP";
     private final int port = 5432;
@@ -38,12 +39,23 @@ public class SQLPostgresHelper {
     private String url;
     private boolean status;
     private SQLiteDatabase db;
+    //endregion
+    //region Constructor
 
-
+    /**
+     * Constructor por defecto de la Clase SQLPostgresHelper
+     */
     public SQLPostgresHelper() {
         //connect(ubicacion, ctxt);
     }
+    //endregion
+    //region Server_Usuario
 
+    /**
+     * Mediante este método se obtiene loss deatos de los usuario registrados en la base de datos externa a la aplicación
+     * @param ubicacion
+     * @param ctxt
+     */
     public void connect(Location ubicacion, Context ctxt) {
         Thread thread = new Thread(new Runnable() {
             @Override
@@ -116,7 +128,13 @@ public class SQLPostgresHelper {
             this.status = false;
         }
     }
+    //endregion
+    //region Server_Usuario2
 
+    /**
+     * Mediante este método se recoge uno datos en específico
+     * @return
+     */
     public Connection getExtraConnection() {
         Connection c = null;
         try {
@@ -128,7 +146,13 @@ public class SQLPostgresHelper {
         System.out.println(c.toString());
         return c;
     }
+    //endregion
+    //region Server_Agentes
 
+    /**
+     * Mediante este método se obtiene todos los datos de los agentes en la base de datos externa a la aplicación
+     * @return
+     */
     public List<String> getAgentes() {
         List<String> Agentes = new ArrayList<>();
 
@@ -171,7 +195,16 @@ public class SQLPostgresHelper {
 
         return Agentes;
     }
+    //endregion
+    //region Server_Codigos
 
+    /**
+     * Mediante este método se obtienen la información de los codigo de la base de datos externa a la de la aplicación
+     * mediante la infromacion del peaje y la tarifa
+     * @param peaje
+     * @param tarifa
+     * @return
+     */
     public List<CodigosPrecio> getCodigos(String peaje, String tarifa) {
         List<CodigosPrecio> codigos = new ArrayList<>();
 
@@ -257,7 +290,14 @@ public class SQLPostgresHelper {
 
         return codigos;
     }
+    //endregion
+    //region Server_CGF
 
+    /**
+     * Mediante este metodo se obtienen los datos de los precios para la simulacion de luz
+     * @param peaje
+     * @return
+     */
     public Pricing getCGF(String peaje) {
         Pricing precio = new Pricing();
 
@@ -319,7 +359,15 @@ public class SQLPostgresHelper {
 
         return precio;
     }
+    //endregion
+    //region CGFI
 
+    /**
+     * Mediante este metodo se obtienen los datos de los precios para la simulacion de luz pero indexado
+     * @param peaje
+     * @param mes
+     * @return
+     */
     public Pricing getCGFI(String peaje, String mes) {
         Pricing precio = new Pricing();
 
@@ -373,7 +421,14 @@ public class SQLPostgresHelper {
 
         return precio;
     }
+    //endregion
+    //region CGFG
 
+    /**
+     * Mediante este metodo se obtienen los datos de los precios para la simulacion de gas
+     * @param peaje
+     * @return
+     */
     public PricingGas getCGFG(String peaje) {
         PricingGas precio = new PricingGas();
         String tar = "ZZ";
@@ -426,7 +481,15 @@ public class SQLPostgresHelper {
 
         return precio;
     }
+    //endregion
+    //region CGFGI
 
+    /**
+     * Mediante este metodo se obtienen los datos de los precios para la simulacion de gas pero indexado
+     * @param peaje
+     * @param mes
+     * @return
+     */
     public PricingGas getCGFGI(String peaje, String mes) {
         PricingGas precio = new PricingGas();
         String tar = "ZZ";
@@ -478,5 +541,5 @@ public class SQLPostgresHelper {
 
         return precio;
     }
-
+    //endregion
 }
