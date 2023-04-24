@@ -33,6 +33,10 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 
+/**
+ * @author David Ruiz Garcia
+ * Objeto Molde que se usa para poder generar en las actividades un pdf con localización x e y
+ */
 public class PdfEditado_Simulacion {
 
     //region pdfSimulaLuz

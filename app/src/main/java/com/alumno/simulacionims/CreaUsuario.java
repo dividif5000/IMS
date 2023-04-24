@@ -46,6 +46,10 @@ import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 
+/**
+ * @author David Ruiz Garcia
+ * Objeto CrearUsuario para hacer uso de la actividad con dicho nombre
+ */
 public class CreaUsuario extends AppCompatActivity {
     //region Variables
     private int idag;

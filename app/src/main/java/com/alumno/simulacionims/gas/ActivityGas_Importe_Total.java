@@ -30,6 +30,10 @@ import java.util.Date;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ * @author David Ruiz Garcia
+ * Objeto ActivityGas_Importe_Total para hacer uso de la actividad con dicho nombre
+ */
 public class ActivityGas_Importe_Total extends AppCompatActivity {
     //region Variables
     private String P1str;

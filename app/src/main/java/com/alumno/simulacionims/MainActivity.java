@@ -27,6 +27,10 @@ import com.alumno.simulacionims.mercado.ActivityMercado;
 import com.alumno.simulacionims.models.Simulacion;
 import com.alumno.simulacionims.pdf.PdfEditado_Simulacion;
 
+/**
+ * @author David Ruiz Garcia
+ * Objeto MainActivity para hacer uso de la actividad con dicho nombre
+ */
 public class MainActivity extends AppCompatActivity {
 
     //region Variables

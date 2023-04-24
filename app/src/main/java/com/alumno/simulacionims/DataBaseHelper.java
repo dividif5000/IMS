@@ -6,6 +6,11 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
 
+/**
+ * @author David Ruiz Garcia
+ * Objeto Molde utilizado para que en el codigo java de las actividades se pueda hacer uso
+ * de la base de datos interna del dispositivo
+ */
 public class DataBaseHelper extends SQLiteOpenHelper {
     //region Variables
     private Context contexto;

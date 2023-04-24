@@ -17,6 +17,10 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.FragmentActivity;
 
+/**
+ * @author David Ruiz Garcia
+ * Objeto Molde que se usa para poder generar en las actividades siempre que se quiera un introducir un pin de seguridad
+ */
 public class Pin extends DialogFragment {
     //region Variables
     private EditText pinEditText;

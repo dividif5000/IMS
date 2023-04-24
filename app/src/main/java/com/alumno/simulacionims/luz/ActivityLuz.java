@@ -28,6 +28,10 @@ import com.alumno.simulacionims.models.CodigosPrecio;
 import java.util.List;
 import java.util.Locale;
 
+/**
+ * @author David Ruiz Garcia
+ * Objeto ActivityLuz para hacer uso de la actividad con dicho nombre
+ */
 public class ActivityLuz extends AppCompatActivity {
     //region Variables
     private EditText cliente;

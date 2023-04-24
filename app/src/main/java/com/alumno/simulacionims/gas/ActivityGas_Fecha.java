@@ -34,6 +34,10 @@ import java.util.Date;
 import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * @author David Ruiz Garcia
+ * Objeto ActivityGas_Fecha para hacer uso de la actividad con dicho nombre
+ */
 public class ActivityGas_Fecha extends AppCompatActivity {
     //region Variables
     private String inicio="";

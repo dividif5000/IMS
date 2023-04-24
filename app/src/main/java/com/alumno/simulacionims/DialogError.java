@@ -7,6 +7,10 @@ import android.os.Bundle;
 
 import androidx.fragment.app.DialogFragment;
 
+/**
+ * @author David Ruiz Garcia
+ * Objeto Molde que se usa para poder generar en las actividades siempre que se quiera un dialogo de error
+ */
 public class DialogError extends DialogFragment {
 
     //region Dialogo
