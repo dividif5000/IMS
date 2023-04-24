@@ -1,0 +1,398 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".luz.ActivityLuz_Importe_Total">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/fondo_dgv"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="-73dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/imgLogo5"
+                    android:layout_width="236dp"
+                    android:layout_height="198dp"
+                    android:layout_gravity="center"
+                    app:srcCompat="@drawable/logo_escalax34" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/lblEnergia"
+                android:layout_width="match_parent"
+                android:layout_height="77dp"
+                android:layout_margin="10dp"
+                android:background="@drawable/fondorelleno"
+                android:gravity="center"
+                android:text="@string/lblEnergia"
+                android:textColor="@color/black"
+                android:textSize="24sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="468dp"
+                android:layout_margin="10dp"
+                android:background="@drawable/fondo_edittext"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/lblImporteEne"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:gravity="center"
+                    android:text="@string/lblImporteEnergia"
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
+
+                <EditText
+                    android:id="@+id/txtE1Importe"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:ems="10"
+                    android:gravity="center"
+                    android:inputType="numberDecimal"
+                    android:textColor="@color/white" />
+
+                <EditText
+                    android:id="@+id/txtE2Importe"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:ems="10"
+                    android:gravity="center"
+                    android:inputType="numberDecimal"
+                    android:textColor="@color/white" />
+
+                <EditText
+                    android:id="@+id/txtE3Importe"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:ems="10"
+                    android:gravity="center"
+                    android:inputType="numberDecimal"
+                    android:textColor="@color/white" />
+
+                <EditText
+                    android:id="@+id/txtE4Importe"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:ems="10"
+                    android:gravity="center"
+                    android:inputType="numberDecimal"
+                    android:textColor="@color/white" />
+
+                <EditText
+                    android:id="@+id/txtE5Importe"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:ems="10"
+                    android:gravity="center"
+                    android:inputType="numberDecimal"
+                    android:textColor="@color/white" />
+
+                <EditText
+                    android:id="@+id/txtE6Importe"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:ems="10"
+                    android:gravity="center"
+                    android:inputType="numberDecimal"
+                    android:textColor="@color/white" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="468dp"
+                android:layout_margin="10dp"
+                android:background="@drawable/fondo_edittext"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/lblTotalEne"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:gravity="center"
+                    android:text="@string/lblTotalEnergia"
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
+
+                <EditText
+                    android:id="@+id/txtE1Total"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:ems="10"
+                    android:gravity="center"
+                    android:inputType="numberDecimal"
+                    android:textColor="@color/white" />
+
+                <EditText
+                    android:id="@+id/txtE2Total"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:ems="10"
+                    android:gravity="center"
+                    android:inputType="numberDecimal"
+                    android:textColor="@color/white" />
+
+                <EditText
+                    android:id="@+id/txtE3Total"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:ems="10"
+                    android:gravity="center"
+                    android:inputType="numberDecimal"
+                    android:textColor="@color/white" />
+
+                <EditText
+                    android:id="@+id/txtE4Total"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:ems="10"
+                    android:gravity="center"
+                    android:inputType="numberDecimal"
+                    android:textColor="@color/white" />
+
+                <EditText
+                    android:id="@+id/txtE5Total"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:ems="10"
+                    android:gravity="center"
+                    android:inputType="numberDecimal"
+                    android:textColor="@color/white" />
+
+                <EditText
+                    android:id="@+id/txtE6Total"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:ems="10"
+                    android:gravity="center"
+                    android:inputType="numberDecimal"
+                    android:textColor="@color/white" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/lblPotencia"
+                android:layout_width="match_parent"
+                android:layout_height="79dp"
+                android:layout_margin="10dp"
+                android:background="@drawable/fondorelleno"
+                android:gravity="center"
+                android:text="@string/lblPotencia"
+                android:textColor="@color/black"
+                android:textSize="24sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="468dp"
+                android:layout_margin="10dp"
+                android:background="@drawable/fondo_edittext"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/lblImportePot"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:gravity="center"
+                    android:text="@string/lblImporteEnergia"
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
+
+
+                <EditText
+                    android:id="@+id/txtP1Importe"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:ems="10"
+                    android:gravity="center"
+                    android:inputType="numberDecimal"
+                    android:textColor="@color/white" />
+
+                <EditText
+                    android:id="@+id/txtP2Importe"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:ems="10"
+                    android:gravity="center"
+                    android:inputType="numberDecimal"
+                    android:textColor="@color/white" />
+
+                <EditText
+                    android:id="@+id/txtP3Importe"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:ems="10"
+                    android:gravity="center"
+                    android:inputType="numberDecimal"
+                    android:textColor="@color/white" />
+
+                <EditText
+                    android:id="@+id/txtP4Importe"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:ems="10"
+                    android:gravity="center"
+                    android:inputType="numberDecimal"
+                    android:textColor="@color/white" />
+
+                <EditText
+                    android:id="@+id/txtP5Importe"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:ems="10"
+                    android:gravity="center"
+                    android:inputType="numberDecimal"
+                    android:textColor="@color/white" />
+
+                <EditText
+                    android:id="@+id/txtP6Importe"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:ems="10"
+                    android:gravity="center"
+                    android:inputType="numberDecimal"
+                    android:textColor="@color/white" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="468dp"
+                android:layout_margin="10dp"
+                android:background="@drawable/fondo_edittext"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/lblTotalPot"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:gravity="center"
+                    android:text="@string/lblTotalEnergia"
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
+
+                <EditText
+                    android:id="@+id/txtP1Total"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:ems="10"
+                    android:inputType="numberDecimal"
+                    android:textColor="@color/white" />
+
+                <EditText
+                    android:id="@+id/txtP2Total"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:ems="10"
+                    android:inputType="numberDecimal"
+                    android:textColor="@color/white" />
+
+                <EditText
+                    android:id="@+id/txtP3Total"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:ems="10"
+                    android:inputType="numberDecimal"
+                    android:textColor="@color/white" />
+
+                <EditText
+                    android:id="@+id/txtP4Total"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:ems="10"
+                    android:inputType="numberDecimal"
+                    android:textColor="@color/white" />
+
+                <EditText
+                    android:id="@+id/txtP5Total"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:ems="10"
+                    android:inputType="numberDecimal"
+                    android:textColor="@color/white" />
+
+                <EditText
+                    android:id="@+id/txtP6Total"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:ems="10"
+                    android:inputType="numberDecimal"
+                    android:textColor="@color/white" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="67dp"
+                android:layout_margin="10dp"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnAnterior2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/boton_naranja"
+                    android:text="@string/btnAnterior2" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnSiguiente2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/boton_naranja"
+                    android:text="@string/btnSiguiente2" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
