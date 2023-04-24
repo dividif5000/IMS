@@ -22,6 +22,7 @@ import com.itextpdf.text.pdf.ColumnText;
 import com.itextpdf.text.pdf.PdfContentByte;
 import com.itextpdf.text.pdf.PdfWriter;
 
+
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -98,14 +99,17 @@ public class PdfEditado_Simulacion {
         DecimalFormat formato = new DecimalFormat("#.#####");
         // TODO Obtener la ruta de la carpeta de descargas
 
-        String downloadPath = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).toString();
+        String downloadPath = null;
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.FROYO) {
+            downloadPath = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).toString();
+        }
         String fecha ="";
         String simulacion = "SIMULACION";
         //String factura = "Factura";
         //String datos = "Datos del cliente";
-        String cli = "Nombre del Cliente: "+ cliente.toUpperCase(Locale.ROOT);
-        String cup = "CUPS: " + cups.toUpperCase(Locale.ROOT);
-        String tari = "Tarifa Acceso: " + tarifa.toUpperCase(Locale.ROOT);
+        String cli = "Nombre del Cliente: "+ cliente.toUpperCase();
+        String cup = "CUPS: " + cups.toUpperCase();
+        String tari = "Tarifa Acceso: " + tarifa.toUpperCase();
         String distribuidora = "Distribuidora: I-DE REDES ELECTRICAS INTELIGENTES, S.A.U";
         //String detalle = "Detalle de la factura";
         String concepto = "Concepto";
