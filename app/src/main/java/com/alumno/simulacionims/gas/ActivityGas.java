@@ -29,6 +29,10 @@ import com.alumno.simulacionims.models.CodigosPrecio;
 import java.util.List;
 import java.util.Locale;
 
+/**
+ * @author David Ruiz Garcia
+ * Objeto ActivityGas para hacer uso de la actividad con dicho nombre
+ */
 public class ActivityGas extends AppCompatActivity {
     //region Variables
     private EditText cliente;

@@ -2,6 +2,12 @@ package com.alumno.simulacionims.models;
 
 import java.util.List;
 
+/**
+ * @author David Ruiz Garcia
+ * Objeto Molde para hacer uso de los datos de los ClasesSipsExternas
+ * es un conjunto de la ClienteSips y ConsumoSips
+ * Todos los datos que se obtengas con esta clase se obtiene gracias a la libreria de API OkHTTP
+ */
 public class ClasesSipsExtensa {
     //region Atributos
     //Atributos

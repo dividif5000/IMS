@@ -37,6 +37,10 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 
+/**
+ * @author David Ruiz Garcia
+ * Objeto ActivityGas_Totales para hacer uso de la actividad con dicho nombre
+ */
 public class ActivityGas_Totales extends AppCompatActivity {
     //region Variables
     private String downloadPath = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).toString();

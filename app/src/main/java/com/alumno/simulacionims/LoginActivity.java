@@ -36,6 +36,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Locale;
 
+/**
+ * @author David Ruiz Garcia
+ * Objeto LoginActivity para hacer uso de la actividad con dicho nombre
+ */
 public class LoginActivity extends AppCompatActivity implements Pin.PinDialogListener {
     //region Variables
     // TODO Creacion de las variables de las cuales se hara uso

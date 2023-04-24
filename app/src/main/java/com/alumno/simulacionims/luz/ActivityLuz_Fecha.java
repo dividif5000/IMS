@@ -35,6 +35,10 @@ import java.util.Date;
 import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * @author David Ruiz Garcia
+ * Objeto ActivityLuz_Fecha para hacer uso de la actividad con dicho nombre
+ */
 public class ActivityLuz_Fecha extends AppCompatActivity {
     //region Variables
     private String inicio = "";

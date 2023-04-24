@@ -28,6 +28,11 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Properties;
 
+/**
+ * @author David Ruiz Garcia
+ * Objeto Molde utilizado para que en el codigo java de las actividades se pueda hacer uso
+ * de la base de datos externa del dispositivo
+ */
 public class SQLPostgresHelper {
     //region Variables
     private final String host = "192.168.0.29";

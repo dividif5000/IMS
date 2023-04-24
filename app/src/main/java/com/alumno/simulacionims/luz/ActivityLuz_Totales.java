@@ -37,6 +37,10 @@ import java.lang.reflect.Method;
 import java.text.NumberFormat;
 import java.util.Locale;
 
+/**
+ * @author David Ruiz Garcia
+ * Objeto ActivityLuz_Totales para hacer uso de la actividad con dicho nombre
+ */
 public class ActivityLuz_Totales extends AppCompatActivity {
     //region Variables
     private String downloadPath = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).toString();
