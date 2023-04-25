@@ -24,6 +24,7 @@ import com.alumno.simulacionims.MainActivity;
 import com.alumno.simulacionims.R;
 import com.alumno.simulacionims.SQLPostgresHelper;
 import com.alumno.simulacionims.models.CodigosPrecio;
+import com.alumno.simulacionims.models.Simulacion;
 
 import java.util.List;
 import java.util.Locale;
@@ -48,6 +49,8 @@ public class ActivityLuz extends AppCompatActivity {
     private List<CodigosPrecio> codigos;
     CodigosPrecio codigo ;
 
+    private Simulacion simula;
+
 
     private ActivityResultLauncher activityLauncher;
 
@@ -69,6 +72,7 @@ public class ActivityLuz extends AppCompatActivity {
         siguiente = findViewById(R.id.btnSiguiente);
         recordar = findViewById(R.id.chkRecordar1);
 
+        cups.setText(simula.getCups());
         DataBaseHelper inerbase = new DataBaseHelper(ActivityLuz.this, "IMS.db", null, 1);
         db = inerbase.getWritableDatabase();
 

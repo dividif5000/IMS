@@ -1271,7 +1271,7 @@ public class ClientesSips {
     }
 
     /**
-     *
+     * Devuelve un Object para la información de impagos de los clientes sips
      * @return
      */
     public Object getInformacionImpagos() {
@@ -1279,15 +1279,15 @@ public class ClientesSips {
     }
 
     /**
-     *
-     * @param informacionImpagos
+     * Llena el campo información de impagos mediante un argumento Object que se pasa
+     * @param informacionImpagos este es el argumento que se pasa para rellenar el campo información de impagos
      */
     public void setInformacionImpagos(Object informacionImpagos) {
         InformacionImpagos = informacionImpagos;
     }
 
     /**
-     *
+     * Devuelve un Object para el importe de deposito de garantía en euros de los clientes sips
      * @return
      */
     public Object getImporteDepositoGarantiaEuros() {
@@ -1295,15 +1295,15 @@ public class ClientesSips {
     }
 
     /**
-     *
-     * @param importeDepositoGarantiaEuros
+     * Llena el campo importe de deposito de garantía en euros mediante un argumento Object que se pasa
+     * @param importeDepositoGarantiaEuros este es el argumento que se pasa para rellenar el campo importe de deposito de garantía en euros
      */
     public void setImporteDepositoGarantiaEuros(Object importeDepositoGarantiaEuros) {
         ImporteDepositoGarantiaEuros = importeDepositoGarantiaEuros;
     }
 
     /**
-     *
+     * Devuelve un String para el tipo de id del titular de los clientes sips
      * @return
      */
     public String getTipoIdTitular() {
@@ -1311,15 +1311,15 @@ public class ClientesSips {
     }
 
     /**
-     *
-     * @param tipoIdTitular
+     * Llena el campo tipo de id del titular mediante un argumento String que se pasa
+     * @param tipoIdTitular este es el argumento que se pasa para rellenar el campo tipo de id del titular
      */
     public void setTipoIdTitular(String tipoIdTitular) {
         TipoIdTitular = tipoIdTitular;
     }
 
     /**
-     *
+     * Devuelve un String para el tipo de id del titular de los clientes sips
      * @return
      */
     public String getEsViviendaHabitual() {
@@ -1327,15 +1327,15 @@ public class ClientesSips {
     }
 
     /**
-     *
-     * @param esViviendaHabitual
+     * Llena el campo tipo de id del titular mediante un argumento String que se pasa
+     * @param esViviendaHabitual este es el argumento que se pasa para rellenar el campo tipo de id del titular
      */
     public void setEsViviendaHabitual(String esViviendaHabitual) {
         EsViviendaHabitual = esViviendaHabitual;
     }
 
     /**
-     *
+     * Devuelve un Object para el codigo de comercializador de los clientes sips
      * @return
      */
     public Object getCodigoComercializadora() {
@@ -1343,15 +1343,15 @@ public class ClientesSips {
     }
 
     /**
-     *
-     * @param codigoComercializadora
+     * Llena el campo codigo de comercializador mediante un argumento Object que se pasa
+     * @param codigoComercializadora este es el argumento que se pasa para rellenar el campo codigo de comercializador
      */
     public void setCodigoComercializadora(Object codigoComercializadora) {
         CodigoComercializadora = codigoComercializadora;
     }
 
     /**
-     *
+     * Devuelve un String para el codigo de telegestion de los clientes sips
      * @return
      */
     public String getCodigoTelegestion() {
@@ -1359,15 +1359,15 @@ public class ClientesSips {
     }
 
     /**
-     *
-     * @param codigoTelegestion
+     * Llena el campo codigo de telegestion mediante un argumento String que se pasa
+     * @param codigoTelegestion este es el argumento que se pasa para rellenar el campo codigo de telegestion
      */
     public void setCodigoTelegestion(String codigoTelegestion) {
         CodigoTelegestion = codigoTelegestion;
     }
 
     /**
-     *
+     * Devuelve un String para el codigo de la medida de fases de equipo de los clientes sips
      * @return
      */
     public String getCodigoFasesEquipoMedida() {
@@ -1375,15 +1375,15 @@ public class ClientesSips {
     }
 
     /**
-     *
-     * @param codigoFasesEquipoMedida
+     * Llena el campo codigo de la medida de fases de equipo un argumento String que se pasa
+     * @param codigoFasesEquipoMedida este es el argumento que se pasa para rellenar el campo codigo de la medida de fases de equipo
      */
     public void setCodigoFasesEquipoMedida(String codigoFasesEquipoMedida) {
         CodigoFasesEquipoMedida = codigoFasesEquipoMedida;
     }
 
     /**
-     *
+     * Devuelve un String para el codigo de autoconsumo de los clientes sips
      * @return
      */
     public String getCodigoAutoconsumo() {
@@ -1391,15 +1391,15 @@ public class ClientesSips {
     }
 
     /**
-     *
-     * @param codigoAutoconsumo
+     * Llena el campo codigo de autoconsumo un argumento String que se pasa
+     * @param codigoAutoconsumo este es el argumento que se pasa para rellenar el campo codigo de autoconsumo
      */
     public void setCodigoAutoconsumo(String codigoAutoconsumo) {
         CodigoAutoconsumo = codigoAutoconsumo;
     }
 
     /**
-     *
+     * Devuelve un Object para el codigo de tipo de contrato de los clientes sips
      * @return
      */
     public Object getCodigoTipoContrato() {
@@ -1407,15 +1407,15 @@ public class ClientesSips {
     }
 
     /**
-     *
-     * @param codigoTipoContrato
+     * Llena el campo codigo de tipo de contrato un argumento Object que se pasa
+     * @param codigoTipoContrato este es el argumento que se pasa para rellenar el campo codigo de tipo de contrato
      */
     public void setCodigoTipoContrato(Object codigoTipoContrato) {
         CodigoTipoContrato = codigoTipoContrato;
     }
 
     /**
-     *
+     * Devuelve un Object para el codigo de periodicidad de facturación de los clientes sips
      * @return
      */
     public Object getCodigoPeriodicidadFacturacion() {
@@ -1423,15 +1423,15 @@ public class ClientesSips {
     }
 
     /**
-     *
-     * @param codigoPeriodicidadFacturacion
+     * Llena el campo codigo de periodicidad de facturación un argumento Object que se pasa
+     * @param codigoPeriodicidadFacturacion este es el argumento que se pasa para rellenar el campo codigo de periodicidad de facturación
      */
     public void setCodigoPeriodicidadFacturacion(Object codigoPeriodicidadFacturacion) {
         CodigoPeriodicidadFacturacion = codigoPeriodicidadFacturacion;
     }
 
     /**
-     *
+     * Devuelve un Object para el codigo BIE de los clientes sips
      * @return
      */
     public Object getCodigoBIE() {
@@ -1439,15 +1439,15 @@ public class ClientesSips {
     }
 
     /**
-     *
-     * @param codigoBIE
+     * Llena el campo codigo BIE un argumento Object que se pasa
+     * @param codigoBIE este es el argumento que se pasa para rellenar el campo codigo BIE
      */
     public void setCodigoBIE(Object codigoBIE) {
         CodigoBIE = codigoBIE;
     }
 
     /**
-     *
+     * Devuelve un Object para la fecha de emisión BIE de los clientes sips
      * @return
      */
     public Object getFechaEmisionBIE() {
@@ -1455,15 +1455,15 @@ public class ClientesSips {
     }
 
     /**
-     *
-     * @param fechaEmisionBIE
+     * Llena el campo fecha de emisión BIE un argumento Object que se pasa
+     * @param fechaEmisionBIE este es el argumento que se pasa para rellenar el campo fecha de emisión BIE
      */
     public void setFechaEmisionBIE(Object fechaEmisionBIE) {
         FechaEmisionBIE = fechaEmisionBIE;
     }
 
     /**
-     *
+     * Devuelve un Object para la fecha de caducidad BIE de los clientes sips
      * @return
      */
     public Object getFechaCaducidadBIE() {
@@ -1471,15 +1471,15 @@ public class ClientesSips {
     }
 
     /**
-     *
-     * @param fechaCaducidadBIE
+     * Llena el campo fecha de caducidad BIE un argumento Object que se pasa
+     * @param fechaCaducidadBIE este es el argumento que se pasa para rellenar el campo fecha de caducidad BIE
      */
     public void setFechaCaducidadBIE(Object fechaCaducidadBIE) {
         FechaCaducidadBIE = fechaCaducidadBIE;
     }
 
     /**
-     *
+     * Devuelve un Object para el codigo AMP de los clientes sips
      * @return
      */
     public Object getCodigoAPM() {
@@ -1487,15 +1487,15 @@ public class ClientesSips {
     }
 
     /**
-     *
-     * @param codigoAPM
+     * Llena el campo codigo AMP un argumento Object que se pasa
+     * @param codigoAPM este es el argumento que se pasa para rellenar el campo codigo AMP
      */
     public void setCodigoAPM(Object codigoAPM) {
         CodigoAPM = codigoAPM;
     }
 
     /**
-     *
+     * Devuelve un Object para la fecha de emisión AMP de los clientes sips
      * @return
      */
     public Object getFechaEmisionAPM() {
@@ -1503,27 +1503,31 @@ public class ClientesSips {
     }
 
     /**
-     *
-     * @param fechaEmisionAPM
+     * Llena el campo fecha de emisión AMP un argumento Object que se pasa
+     * @param fechaEmisionAPM este es el argumento que se pasa para rellenar el campo fecha de emisión AMP
      */
     public void setFechaEmisionAPM(Object fechaEmisionAPM) {
         FechaEmisionAPM = fechaEmisionAPM;
     }
 
     /**
-     *
+     * Devuelve un Object para la fecha de caducidad AMP de los clientes sips
      * @return
      */
     public Object getFechaCaducidadAPM() {
         return FechaCaducidadAPM;
     }
 
+    /**
+     * Llena el campo fecha de caducidad AMP un argumento Object que se pasa
+     * @param fechaCaducidadAPM este es el argumento que se pasa para rellenar el campo fecha de caducidad AMP
+     */
     public void setFechaCaducidadAPM(Object fechaCaducidadAPM) {
         FechaCaducidadAPM = fechaCaducidadAPM;
     }
 
     /**
-     *
+     * Devuelve un Object para la relación de transformación de intensidad de los clientes sips
      * @return
      */
     public Object getRelacionTransformacionIntensidad() {
@@ -1531,15 +1535,15 @@ public class ClientesSips {
     }
 
     /**
-     *
-     * @param relacionTransformacionIntensidad
+     * Llena el campo relación de transformación de intensidad un argumento Object que se pasa
+     * @param relacionTransformacionIntensidad este es el argumento que se pasa para rellenar el campo relación de transformación de intensidad
      */
     public void setRelacionTransformacionIntensidad(Object relacionTransformacionIntensidad) {
         RelacionTransformacionIntensidad = relacionTransformacionIntensidad;
     }
 
     /**
-     *
+     * Devuelve un String para el Cnae de los clientes sips
      * @return
      */
     public String getCnae() {
@@ -1547,15 +1551,15 @@ public class ClientesSips {
     }
 
     /**
-     *
-     * @param cnae
+     * Llena el campo Cnae un argumento String que se pasa
+     * @param cnae este es el argumento que se pasa para rellenar el campo Cnae
      */
     public void setCnae(String cnae) {
         Cnae = cnae;
     }
 
     /**
-     *
+     * Devuelve un String para el codigo de modo de control de la potencia de los clientes sips
      * @return
      */
     public String getCodigoModoControlPotencia() {
@@ -1563,15 +1567,15 @@ public class ClientesSips {
     }
 
     /**
-     *
-     * @param codigoModoControlPotencia
+     * Llena el campo codigo de modo de control de la potencia un argumento String que se pasa
+     * @param codigoModoControlPotencia este es el argumento que se pasa para rellenar el campo codigo de modo de control de la potencia
      */
     public void setCodigoModoControlPotencia(String codigoModoControlPotencia) {
         CodigoModoControlPotencia = codigoModoControlPotencia;
     }
 
     /**
-     *
+     * Devuelve un Object para la potencia CGPW de los clientes sips
      * @return
      */
     public Object getPotenciaCGPW() {
@@ -1579,15 +1583,15 @@ public class ClientesSips {
     }
 
     /**
-     *
-     * @param potenciaCGPW
+     * Llena el campo potencia CGPW un argumento Object que se pasa
+     * @param potenciaCGPW este es el argumento que se pasa para rellenar el campo potencia CGPW
      */
     public void setPotenciaCGPW(Object potenciaCGPW) {
         PotenciaCGPW = potenciaCGPW;
     }
 
     /**
-     *
+     * Devuelve un Object para el codigo DH de medida del equipo de los clientes sips
      * @return
      */
     public Object getCodigoDHEquipoDeMedida() {
@@ -1595,15 +1599,15 @@ public class ClientesSips {
     }
 
     /**
-     *
-     * @param codigoDHEquipoDeMedida
+     * Llena el campo codigo DH de medida del equipo un argumento String que se pasa
+     * @param codigoDHEquipoDeMedida este es el argumento que se pasa para rellenar el campo codigo DH de medida del equipo
      */
     public void setCodigoDHEquipoDeMedida(Object codigoDHEquipoDeMedida) {
         CodigoDHEquipoDeMedida = codigoDHEquipoDeMedida;
     }
 
     /**
-     *
+     * Devuelve un Object para el codigo de accesibilidad del contador de los clientes sips
      * @return
      */
     public Object getCodigoAccesibilidadContador() {
@@ -1611,15 +1615,15 @@ public class ClientesSips {
     }
 
     /**
-     *
-     * @param codigoAccesibilidadContador
+     * Llena el campo codigo de accesibilidad del contador un argumento String que se pasa
+     * @param codigoAccesibilidadContador este es el argumento que se pasa para rellenar el campo codigo de accesibilidad del contador
      */
     public void setCodigoAccesibilidadContador(Object codigoAccesibilidadContador) {
         CodigoAccesibilidadContador = codigoAccesibilidadContador;
     }
 
     /**
-     *
+     * Devuelve un String para el codigo PS contratable de los clientes sips
      * @return
      */
     public String getCodigoPSContratable() {
@@ -1627,15 +1631,15 @@ public class ClientesSips {
     }
 
     /**
-     *
-     * @param codigoPSContratable
+     * Llena el campo codigo PS contratable un argumento String que se pasa
+     * @param codigoPSContratable este es el argumento que se pasa para rellenar el campo codigo PS contratable
      */
     public void setCodigoPSContratable(String codigoPSContratable) {
         CodigoPSContratable = codigoPSContratable;
     }
 
     /**
-     *
+     * Devuelve un Object para el motivo de estado no controlable de los clientes sips
      * @return
      */
     public Object getMotivoEstadoNoContratable() {
@@ -1643,15 +1647,15 @@ public class ClientesSips {
     }
 
     /**
-     *
-     * @param motivoEstadoNoContratable
+     * Llena el campo motivo de estado no controlable un argumento Object que se pasa
+     * @param motivoEstadoNoContratable este es el argumento que se pasa para rellenar el campo motivo de estado no controlable
      */
     public void setMotivoEstadoNoContratable(Object motivoEstadoNoContratable) {
         MotivoEstadoNoContratable = motivoEstadoNoContratable;
     }
 
     /**
-     *
+     * Devuelve un Object para el codigo de medida de tensión de los clientes sips
      * @return
      */
     public Object getCodigoTensionMedida() {
@@ -1659,15 +1663,15 @@ public class ClientesSips {
     }
 
     /**
-     *
-     * @param codigoTensionMedida
+     * Llena el campo codigo de medida de tensión un argumento Object que se pasa
+     * @param codigoTensionMedida este es el argumento que se pasa para rellenar el campo codigo de medida de tensión
      */
     public void setCodigoTensionMedida(Object codigoTensionMedida) {
         CodigoTensionMedida = codigoTensionMedida;
     }
 
     /**
-     *
+     * Devuelve un Object para el codigo de clase de expediente de los clientes sips
      * @return
      */
     public Object getCodigoClaseExpediente() {
@@ -1675,15 +1679,15 @@ public class ClientesSips {
     }
 
     /**
-     *
-     * @param codigoClaseExpediente
+     * Llena el campo codigo de clase de expediente un argumento Object que se pasa
+     * @param codigoClaseExpediente este es el argumento que se pasa para rellenar el campo codigo de clase de expediente
      */
     public void setCodigoClaseExpediente(Object codigoClaseExpediente) {
         CodigoClaseExpediente = codigoClaseExpediente;
     }
 
     /**
-     *
+     * Devuelve un Object para el codigo de motivo del expediente  de los clientes sips
      * @return
      */
     public Object getCodigoMotivoExpediente() {
@@ -1691,15 +1695,15 @@ public class ClientesSips {
     }
 
     /**
-     *
-     * @param codigoMotivoExpediente
+     * Llena el campo codigo de motivo del expediente un argumento Object que se pasa
+     * @param codigoMotivoExpediente este es el argumento que se pasa para rellenar el campo codigo de motivo del expediente
      */
     public void setCodigoMotivoExpediente(Object codigoMotivoExpediente) {
         CodigoMotivoExpediente = codigoMotivoExpediente;
     }
 
     /**
-     *
+     * Devuelve un Object para el codigo de tipo de suministro de los clientes sips
      * @return
      */
     public Object getCodigoTipoSuministro() {
@@ -1707,15 +1711,15 @@ public class ClientesSips {
     }
 
     /**
-     *
-     * @param codigoTipoSuministro
+     * Llena el campo codigo de tipo de suministro un argumento Object que se pasa
+     * @param codigoTipoSuministro este es el argumento que se pasa para rellenar el campo codigo de tipo de suministro
      */
     public void setCodigoTipoSuministro(Object codigoTipoSuministro) {
         CodigoTipoSuministro = codigoTipoSuministro;
     }
 
     /**
-     *
+     * Devuelve un String para la aplicación del bono social de los clientes sips
      * @return
      */
     public String getAplicacionBonoSocial() {
@@ -1723,15 +1727,15 @@ public class ClientesSips {
     }
 
     /**
-     *
-     * @param aplicacionBonoSocial
+     * Llena el campo aplicación del bono social un argumento String que se pasa
+     * @param aplicacionBonoSocial este es el argumento que se pasa para rellenar el campo aplicación del bono social
      */
     public void setAplicacionBonoSocial(String aplicacionBonoSocial) {
         AplicacionBonoSocial = aplicacionBonoSocial;
     }
 
     /**
-     *
+     * Devuelve un String para el des de provincia PS de los clientes sips
      * @return
      */
     public String getDesProvinciaPS() {
@@ -1739,15 +1743,15 @@ public class ClientesSips {
     }
 
     /**
-     *
-     * @param desProvinciaPS
+     * Llena el campo des de provincia PS un argumento String que se pasa
+     * @param desProvinciaPS este es el argumento que se pasa para rellenar el campo des de provincia PS
      */
     public void setDesProvinciaPS(String desProvinciaPS) {
         DesProvinciaPS = desProvinciaPS;
     }
 
     /**
-     *
+     * Devuelve un String para el des de municipio PS de los clientes sips
      * @return
      */
     public String getDesMunicipioPS() {
@@ -1755,15 +1759,15 @@ public class ClientesSips {
     }
 
     /**
-     *
-     * @param desMunicipioPS
+     * Llena el campo des de municipio PS un argumento String que se pasa
+     * @param desMunicipioPS este es el argumento que se pasa para rellenar el campo des de municipio PS
      */
     public void setDesMunicipioPS(String desMunicipioPS) {
         DesMunicipioPS = desMunicipioPS;
     }
 
     /**
-     *
+     * Devuelve un Object para el tipo de via PS de los clientes sips
      * @return
      */
     public Object getTipoViaPS() {
@@ -1771,15 +1775,15 @@ public class ClientesSips {
     }
 
     /**
-     *
-     * @param tipoViaPS
+     * Llena el campo tipo de via PS un argumento Object que se pasa
+     * @param tipoViaPS este es el argumento que se pasa para rellenar el campo tipo de via PS
      */
     public void setTipoViaPS(Object tipoViaPS) {
         TipoViaPS = tipoViaPS;
     }
 
     /**
-     *
+     * Devuelve un Object para la via PS de los clientes sips
      * @return
      */
     public Object getViaPS() {
@@ -1787,15 +1791,15 @@ public class ClientesSips {
     }
 
     /**
-     *
-     * @param viaPS
+     * Llena el campo via PS un argumento Object que se pasa
+     * @param viaPS este es el argumento que se pasa para rellenar el campo via PS
      */
     public void setViaPS(Object viaPS) {
         ViaPS = viaPS;
     }
 
     /**
-     *
+     * Devuelve un Object para el numero de finca PS de los clientes sips
      * @return
      */
     public Object getNumFincaPS() {
@@ -1803,15 +1807,15 @@ public class ClientesSips {
     }
 
     /**
-     *
-     * @param numFincaPS
+     * Llena el campo numero de finca PS un argumento Object que se pasa
+     * @param numFincaPS este es el argumento que se pasa para rellenar el campo numero de finca PS
      */
     public void setNumFincaPS(Object numFincaPS) {
         NumFincaPS = numFincaPS;
     }
 
     /**
-     *
+     * Devuelve un Object para el portal PS PS de los clientes sips
      * @return
      */
     public Object getPortalPS() {
@@ -1819,15 +1823,15 @@ public class ClientesSips {
     }
 
     /**
-     *
-     * @param portalPS
+     * Llena el campo portal PS un argumento Object que se pasa
+     * @param portalPS este es el argumento que se pasa para rellenar el campo portal PS
      */
     public void setPortalPS(Object portalPS) {
         PortalPS = portalPS;
     }
 
     /**
-     *
+     * Devuelve un Object para la escalera PS de los clientes sips
      * @return
      */
     public Object getEscaleraPS() {
@@ -1835,15 +1839,15 @@ public class ClientesSips {
     }
 
     /**
-     *
-     * @param escaleraPS
+     * Llena el campo escalera PS un argumento Object que se pasa
+     * @param escaleraPS este es el argumento que se pasa para rellenar el campo escalera PS
      */
     public void setEscaleraPS(Object escaleraPS) {
         EscaleraPS = escaleraPS;
     }
 
     /**
-     *
+     * Devuelve un Object para el piso PS de los clientes sips
      * @return
      */
     public Object getPisoPS() {
@@ -1851,15 +1855,15 @@ public class ClientesSips {
     }
 
     /**
-     *
-     * @param pisoPS
+     * Llena el campo piso PS un argumento Object que se pasa
+     * @param pisoPS este es el argumento que se pasa para rellenar el campo piso PS
      */
     public void setPisoPS(Object pisoPS) {
         PisoPS = pisoPS;
     }
 
     /**
-     *
+     * Devuelve un Object para el puerta PS de los clientes sips
      * @return
      */
     public Object getPuertaPS() {
@@ -1867,15 +1871,15 @@ public class ClientesSips {
     }
 
     /**
-     *
-     * @param puertaPS
+     * Llena el campo puerta PS un argumento Object que se pasa
+     * @param puertaPS este es el argumento que se pasa para rellenar el campo puerta PS
      */
     public void setPuertaPS(Object puertaPS) {
         PuertaPS = puertaPS;
     }
 
     /**
-     *
+     * Devuelve un Object para el codigo de presión de los clientes sips
      * @return
      */
     public Object getCodigoPresion() {
@@ -1883,15 +1887,15 @@ public class ClientesSips {
     }
 
     /**
-     *
-     * @param codigoPresion
+     * Llena el campo puerta PS un argumento Object que se pasa
+     * @param codigoPresion este es el argumento que se pasa para rellenar el campo puerta PS
      */
     public void setCodigoPresion(Object codigoPresion) {
         CodigoPresion = codigoPresion;
     }
 
     /**
-     *
+     * Devuelve un Object para el codigo de presión de los clientes sips
      * @return
      */
     public Object getCodigoPeajeEnVigor() {
@@ -1899,15 +1903,15 @@ public class ClientesSips {
     }
 
     /**
-     *
-     * @param codigoPeajeEnVigor
+     * Llena el campo puerta PS un argumento Object que se pasa
+     * @param codigoPeajeEnVigor este es el argumento que se pasa para rellenar el campo puerta PS
      */
     public void setCodigoPeajeEnVigor(Object codigoPeajeEnVigor) {
         CodigoPeajeEnVigor = codigoPeajeEnVigor;
     }
 
     /**
-     *
+     * Devuelve un Object para el caudal máximo diario en Wh de los clientes sips
      * @return
      */
     public Object getCaudalMaximoDiarioEnWh() {
@@ -1915,15 +1919,15 @@ public class ClientesSips {
     }
 
     /**
-     *
-     * @param caudalMaximoDiarioEnWh
+     * Llena el campo caudal máximo diario en Wh un argumento Object que se pasa
+     * @param caudalMaximoDiarioEnWh este es el argumento que se pasa para rellenar el campo caudal máximo diario en Wh
      */
     public void setCaudalMaximoDiarioEnWh(Object caudalMaximoDiarioEnWh) {
         CaudalMaximoDiarioEnWh = caudalMaximoDiarioEnWh;
     }
 
     /**
-     *
+     * Devuelve un Object para el caudal horario en Wh de los clientes sips
      * @return
      */
     public Object getCaudalHorarioEnWh() {
@@ -1931,15 +1935,15 @@ public class ClientesSips {
     }
 
     /**
-     *
-     * @param caudalHorarioEnWh
+     * Llena el campo caudal horario en Wh un argumento Object que se pasa
+     * @param caudalHorarioEnWh este es el argumento que se pasa para rellenar el campo caudal horario en Wh
      */
     public void setCaudalHorarioEnWh(Object caudalHorarioEnWh) {
         CaudalHorarioEnWh = caudalHorarioEnWh;
     }
 
     /**
-     *
+     * Devuelve un Object para el derecho TUR de los clientes sips
      * @return
      */
     public Object getDerechoTUR() {
@@ -1947,15 +1951,15 @@ public class ClientesSips {
     }
 
     /**
-     *
-     * @param derechoTUR
+     * Llena el campo derecho TUR un argumento Object que se pasa
+     * @param derechoTUR este es el argumento que se pasa para rellenar el campo derecho TUR
      */
     public void setDerechoTUR(Object derechoTUR) {
         DerechoTUR = derechoTUR;
     }
 
     /**
-     *
+     * Devuelve un Object para la fecha de la última inspección de los clientes sips
      * @return
      */
     public Object getFechaUltimaInspeccion() {
@@ -1963,15 +1967,15 @@ public class ClientesSips {
     }
 
     /**
-     *
-     * @param fechaUltimaInspeccion
+     * Llena el campo fecha de la última inspección un argumento Object que se pasa
+     * @param fechaUltimaInspeccion este es el argumento que se pasa para rellenar el campo fecha de la última inspección
      */
     public void setFechaUltimaInspeccion(Object fechaUltimaInspeccion) {
         FechaUltimaInspeccion = fechaUltimaInspeccion;
     }
 
     /**
-     *
+     * Devuelve un Object para el codigo de resultado de inspección de los clientes sips
      * @return
      */
     public Object getCodigoResultadoInspeccion() {
@@ -1979,15 +1983,15 @@ public class ClientesSips {
     }
 
     /**
-     *
-     * @param codigoResultadoInspeccion
+     * Llena el campo codigo de resultado de inspección un argumento Object que se pasa
+     * @param codigoResultadoInspeccion este es el argumento que se pasa para rellenar el campo codigo de resultado de inspección
      */
     public void setCodigoResultadoInspeccion(Object codigoResultadoInspeccion) {
         CodigoResultadoInspeccion = codigoResultadoInspeccion;
     }
 
     /**
-     *
+     * Devuelve un Object para el codigo de contador de los clientes sips
      * @return
      */
     public Object getCodigoContador() {
@@ -1995,15 +1999,15 @@ public class ClientesSips {
     }
 
     /**
-     *
-     * @param codigoContador
+     * Llena el campo codigo de contador un argumento Object que se pasa
+     * @param codigoContador este es el argumento que se pasa para rellenar el campo codigo de contador
      */
     public void setCodigoContador(Object codigoContador) {
         CodigoContador = codigoContador;
     }
 
     /**
-     *
+     * Devuelve un Object para el calibre de contador de los clientes sips
      * @return
      */
     public Object getCalibreContador() {
@@ -2011,15 +2015,15 @@ public class ClientesSips {
     }
 
     /**
-     *
-     * @param calibreContador
+     * Llena el campo calibre de contador un argumento Object que se pasa
+     * @param calibreContador este es el argumento que se pasa para rellenar el campo calibre de contador
      */
     public void setCalibreContador(Object calibreContador) {
         CalibreContador = calibreContador;
     }
 
     /**
-     *
+     * Devuelve un Object para el tipo de contador de los clientes sips
      * @return
      */
     public Object getTipoContador() {
@@ -2027,15 +2031,15 @@ public class ClientesSips {
     }
 
     /**
-     *
-     * @param tipoContador
+     * Llena el campo tipo de contador un argumento Object que se pasa
+     * @param tipoContador este es el argumento que se pasa para rellenar el campo tipo de contador
      */
     public void setTipoContador(Object tipoContador) {
         TipoContador = tipoContador;
     }
 
     /**
-     *
+     * Devuelve un Object para la propiedad de medida de equipo de los clientes sips
      * @return
      */
     public Object getPropiedadEquipoMedida() {
@@ -2043,15 +2047,15 @@ public class ClientesSips {
     }
 
     /**
-     *
-     * @param propiedadEquipoMedida
+     * Llena el campo propiedad de medida de equipo un argumento Object que se pasa
+     * @param propiedadEquipoMedida este es el argumento que se pasa para rellenar el campo propiedad de medida de equipo
      */
     public void setPropiedadEquipoMedida(Object propiedadEquipoMedida) {
         PropiedadEquipoMedida = propiedadEquipoMedida;
     }
 
     /**
-     *
+     * Devuelve un Object para el codigo de telemedida de los clientes sips
      * @return
      */
     public Object getCodigoTelemedida() {
@@ -2059,15 +2063,15 @@ public class ClientesSips {
     }
 
     /**
-     *
-     * @param codigoTelemedida
+     * Llena el campo codigo de telemedida un argumento Object que se pasa
+     * @param codigoTelemedida este es el argumento que se pasa para rellenar el campo codigo de telemedida
      */
     public void setCodigoTelemedida(Object codigoTelemedida) {
         CodigoTelemedida = codigoTelemedida;
     }
 
     /**
-     *
+     * Devuelve un Object para el id del tipo del titular de los clientes sips
      * @return
      */
     public Object getIdTipoTitular() {
@@ -2075,15 +2079,15 @@ public class ClientesSips {
     }
 
     /**
-     *
-     * @param idTipoTitular
+     * Llena el campo id del tipo del titular un argumento Object que se pasa
+     * @param idTipoTitular este es el argumento que se pasa para rellenar el campo id del tipo del titular
      */
     public void setIdTipoTitular(Object idTipoTitular) {
         IdTipoTitular = idTipoTitular;
     }
 
     /**
-     *
+     * Devuelve un Object para el id del titular de los clientes sips
      * @return
      */
     public Object getIdTitular() {
@@ -2091,15 +2095,15 @@ public class ClientesSips {
     }
 
     /**
-     *
-     * @param idTitular
+     * Llena el campo id del titular un argumento Object que se pasa
+     * @param idTitular este es el argumento que se pasa para rellenar el campo id del titular
      */
     public void setIdTitular(Object idTitular) {
         IdTitular = idTitular;
     }
 
     /**
-     *
+     * Devuelve un Object para el nombre del titular de los clientes sips
      * @return
      */
     public Object getNombreTitular() {
@@ -2107,15 +2111,15 @@ public class ClientesSips {
     }
 
     /**
-     *
-     * @param nombreTitular
+     * Llena el campo nombre del titular un argumento Object que se pasa
+     * @param nombreTitular este es el argumento que se pasa para rellenar el campo nombre del titular
      */
     public void setNombreTitular(Object nombreTitular) {
         NombreTitular = nombreTitular;
     }
 
     /**
-     *
+     * Devuelve un Object para el apellido del titular de los clientes sips
      * @return
      */
     public Object getApellido1Titular() {
@@ -2123,15 +2127,15 @@ public class ClientesSips {
     }
 
     /**
-     *
-     * @param apellido1Titular
+     * Llena el campo apellido del titular un argumento Object que se pasa
+     * @param apellido1Titular este es el argumento que se pasa para rellenar el campo apellido del titular
      */
     public void setApellido1Titular(Object apellido1Titular) {
         Apellido1Titular = apellido1Titular;
     }
 
     /**
-     *
+     * Devuelve un Object para el apellido2 del titular de los clientes sips
      * @return
      */
     public Object getApellido2Titular() {
@@ -2139,15 +2143,15 @@ public class ClientesSips {
     }
 
     /**
-     *
-     * @param apellido2Titular
+     * Llena el campo apellido2 del titular un argumento Object que se pasa
+     * @param apellido2Titular este es el argumento que se pasa para rellenar el campo apellido2 del titular
      */
     public void setApellido2Titular(Object apellido2Titular) {
         Apellido2Titular = apellido2Titular;
     }
 
     /**
-     *
+     * Devuelve un Object para el codigo de provincia del titular de los clientes sips
      * @return
      */
     public Object getCodigoProvinciaTitular() {
@@ -2155,15 +2159,15 @@ public class ClientesSips {
     }
 
     /**
-     *
-     * @param codigoProvinciaTitular
+     * Llena el campo codigo de provincia del titular un argumento Object que se pasa
+     * @param codigoProvinciaTitular este es el argumento que se pasa para rellenar el campo codigo de provincia del titular
      */
     public void setCodigoProvinciaTitular(Object codigoProvinciaTitular) {
         CodigoProvinciaTitular = codigoProvinciaTitular;
     }
 
     /**
-     *
+     * Devuelve un Object para el des de provincia del titular de los clientes sips
      * @return
      */
     public Object getDesProvinciaTitular() {
@@ -2171,15 +2175,15 @@ public class ClientesSips {
     }
 
     /**
-     *
-     * @param desProvinciaTitular
+     * Llena el campo des de provincia del titular un argumento Object que se pasa
+     * @param desProvinciaTitular este es el argumento que se pasa para rellenar el campo des de provincia del titular
      */
     public void setDesProvinciaTitular(Object desProvinciaTitular) {
         DesProvinciaTitular = desProvinciaTitular;
     }
 
     /**
-     *
+     * Devuelve un Object para el codigo postal del titular de los clientes sips
      * @return
      */
     public Object getCodigoPostalTitular() {
@@ -2187,15 +2191,15 @@ public class ClientesSips {
     }
 
     /**
-     *
-     * @param codigoPostalTitular
+     * Llena el campo codigo postal del titular un argumento Object que se pasa
+     * @param codigoPostalTitular este es el argumento que se pasa para rellenar el campo codigo postal del titular
      */
     public void setCodigoPostalTitular(Object codigoPostalTitular) {
         CodigoPostalTitular = codigoPostalTitular;
     }
 
     /**
-     *
+     * Devuelve un Object para el municipio del titular de los clientes sips
      * @return
      */
     public Object getMunicipioTitular() {
@@ -2203,15 +2207,15 @@ public class ClientesSips {
     }
 
     /**
-     *
-     * @param municipioTitular
+     * Llena el campo municipio del titular un argumento Object que se pasa
+     * @param municipioTitular este es el argumento que se pasa para rellenar el campo municipio del titular
      */
     public void setMunicipioTitular(Object municipioTitular) {
         MunicipioTitular = municipioTitular;
     }
 
     /**
-     *
+     * Devuelve un Object para el des municipio del titular de los clientes sips
      * @return
      */
     public Object getDesMunicipioTitular() {
@@ -2219,15 +2223,15 @@ public class ClientesSips {
     }
 
     /**
-     *
-     * @param desMunicipioTitular
+     * Llena el campo des municipio del titular un argumento Object que se pasa
+     * @param desMunicipioTitular este es el argumento que se pasa para rellenar el campo des municipio del titular
      */
     public void setDesMunicipioTitular(Object desMunicipioTitular) {
         DesMunicipioTitular = desMunicipioTitular;
     }
 
     /**
-     *
+     * Devuelve un Object para el tipo de via del titular de los clientes sips
      * @return
      */
     public Object getTipoViaTitular() {
@@ -2235,15 +2239,15 @@ public class ClientesSips {
     }
 
     /**
-     *
-     * @param tipoViaTitular
+     * Llena el campo tipo de via del titular un argumento Object que se pasa
+     * @param tipoViaTitular este es el argumento que se pasa para rellenar el campo tipo de via del titular
      */
     public void setTipoViaTitular(Object tipoViaTitular) {
         TipoViaTitular = tipoViaTitular;
     }
 
     /**
-     *
+     * Devuelve un Object para la via del titular de los clientes sips
      * @return
      */
     public Object getViaTitular() {
@@ -2251,15 +2255,15 @@ public class ClientesSips {
     }
 
     /**
-     *
-     * @param viaTitular
+     * Llena el campo via del titular un argumento Object que se pasa
+     * @param viaTitular este es el argumento que se pasa para rellenar el campo via del titular
      */
     public void setViaTitular(Object viaTitular) {
         ViaTitular = viaTitular;
     }
 
     /**
-     *
+     * Devuelve un Object para el numero de finca del titular de los clientes sips
      * @return
      */
     public Object getNumFincaTitular() {
@@ -2267,15 +2271,15 @@ public class ClientesSips {
     }
 
     /**
-     *
-     * @param numFincaTitular
+     * Llena el campo numero de finca del titular un argumento Object que se pasa
+     * @param numFincaTitular este es el argumento que se pasa para rellenar el campo numero de finca del titular
      */
     public void setNumFincaTitular(Object numFincaTitular) {
         NumFincaTitular = numFincaTitular;
     }
 
     /**
-     *
+     * Devuelve un Object para el portal del titular de los clientes sips
      * @return
      */
     public Object getPortalTitular() {
@@ -2283,15 +2287,15 @@ public class ClientesSips {
     }
 
     /**
-     *
-     * @param portalTitular
+     * Llena el campo portal del titular un argumento Object que se pasa
+     * @param portalTitular este es el argumento que se pasa para rellenar el campo portal del titular
      */
     public void setPortalTitular(Object portalTitular) {
         PortalTitular = portalTitular;
     }
 
     /**
-     *
+     * Devuelve un Object para la escalera del titular de los clientes sips
      * @return
      */
     public Object getEscaleraTitular() {
@@ -2299,15 +2303,15 @@ public class ClientesSips {
     }
 
     /**
-     *
-     * @param escaleraTitular
+     * Llena el campo escalera del titular un argumento Object que se pasa
+     * @param escaleraTitular este es el argumento que se pasa para rellenar el campo escalera del titular
      */
     public void setEscaleraTitular(Object escaleraTitular) {
         EscaleraTitular = escaleraTitular;
     }
 
     /**
-     *
+     * Devuelve un Object para el piso del titular de los clientes sips
      * @return
      */
     public Object getPisoTitular() {
@@ -2315,15 +2319,15 @@ public class ClientesSips {
     }
 
     /**
-     *
-     * @param pisoTitular
+     * Llena el campo piso del titular un argumento Object que se pasa
+     * @param pisoTitular este es el argumento que se pasa para rellenar el campo piso del titular
      */
     public void setPisoTitular(Object pisoTitular) {
         PisoTitular = pisoTitular;
     }
 
     /**
-     *
+     * Devuelve un Object para la puerta del titular de los clientes sips
      * @return
      */
     public Object getPuertaTitular() {
@@ -2331,15 +2335,15 @@ public class ClientesSips {
     }
 
     /**
-     *
-     * @param puertaTitular
+     * Llena el campo puerta del titular un argumento Object que se pasa
+     * @param puertaTitular este es el argumento que se pasa para rellenar el campo puerta del titular
      */
     public void setPuertaTitular(Object puertaTitular) {
         PuertaTitular = puertaTitular;
     }
 
     /**
-     *
+     * Devuelve un Object para el tipo de corrector de los clientes sips
      * @return
      */
     public Object getTipoCorrector() {
@@ -2347,15 +2351,15 @@ public class ClientesSips {
     }
 
     /**
-     *
-     * @param tipoCorrector
+     * Llena el campo tipo de corrector un argumento Object que se pasa
+     * @param tipoCorrector este es el argumento que se pasa para rellenar el campo tipo de corrector
      */
     public void setTipoCorrector(Object tipoCorrector) {
         TipoCorrector = tipoCorrector;
     }
 
     /**
-     *
+     * Devuelve un Object para los conectados de planta de sátelite de los clientes sips
      * @return
      */
     public Object getConectadoPlantaSatelite() {
@@ -2363,15 +2367,15 @@ public class ClientesSips {
     }
 
     /**
-     *
-     * @param conectadoPlantaSatelite
+     * Llena el campo conectado de planta de sátelite un argumento Object que se pasa
+     * @param conectadoPlantaSatelite este es el argumento que se pasa para rellenar el campo conectado de planta de sátelite
      */
     public void setConectadoPlantaSatelite(Object conectadoPlantaSatelite) {
         ConectadoPlantaSatelite = conectadoPlantaSatelite;
     }
 
     /**
-     *
+     * Devuelve un Object para el Pctd de los clientes sips
      * @return
      */
     public Object getPctd() {
@@ -2379,15 +2383,15 @@ public class ClientesSips {
     }
 
     /**
-     *
-     * @param pctd
+     * Llena el campo Pctd un argumento Object que se pasa
+     * @param pctd este es el argumento que se pasa para rellenar el campo Pctd
      */
     public void setPctd(Object pctd) {
         Pctd = pctd;
     }
 
     /**
-     *
+     * Devuelve un Object para la medida de presión de los clientes sips
      * @return
      */
     public Object getPresionMedida() {
@@ -2395,15 +2399,15 @@ public class ClientesSips {
     }
 
     /**
-     *
-     * @param presionMedida
+     * Llena el campo medida de presión un argumento Object que se pasa
+     * @param presionMedida este es el argumento que se pasa para rellenar el campo medida de presión
      */
     public void setPresionMedida(Object presionMedida) {
         PresionMedida = presionMedida;
     }
 
     /**
-     *
+     * Devuelve un String para el distri tarifa CP de los clientes sips
      * @return
      */
     public String getDistriTarifaCP() {
@@ -2411,15 +2415,15 @@ public class ClientesSips {
     }
 
     /**
-     *
-     * @param distriTarifaCP
+     * Llena el campo distri tarifa CP un argumento String que se pasa
+     * @param distriTarifaCP este es el argumento que se pasa para rellenar el campo distri tarifa CP
      */
     public void setDistriTarifaCP(String distriTarifaCP) {
         DistriTarifaCP = distriTarifaCP;
     }
 
     /**
-     *
+     * Devuelve un String para el distri tarifa CP de los clientes sips
      * @return
      */
     public String getDistriTarifa() {
@@ -2427,15 +2431,15 @@ public class ClientesSips {
     }
 
     /**
-     *
-     * @param distriTarifa
+     * Llena el campo distri tarifa CP un argumento String que se pasa
+     * @param distriTarifa este es el argumento que se pasa para rellenar el campo distri tarifa CP
      */
     public void setDistriTarifa(String distriTarifa) {
         DistriTarifa = distriTarifa;
     }
 
     /**
-     *
+     * Devuelve un String para el distri CP de los clientes sips
      * @return
      */
     public String getDistriCP() {
@@ -2443,15 +2447,15 @@ public class ClientesSips {
     }
 
     /**
-     *
-     * @param distriCP
+     * Llena el campo distri CP un argumento String que se pasa
+     * @param distriCP este es el argumento que se pasa para rellenar el campo distri CP
      */
     public void setDistriCP(String distriCP) {
         DistriCP = distriCP;
     }
 
     /**
-     *
+     * Devuelve un String para el tarifa CP de los clientes sips
      * @return
      */
     public String getTarifaCP() {
@@ -2459,15 +2463,15 @@ public class ClientesSips {
     }
 
     /**
-     *
-     * @param tarifaCP
+     * Llena el campo tarifa CP un argumento String que se pasa
+     * @param tarifaCP este es el argumento que se pasa para rellenar el campo tarifa CP
      */
     public void setTarifaCP(String tarifaCP) {
         TarifaCP = tarifaCP;
     }
 
     /**
-     *
+     * Devuelve un String para el distri ciudad de los clientes sips
      * @return
      */
     public String getDistriCiudad() {
@@ -2475,15 +2479,15 @@ public class ClientesSips {
     }
 
     /**
-     *
-     * @param distriCiudad
+     * Llena el campo distri ciudad un argumento String que se pasa
+     * @param distriCiudad este es el argumento que se pasa para rellenar el campo distri ciudad
      */
     public void setDistriCiudad(String distriCiudad) {
         DistriCiudad = distriCiudad;
     }
 
     /**
-     *
+     * Devuelve un String para la tarifa ciudad de los clientes sips
      * @return
      */
     public String getTarifaCiudad() {
@@ -2491,15 +2495,15 @@ public class ClientesSips {
     }
 
     /**
-     *
-     * @param tarifaCiudad
+     * Llena el campo tarifa ciudad un argumento String que se pasa
+     * @param tarifaCiudad este es el argumento que se pasa para rellenar el campo tarifa ciudad
      */
     public void setTarifaCiudad(String tarifaCiudad) {
         TarifaCiudad = tarifaCiudad;
     }
 
     /**
-     *
+     * Devuelve un String para el CP ciudad de los clientes sips
      * @return
      */
     public String getCpCiudad() {
@@ -2507,15 +2511,15 @@ public class ClientesSips {
     }
 
     /**
-     *
-     * @param cpCiudad
+     * Llena el campo CP ciudad un argumento String que se pasa
+     * @param cpCiudad este es el argumento que se pasa para rellenar el campo CP ciudad
      */
     public void setCpCiudad(String cpCiudad) {
         CpCiudad = cpCiudad;
     }
 
     /**
-     *
+     * Devuelve un String para el distri provincia de los clientes sips
      * @return
      */
     public String getDistriProvincia() {
@@ -2523,15 +2527,15 @@ public class ClientesSips {
     }
 
     /**
-     *
-     * @param distriProvincia
+     * Llena el campo distri provincia un argumento String que se pasa
+     * @param distriProvincia este es el argumento que se pasa para rellenar el campo distri provincia
      */
     public void setDistriProvincia(String distriProvincia) {
         DistriProvincia = distriProvincia;
     }
 
     /**
-     *
+     * Devuelve un String para el tarifa provincia de los clientes sips
      * @return
      */
     public String getTarifaProvincia() {
@@ -2539,15 +2543,15 @@ public class ClientesSips {
     }
 
     /**
-     *
-     * @param tarifaProvincia
+     * Llena el campo tarifa provincia un argumento String que se pasa
+     * @param tarifaProvincia este es el argumento que se pasa para rellenar el campo tarifa provincia
      */
     public void setTarifaProvincia(String tarifaProvincia) {
         TarifaProvincia = tarifaProvincia;
     }
 
     /**
-     *
+     * Devuelve un String para el CP provincia de los clientes sips
      * @return
      */
     public String getCpProvincia() {
@@ -2555,15 +2559,15 @@ public class ClientesSips {
     }
 
     /**
-     *
-     * @param cpProvincia
+     * Llena el campo CP provincia un argumento String que se pasa
+     * @param cpProvincia este es el argumento que se pasa para rellenar el campo CP provincia
      */
     public void setCpProvincia(String cpProvincia) {
         CpProvincia = cpProvincia;
     }
 
     /**
-     *
+     * Devuelve un String para el distri nombre de los clientes sips
      * @return
      */
     public Object getDistriNombre() {
@@ -2571,15 +2575,15 @@ public class ClientesSips {
     }
 
     /**
-     *
-     * @param distriNombre
+     * Llena el campo distri nombre un argumento String que se pasa
+     * @param distriNombre este es el argumento que se pasa para rellenar el campo distri nombre
      */
     public void setDistriNombre(Object distriNombre) {
         DistriNombre = distriNombre;
     }
 
     /**
-     *
+     * Devuelve un String para el nombre de la tarifa de los clientes sips
      * @return
      */
     public Object getTarifaNombre() {
@@ -2587,15 +2591,15 @@ public class ClientesSips {
     }
 
     /**
-     *
-     * @param tarifaNombre
+     * Llena el campo nombre de la tarifa un argumento String que se pasa
+     * @param tarifaNombre este es el argumento que se pasa para rellenar el campo nombre de la tarifa
      */
     public void setTarifaNombre(Object tarifaNombre) {
         TarifaNombre = tarifaNombre;
     }
 
     /**
-     *
+     * Devuelve un String para el CP del nombre de los clientes sips
      * @return
      */
     public Object getCpNombre() {
@@ -2603,15 +2607,15 @@ public class ClientesSips {
     }
 
     /**
-     *
-     * @param cpNombre
+     * Llena el campo CP del nombre un argumento String que se pasa
+     * @param cpNombre este es el argumento que se pasa para rellenar el campo CP del nombre
      */
     public void setCpNombre(Object cpNombre) {
         CpNombre = cpNombre;
     }
 
     /**
-     *
+     * Devuelve un String para el nombre completo del titular de los clientes sips
      * @return
      */
     public Object getNombreCompletoTitular() {
@@ -2619,15 +2623,15 @@ public class ClientesSips {
     }
 
     /**
-     *
-     * @param nombreCompletoTitular
+     * Llena el campo nombre completo del titular un argumento String que se pasa
+     * @param nombreCompletoTitular este es el argumento que se pasa para rellenar el campo nombre completo del titular
      */
     public void setNombreCompletoTitular(Object nombreCompletoTitular) {
         NombreCompletoTitular = nombreCompletoTitular;
     }
 
     /**
-     *
+     * Devuelve un String para el nombre de la ciudad de los clientes sips
      * @return
      */
     public String getCiudadNombre() {
@@ -2635,8 +2639,8 @@ public class ClientesSips {
     }
 
     /**
-     *
-     * @param ciudadNombre
+     * Llena el campo nombre de la ciudad un argumento String que se pasa
+     * @param ciudadNombre este es el argumento que se pasa para rellenar el campo nombre de la ciudad
      */
     public void setCiudadNombre(String ciudadNombre) {
         CiudadNombre = ciudadNombre;

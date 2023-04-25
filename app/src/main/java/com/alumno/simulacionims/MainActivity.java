@@ -26,6 +26,7 @@ import com.alumno.simulacionims.luz.ActivityLuz;
 import com.alumno.simulacionims.mercado.ActivityMercado;
 import com.alumno.simulacionims.models.Simulacion;
 import com.alumno.simulacionims.pdf.PdfEditado_Simulacion;
+import com.alumno.simulacionims.sips.ActivitySipsLuz;
 
 /**
  * @author David Ruiz Garcia
@@ -97,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
         oferta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intento = new Intent(MainActivity.this, com.alumno.simulacionims.sips.ActivitySips.class);
+                Intent intento = new Intent(MainActivity.this, ActivitySipsLuz.class);
                 activityResultLauncher.launch(intento);
             }
         });

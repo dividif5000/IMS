@@ -87,12 +87,17 @@
     <string name="btnPdf">Guardar PDF</string>
     <string name="btnPrecios">Ver Precios</string>
 
-    <!--Buscador de Cups-->
+    <!--Buscador de Cups parte 1-->
+    <string name="btnSIPSLuz">SIPS Luz</string>
+    <string name="btnSIPSGas">SIPS Gas</string>
+    <string name="btnSIPSAtras">Atras</string>
+
+    <!--Buscador de Cups parte 2-->
     <string name="hintBuscaCups">Ponga el cups que desea buscar</string>
     <string name="btnBuscaCups">Buscar</string>
     <string name="lblConsumoCups">Consumo</string>
     <string name="lblPotenciaCups">Potencia</string>
-    <string name="btnAnteriorBuscaCups">Atras</string>
+    <string name="btnAnteriorBuscaCups">⬅️Anterior</string>
     <string name="btnSiguienteBuscaCups">Enlazar️</string>
     <string name="lblPotencia1Cups">P1️</string>
     <string name="lblPotencia2Cups">P2️</string>
@@ -100,5 +105,16 @@
     <string name="lblPotencia4Cups">P4️</string>
     <string name="lblPotencia5Cups">P5</string>
     <string name="lblPotencia6Cups">P6</string>
+
+    <!--Buscador de Cups parte 3-->
+    <string name="hintBuscaCupsGas">Ponga el cups que desea buscar</string>
+    <string name="btnBuscaCupsGas">Buscar</string>
+    <string name="lblConsumoCupsGas">Consumo</string>
+    <string name="lblFijoCupsGas">Fijo</string>
+    <string name="btnAnteriorBuscaCupsGas">⬅️Anterior</string>
+    <string name="btnSiguienteBuscaCupsGas">Enlazar️</string>
+
+
+
 
 </resources>
