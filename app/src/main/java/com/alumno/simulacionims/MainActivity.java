@@ -26,6 +26,7 @@ import com.alumno.simulacionims.luz.ActivityLuz;
 import com.alumno.simulacionims.mercado.ActivityMercado;
 import com.alumno.simulacionims.models.Simulacion;
 import com.alumno.simulacionims.pdf.PdfEditado_Simulacion;
+import com.alumno.simulacionims.sips.ActivitySips;
 import com.alumno.simulacionims.sips.ActivitySipsLuz;
 
 /**
@@ -98,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
         oferta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intento = new Intent(MainActivity.this, ActivitySipsLuz.class);
+                Intent intento = new Intent(MainActivity.this, ActivitySips.class);
                 activityResultLauncher.launch(intento);
             }
         });
