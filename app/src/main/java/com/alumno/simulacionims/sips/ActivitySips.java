@@ -1,6 +1,7 @@
 package com.alumno.simulacionims.sips;
 
 import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -33,6 +34,8 @@ public class ActivitySips extends AppCompatActivity {
         sipsLuz = findViewById(R.id.btnSipsLuz);
         sipsGas = findViewById(R.id.btnSipsGas);
         atras = findViewById(R.id.btnSipsAtras);
+
+        activityLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), null);
         //region btnSipsLuz
         sipsLuz.setOnClickListener(new View.OnClickListener() {
             @Override

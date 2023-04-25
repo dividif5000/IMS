@@ -13,8 +13,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.alumno.simulacionims.DataBaseHelper;
 import com.alumno.simulacionims.MainActivity;
 import com.alumno.simulacionims.R;
+import com.alumno.simulacionims.SQLPostgresHelper;
 import com.alumno.simulacionims.luz.ActivityLuz;
 import com.alumno.simulacionims.models.ConsumosSips;
 import com.alumno.simulacionims.models.ClasesSipsExtensa;
@@ -224,7 +226,9 @@ public class ActivitySipsLuz extends AppCompatActivity {
      * Mediante este método se consigo medificar la tabla de simulacion al menos lo valores de las potencias
      */
     public void actualizaDB(){
-        String actualizar = "UPDATE SIMULACION SET CUPS ='"+txtcups.getText().toString()+"', P1 ="+Double.parseDouble(txtpotencia1.getText().toString())+", P2 = "+Double.parseDouble(txtpotencia2.getText().toString())+", P3 = "+Double.parseDouble(txtpotencia3.getText().toString())+", P4 = "+Double.parseDouble(txtpotencia4.getText().toString())+", P5 = "+Double.parseDouble(txtpotencia5.getText().toString())+", P6 = "+Double.parseDouble(txtpotencia6.getText().toString())+"WHERE ID = 1";
+        DataBaseHelper inerbase = new DataBaseHelper(getApplicationContext(), "IMS.db", null, 1);
+        db = inerbase.getWritableDatabase();
+        String actualizar = "UPDATE SIMULACION SET CUPS ='"+txtcups.getText().toString()+"', P1 ="+Double.parseDouble(txtpotencia1.getText().toString())+", P2 = "+Double.parseDouble(txtpotencia2.getText().toString())+", P3 = "+Double.parseDouble(txtpotencia3.getText().toString())+", P4 = "+Double.parseDouble(txtpotencia4.getText().toString())+", P5 = "+Double.parseDouble(txtpotencia5.getText().toString())+", P6 = "+Double.parseDouble(txtpotencia6.getText().toString())+" WHERE ID = 1";
         System.out.println(actualizar);
         db.execSQL(actualizar);
     }

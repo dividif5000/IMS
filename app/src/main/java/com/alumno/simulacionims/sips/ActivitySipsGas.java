@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.alumno.simulacionims.DataBaseHelper;
 import com.alumno.simulacionims.MainActivity;
 import com.alumno.simulacionims.R;
 import com.alumno.simulacionims.gas.ActivityGas;
@@ -195,6 +196,8 @@ public class ActivitySipsGas extends AppCompatActivity {
      * Mediante este método se consigo medificar la tabla de simulacion al menos lo valores de las potencias
      */
     public void actualizaDB(){
+        DataBaseHelper inerbase = new DataBaseHelper(getApplicationContext(), "IMS.db", null, 1);
+        db = inerbase.getWritableDatabase();
         String actualizar = "UPDATE SIMULACION SET CUPS ='"+txtcups.getText().toString()+"' WHERE ID = 1";
         System.out.println(actualizar);
         db.execSQL(actualizar);
