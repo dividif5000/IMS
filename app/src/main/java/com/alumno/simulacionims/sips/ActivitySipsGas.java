@@ -22,6 +22,11 @@ import com.google.gson.reflect.TypeToken;
 
 import java.io.IOException;
 import java.lang.reflect.Type;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+import java.util.concurrent.TimeUnit;
 
 import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
@@ -46,7 +51,7 @@ public class ActivitySipsGas extends AppCompatActivity {
     private ActivityResultLauncher activityLauncher;
     private String fechaIni;
     private String fechaFin;
-
+    private int dias;
     //endregion
     //region onCreate
     @Override
@@ -74,7 +79,7 @@ public class ActivitySipsGas extends AppCompatActivity {
 
                     StrictMode.setThreadPolicy(policy);
 
-                    ConsumoAnual();
+                    ConsumoMensual();
                 }
 
             }
@@ -112,12 +117,39 @@ public class ActivitySipsGas extends AppCompatActivity {
         activityLauncher.launch(i);
     }
     //endregion
+    //region ModificaFechas
+
+    /**
+     *  Mediante este metodo se calcula la diferencia de dia que hay entre los dias para sacar el total de dias facturados
+     */
+    public int calcularDiferenciaFechas(String fechai, String fechaf) {
+        // TODO Parsear las fechas seleccionadas
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault());
+        Date fechaInicio = null, fechaFin = null;
+        try {
+            fechaInicio = sdf.parse(fechai);
+            fechaFin = sdf.parse(fechaf);
+        } catch (ParseException e) {
+            e.printStackTrace();
+
+        }
+
+        TimeUnit timeUnit =  TimeUnit.DAYS;
+        // TODO Calcular la diferencia en días
+
+        int diffInDays = (int)( (fechaFin.getTime() - fechaInicio.getTime())
+                / (1000 * 60 * 60 * 24) );
+        System.out.println(diffInDays);
+        // TODO Mostrar el resultado en el EditText
+        return diffInDays;
+    }
+    //endregion
     //region Consumo
 
     /**
-     * Mediante este método se consigue sacar la el valor de consumo anual según CUPS
+     * Mediante este método se consigue sacar la el valor de consumo mesual según CUPS
      */
-    public void ConsumoAnual(){
+    public void ConsumoMensual(){
         OkHttpClient client = new OkHttpClient().newBuilder()
                 .build();
         MediaType mediaType = MediaType.parse("application/json");
@@ -140,14 +172,15 @@ public class ActivitySipsGas extends AppCompatActivity {
             System.out.println(response.body().toString());
             System.out.println(myList.getConsumosSips());
 
-            for (int i =0; i < myList.length -1 || totaldias < 365 ; i--) {
+
+            fechaFin=myList.getConsumosSips().get(myList.getConsumosSips().size()-1).FechaFinMesConsumo;
+            for (int i = 0; i < myList.getConsumosSips().size()-1 || (dias < 365); i--) {
+                fechaIni=myList.getConsumosSips().get(myList.getConsumosSips().size()-1).FechaInicioMesConsumo;
+                dias = calcularDiferenciaFechas(fechaIni, fechaFin);
                 sumaconsumo += myList.getConsumosSips().get(myList.getConsumosSips().size()-1).ConsumoEnWhP1;
 
             }
-                sumaconsumo += myList.getConsumosSips().get(myList.getConsumosSips().size()-1).ConsumoEnWhP1;
-
-
-
+            System.out.println(dias);
             txtconsumo.setText(String.valueOf(sumaconsumo));
 
 
