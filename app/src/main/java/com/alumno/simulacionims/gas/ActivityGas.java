@@ -25,6 +25,7 @@ import com.alumno.simulacionims.R;
 import com.alumno.simulacionims.SQLPostgresHelper;
 import com.alumno.simulacionims.luz.ActivityLuz_Fecha;
 import com.alumno.simulacionims.models.CodigosPrecio;
+import com.alumno.simulacionims.models.Simulacion;
 
 import java.util.List;
 import java.util.Locale;
@@ -45,7 +46,7 @@ public class ActivityGas extends AppCompatActivity {
     private CheckBox recordar;
     private SharedPreferences prefs;
     private SQLiteDatabase db;
-
+    private Simulacion simula;
     private List<CodigosPrecio> codigos;
     CodigosPrecio codigo ;
 
@@ -69,6 +70,8 @@ public class ActivityGas extends AppCompatActivity {
         atras = findViewById(R.id.btnAtrasGas);
         siguiente = findViewById(R.id.btnSiguienteGas);
         recordar = findViewById(R.id.chkRecordar1Gas);
+
+        cups.setText(simula.getCups());
 
         DataBaseHelper inerbase = new DataBaseHelper(ActivityGas.this, "IMS.db", null, 1);
         db = inerbase.getWritableDatabase();
