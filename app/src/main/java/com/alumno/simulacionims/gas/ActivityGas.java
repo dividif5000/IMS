@@ -4,9 +4,11 @@ import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
@@ -71,12 +73,14 @@ public class ActivityGas extends AppCompatActivity {
         siguiente = findViewById(R.id.btnSiguienteGas);
         recordar = findViewById(R.id.chkRecordar1Gas);
 
+        Cargar(prefs);
+        simula=recogeValores();
         cups.setText(simula.getCups());
 
         DataBaseHelper inerbase = new DataBaseHelper(ActivityGas.this, "IMS.db", null, 1);
         db = inerbase.getWritableDatabase();
 
-        Cargar(prefs);
+
 
 
         activityLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), null);
@@ -252,6 +256,28 @@ public class ActivityGas extends AppCompatActivity {
     }
     //endregion
     //region ModificaDB
+
+    /**
+     * Devuelve el Objeto Simulacion con los datos de el cups que recogeremos de la base de datos interna
+     * @return
+     */
+    @SuppressLint("Range")
+    public Simulacion recogeValores() {
+        String sentencia;
+        Simulacion simu = new Simulacion();
+        DataBaseHelper inerbase = new DataBaseHelper(getApplicationContext(), "IMS.db", null, 1);
+        db = inerbase.getWritableDatabase();
+        sentencia = "SELECT * FROM SIMULACION";
+        System.out.println(sentencia);
+        Cursor c = db.rawQuery(sentencia, null);
+
+        c.moveToFirst();
+        simu.setCups(c.getString(c.getColumnIndex("CUPS")));
+
+
+        c.close();
+        return simu;
+    }
 
     /**
      * Mediante este método se recogen los valores de los spinner como string
