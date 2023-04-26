@@ -36,7 +36,6 @@
                 android:gravity="center"
                 android:hint="@string/hintBuscaCups"
                 android:inputType="textPersonName"
-                android:text="ES0021000003145781QE"
                 android:textColor="@color/white"
                 android:textColorHint="@color/white" />
 
