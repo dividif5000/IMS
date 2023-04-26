@@ -2,10 +2,12 @@ package com.alumno.simulacionims.gas;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
@@ -315,9 +317,27 @@ public class ActivityGas extends AppCompatActivity {
      * Mediante este método se consigue ir a la anterior actividad
      */
     public void anteriorActividad(){
-        Intent i = new Intent(this, MainActivity.class);
-        startActivity(i);
-        finish();
+        AlertDialog.Builder builder = new AlertDialog.Builder(getApplicationContext());
+        builder.setTitle("Home");
+        builder.setMessage("¿Está seguro de que desea volver al Home?");
+
+        builder.setPositiveButton("Si", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Intent i = new Intent(getApplicationContext(), MainActivity.class);
+                activityLauncher.launch(i);
+                finish();
+            }
+        });
+
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+        AlertDialog dialog = builder.create();
+        dialog.show();
     }
     //endregion
 

@@ -2,8 +2,10 @@ package com.alumno.simulacionims.sips;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -96,8 +98,27 @@ public class ActivitySips extends AppCompatActivity {
      * Mediante este método se consigue ir a la anterior actividad
      */
     public void anteriorActividad(){
-        Intent i = new Intent(getApplicationContext(), MainActivity.class);
-        activityLauncher.launch(i);
+        AlertDialog.Builder builder = new AlertDialog.Builder(getApplicationContext());
+        builder.setTitle("Home");
+        builder.setMessage("¿Está seguro de que desea volver al Home?");
+
+        builder.setPositiveButton("Si", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Intent i = new Intent(getApplicationContext(), MainActivity.class);
+                activityLauncher.launch(i);
+                finish();
+            }
+        });
+
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+        AlertDialog dialog = builder.create();
+        dialog.show();
     }
     //endregion
 }
