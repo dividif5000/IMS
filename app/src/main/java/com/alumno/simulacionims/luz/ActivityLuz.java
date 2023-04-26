@@ -75,10 +75,11 @@ public class ActivityLuz extends AppCompatActivity {
         siguiente = findViewById(R.id.btnSiguiente);
         recordar = findViewById(R.id.chkRecordar1);
 
+        Cargar(prefs);
         simula=recogeValores();
         cups.setText(simula.getCups());
 
-        Cargar(prefs);
+
 
 
         activityLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), null);
@@ -266,7 +267,6 @@ public class ActivityLuz extends AppCompatActivity {
     @SuppressLint("Range")
     public Simulacion recogeValores() {
         String sentencia;
-        Pricing cosFijo = new Pricing();
         Simulacion simu = new Simulacion();
         DataBaseHelper inerbase = new DataBaseHelper(getApplicationContext(), "IMS.db", null, 1);
         db = inerbase.getWritableDatabase();
@@ -275,7 +275,7 @@ public class ActivityLuz extends AppCompatActivity {
         Cursor c = db.rawQuery(sentencia, null);
 
         c.moveToFirst();
-        simu.setP1(c.getDouble(c.getColumnIndex("CUPS")));
+        simu.setCups(c.getString(c.getColumnIndex("CUPS")));
 
 
         c.close();

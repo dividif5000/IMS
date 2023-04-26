@@ -123,16 +123,16 @@ public class ActivitySipsGas extends AppCompatActivity {
     /**
      *  Mediante este metodo se calcula la diferencia de dia que hay entre los dias para sacar el total de dias facturados
      */
-    public int calcularDiferenciaFechas(String fechai, String fechaf) {
+    public void calcularDiferenciaFechas(String fechai, String fechaf) {
         // TODO Parsear las fechas seleccionadas
-        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault());
-        Date fechaInicio = null, fechaFin = null;
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss", Locale.getDefault());
+        Date fechaInicio, fechaFin;
         try {
             fechaInicio = sdf.parse(fechai);
             fechaFin = sdf.parse(fechaf);
         } catch (ParseException e) {
             e.printStackTrace();
-
+            return;
         }
 
         TimeUnit timeUnit =  TimeUnit.DAYS;
@@ -142,7 +142,8 @@ public class ActivitySipsGas extends AppCompatActivity {
                 / (1000 * 60 * 60 * 24) );
         System.out.println(diffInDays);
         // TODO Mostrar el resultado en el EditText
-        return diffInDays;
+
+        dias =diffInDays;
     }
     //endregion
     //region Consumo
@@ -175,11 +176,15 @@ public class ActivitySipsGas extends AppCompatActivity {
 
 
             fechaFin=myList.getConsumosSips().get(myList.getConsumosSips().size()-1).FechaFinMesConsumo;
-            for (int i = 0; i < myList.getConsumosSips().size()-1 || (dias < 365); i--) {
-                fechaIni=myList.getConsumosSips().get(myList.getConsumosSips().size()-1).FechaInicioMesConsumo;
-                dias = calcularDiferenciaFechas(fechaIni, fechaFin);
-                sumaconsumo += myList.getConsumosSips().get(myList.getConsumosSips().size()-1).ConsumoEnWhP1;
+            System.out.println(fechaFin);
+            //fechaIni = myList.getConsumosSips().get(myList.getConsumosSips().size()-1).FechaInicioMesConsumo;
 
+            for (int i = myList.getConsumosSips().size()-1; i < 0 || (dias < 345); i--) {
+                fechaIni=myList.getConsumosSips().get(i).FechaInicioMesConsumo;
+                System.out.println(fechaIni);
+                calcularDiferenciaFechas(fechaIni, fechaFin);
+                sumaconsumo += myList.getConsumosSips().get(myList.getConsumosSips().size()-1).ConsumoEnWhP1;
+                System.out.println(i + "dias for "  + dias);
             }
             System.out.println(dias);
             txtconsumo.setText(String.valueOf(sumaconsumo));
