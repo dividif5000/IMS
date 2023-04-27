@@ -6,4 +6,68 @@
     android:layout_height="match_parent"
     tools:context=".contrato.ActivityContrato">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/pngwing3_com">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="243dp"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/imgLogoSips"
+                    android:layout_width="201dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    app:srcCompat="@drawable/logo_escalax34" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="362dp"
+                android:layout_gravity="center"
+                android:orientation="vertical">>
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnCreaContratoLuz"
+                    android:layout_width="223dp"
+                    android:layout_height="85dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="20dp"
+                    android:background="@drawable/boton_naranja"
+                    android:gravity="center"
+                    android:text="@string/btnCreaContratoLuz" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnCreaContratoGas"
+                    android:layout_width="223dp"
+                    android:layout_height="85dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="20dp"
+                    android:background="@drawable/boton_verde_presionado"
+                    android:gravity="center"
+                    android:text="@string/btnCreaContratoGas" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnContratoAtras"
+                    android:layout_width="223dp"
+                    android:layout_height="85dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="20dp"
+                    android:background="@drawable/buttons_md"
+                    android:gravity="center"
+                    android:text="@string/btnContratoAtras" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

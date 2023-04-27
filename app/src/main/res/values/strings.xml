@@ -85,6 +85,8 @@
     <string name="lblTotal">TOTAL</string>
     <string name="btnHome">Home</string>
     <string name="btnPdf">Guardar PDF</string>
+    <string name="btnContratoLuz">Contrato</string>
+    <string name="btnContratoGas">Contrato</string>
     <string name="btnPrecios">Ver Precios</string>
 
     <!--Buscador de Cups parte 1-->
@@ -114,7 +116,9 @@
     <string name="btnAnteriorBuscaCupsGas">⬅️Anterior</string>
     <string name="btnSiguienteBuscaCupsGas">Enlazar️</string>
 
-
-
+    <!--Contratos parte1-->
+    <string name="btnCreaContratoLuz">Contrato Luz</string>
+    <string name="btnCreaContratoGas">Contrato Gas</string>
+    <string name="btnContratoAtras">Atras</string>
 
 </resources>

@@ -21,13 +21,13 @@ import android.widget.Toast;
 import com.alumno.simulacionims.administrar.ActivityAdministrar;
 import com.alumno.simulacionims.comisionado.ActivityComisionado;
 import com.alumno.simulacionims.contrato.ActivityContrato;
+import com.alumno.simulacionims.contrato.ActivityContratoLuz;
 import com.alumno.simulacionims.gas.ActivityGas;
 import com.alumno.simulacionims.luz.ActivityLuz;
 import com.alumno.simulacionims.mercado.ActivityMercado;
 import com.alumno.simulacionims.models.Simulacion;
 import com.alumno.simulacionims.pdf.PdfEditado_Simulacion;
 import com.alumno.simulacionims.sips.ActivitySips;
-import com.alumno.simulacionims.sips.ActivitySipsLuz;
 
 /**
  * @author David Ruiz Garcia
@@ -73,8 +73,8 @@ public class MainActivity extends AppCompatActivity {
         DataBaseHelper inerbase = new DataBaseHelper(MainActivity.this, "IMS.db", null, 1);
         db = inerbase.getWritableDatabase();
 
-       insertaDB();
-
+        insertaSimulaDB();
+        insertaContratoDB();
         simula = costeFijo();
 
         //region btnLuz
@@ -82,7 +82,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intento = new Intent(MainActivity.this, ActivityLuz.class);
+                intento.putExtra("tipo","simulacion");
                 activityResultLauncher.launch(intento);
+
             }
         });
         //endregion
@@ -91,6 +93,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intento = new Intent(MainActivity.this, ActivityGas.class);
+                intento.putExtra("tipo","simulacion");
                 activityResultLauncher.launch(intento);
             }
         });
@@ -144,32 +147,7 @@ public class MainActivity extends AppCompatActivity {
         salir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-                builder.setTitle("Cerrar Sesion");
-                builder.setMessage("¿Está seguro de que desea cerrar sesion?");
-
-                builder.setPositiveButton("Si", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        DataBaseHelper tabla = new DataBaseHelper(getApplicationContext(), "IMS.db", null, 1);
-                        db = tabla.getWritableDatabase();
-                        db.execSQL("UPDATE USUARIO SET LOGUEADO = 0");
-                        db.execSQL(borrar);
-                        Intent i = new Intent(getApplicationContext(), LoginActivity.class);
-                        startActivity(i);
-                        //finish();
-                    }
-                });
-
-                builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.dismiss();
-                    }
-                });
-
-                AlertDialog dialog = builder.create();
-                dialog.show();
+                salir();
             }
         });
         //endregion
@@ -217,11 +195,27 @@ public class MainActivity extends AppCompatActivity {
     /**
      * Mediante este método se pueden insertar los datos predetenrminados para el uso de la tabla temporal de simulación
      */
-    public void insertaDB(){
+    public void insertaSimulaDB(){
         if (db != null) {
             final String simulaLuz = "INSERT OR REPLACE INTO SIMULACION VALUES(1,' ' ,'' ,' ' ,' ' ,0,'' ,' ' ,' ' ,' ' ,' ',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0)";
             System.out.println(simulaLuz);
             db.execSQL(simulaLuz);
+
+            /*if (db != null) {
+            final String simulaLuz = "INSERT OR REPLACE INTO SIMULACION VALUES(1,'pedro' ,'hfgg' ,'15-03-2023' ,'14-04-2023' ,29,'COSTE GESTION FIJO' ,'RL.1' ,'RL.1ZZ10' ,'10' ,'INER 10',27,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0.2287350000000000,0.184455,0.168265,0.01,0.01,0.01,52.15158,24.71697,34.32606,0,0,0,0.0969398802739726,0.031675930273972603,0.0273972602739726,0.0273972602739726,0.0273972602739726,0.0273972602739726,35.82897974926027,11.485663829260274,0,0,0,0,0,158.50925,0.7925462,33.28694,192.58873)";
+            System.out.println(simulaLuz);
+            db.execSQL(simulaLuz);
+            }*/
+        }
+    }
+    /**
+     * Mediante este método se pueden insertar los datos predetenrminados para el uso de la tabla temporal de contrato
+     */
+    public void insertaContratoDB(){
+        if (db != null) {
+            final String contrato = "INSERT OR REPLACE INTO CONTRATO VALUES(1,' ' ,' ' ,0 ,' ' ,' ',' ' ,' ' ,' ' ,' ' ,' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ', 0.0,' ',' ',' ',' ',' ',' ',' ',0.0,0.0,0.0,0.0,0.0,0.0,0,' ',' ',' ',' ',' ')";
+            System.out.println(contrato);
+            db.execSQL(contrato);
 
             /*if (db != null) {
             final String simulaLuz = "INSERT OR REPLACE INTO SIMULACION VALUES(1,'pedro' ,'hfgg' ,'15-03-2023' ,'14-04-2023' ,29,'COSTE GESTION FIJO' ,'RL.1' ,'RL.1ZZ10' ,'10' ,'INER 10',27,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0.2287350000000000,0.184455,0.168265,0.01,0.01,0.01,52.15158,24.71697,34.32606,0,0,0,0.0969398802739726,0.031675930273972603,0.0273972602739726,0.0273972602739726,0.0273972602739726,0.0273972602739726,35.82897974926027,11.485663829260274,0,0,0,0,0,158.50925,0.7925462,33.28694,192.58873)";
@@ -307,6 +301,40 @@ public class MainActivity extends AppCompatActivity {
 
         c.close();
         return simu;
+    }
+    //endregion
+    //region DialogoAviso
+
+    /**
+     * Mediante este método se genera una pestaña de dialogo en la que pregunta al usuario si quiere salir de la actividad principal
+     */
+    public void salir(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+        builder.setTitle("Cerrar Sesion");
+        builder.setMessage("¿Está seguro de que desea cerrar sesion?");
+
+        builder.setPositiveButton("Si", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                DataBaseHelper tabla = new DataBaseHelper(getApplicationContext(), "IMS.db", null, 1);
+                db = tabla.getWritableDatabase();
+                db.execSQL("UPDATE USUARIO SET LOGUEADO = 0");
+                db.execSQL(borrar);
+                Intent i = new Intent(getApplicationContext(), LoginActivity.class);
+                startActivity(i);
+                //finish();
+            }
+        });
+
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
     }
     //endregion
     //region Permisos

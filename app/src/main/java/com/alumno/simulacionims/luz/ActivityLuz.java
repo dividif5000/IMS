@@ -27,8 +27,8 @@ import com.alumno.simulacionims.DataBaseHelper;
 import com.alumno.simulacionims.MainActivity;
 import com.alumno.simulacionims.R;
 import com.alumno.simulacionims.SQLPostgresHelper;
+import com.alumno.simulacionims.contrato.ActivityContratoLuz;
 import com.alumno.simulacionims.models.CodigosPrecio;
-import com.alumno.simulacionims.models.Pricing;
 import com.alumno.simulacionims.models.Simulacion;
 
 import java.util.List;
@@ -61,6 +61,8 @@ public class ActivityLuz extends AppCompatActivity {
 
     private final String[] TARI ={"COSTE GESTION FIJO","COSTE GESTION INDEXADO","GESTION INER FIJO","GESTION INER INDEXADO"} ;
     private final String[] PEA ={"2.0TD","3.0TD","6.1TD"} ;
+
+    private String tipo;
     //endregion
     //region onCreate
     @Override
@@ -76,6 +78,9 @@ public class ActivityLuz extends AppCompatActivity {
         atras = findViewById(R.id.btnAtras);
         siguiente = findViewById(R.id.btnSiguiente);
         recordar = findViewById(R.id.chkRecordar1);
+
+        Bundle extras = getIntent().getExtras();
+        tipo = extras.getString("tipo");
 
         Cargar(prefs);
         simula=recogeValores();
@@ -203,7 +208,7 @@ public class ActivityLuz extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Tiene que rellenar los campos o debe de haber una OFERTA", Toast.LENGTH_SHORT).show();
                 }else{
                    actualizaDB();
-                    lanzarActividad_fecha(null);
+                   lanzarActividad(null);
                 }
             }
         });
@@ -306,13 +311,18 @@ public class ActivityLuz extends AppCompatActivity {
      * Metodo para poder lanza avanzar a la siguiente actividad guardando ciertos datos
      * @param view
      */
-    public void lanzarActividad_fecha(View view) {
+    public void lanzarActividad(View view) {
             String peaj = peaje.getSelectedItem().toString();
             String ofer = oferta.getSelectedItem().toString();
-            Intent intent = new Intent(getApplicationContext(), ActivityLuz_Fecha.class);
-            intent.putExtra("peaje", peaj);
-            intent.putExtra("oferta", ofer);
-            activityLauncher.launch(intent);
+            if (tipo.equals("simulacion")) {
+                Intent intent = new Intent(getApplicationContext(), ActivityLuz_Fecha.class);
+                intent.putExtra("peaje", peaj);
+                intent.putExtra("oferta", ofer);
+                activityLauncher.launch(intent);
+            }else if(tipo.equals("contrato")){
+                Intent intent = new Intent(getApplicationContext(), ActivityContratoLuz.class);
+                activityLauncher.launch(intent);
+            }
     }
 
     /**

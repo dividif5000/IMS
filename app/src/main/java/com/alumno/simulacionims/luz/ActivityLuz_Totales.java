@@ -28,6 +28,7 @@ import android.widget.Toast;
 import com.alumno.simulacionims.DataBaseHelper;
 import com.alumno.simulacionims.MainActivity;
 import com.alumno.simulacionims.R;
+import com.alumno.simulacionims.contrato.ActivityContratoLuz;
 import com.alumno.simulacionims.models.Simulacion;
 import com.alumno.simulacionims.pdf.PdfEditado_Simulacion;
 
@@ -51,6 +52,7 @@ public class ActivityLuz_Totales extends AppCompatActivity {
     private EditText total;
     private Button anterior;
     private Button home;
+    private Button contrato;
     private Button pdf;
     private Button precios;
     private static final int STORAGE_PERMISSION_CODE = 101;
@@ -79,6 +81,7 @@ public class ActivityLuz_Totales extends AppCompatActivity {
         total = findViewById(R.id.txtTotalLuz);
         anterior = findViewById(R.id.btnAnteriorLuz);
         home = findViewById(R.id.btnHome);
+        contrato = findViewById(R.id.btnContratoLuz);
         pdf = findViewById(R.id.btnPdf);
 
         activityLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), null);
@@ -89,27 +92,34 @@ public class ActivityLuz_Totales extends AppCompatActivity {
 
         actualizaDB();
 
+        //region btnAnterior
         anterior.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 anteriorActividad();
             }
         });
-
+        //endregion
         home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 homeActividad();
             }
         });
-
+        //region btnContrato
+        contrato.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) { contratoActividad();}
+        });
+        //endregion
+        //region btnPdf
         pdf.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 descargarPDF();
             }
         });
-
+        //endregion
     }
 
     //endregion
@@ -295,12 +305,40 @@ public class ActivityLuz_Totales extends AppCompatActivity {
     public void homeActividad(){
         AlertDialog.Builder builder = new AlertDialog.Builder(ActivityLuz_Totales.this);
         builder.setTitle("Home");
-        builder.setMessage("¿Está seguro de que desea volver al Home?");
+        builder.setMessage("¿Está seguro de que desea volver al Home? Se perderán los datos");
 
         builder.setPositiveButton("Si", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 Intent i = new Intent(getApplicationContext(), MainActivity.class);
+                activityLauncher.launch(i);
+                //finish();
+            }
+        });
+
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
+    }
+
+    /**
+     * Mediante este método se consigue ir a la actividad Contrato-Luz
+     */
+    public void contratoActividad(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(ActivityLuz_Totales.this);
+        builder.setTitle("Contrato");
+        builder.setMessage("¿Quiere generar un contrato de la simulación?");
+
+        builder.setPositiveButton("Si", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Intent i = new Intent(getApplicationContext(), ActivityContratoLuz.class);
                 activityLauncher.launch(i);
                 //finish();
             }

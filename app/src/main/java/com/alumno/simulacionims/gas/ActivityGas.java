@@ -27,6 +27,8 @@ import com.alumno.simulacionims.DataBaseHelper;
 import com.alumno.simulacionims.MainActivity;
 import com.alumno.simulacionims.R;
 import com.alumno.simulacionims.SQLPostgresHelper;
+import com.alumno.simulacionims.contrato.ActivityContratoGas;
+import com.alumno.simulacionims.contrato.ActivityContratoLuz;
 import com.alumno.simulacionims.luz.ActivityLuz_Fecha;
 import com.alumno.simulacionims.models.CodigosPrecio;
 import com.alumno.simulacionims.models.Simulacion;
@@ -52,6 +54,7 @@ public class ActivityGas extends AppCompatActivity {
     private SQLiteDatabase db;
     private Simulacion simula;
     private List<CodigosPrecio> codigos;
+    private String tipo;
     CodigosPrecio codigo ;
 
 
@@ -75,6 +78,8 @@ public class ActivityGas extends AppCompatActivity {
         siguiente = findViewById(R.id.btnSiguienteGas);
         recordar = findViewById(R.id.chkRecordar1Gas);
 
+        Bundle extras = getIntent().getExtras();
+        tipo = extras.getString("tipo");
         Cargar(prefs);
         simula=recogeValores();
         cups.setText(simula.getCups());
@@ -307,10 +312,15 @@ public class ActivityGas extends AppCompatActivity {
     public void lanzarActividad_fecha(View view) {
         String peaj = peaje.getSelectedItem().toString();
         String ofer = oferta.getSelectedItem().toString();
-        Intent intent = new Intent(getApplicationContext(), ActivityGas_Fecha.class);
-        intent.putExtra("peaje", peaj);
-        intent.putExtra("oferta", ofer);
-        activityLauncher.launch(intent);
+        if (tipo.equals("simulacion")) {
+            Intent intent = new Intent(getApplicationContext(), ActivityGas_Fecha.class);
+            intent.putExtra("peaje", peaj);
+            intent.putExtra("oferta", ofer);
+            activityLauncher.launch(intent);
+        }else if(tipo.equals("contrato")){
+            Intent intent = new Intent(getApplicationContext(), ActivityContratoGas.class);
+            activityLauncher.launch(intent);
+        }
     }
 
     /**
