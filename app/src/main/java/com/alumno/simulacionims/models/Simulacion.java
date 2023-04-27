@@ -207,7 +207,6 @@ public class Simulacion {
 
     /**
      * Devuelve un int para el id de la simulación
-     *
      * @return
      */
     public int getId() {
@@ -216,7 +215,6 @@ public class Simulacion {
 
     /**
      * Llena el campo id mediante un argumento int que se pasa
-     *
      * @param id este es el argumento que se pasa para rellenar el campo id
      */
     public void setId(int id) {
@@ -225,7 +223,6 @@ public class Simulacion {
 
     /**
      * Devuelve un String para el cliente de la simulación
-     *
      * @return
      */
     public String getCliente() {
@@ -234,7 +231,6 @@ public class Simulacion {
 
     /**
      * Llena el campo cliente mediante un argumento String que se pasa
-     *
      * @param cliente este es el argumento que se pasa para rellenar el campo cliente
      */
     public void setCliente(String cliente) {
@@ -243,7 +239,6 @@ public class Simulacion {
 
     /**
      * Devuelve un String para el cups de la simulación
-     *
      * @return
      */
     public String getCups() {
@@ -252,7 +247,6 @@ public class Simulacion {
 
     /**
      * Llena el campo cups mediante yn argumento String que se pasa
-     *
      * @param cups este es el argumento que se pasa para rellenar el campo cups
      */
     public void setCups(String cups) {
@@ -261,7 +255,6 @@ public class Simulacion {
 
     /**
      * Devuelve un String para la fecha de inicio de la simulación
-     *
      * @return
      */
     public String getFecha_inicio() {
@@ -270,7 +263,6 @@ public class Simulacion {
 
     /**
      * LLena el campo fecha de inicio mediante un argumento String que se pasa
-     *
      * @param fecha_inicio este es el argumento que se pasa para rellenar el campo fecha de inicio
      */
     public void setFecha_inicio(String fecha_inicio) {
@@ -279,7 +271,6 @@ public class Simulacion {
 
     /**
      * Devuelve un String para la decha de fin de la simulación
-     *
      * @return
      */
     public String getFecha_final() {
@@ -288,7 +279,6 @@ public class Simulacion {
 
     /**
      * Llena el campo de fecha de fin mediante un argumento String que se pasa
-     *
      * @param fecha_final este es el argumento que se pasa para rellenar el campo fecha de fin
      */
     public void setFecha_final(String fecha_final) {
@@ -297,7 +287,6 @@ public class Simulacion {
 
     /**
      * Devuelve un int para los dias de la simulación
-     *
      * @return
      */
     public int getDias() {
@@ -306,7 +295,6 @@ public class Simulacion {
 
     /**
      * Llena el campo de dias mediante un argumento int que se pasa
-     *
      * @param dias este es el argumento que se pasa para rellenar el campo dias
      */
     public void setDias(int dias) {
@@ -315,7 +303,6 @@ public class Simulacion {
 
     /**
      * Devuelve un String para la tarifa de la simulación
-     *
      * @return
      */
     public String getTarifa() {
@@ -333,7 +320,6 @@ public class Simulacion {
 
     /**
      * Devuelve un String para el peaje de la simulación
-     *
      * @return
      */
     public String getPeaje() {
@@ -342,7 +328,6 @@ public class Simulacion {
 
     /**
      * LLena el campo de peaje mediante un argumento String que se pasa
-     *
      * @param peaje este es el argumento que se pasa para rellenar el campo peaje
      */
     public void setPeaje(String peaje) {
@@ -351,7 +336,6 @@ public class Simulacion {
 
     /**
      * Devuelve un String la oferta de la simulación
-     *
      * @return
      */
     public String getOferta() {
@@ -360,7 +344,6 @@ public class Simulacion {
 
     /**
      * LLena el campo de oferta mediante un argumento String que se pasa
-     *
      * @param oferta este es el argumento que se pasa para rellenar el campo oferta
      */
     public void setOferta(String oferta) {
@@ -369,7 +352,6 @@ public class Simulacion {
 
     /**
      * Devuelve un String el fee de la simulación
-     *
      * @return
      */
     public String getFee() {
@@ -378,7 +360,6 @@ public class Simulacion {
 
     /**
      * Llena el campo de fee mediante un argumento String que se pasa
-     *
      * @param fee este es el argumento que se pasa para rellenar el campo fee
      */
     public void setFee(String fee) {
@@ -387,7 +368,6 @@ public class Simulacion {
 
     /**
      * Devuelve un String para el precio potencia de la simulación
-     *
      * @return
      */
     public String getPrecio_potencia() {
@@ -396,7 +376,6 @@ public class Simulacion {
 
     /**
      * Llena el campo del precio potencia mediante yn argumento String que se pasa
-     *
      * @param precio_potencia este es el argumento que se pasa para rellenar el campo precio potencia
      */
     public void setPrecio_potencia(String precio_potencia) {
@@ -405,7 +384,6 @@ public class Simulacion {
 
     /**
      * Devuelve un double para el Consumo del E1 del mes de inicio de la simulación
-     *
      * @return
      */
     public double getE1inicio() {
@@ -414,7 +392,6 @@ public class Simulacion {
 
     /**
      * Llena el campo del Consumo del E1 del mes de inicio mediante un argumento double que se pasa
-     *
      * @param e1inicio este es el argumento que se pasa para rellenar el campo de Consumo del E1 de mes de inicio
      */
     public void setE1inicio(double e1inicio) {
@@ -423,7 +400,6 @@ public class Simulacion {
 
     /**
      * Devuelve un double para el Consumo del E2 del mes de inicio de la simulación
-     *
      * @return
      */
     public double getE2inicio() {
@@ -432,7 +408,6 @@ public class Simulacion {
 
     /**
      * Llena el campo del Consumo del E2 del mes de inicio mediante un argumento double que se pasa
-     *
      * @param e2inicio este es el argumento que se pasa para rellenar el campo de Consumo del E2 del mes de inicio
      */
     public void setE2inicio(double e2inicio) {
@@ -441,7 +416,6 @@ public class Simulacion {
 
     /**
      * Devuelve un double para el Consumo del E3 del mes de inicio de la simulación
-     *
      * @return
      */
     public double getE3inicio() {
@@ -450,7 +424,6 @@ public class Simulacion {
 
     /**
      * Llena el campo del Consumo del E3 del mes de inicio mediante un argumento double que se pasa
-     *
      * @param e3inicio este es el argumento que se pasa para rellenar el campo de Consumo del E3 del mes de inicio
      */
     public void setE3inicio(double e3inicio) {
@@ -459,7 +432,6 @@ public class Simulacion {
 
     /**
      * Devuelve un double para el Consumo del E3 del mes de inicio de la simulación
-     *
      * @return
      */
     public double getE4inicio() {
@@ -468,7 +440,6 @@ public class Simulacion {
 
     /**
      * Llena el campo de Consumo del E4 del mes de inicio mediante un argumento double que se pasa
-     *
      * @param e4inicio este es el argumento que se pasa para rellanar el campo de Consumo del E4 del mes de inicio
      */
     public void setE4inicio(double e4inicio) {
@@ -477,7 +448,6 @@ public class Simulacion {
 
     /**
      * Devuelve un double para el Consumo del E5 del mes de inicio de la simulación
-     *
      * @return
      */
     public double getE5inicio() {
@@ -486,7 +456,6 @@ public class Simulacion {
 
     /**
      * LLena el campo de Consumo del E5 del mes inicio mediante un argumento double que se pasa
-     *
      * @param e5inicio este es el argumento para rellenar el campo de Consumo del E5 del mes de inicio
      */
     public void setE5inicio(double e5inicio) {
@@ -495,7 +464,6 @@ public class Simulacion {
 
     /**
      * Devuelve un double para el Consumo del E6 del mes de inicio de la simulación
-     *
      * @return
      */
     public double getE6inicio() {
@@ -504,7 +472,6 @@ public class Simulacion {
 
     /**
      * LLena el campo del Consumo del E6 del mes inicio mediante un argumento double que se pasa
-     *
      * @param e6inicio este es el argumento para rellanar el campo de Consumo del E6 del mes de inicio
      */
     public void setE6inicio(double e6inicio) {
@@ -513,7 +480,6 @@ public class Simulacion {
 
     /**
      * Devuelve un double para el Consumo del E1 del mes de fin de la simulación
-     *
      * @return
      */
     public double getE1fin() {
@@ -522,7 +488,6 @@ public class Simulacion {
 
     /**
      * Llena el campo del Consumo del E1 del mes de fin mediante un argumento double que se pasa
-     *
      * @param e1fin este es el argumento para rellenar el campo de Consumo del E1 del mes de fin
      */
     public void setE1fin(double e1fin) {
@@ -531,7 +496,6 @@ public class Simulacion {
 
     /**
      * Devuelve un double para el Consumo del E2 del mes de fin de la simulación
-     *
      * @return
      */
     public double getE2fin() {
@@ -540,7 +504,6 @@ public class Simulacion {
 
     /**
      * Llena el campo del Consumo del E2 del mes de fin mediante un argumento double que se pasa
-     *
      * @param e2fin este es el argumento para rellenar el campo de Consumo del E2 del mes de fin
      */
     public void setE2fin(double e2fin) {
@@ -549,7 +512,6 @@ public class Simulacion {
 
     /**
      * Devuelve un double para el Consumo del E3 del mes de fin de la simulación
-     *
      * @return
      */
     public double getE3fin() {
@@ -558,7 +520,6 @@ public class Simulacion {
 
     /**
      * LLena el campo de Consumo del E3 del mes de fin mediante un argumento double que se pasa
-     *
      * @param e3fin este es el argumento para rellenar el campo del Consumo del E3 del mes de fin
      */
     public void setE3fin(double e3fin) {
@@ -567,7 +528,6 @@ public class Simulacion {
 
     /**
      * Devuelve un double para el Consumo del E4 del mes de fin de la simulación
-     *
      * @return
      */
     public double getE4fin() {
@@ -576,7 +536,6 @@ public class Simulacion {
 
     /**
      * Llena el campo de Consumo del E4 del mes de fin mediante un argumento double que se pasa
-     *
      * @param e4fin este es el argumento para rellenar el campo del Consumo del E4 del mes de fin
      */
     public void setE4fin(double e4fin) {
@@ -585,7 +544,6 @@ public class Simulacion {
 
     /**
      * Devuelve un double para el Consumo del E5 del mes de fin de la simulación
-     *
      * @return
      */
     public double getE5fin() {
@@ -594,7 +552,6 @@ public class Simulacion {
 
     /**
      * Llena el cmapo de Consumo del E5 del mes de fin mediante un argumento double que se pasa
-     *
      * @param e5fin este es el argumento para rellenar el campo del Consumo del E5 del mes de fin
      */
     public void setE5fin(double e5fin) {
@@ -603,7 +560,6 @@ public class Simulacion {
 
     /**
      * Devuelve un double para el Consumo del E6 del mes de fin de la simulación
-     *
      * @return
      */
     public double getE6fin() {
@@ -612,7 +568,6 @@ public class Simulacion {
 
     /**
      * Llena el campo de Consumo del E6 del mes de fin mediante un argumento double que se pasa
-     *
      * @param e6fin este es el argumento para rellenar el campo del Consumo del E6 del mes de fin
      */
     public void setE6fin(double e6fin) {
@@ -621,7 +576,6 @@ public class Simulacion {
 
     /**
      * Devuelve un double para la Potencia Real del P1 de la simulación
-     *
      * @return
      */
     public double getP1() {
@@ -630,7 +584,6 @@ public class Simulacion {
 
     /**
      * Llena el campo de la Potencia Real del P1 mediante un argumento double que se pasa
-     *
      * @param p1 este es el argumento para rellenar el campo de la Potencia Real del P1
      */
     public void setP1(double p1) {
@@ -639,7 +592,6 @@ public class Simulacion {
 
     /**
      * Devuelve un double para la Potencia Real del P2 de la simulación
-     *
      * @return
      */
     public double getP2() {
@@ -648,7 +600,6 @@ public class Simulacion {
 
     /**
      * Llena el campo de la Potencia Real del P2 mediante un argumento double que se pasa
-     *
      * @param p2 este es el argumento para rellenar el campo de la Potencia Real del P2
      */
     public void setP2(double p2) {
@@ -657,7 +608,6 @@ public class Simulacion {
 
     /**
      * Devuelve un double para la Potencia Real del P3 de la simulación
-     *
      * @return
      */
     public double getP3() {
@@ -666,7 +616,6 @@ public class Simulacion {
 
     /**
      * LLena el campo de la Potencia Real del P3 mediante un argumento double que se pasa
-     *
      * @param p3 este es el argumento para rellenar el campo de la Potencia Real del P3
      */
     public void setP3(double p3) {
@@ -675,7 +624,6 @@ public class Simulacion {
 
     /**
      * Devuelve un double para la Potencia Real del P4 de la simulación
-     *
      * @return
      */
     public double getP4() {
@@ -684,7 +632,6 @@ public class Simulacion {
 
     /**
      * Llena el campo de la Potencia Real del P4 mediante un argumento double que se pasa
-     *
      * @param p4 este es el argumento para rellenar el campo de la Potencia Real del P4
      */
     public void setP4(double p4) {
@@ -693,7 +640,6 @@ public class Simulacion {
 
     /**
      * Devuelve un double para la Potencia Real del P5 de la simulación
-     *
      * @return
      */
     public double getP5() {
@@ -702,7 +648,6 @@ public class Simulacion {
 
     /**
      * Llena el campo de la Potencia Real del P5 mediante un argumento double que se pasa
-     *
      * @param p5 este es el argumento para rellenar el campo de la Potencia Real del P5
      */
     public void setP5(double p5) {
@@ -711,7 +656,6 @@ public class Simulacion {
 
     /**
      * Devuelve un double para la Potencia real del P6 de la simulación
-     *
      * @return
      */
     public double getP6() {
@@ -720,7 +664,6 @@ public class Simulacion {
 
     /**
      * Llena el campo de la Potencia Real del P6 mediante un argumento double que se pasa
-     *
      * @param p6 este es el argumento para rellenar el campo de la Potencia Real del P6
      */
     public void setP6(double p6) {
@@ -729,7 +672,6 @@ public class Simulacion {
 
     /**
      * Devuelve un double para el Importe del E1 de la simulación
-     *
      * @return
      */
     public double getE1Importe() {
@@ -738,7 +680,6 @@ public class Simulacion {
 
     /**
      * Llena el campo del Importe del E1 mediante un argumento double que se pasa
-     *
      * @param e1Importe este es el argumento para rellenar el campo del Importe del E1
      */
     public void setE1Importe(double e1Importe) {
@@ -747,7 +688,6 @@ public class Simulacion {
 
     /**
      * Devuelve un double para el Importe del E2 de la simulación
-     *
      * @return
      */
     public double getE2Importe() {
@@ -756,7 +696,6 @@ public class Simulacion {
 
     /**
      * LLena el campo del Importe del E2 mediante un argumento double que se pasa
-     *
      * @param e2Importe este es el argumento para rellenar el campo del Importe E2
      */
     public void setE2Importe(double e2Importe) {
@@ -765,7 +704,6 @@ public class Simulacion {
 
     /**
      * Devuelve un double para el Importe del E3 de la simulación
-     *
      * @return
      */
     public double getE3Importe() {
@@ -774,7 +712,6 @@ public class Simulacion {
 
     /**
      * Llena el campo del Importe del E3 mediante un argumente double que se pasa
-     *
      * @param e3Importe este es el argumento para rellenar el campo del Importe E3
      */
     public void setE3Importe(double e3Importe) {
@@ -783,7 +720,6 @@ public class Simulacion {
 
     /**
      * Devuelve un double el Importe del E4 de la simulación
-     *
      * @return
      */
     public double getE4Importe() {
@@ -792,7 +728,6 @@ public class Simulacion {
 
     /**
      * Llena el campo del Importe del E4 mediante un argumento double que se pasa
-     *
      * @param e4Importe este es el argumento para rellenar el campo del Importe E4
      */
     public void setE4Importe(double e4Importe) {
@@ -801,7 +736,6 @@ public class Simulacion {
 
     /**
      * Devuelve un double para el Importe del E5 de la simulación
-     *
      * @return
      */
     public double getE5Importe() {
@@ -810,7 +744,6 @@ public class Simulacion {
 
     /**
      * Llena el campo del Importe del E5 mediante un argumento double que se pasa
-     *
      * @param e5Importe este es el argumento para rellenar el campo del Importe E5
      */
     public void setE5Importe(double e5Importe) {
@@ -819,7 +752,6 @@ public class Simulacion {
 
     /**
      * Devuelve un double para el Importe del E6 de la simulación
-     *
      * @return
      */
     public double getE6Importe() {
@@ -828,7 +760,6 @@ public class Simulacion {
 
     /**
      * Llena el campo del Importe del E6 mediante un argumento double que se pasa
-     *
      * @param e6Importe este es el argumento para rellenar el campo del Importe E6
      */
     public void setE6Importe(double e6Importe) {
@@ -837,7 +768,6 @@ public class Simulacion {
 
     /**
      * Devuelve un double para el Total del E1 de la simulación
-     *
      * @return
      */
     public double getE1Total() {
@@ -846,7 +776,6 @@ public class Simulacion {
 
     /**
      * Llena el campo del Total del E1 mediante un argumento double que se pasa
-     *
      * @param e1Total este es el argumento para rellenar el campo del Total E1
      */
     public void setE1Total(double e1Total) {
@@ -855,7 +784,6 @@ public class Simulacion {
 
     /**
      * Devuelve un double para el Total del E2 de la simulación
-     *
      * @return
      */
     public double getE2Total() {
@@ -864,7 +792,6 @@ public class Simulacion {
 
     /**
      * LLena el campo de Total del E2 mediante un argumento double que se pasa
-     *
      * @param e2Total este es el argumento para rellenar el campo del Total E2
      */
     public void setE2Total(double e2Total) {
@@ -873,7 +800,6 @@ public class Simulacion {
 
     /**
      * Devuelve un double para el Total del E3 de la simulación
-     *
      * @return
      */
     public double getE3Total() {
@@ -882,7 +808,6 @@ public class Simulacion {
 
     /**
      * Llena el campo de Total del E3 mediante un argumento double que se pasa
-     *
      * @param e3Total este es el argumento para rellenar el campo del Total E3
      */
     public void setE3Total(double e3Total) {
@@ -891,7 +816,6 @@ public class Simulacion {
 
     /**
      * Devuelve un double para el Total del E4 de la simulación
-     *
      * @return
      */
     public double getE4Total() {
@@ -900,7 +824,6 @@ public class Simulacion {
 
     /**
      * Llena el campo del Total del E4 mediante un argumento double que se pasa
-     *
      * @param e4Total este es el argumento para rellenar el campo del Total E4
      */
     public void setE4Total(double e4Total) {
@@ -909,7 +832,6 @@ public class Simulacion {
 
     /**
      * Devuelve un double para el Total del E5 de la simulación
-     *
      * @return
      */
     public double getE5Total() {
@@ -918,7 +840,6 @@ public class Simulacion {
 
     /**
      * Llena el campo del Total del E5 mediante un argumento double que se pasa
-     *
      * @param e5Total este es el argumento para rellenar el campo del Total E5
      */
     public void setE5Total(double e5Total) {
@@ -927,7 +848,6 @@ public class Simulacion {
 
     /**
      * Devuelve un double para el Total del E6 de la simulación
-     *
      * @return
      */
     public double getE6Total() {
@@ -936,7 +856,6 @@ public class Simulacion {
 
     /**
      * Llena el campo del Total del E6 mediante un argumento double que pasa
-     *
      * @param e6Total este es el argumento para rellenar el campo del Total E6
      */
     public void setE6Total(double e6Total) {
@@ -945,7 +864,6 @@ public class Simulacion {
 
     /**
      * Devuelve un double para el Importe del P1 de la simulación
-     *
      * @return
      */
     public double getP1Importe() {
@@ -954,7 +872,6 @@ public class Simulacion {
 
     /**
      * Llena el campo del Importe del P1 mediante un argumento double que pasa
-     *
      * @param p1Importe este es el argumento para rellenar el campo del Importe P1
      */
     public void setP1Importe(double p1Importe) {
@@ -963,7 +880,6 @@ public class Simulacion {
 
     /**
      * Devuelve un double para el Importe del P2 de la simulación
-     *
      * @return
      */
     public double getP2Importe() {
@@ -972,7 +888,6 @@ public class Simulacion {
 
     /**
      * Llena el campo del Importe del P2 mediante un argumento double que pasa
-     *
      * @param p2Importe este es el argumento para rellenar el campo del Importe P2
      */
     public void setP2Importe(double p2Importe) {
@@ -981,7 +896,6 @@ public class Simulacion {
 
     /**
      * Devuelve un double para el Importe del P3 de la simulación
-     *
      * @return
      */
     public double getP3Importe() {
@@ -990,7 +904,6 @@ public class Simulacion {
 
     /**
      * Llena el campo del Importe del P3 mediante un argumento double que pasa
-     *
      * @param p3Importe este es el argumento para rellenar el campo del Importe P3
      */
     public void setP3Importe(double p3Importe) {
@@ -999,7 +912,6 @@ public class Simulacion {
 
     /**
      * Devuelve un double para el Importe del P4 de la simulación
-     *
      * @return
      */
     public double getP4Importe() {
@@ -1008,7 +920,6 @@ public class Simulacion {
 
     /**
      * Llena el campo del Importe del P4 mediante un argumento double que pasa
-     *
      * @param p4Importe este es el argumento para rellenar el campo del Importe P4
      */
     public void setP4Importe(double p4Importe) {
@@ -1017,7 +928,6 @@ public class Simulacion {
 
     /**
      * Devuelve un double para el Importe del P5 de la simulación
-     *
      * @return
      */
     public double getP5Importe() {
@@ -1026,7 +936,6 @@ public class Simulacion {
 
     /**
      * Llena el campo del Importe del P5 mediante un argumento double que pasa
-     *
      * @param p5Importe este es el argumento para rellenar el campo del Importe P5
      */
     public void setP5Importe(double p5Importe) {
@@ -1035,7 +944,6 @@ public class Simulacion {
 
     /**
      * Devuelve un double para el Importe del P6 de la simulación
-     *
      * @return
      */
     public double getP6Importe() {
@@ -1044,7 +952,6 @@ public class Simulacion {
 
     /**
      * Llena el campo del Importe del P6 mediante un argumento double que pasa
-     *
      * @param p6Importe este es el argumento para rellenar el campo del Importe P6
      */
     public void setP6Importe(double p6Importe) {
@@ -1053,7 +960,6 @@ public class Simulacion {
 
     /**
      * Devuelve un double para el Total del P1 de la simulación
-     *
      * @return
      */
     public double getP1Total() {
@@ -1062,7 +968,6 @@ public class Simulacion {
 
     /**
      * Llena el campo del Total del P1 mediante un argumento double que pasa
-     *
      * @param p1Total este es el argumento para rellenar el campo del Total P1
      */
     public void setP1Total(double p1Total) {
@@ -1071,7 +976,6 @@ public class Simulacion {
 
     /**
      * Devuelve un double para el Total del P2 de la simulación
-     *
      * @return
      */
     public double getP2Total() {
@@ -1080,7 +984,6 @@ public class Simulacion {
 
     /**
      * Llena el campo del Total del P2 mediante un argumento double que pasa
-     *
      * @param p2Total este es el argumento para rellenar el campo del Total P2
      */
     public void setP2Total(double p2Total) {
@@ -1089,7 +992,6 @@ public class Simulacion {
 
     /**
      * Devuelve un double para el Total del P3 de la simulación
-     *
      * @return
      */
     public double getP3Total() {
@@ -1098,7 +1000,6 @@ public class Simulacion {
 
     /**
      * Llena el campo del Total del P3 mediante un argumento double que pasa
-     *
      * @param p3Total este es el argumento para rellenar el campo del Total P3
      */
     public void setP3Total(double p3Total) {
@@ -1107,7 +1008,6 @@ public class Simulacion {
 
     /**
      * Devuelve un double para el Total del P4 de la simulación
-     *
      * @return
      */
     public double getP4Total() {
@@ -1116,7 +1016,6 @@ public class Simulacion {
 
     /**
      * Llena el campo del Total del P4 mediante un argumento double que pasa
-     *
      * @param p4Total este es el argumento para rellenar el campo del Total P4
      */
     public void setP4Total(double p4Total) {
@@ -1125,7 +1024,6 @@ public class Simulacion {
 
     /**
      * Devuelve un double para el Total del P5 de la simulación
-     *
      * @return
      */
     public double getP5Total() {
@@ -1134,7 +1032,6 @@ public class Simulacion {
 
     /**
      * Llena el campo del Total del P5 mediante un argumento double que pasa
-     *
      * @param p5Total este es el argumento para rellenar el campo del Total P5
      */
     public void setP5Total(double p5Total) {
@@ -1143,7 +1040,6 @@ public class Simulacion {
 
     /**
      * Devuelve un double para el Total del P6 de la simulación
-     *
      * @return
      */
     public double getP6Total() {
@@ -1152,7 +1048,6 @@ public class Simulacion {
 
     /**
      * Llena el campo del Total del P6 mediante un argumento double que pasa
-     *
      * @param p6Total este es el argumento para rellenar el campo del Total P6
      */
     public void setP6Total(double p6Total) {
@@ -1161,7 +1056,6 @@ public class Simulacion {
 
     /**
      * Devuelve un double para el valor de Gestión Iner este es Específico para las tarifas GESTION INER Y EL GESTION INER INDEXADO
-     *
      * @return
      */
     public double getGestio_iner() {
@@ -1170,7 +1064,6 @@ public class Simulacion {
 
     /**
      * Llena el campo de Gestión Iner mediante un argumento double que pasa
-     *
      * @param gestio_iner este es el argumento para rellenar el campo de Gestión Iner que sera Específico para las tarifas GESTION INER Y GESTION INER INDEXADO
      */
     public void setGestio_iner(double gestio_iner) {
@@ -1179,7 +1072,6 @@ public class Simulacion {
 
     /**
      * Devuelve un dobule para el valor de la Base Imponible que sería el total de los precios sin aplicar ningun tipo de impuesto
-     *
      * @return
      */
     public double getBase_imponible() {
@@ -1188,7 +1080,6 @@ public class Simulacion {
 
     /**
      * Llena el campo de la Base Imponible mediante un argumento double que pasa
-     *
      * @param base_imponible este es el argumento que pasa para rellenar el campo Base Imponible que sería el total de los precios sin aplicar ningun tipo de impuesto
      */
     public void setBase_imponible(double base_imponible) {
@@ -1197,7 +1088,6 @@ public class Simulacion {
 
     /**
      * Devuelve un double para el valor de el Impuesto según el tipo de simulacion que sea siendo de Electricidad para la de Luz y de Hidrocarburos para la de Gas
-     *
      * @return
      */
     public double getImpuesto() {
@@ -1206,7 +1096,6 @@ public class Simulacion {
 
     /**
      * Llena el campo de el Impuesto mediante un argumento double que pasa
-     *
      * @param impuesto este es el argumento que pasa para rellenar el campo Impuesto que según el tipo de simulacion que sea siendo de Electricidad para la de Luz y de Hidrocarburos para la de Gas
      */
     public void setImpuesto(double impuesto) {
@@ -1215,7 +1104,6 @@ public class Simulacion {
 
     /**
      * Devuelve un double para el valor de Alquiler de Equipo que es proporcionada por la distribuidora
-     *
      * @return
      */
     public double getAlquiler_equipo() {
@@ -1224,7 +1112,6 @@ public class Simulacion {
 
     /**
      * Llena el campo de el Alquiler de Equipo mediante un argumento double que pasa
-     *
      * @param alquiler_equipo este es el argumento que pasa para rellenar el campo Alquiler de Equipo que es proporcionada por la distribuidora
      */
     public void setAlquiler_equipo(double alquiler_equipo) {
@@ -1233,7 +1120,6 @@ public class Simulacion {
 
     /**
      * Devuelve un double para el valor del Iva que se saca de un calculo con la Base Imponible
-     *
      * @return
      */
     public double getIva() {
@@ -1242,7 +1128,6 @@ public class Simulacion {
 
     /**
      * Llena el campo de el Iva mediante un argumento  double que pasa
-     *
      * @param iva este es el argumento que pasa para rellenar el campo Iva se saca de un calculo con la Base Imponible
      */
     public void setIva(double iva) {
@@ -1251,7 +1136,6 @@ public class Simulacion {
 
     /**
      * Devuelve un double para el valor Total que se saca haciendo la suma de todos los precios anteriores
-     *
      * @return
      */
     public double getTotal() {
@@ -1260,7 +1144,6 @@ public class Simulacion {
 
     /**
      * Llena el campo de el Total mediante un argumento double que pasa
-     *
      * @param total este es el argumento que pasa para rellenar el campo Total que se saca haciendo la suma de todos los precios anteriores
      */
     public void setTotal(double total) {

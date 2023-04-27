@@ -27,6 +27,9 @@ import android.widget.Toast;
 import com.alumno.simulacionims.DataBaseHelper;
 import com.alumno.simulacionims.MainActivity;
 import com.alumno.simulacionims.R;
+import com.alumno.simulacionims.contrato.ActivityContratoGas;
+import com.alumno.simulacionims.contrato.ActivityContratoLuz;
+import com.alumno.simulacionims.luz.ActivityLuz_Totales;
 import com.alumno.simulacionims.models.Simulacion;
 import com.alumno.simulacionims.pdf.PdfEditado_Simulacion;
 
@@ -51,6 +54,7 @@ public class ActivityGas_Totales extends AppCompatActivity {
     private EditText total;
     private Button anterior;
     private Button home;
+    private Button contrato;
     private Button pdf;
     private static final int STORAGE_PERMISSION_CODE = 101;
     private float gest;
@@ -77,6 +81,7 @@ public class ActivityGas_Totales extends AppCompatActivity {
         total = findViewById(R.id.txtTotalLuzGas);
         anterior = findViewById(R.id.btnAnteriorGas);
         home = findViewById(R.id.btnHomeGas);
+        contrato = findViewById(R.id.btnContratoGas);
         pdf = findViewById(R.id.btnPdfGas);
 
         activityLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), null);
@@ -101,6 +106,12 @@ public class ActivityGas_Totales extends AppCompatActivity {
             public void onClick(View v) {
                 homeActividad();
             }
+        });
+        //endregion
+        //region btnContrato
+        contrato.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) { contratoActividad();}
         });
         //endregion
         //region btnPdf
@@ -297,7 +308,7 @@ public class ActivityGas_Totales extends AppCompatActivity {
     public void homeActividad() {
         AlertDialog.Builder builder = new AlertDialog.Builder(ActivityGas_Totales.this);
         builder.setTitle("Home");
-        builder.setMessage("¿Está seguro de que desea volver al Home?");
+        builder.setMessage("¿Está seguro de que desea volver al Home? Se perderán los datos");
 
         builder.setPositiveButton("Si", new DialogInterface.OnClickListener() {
             @Override
@@ -318,6 +329,23 @@ public class ActivityGas_Totales extends AppCompatActivity {
         dialog.show();
     }
 
+    /**
+     * Mediante este método se consigue ir a la actividad Contrato-Luz
+     */
+    public void contratoActividad() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(ActivityGas_Totales.this);
+        builder.setTitle("Contrato");
+        builder.setMessage("¿Quiere generar un contrato de la simulación?");
+
+        builder.setPositiveButton("Si", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Intent i = new Intent(getApplicationContext(), ActivityContratoGas.class);
+                activityLauncher.launch(i);
+                //finish();
+            }
+        });
+    }
     /**
      * Mediante este método permite descargar pdf con toda la infromación de la simulacion
      */

@@ -234,6 +234,15 @@
                     android:orientation="horizontal">
 
                     <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btnContratoGas"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/boton_verde_presionado"
+                        android:text="@string/btnContratoGas" />
+
+                    <androidx.appcompat.widget.AppCompatButton
                         android:id="@+id/btnHomeGas"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"

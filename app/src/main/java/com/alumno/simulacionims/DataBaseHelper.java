@@ -136,7 +136,67 @@ public class DataBaseHelper extends SQLiteOpenHelper {
                 ")";
         db.execSQL(sentencia);
         //endregion
+        //region Tabla-Contratos
+        // TODO Creacion de la base de la tabla de Usuarios
+
+        sentencia="CREATE TABLE CONTRATO("+
+                "IDCONTRATO INTEGER NOT NULL PRIMARY KEY,"+
+                "PYME_CLI TEXT ,"+
+                "CONTRATO_CLI TEXT ,"+
+                "PERMANENCIA_CLI BOOLEAN,"+
+                "TARIFA_CLI TEXT,"+
+                "PEAJE_CLI TEXT ,"+
+                "CODIGO_TARIFA_CLI TEXT,"+
+                "TITULAR_CLI TEXT,"+
+                "APELLIDOS_CLI TEXT,"+
+                "TELEFONO1_CLI TEXT,"+
+                "TELEFONO2_CLI TEXT,"+
+                "MAIL_CLI TEXT,"+
+                "DIRECCION_CLI TEXT,"+
+                "NUMERO_PORTAL_CLI TEXT,"+
+                "PISO_CLI TEXT,"+
+                "PUERTA_CLI TEXT,"+
+                "LOCALIDAD_CLI TEXT,"+
+                "PROVINCIA_CLI TEXT,"+
+                "CODIGO_POSTAL_CLI TEXT,"+
+                "REPRESENTATE_CLI TEXT,"+
+                "NIF_REPRESENTATE_CLI TEXT,"+
+                "DIRECCION_SUMI TEXT,"+
+                "NUMERO_PORTAL_SUMI TEXT,"+
+                "PISO_SUMI TEXT,"+
+                "PUERTA_SUMI TEXT,"+
+                "LOCALIDAD_SUMI TEXT,"+
+                "PROVINCIA_SUMI TEXT,"+
+                "CODIGO_POSTAL_SUMI TEXT,"+
+                "DISTRIBUIDORA_SUMI TEXT,"+
+                "CUPS_SUMI TEXT,"+
+                "CNAE_SUMI TEXT,"+
+                "CONSUMO_ANUAL DOUBLE,"+
+                "DIRECCION_CON TEXT,"+
+                "NUMERO_PORTAL_CON TEXT,"+
+                "PISO_CON TEXT,"+
+                "PUERTA_CON TEXT,"+
+                "LOCALIDAD_CON TEXT,"+
+                "PROVINCIA_CON TEXT,"+
+                "CODIGO_POSTAL_CON TEXT,"+
+                "POTENCIA1 DOUBLE,"+
+                "POTENCIA2 DOUBLE,"+
+                "POTENCIA3 DOUBLE,"+
+                "POTENCIA4 DOUBLE,"+
+                "POTENCIA5 DOUBLE,"+
+                "POTENCIA6 DOUBLE,"+
+                "GARANTIA BOOLEAN,"+
+                "FECH_INI_CONTRATO TEXT,"+
+                "DURACION_CONTRATO TEXT,"+
+                "NIF_BAN TEXT,"+
+                "NOMBRE_BAN TEXT,"+
+                "IBAN TEXT"+
+                ")";
+        db.execSQL(sentencia);
+        //endregion
     }
+
+
     //endregion
     //region onUpgrade
     @Override
