@@ -1,9 +1,5 @@
 package com.alumno.simulacionims.sips;
 
-import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContracts;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -13,13 +9,16 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.alumno.simulacionims.DataBaseHelper;
 import com.alumno.simulacionims.MainActivity;
 import com.alumno.simulacionims.R;
-import com.alumno.simulacionims.SQLPostgresHelper;
 import com.alumno.simulacionims.luz.ActivityLuz;
-import com.alumno.simulacionims.models.ConsumosSips;
 import com.alumno.simulacionims.models.ClasesSipsExtensa;
+import com.alumno.simulacionims.models.ConsumosSips;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -58,6 +57,7 @@ public class ActivitySipsLuz extends AppCompatActivity {
     //region onCreate
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setTheme(androidx.appcompat.R.style.Theme_AppCompat_DayNight);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sips_luz);
 

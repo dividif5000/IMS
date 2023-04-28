@@ -39,6 +39,7 @@
     <string name="hintCliente">Nombre del cliente</string>
     <string name="hintCUPS">CUPS</string>
     <string name="chkRecordar1">Recordar</string>
+    <string name="chkPermanencia">Permanencia</string>
     <string name="hintMesInicio">-</string>
     <string name="hintMesFinal">-</string>
 
@@ -116,9 +117,28 @@
     <string name="btnAnteriorBuscaCupsGas">⬅️Anterior</string>
     <string name="btnSiguienteBuscaCupsGas">Enlazar️</string>
 
-    <!--Contratos parte1-->
+    <!--Contratos parte 1-->
     <string name="btnCreaContratoLuz">Contrato Luz</string>
     <string name="btnCreaContratoGas">Contrato Gas</string>
     <string name="btnContratoAtras">Atras</string>
+
+    <!--Contratos parte 2-->
+    <string name="lblDatosCLiente">Datos del Cliente</string>
+    <string name="hinttxtTitular">Titular</string>
+    <string name="hinttxtApellidos">Apellidos</string>
+    <string name="hinttxtDNI">DNI/NIF/NIE</string>
+    <string name="hinttxtTelefono">Teléfono</string>
+    <string name="hinttxtTelefono2">Teléfono 2</string>
+    <string name="hinttxtEmail">Email</string>
+    <string name="hinttxtDireccion">Dirección</string>
+    <string name="hinttxtNumero">Número</string>
+    <string name="hinttxtPiso">Piso</string>
+    <string name="hinttxtPuerta">Puerta</string>
+    <string name="hinttxtLocalidad">Localidad</string>
+    <string name="hinttxtProvincia">Provincia</string>
+    <string name="hinttxtCP">C.P.</string>
+    <string name="hinttxtRepresentante">Representate</string>
+    <string name="hinttxtNIFRepresentante">NIF Representate</string>
+    <string name="chkRecordarDatosClienteLuz">Recordar</string>
 
 </resources>

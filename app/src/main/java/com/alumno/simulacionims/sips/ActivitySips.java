@@ -1,15 +1,13 @@
 package com.alumno.simulacionims.sips;
 
-import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContracts;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.alumno.simulacionims.MainActivity;
 import com.alumno.simulacionims.R;
@@ -30,9 +28,9 @@ public class ActivitySips extends AppCompatActivity {
     //region onCreate
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setTheme(androidx.appcompat.R.style.Theme_AppCompat_DayNight);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sips);
-
         sipsLuz = findViewById(R.id.btnSipsLuz);
         sipsGas = findViewById(R.id.btnSipsGas);
         atras = findViewById(R.id.btnSipsAtras);
@@ -42,7 +40,7 @@ public class ActivitySips extends AppCompatActivity {
         sipsLuz.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-             siguienteLuz();
+                siguienteLuz();
             }
         });
         //endregion
@@ -81,7 +79,7 @@ public class ActivitySips extends AppCompatActivity {
     /**
      * Mediante este método se consigue ir a la siguiente actividad para SIPS Luz
      */
-    public void siguienteLuz(){
+    public void siguienteLuz() {
         Intent i = new Intent(getApplicationContext(), ActivitySipsLuz.class);
         activityLauncher.launch(i);
     }
@@ -89,7 +87,7 @@ public class ActivitySips extends AppCompatActivity {
     /**
      * Mediante este método se consigue ir a la siguiente actividad para SIPS Gas
      */
-    public void siguienteGas(){
+    public void siguienteGas() {
         Intent i = new Intent(getApplicationContext(), ActivitySipsGas.class);
         activityLauncher.launch(i);
     }
@@ -97,28 +95,13 @@ public class ActivitySips extends AppCompatActivity {
     /**
      * Mediante este método se consigue ir a la anterior actividad
      */
-    public void anteriorActividad(){
-        AlertDialog.Builder builder = new AlertDialog.Builder(getApplicationContext());
-        builder.setTitle("Home");
-        builder.setMessage("¿Está seguro de que desea volver al Home?");
+    public void anteriorActividad() {
 
-        builder.setPositiveButton("Si", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                Intent i = new Intent(getApplicationContext(), MainActivity.class);
-                activityLauncher.launch(i);
-                finish();
-            }
-        });
+        Intent i = new Intent(getApplicationContext(), MainActivity.class);
+        activityLauncher.launch(i);
+        finish();
 
-        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                dialog.dismiss();
-            }
-        });
-        AlertDialog dialog = builder.create();
-        dialog.show();
     }
     //endregion
+
 }

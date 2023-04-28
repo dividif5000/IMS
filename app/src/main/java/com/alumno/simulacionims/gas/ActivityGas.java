@@ -1,10 +1,5 @@
 package com.alumno.simulacionims.gas;
 
-import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContracts;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -23,13 +18,16 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.alumno.simulacionims.DataBaseHelper;
 import com.alumno.simulacionims.MainActivity;
 import com.alumno.simulacionims.R;
 import com.alumno.simulacionims.SQLPostgresHelper;
 import com.alumno.simulacionims.contrato.ActivityContratoGas;
-import com.alumno.simulacionims.contrato.ActivityContratoLuz;
-import com.alumno.simulacionims.luz.ActivityLuz_Fecha;
 import com.alumno.simulacionims.models.CodigosPrecio;
 import com.alumno.simulacionims.models.Simulacion;
 
@@ -66,6 +64,7 @@ public class ActivityGas extends AppCompatActivity {
     //region onCreate
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setTheme(androidx.appcompat.R.style.Theme_AppCompat_DayNight);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gas);
 

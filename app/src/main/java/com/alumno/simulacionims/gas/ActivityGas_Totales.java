@@ -1,11 +1,5 @@
 package com.alumno.simulacionims.gas;
 
-import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContracts;
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.ActivityNotFoundException;
@@ -24,12 +18,16 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.alumno.simulacionims.DataBaseHelper;
 import com.alumno.simulacionims.MainActivity;
 import com.alumno.simulacionims.R;
 import com.alumno.simulacionims.contrato.ActivityContratoGas;
-import com.alumno.simulacionims.contrato.ActivityContratoLuz;
-import com.alumno.simulacionims.luz.ActivityLuz_Totales;
 import com.alumno.simulacionims.models.Simulacion;
 import com.alumno.simulacionims.pdf.PdfEditado_Simulacion;
 
@@ -71,6 +69,7 @@ public class ActivityGas_Totales extends AppCompatActivity {
     //region onCreate
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setTheme(androidx.appcompat.R.style.Theme_AppCompat_DayNight);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gas_totales);
 

@@ -1,9 +1,5 @@
 package com.alumno.simulacionims.gas;
 
-import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContracts;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.DatePickerDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -16,15 +12,15 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.alumno.simulacionims.DataBaseHelper;
 import com.alumno.simulacionims.R;
-import com.alumno.simulacionims.luz.ActivityLuz;
-import com.alumno.simulacionims.luz.ActivityLuz_Fecha;
-import com.alumno.simulacionims.luz.ActivityLuz_Importe_Total;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -68,6 +64,7 @@ public class ActivityGas_Fecha extends AppCompatActivity {
     //region onCreate
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setTheme(androidx.appcompat.R.style.Theme_AppCompat_DayNight);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gas_fecha);
 

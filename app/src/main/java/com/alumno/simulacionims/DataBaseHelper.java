@@ -140,13 +140,13 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         // TODO Creacion de la base de la tabla de Usuarios
 
         sentencia="CREATE TABLE CONTRATO("+
-                "IDCONTRATO INTEGER NOT NULL PRIMARY KEY,"+
-                "PYME_CLI TEXT ,"+
-                "CONTRATO_CLI TEXT ,"+
-                "PERMANENCIA_CLI BOOLEAN,"+
-                "TARIFA_CLI TEXT,"+
-                "PEAJE_CLI TEXT ,"+
-                "CODIGO_TARIFA_CLI TEXT,"+
+                "ID INTEGER NOT NULL PRIMARY KEY,"+
+                "PYME_CONTRATO TEXT ,"+
+                "TIPO_CONTRATO TEXT ,"+
+                "PERMANENCIA_CONTRATO BOOLEAN,"+
+                "TARIFA_CONTRATO TEXT,"+
+                "PEAJE_CONTRATO TEXT ,"+
+                "CODIGO_TARIFA_CONTRATO TEXT,"+
                 "TITULAR_CLI TEXT,"+
                 "APELLIDOS_CLI TEXT,"+
                 "TELEFONO1_CLI TEXT,"+

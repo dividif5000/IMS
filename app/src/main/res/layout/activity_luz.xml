@@ -39,7 +39,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="381dp"
+                android:layout_height="match_parent"
                 android:layout_margin="10dp"
                 android:gravity="center"
                 android:orientation="vertical">
@@ -69,6 +69,30 @@
                     android:inputType="textPersonName"
                     android:textColor="@color/white"
                     android:textColorHint="@color/white" />
+
+                <Spinner
+                    android:id="@+id/spnPyme"
+                    android:layout_width="match_parent"
+                    android:layout_height="49dp"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/fondo_edittext"
+                    android:gravity="center"
+                    android:textAppearance="@style/SpinnerTextStyle"/>
+
+                <Spinner
+                    android:id="@+id/spnTipoContrato"
+                    android:layout_width="match_parent"
+                    android:layout_height="49dp"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/fondo_edittext"
+                    android:gravity="center"
+                    android:textAppearance="@style/SpinnerTextStyle"/>
+
+                <CheckBox
+                    android:id="@+id/chkPermanecia"
+                    android:layout_width="125dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/chkPermanencia" />
 
                 <Spinner
                     android:id="@+id/spnTarifa"

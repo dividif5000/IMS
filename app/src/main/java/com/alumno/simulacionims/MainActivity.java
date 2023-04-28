@@ -1,11 +1,5 @@
 package com.alumno.simulacionims;
 
-import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContracts;
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -18,10 +12,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.alumno.simulacionims.administrar.ActivityAdministrar;
 import com.alumno.simulacionims.comisionado.ActivityComisionado;
 import com.alumno.simulacionims.contrato.ActivityContrato;
-import com.alumno.simulacionims.contrato.ActivityContratoLuz;
 import com.alumno.simulacionims.gas.ActivityGas;
 import com.alumno.simulacionims.luz.ActivityLuz;
 import com.alumno.simulacionims.mercado.ActivityMercado;
@@ -56,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
     //region onCreate
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setTheme(androidx.appcompat.R.style.Theme_AppCompat_DayNight);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
