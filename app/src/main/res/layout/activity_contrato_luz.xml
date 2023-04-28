@@ -26,221 +26,243 @@
                 android:layout_height="111dp"
                 app:srcCompat="@drawable/logo_escalax34" />
 
-            <EditText
-                android:id="@+id/txtPyme"
+            <TextView
+                android:id="@+id/lblDatosContrato"
                 android:layout_width="wrap_content"
-                android:layout_height="64dp"
+                android:layout_height="44dp"
                 android:layout_margin="10dp"
-                android:background="@drawable/fondo_edittext"
+                android:background="@drawable/fondorelleno"
                 android:ems="10"
                 android:gravity="center"
-                android:hint="@string/hintBuscaCups"
+                android:hint="Datos del Cliente"
                 android:inputType="textPersonName"
                 android:textColor="@color/white"
-                android:textColorHint="@color/white" />
-
-            <Spinner
-                android:id="@+id/btnBuscaCups"
-                android:layout_width="wrap_content"
-                android:layout_height="72dp"
-                android:layout_margin="10dp"
-                android:layout_marginTop="20dp"
-                android:background="@drawable/fondo_edittext"
-                android:gravity="center"
-                android:text="@string/btnBuscaCups"
-                android:textColor="@color/white" />
-
-            <TextView
-                android:id="@+id/lblActiva"
-                android:layout_width="match_parent"
-                android:layout_height="49dp"
-                android:layout_margin="10dp"
-                android:background="@drawable/fondorelleno"
-                android:gravity="center"
-                android:text="@string/lblConsumoCups"
-                android:textColor="@color/white"
+                android:textColorHint="@color/white"
                 android:textSize="20sp" />
 
             <EditText
-                android:id="@+id/txtResultadoActiva"
+                android:id="@+id/txtTitularCLIContrato"
+                android:layout_width="wrap_content"
+                android:layout_height="64dp"
+                android:layout_margin="10dp"
+                android:background="@drawable/fondo_edittext"
+                android:ems="10"
+                android:gravity="center"
+                android:hint="@string/hinttxtTitular"
+                android:inputType="textPersonName"
+                android:textColor="@color/white"
+                android:textColorHint="@color/white"
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/txtApellidosCLIContrato"
+                android:layout_width="wrap_content"
+                android:layout_height="64dp"
+                android:layout_margin="10dp"
+                android:background="@drawable/fondo_edittext"
+                android:gravity="center"
+                android:hint="@string/hinttxtApellidos"
+                android:inputType="textPersonName"
+                android:textColor="@color/white"
+                android:textColorHint="@color/white"
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/txtDNICLIContrato"
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:layout_margin="10dp"
+                android:background="@drawable/fondo_edittext"
+                android:gravity="center"
+                android:hint="@string/hinttxtDNI"
+                android:inputType="textPersonName"
+                android:textColor="@color/white"
+                android:textColorHint="@color/white"
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/txtTelefono1CLIContrato"
                 android:layout_width="match_parent"
                 android:layout_height="64dp"
                 android:layout_margin="10dp"
                 android:background="@drawable/fondo_edittext"
                 android:ems="10"
                 android:gravity="center"
-                android:inputType="numberDecimal"
-                android:textColor="@color/white" />
-
-            <TextView
-                android:id="@+id/lblPotencias"
-                android:layout_width="match_parent"
-                android:layout_height="53dp"
-                android:layout_margin="10dp"
-                android:background="@drawable/fondorelleno"
-                android:gravity="center"
-                android:text="@string/lblPotenciaCups"
+                android:hint="@string/hinttxtTelefono"
+                android:inputType="textPersonName"
                 android:textColor="@color/white"
-                android:textSize="20sp" />
+                android:textColorHint="@color/white"
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/txtTelefono2CLIContrato"
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:layout_margin="10dp"
+                android:background="@drawable/fondo_edittext"
+                android:ems="10"
+                android:gravity="center"
+                android:hint="@string/hinttxtTelefono2"
+                android:inputType="textPersonName"
+                android:textColor="@color/white"
+                android:textColorHint="@color/white"
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/txtEmailCLIContrato"
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:layout_margin="10dp"
+                android:background="@drawable/fondo_edittext"
+                android:ems="10"
+                android:gravity="center"
+                android:hint="@string/hinttxtEmail"
+                android:inputType="textPersonName"
+                android:textColor="@color/white"
+                android:textColorHint="@color/white"
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/txtDireccionCLIContrato"
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:layout_margin="10dp"
+                android:background="@drawable/fondo_edittext"
+                android:ems="10"
+                android:gravity="center"
+                android:hint="@string/hinttxtDireccion"
+                android:inputType="textPersonName"
+                android:textColor="@color/white"
+                android:textColorHint="@color/white"
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/txtNumeroCLIContrato"
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:layout_margin="10dp"
+                android:background="@drawable/fondo_edittext"
+                android:ems="10"
+                android:gravity="center"
+                android:hint="@string/hinttxtNumero"
+                android:inputType="textPersonName"
+                android:textColor="@color/white"
+                android:textColorHint="@color/white"
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/txtPisoCLIContrato"
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:layout_margin="10dp"
+                android:background="@drawable/fondo_edittext"
+                android:ems="10"
+                android:gravity="center"
+                android:hint="@string/hinttxtPiso"
+                android:inputType="textPersonName"
+                android:textSize="14sp"
+                android:textColor="@color/white"
+                android:textColorHint="@color/white"/>
+
+            <EditText
+                android:id="@+id/txtPuertaCLIContrato"
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:layout_margin="10dp"
+                android:background="@drawable/fondo_edittext"
+                android:ems="10"
+                android:gravity="center"
+                android:hint="@string/hinttxtPuerta"
+                android:inputType="textPersonName"
+                android:textSize="14sp"
+                android:textColor="@color/white"
+                android:textColorHint="@color/white"/>
+
+            <EditText
+                android:id="@+id/txtLocalidadCLIContrato"
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:layout_margin="10dp"
+                android:background="@drawable/fondo_edittext"
+                android:ems="10"
+                android:gravity="center"
+                android:hint="@string/hinttxtLocalidad"
+                android:inputType="textPersonName"
+                android:textSize="14sp"
+                android:textColor="@color/white"
+                android:textColorHint="@color/white"/>
+
+            <EditText
+                android:id="@+id/txtProvinciaCLIContrato"
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:layout_margin="10dp"
+                android:background="@drawable/fondo_edittext"
+                android:ems="10"
+                android:gravity="center"
+                android:hint="@string/hinttxtProvincia"
+                android:inputType="textPersonName"
+                android:textSize="14sp"
+                android:textColor="@color/white"
+                android:textColorHint="@color/white"/>
+
+            <EditText
+                android:id="@+id/txtCPCLIContrato"
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:layout_margin="10dp"
+                android:background="@drawable/fondo_edittext"
+                android:ems="10"
+                android:gravity="center"
+                android:hint="@string/hinttxtCP"
+                android:inputType="textPersonName"
+                android:textSize="14sp"
+                android:textColor="@color/white"
+                android:textColorHint="@color/white"/>
+
+            <EditText
+                android:id="@+id/txtRepresentanteCLIContrato"
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:layout_margin="10dp"
+                android:background="@drawable/fondo_edittext"
+                android:ems="10"
+                android:gravity="center"
+                android:hint="@string/hinttxtRepresentante"
+                android:inputType="textPersonName"
+                android:textSize="14sp"
+                android:textColor="@color/white"
+                android:textColorHint="@color/white"/>
+
+            <EditText
+                android:id="@+id/txtNIFRepresentanteCLIContrato"
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:layout_margin="10dp"
+                android:background="@drawable/fondo_edittext"
+                android:ems="10"
+                android:gravity="center"
+                android:hint="@string/hinttxtNIFRepresentante"
+                android:inputType="textPersonName"
+                android:textSize="14sp"
+                android:textColor="@color/white"
+                android:textColorHint="@color/white"/>
+
+            <CheckBox
+                android:id="@+id/chkRecordarDatosClienteLuz"
+                android:layout_width="125dp"
+                android:layout_height="wrap_content"
+                android:text="@string/chkRecordarDatosClienteLuz" />
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="195dp"
-                android:orientation="vertical">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="67dp"
-                    android:background="@drawable/fondo_edittext"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:id="@+id/lblPotencia1Cups"
-                        android:layout_width="18dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:text="P1"
-                        android:textColor="@color/white" />
-
-                    <EditText
-                        android:id="@+id/txtCupsPotencia1"
-                        android:layout_width="114dp"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="10dp"
-                        android:layout_weight="1"
-
-                        android:ems="10"
-                        android:gravity="center"
-                        android:inputType="numberDecimal"
-                        android:textColor="@color/white" />
-
-                    <TextView
-                        android:id="@+id/lblPotencia2Cups"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:text="P2"
-                        android:textColor="@color/white" />
-
-                    <EditText
-                        android:id="@+id/txtCupsPotencia2"
-                        android:layout_width="105dp"
-                        android:layout_height="43dp"
-                        android:layout_margin="10dp"
-                        android:layout_weight="1"
-                        android:ems="10"
-                        android:gravity="center"
-                        android:inputType="numberDecimal"
-                        android:textColor="@color/white" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="68dp"
-                    android:background="@drawable/fondo_edittext"
-                    android:gravity="center"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:id="@+id/lblPotencia3Cups"
-                        android:layout_width="15dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:text="@string/lblPotencia3Cups"
-                        android:textColor="@color/white" />
-
-                    <EditText
-                        android:id="@+id/txtCupsPotencia3"
-                        android:layout_width="110dp"
-                        android:layout_height="47dp"
-                        android:layout_margin="10dp"
-                        android:layout_weight="1"
-                        android:ems="10"
-                        android:gravity="center"
-                        android:inputType="numberDecimal"
-                        android:textColor="@color/white" />
-
-                    <TextView
-                        android:id="@+id/lblPotencia4Cups"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:text="P4"
-                        android:textColor="@color/white" />
-
-                    <EditText
-                        android:id="@+id/txtCupsPotencia4"
-                        android:layout_width="101dp"
-                        android:layout_height="45dp"
-                        android:layout_margin="10dp"
-                        android:layout_weight="1"
-                        android:ems="10"
-                        android:gravity="center"
-                        android:inputType="numberDecimal"
-                        android:textColor="@color/white" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/fondo_edittext"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:id="@+id/lblPotencia5Cups"
-                        android:layout_width="14dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:text="@string/lblPotencia5Cups"
-                        android:textColor="@color/white" />
-
-                    <EditText
-                        android:id="@+id/txtCupsPotencia5"
-                        android:layout_width="110dp"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="10dp"
-                        android:layout_weight="1"
-                        android:ems="10"
-                        android:gravity="center"
-                        android:inputType="numberDecimal"
-                        android:textColor="@color/white" />
-
-                    <TextView
-                        android:id="@+id/lblPotencia6Cups"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:text="@string/lblPotencia6Cups"
-                        android:textColor="@color/white" />
-
-                    <EditText
-                        android:id="@+id/txtCupsPotencia6"
-                        android:layout_width="102dp"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="10dp"
-                        android:layout_weight="1"
-                        android:ems="10"
-                        android:gravity="center"
-                        android:inputType="numberDecimal"
-                        android:textColor="@color/white" />
-                </LinearLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="371dp"
                 android:layout_height="match_parent"
                 android:layout_margin="10dp"
                 android:gravity="center"
                 android:orientation="horizontal">
 
                 <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/btnAtrasBuscaCups"
+                    android:id="@+id/btnAnteriorContratoLuz1"
                     android:layout_width="132dp"
                     android:layout_height="55dp"
                     android:layout_margin="10dp"
@@ -250,7 +272,7 @@
                     android:textColor="@color/white" />
 
                 <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/btnSiguienteBuscaCups"
+                    android:id="@+id/btnSiguienteContratoLuz1"
                     android:layout_width="129dp"
                     android:layout_height="53dp"
                     android:layout_margin="10dp"

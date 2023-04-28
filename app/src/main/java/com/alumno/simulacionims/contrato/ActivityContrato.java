@@ -4,24 +4,20 @@ package com.alumno.simulacionims.contrato;
  * @author David Ruiz Garcia
  * Objeto con el que mediante la actividad con el mismo nombre da a elegir entre diferentes opciones de Contratos
  */
-import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContracts;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.alumno.simulacionims.MainActivity;
 import com.alumno.simulacionims.R;
 import com.alumno.simulacionims.gas.ActivityGas;
 import com.alumno.simulacionims.luz.ActivityLuz;
-import com.alumno.simulacionims.sips.ActivitySipsGas;
-import com.alumno.simulacionims.sips.ActivitySipsLuz;
-
 public class ActivityContrato extends AppCompatActivity {
     //region Variables
     private Button contratoLuz;
@@ -33,6 +29,7 @@ public class ActivityContrato extends AppCompatActivity {
     //region onCreate
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setTheme(androidx.appcompat.R.style.Theme_AppCompat_DayNight);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contrato);
         contratoLuz = findViewById(R.id.btnCreaContratoLuz);
@@ -101,28 +98,10 @@ public class ActivityContrato extends AppCompatActivity {
     /**
      * Mediante este método se consigue ir a la anterior actividad
      */
-    public void anteriorActividad(){
-        AlertDialog.Builder builder = new AlertDialog.Builder(getApplicationContext());
-        builder.setTitle("Home");
-        builder.setMessage("¿Está seguro de que desea volver al Home?");
-
-        builder.setPositiveButton("Si", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                Intent i = new Intent(getApplicationContext(), MainActivity.class);
-                activityLauncher.launch(i);
-                finish();
-            }
-        });
-
-        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                dialog.dismiss();
-            }
-        });
-        AlertDialog dialog = builder.create();
-        dialog.show();
+    public void anteriorActividad() {
+        Intent i = new Intent(getApplicationContext(), MainActivity.class);
+        activityLauncher.launch(i);
+        //finish();
     }
     //endregion
 }

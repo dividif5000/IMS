@@ -3,4 +3,14 @@
     <style name="SpinnerTextStyle" parent="android:Widget.TextView.SpinnerItem">
         <item name="android:textColor">#FFFFFF</item>
     </style>
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="AppTheme.Base">
+        <!-- Customize your theme here. -->
+    </style>
+
+    <style name="AppTheme.Base" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/design_default_color_on_primary</item>
+        <item name="colorPrimaryDark">@color/cardview_dark_background</item>
+        <item name="colorAccent">@color/cardview_light_background</item>
+    </style>
 </resources>
