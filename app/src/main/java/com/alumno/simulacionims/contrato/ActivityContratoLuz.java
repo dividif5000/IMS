@@ -16,12 +16,12 @@ import androidx.activity.result.ActivityResultLauncher;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.alumno.simulacionims.R;
-import com.alumno.simulacionims.luz.ActivityLuz;
+import com.alumno.simulacionims.gas.ActivityGas;
 
 import java.util.Locale;
 
 public class ActivityContratoLuz extends AppCompatActivity {
-
+    //region Variables
     private String tipo;
     private EditText titular;
     private EditText apellidos;
@@ -46,6 +46,8 @@ public class ActivityContratoLuz extends AppCompatActivity {
     private SharedPreferences prefs;
     private SQLiteDatabase db;
     private ActivityResultLauncher activityLauncher;
+    //endregion
+    //region onCreate
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         setTheme(androidx.appcompat.R.style.Theme_AppCompat_DayNight);
@@ -75,6 +77,8 @@ public class ActivityContratoLuz extends AppCompatActivity {
         tipo = extra.getString("tipo");
 
         Cargar(prefs);
+
+        //region btnSiguiente
         siguiente.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -86,7 +90,8 @@ public class ActivityContratoLuz extends AppCompatActivity {
                 }
             }
         });
-
+        //endregion
+        //region btnAtras
         anterior.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -97,7 +102,8 @@ public class ActivityContratoLuz extends AppCompatActivity {
                 }
             }
         });
-
+        //endregion
+        //region chkRecordar
         recordar.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -111,12 +117,14 @@ public class ActivityContratoLuz extends AppCompatActivity {
                 }
             }
         });
+        //endregion
     }
+    //endregion
     //region onBackPress
     //TODO Este metodo sirve para volver a la Main activity
 
     /**
-     * Mediante este método permitimos que el usuario pueda ir a la actividad anterior
+     * Mediante este método permitimos que el usuario pueda ir a la actividad anterior ya sea la de luz como la de contratos
      */
     @Override
     public void onBackPressed() {
@@ -208,6 +216,10 @@ public class ActivityContratoLuz extends AppCompatActivity {
     }
     //endregion
     //region ModificaDB
+
+    /**
+     * Mediante este metodo se actualiza la base de datos interna con los datos que se introducen en la actividad
+     */
     public void actualizaDB() {
 
         String actualizar;
@@ -230,18 +242,21 @@ public class ActivityContratoLuz extends AppCompatActivity {
      * Mediante este método se consigue ir a la siguiente actividad para el Contrato de Luz
      */
     public void siguienteActividad(){
-        Intent intent = new Intent(getApplicationContext(), ActivityContratoLuzSuministro.class);
+        Intent intent = new Intent(getApplicationContext(), ActivityContratoGasSuministro.class);
         activityLauncher.launch(intent);
     }
 
     /**
-     * Mediante este método se consigue ir a la anterior actividad
+     * Mediante este método se consigue ir a la anterior actividad de luz
      */
     public void anteriorSimulacionActividad() {
-        Intent intent = new Intent(getApplicationContext(), ActivityLuz.class);
+        Intent intent = new Intent(getApplicationContext(), ActivityGas.class);
         activityLauncher.launch(intent);
     }
 
+    /**
+     * Mediante este método se consigue ir a la anterior actividad de contrato
+     */
     public void anteriorContratoActividad(){
         Intent intent = new Intent(getApplicationContext(), ActivityContrato.class);
         activityLauncher.launch(intent);
