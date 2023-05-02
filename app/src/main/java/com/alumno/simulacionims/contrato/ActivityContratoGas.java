@@ -239,7 +239,7 @@ public class ActivityContratoGas extends AppCompatActivity {
     //region ActividadLanzada
 
     /**
-     * Mediante este método se consigue ir a la siguiente actividad para el Contrato de Luz
+     * Mediante este método se consigue ir a la siguiente actividad para el Contrato de Gas
      */
     public void siguienteActividad(){
         Intent intent = new Intent(getApplicationContext(), ActivityContratoGasSuministro.class);
@@ -247,7 +247,7 @@ public class ActivityContratoGas extends AppCompatActivity {
     }
 
     /**
-     * Mediante este método se consigue ir a la anterior actividad de luz
+     * Mediante este método se consigue ir a la anterior actividad de Gas
      */
     public void anteriorSimulacionActividad() {
         Intent intent = new Intent(getApplicationContext(), ActivityGas.class);

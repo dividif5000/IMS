@@ -40,7 +40,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="381dp"
+                android:layout_height="match_parent"
                 android:layout_margin="30dp"
                 android:gravity="center"
                 android:orientation="vertical">
@@ -70,11 +70,34 @@
                     android:inputType="textPersonName"
                     android:textColor="@color/white"
                     android:textColorHint="@color/white" />
+                <Spinner
+                    android:id="@+id/spnPymeGas"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/th"
+                    android:gravity="center"
+                    android:textAppearance="@style/SpinnerTextStyle"/>
+
+                <Spinner
+                    android:id="@+id/spnTipoContratoGas"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/th"
+                    android:gravity="center"
+                    android:textAppearance="@style/SpinnerTextStyle"/>
+
+                <CheckBox
+                    android:id="@+id/chkPermaneciaGas"
+                    android:layout_width="125dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/chkPermanencia" />
 
                 <Spinner
                     android:id="@+id/spnTarifaGas"
                     android:layout_width="match_parent"
-                    android:layout_height="49dp"
+                    android:layout_height="50dp"
                     android:layout_margin="10dp"
                     android:background="@drawable/th"
                     android:gravity="center"
@@ -92,7 +115,7 @@
                 <Spinner
                     android:id="@+id/spnOfertaGas"
                     android:layout_width="match_parent"
-                    android:layout_height="46dp"
+                    android:layout_height="50dp"
                     android:layout_margin="10dp"
                     android:background="@drawable/th"
                     android:gravity="center"
@@ -100,7 +123,7 @@
 
                 <CheckBox
                     android:id="@+id/chkRecordar1Gas"
-                    android:layout_width="112dp"
+                    android:layout_width="125dp"
                     android:layout_height="wrap_content"
                     android:text="@string/chkRecordar1" />
             </LinearLayout>

@@ -16,6 +16,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.alumno.simulacionims.DataBaseHelper;
 import com.alumno.simulacionims.MainActivity;
 import com.alumno.simulacionims.R;
+import com.alumno.simulacionims.contrato.ActivityContratoLuzSuministro;
 import com.alumno.simulacionims.luz.ActivityLuz;
 import com.alumno.simulacionims.models.ClasesSipsExtensa;
 import com.alumno.simulacionims.models.ConsumosSips;
@@ -39,6 +40,7 @@ import okhttp3.Response;
 
 public class ActivitySipsLuz extends AppCompatActivity {
     //region Variables
+    private String tipo;
     private EditText txtcups;
     private EditText txtactiva;
     private EditText txtpotencia1;
@@ -73,6 +75,10 @@ public class ActivitySipsLuz extends AppCompatActivity {
         btnatras = findViewById(R.id.btnAtrasBuscaCups);
         btnenlazar = findViewById(R.id.btnSiguienteBuscaCups);
 
+        Bundle extra = getIntent().getExtras();
+        tipo = extra.getString("tipo");
+
+        deshabilitar();
         activityLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), null);
         //region btnCUPS
         btncups.setOnClickListener(new View.OnClickListener() {
@@ -126,6 +132,21 @@ public class ActivitySipsLuz extends AppCompatActivity {
         //super.onBackPressed();
         Intent i = new Intent(this, MainActivity.class);
         activityLauncher.launch(i);
+    }
+    //endregion
+    //region deshabilitar
+
+    /**
+     * Mediante este método bloqueamos el uso de los mismo para que los campos sean solamente de lectura
+     */
+    public void deshabilitar(){
+        txtactiva.setEnabled(false);
+        txtpotencia1.setEnabled(false);
+        txtpotencia2.setEnabled(false);
+        txtpotencia3.setEnabled(false);
+        txtpotencia4.setEnabled(false);
+        txtpotencia5.setEnabled(false);
+        txtpotencia6.setEnabled(false);
     }
     //endregion
     //region Consumo
@@ -228,9 +249,16 @@ public class ActivitySipsLuz extends AppCompatActivity {
     public void actualizaDB(){
         DataBaseHelper inerbase = new DataBaseHelper(getApplicationContext(), "IMS.db", null, 1);
         db = inerbase.getWritableDatabase();
-        String actualizar = "UPDATE SIMULACION SET CUPS ='"+txtcups.getText().toString()+"', P1 ="+Double.parseDouble(txtpotencia1.getText().toString())+", P2 = "+Double.parseDouble(txtpotencia2.getText().toString())+", P3 = "+Double.parseDouble(txtpotencia3.getText().toString())+", P4 = "+Double.parseDouble(txtpotencia4.getText().toString())+", P5 = "+Double.parseDouble(txtpotencia5.getText().toString())+", P6 = "+Double.parseDouble(txtpotencia6.getText().toString())+" WHERE ID = 1";
-        System.out.println(actualizar);
-        db.execSQL(actualizar);
+        if(tipo.equals("contrato")){
+            String actualizar = "UPDATE CONTRATO SET CUPS_SUMI ='"+txtcups.getText().toString()+"', CONSUMO_ANUAL ="+Double.parseDouble(txtactiva.getText().toString())+", POTENCIA1 ="+Double.parseDouble(txtpotencia1.getText().toString())+", POTENCIA2 = "+Double.parseDouble(txtpotencia2.getText().toString())+", POTENCIA3 = "+Double.parseDouble(txtpotencia3.getText().toString())+", POTENCIA4 = "+Double.parseDouble(txtpotencia4.getText().toString())+", POTENCIA5 = "+Double.parseDouble(txtpotencia5.getText().toString())+", POTENCIA6 = "+Double.parseDouble(txtpotencia6.getText().toString())+" WHERE ID = 1";
+            System.out.println(actualizar);
+            db.execSQL(actualizar);
+        }else{
+            String actualizar = "UPDATE SIMULACION SET CUPS ='"+txtcups.getText().toString()+"', P1 ="+Double.parseDouble(txtpotencia1.getText().toString())+", P2 = "+Double.parseDouble(txtpotencia2.getText().toString())+", P3 = "+Double.parseDouble(txtpotencia3.getText().toString())+", P4 = "+Double.parseDouble(txtpotencia4.getText().toString())+", P5 = "+Double.parseDouble(txtpotencia5.getText().toString())+", P6 = "+Double.parseDouble(txtpotencia6.getText().toString())+" WHERE ID = 1";
+            System.out.println(actualizar);
+            db.execSQL(actualizar);
+        }
+        ;
     }
     //endregion
     //region ActividadLanzada
@@ -239,16 +267,28 @@ public class ActivitySipsLuz extends AppCompatActivity {
      * Mediante este método se consigue ir a la siguiente actividad
      */
     public void siguienteActividad(){
-        Intent i = new Intent(getApplicationContext(), ActivityLuz.class);
-        activityLauncher.launch(i);
+        if(tipo.equals("contrato")){
+            Intent i = new Intent(getApplicationContext(), ActivityContratoLuzSuministro.class);
+            activityLauncher.launch(i);
+        }else{
+            Intent i = new Intent(getApplicationContext(), ActivityLuz.class);
+            activityLauncher.launch(i);
+        }
+
     }
 
     /**
      * Mediante este método se consigue ir a la anterior actividad
      */
     public void anteriorActividad(){
-        Intent i = new Intent(getApplicationContext(), ActivitySips.class);
-        activityLauncher.launch(i);
+        if(tipo.equals("contrato")){
+            Intent i = new Intent(getApplicationContext(), ActivityContratoLuzSuministro.class);
+            activityLauncher.launch(i);
+        }else{
+            Intent i = new Intent(getApplicationContext(), ActivitySips.class);
+            activityLauncher.launch(i);
+        }
+
     }
     //endregion
 }

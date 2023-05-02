@@ -16,6 +16,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.alumno.simulacionims.DataBaseHelper;
 import com.alumno.simulacionims.MainActivity;
 import com.alumno.simulacionims.R;
+import com.alumno.simulacionims.contrato.ActivityContratoGasSuministro;
 import com.alumno.simulacionims.gas.ActivityGas;
 import com.alumno.simulacionims.models.ClasesSipsExtensa;
 import com.google.gson.Gson;
@@ -42,6 +43,7 @@ import okhttp3.Response;
 
 public class ActivitySipsGas extends AppCompatActivity {
     //region Variables
+    private String tipo;
     private EditText txtcups;
     private EditText txtconsumo;
     private Button btncups;
@@ -67,7 +69,12 @@ public class ActivitySipsGas extends AppCompatActivity {
         btnatras = findViewById(R.id.btnAtrasBuscaCupsGas);
         btnenlazar = findViewById(R.id.btnSiguienteBuscaCupsGas);
 
+        Bundle extra = getIntent().getExtras();
+        tipo = extra.getString("tipo");
+
         activityLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), null);
+
+        deshabilitar();
         //region btnCUPS
         btncups.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -117,6 +124,16 @@ public class ActivitySipsGas extends AppCompatActivity {
         //super.onBackPressed();
         Intent i = new Intent(this, MainActivity.class);
         activityLauncher.launch(i);
+    }
+    //endregion
+    //region deshabilitar
+
+    /**
+     * Mediante este método bloqueamos el uso de los mismo para que los campos sean solamente de lectura
+     */
+    public void deshabilitar(){
+        txtconsumo.setEnabled(false);
+
     }
     //endregion
     //region ModificaFechas
@@ -202,11 +219,17 @@ public class ActivitySipsGas extends AppCompatActivity {
      * Mediante este método se consigo medificar la tabla de simulacion al menos lo valores de las potencias
      */
     public void actualizaDB(){
-        DataBaseHelper inerbase = new DataBaseHelper(getApplicationContext(), "IMS.db", null, 1);
-        db = inerbase.getWritableDatabase();
-        String actualizar = "UPDATE SIMULACION SET CUPS ='"+txtcups.getText().toString()+"' WHERE ID = 1";
-        System.out.println(actualizar);
-        db.execSQL(actualizar);
+        if(tipo.equals("contrato")) {
+            String actualizar = "UPDATE CONTRATO SET CUPS_SUMI ='" + txtcups.getText().toString() + "', CONSUMO_ANUAL =" + Double.parseDouble(txtconsumo.getText().toString()) + " WHERE ID = 1";
+            System.out.println(actualizar);
+            db.execSQL(actualizar);
+        }else {
+            DataBaseHelper inerbase = new DataBaseHelper(getApplicationContext(), "IMS.db", null, 1);
+            db = inerbase.getWritableDatabase();
+            String actualizar = "UPDATE SIMULACION SET CUPS ='" + txtcups.getText().toString() + "' WHERE ID = 1";
+            System.out.println(actualizar);
+            db.execSQL(actualizar);
+        }
     }
     //endregion
     //region ActividadLanzada
@@ -215,16 +238,26 @@ public class ActivitySipsGas extends AppCompatActivity {
      * Mediante este método se consigue ir a la siguiente actividad
      */
     public void siguienteActividad(){
-        Intent i = new Intent(getApplicationContext(), ActivityGas.class);
-        activityLauncher.launch(i);
+        if(tipo.equals("contrato")) {
+            Intent i = new Intent(getApplicationContext(), ActivityContratoGasSuministro.class);
+            activityLauncher.launch(i);
+        }else {
+            Intent i = new Intent(getApplicationContext(), ActivityGas.class);
+            activityLauncher.launch(i);
+        }
     }
 
     /**
      * Mediante este método se consigue ir a la anterior actividad
      */
     public void anteriorActividad(){
-        Intent i = new Intent(getApplicationContext(), ActivitySips.class);
-        activityLauncher.launch(i);
+        if(tipo.equals("contrato")) {
+            Intent i = new Intent(getApplicationContext(), ActivityContratoGasSuministro.class);
+            activityLauncher.launch(i);
+        }else {
+            Intent i = new Intent(getApplicationContext(), ActivitySips.class);
+            activityLauncher.launch(i);
+        }
     }
     //endregion
 }

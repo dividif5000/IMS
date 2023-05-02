@@ -35,238 +35,238 @@
             </LinearLayout>
 
             <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/lblDatosContratoGas"
-                android:layout_width="wrap_content"
-                android:layout_height="64dp"
-                android:layout_margin="10dp"
-                android:background="@drawable/fondogas"
-                android:ems="10"
-                android:gravity="center"
-                android:hint="Datos del Cliente"
-                android:inputType="textPersonName"
-                android:textColor="@color/white"
-                android:textColorHint="@color/white"
-                android:textSize="20sp" />
-
-            <EditText
-                android:id="@+id/txtTitularCLIContratoGas"
-                android:layout_width="wrap_content"
-                android:layout_height="64dp"
-                android:layout_margin="10dp"
-                android:background="@drawable/th"
-                android:ems="10"
-                android:gravity="center"
-                android:hint="@string/hinttxtTitular"
-                android:inputType="textPersonName"
-                android:textColor="@color/white"
-                android:textColorHint="@color/white"
-                android:textSize="14sp" />
-
-            <EditText
-                android:id="@+id/txtApellidosCLIContratoGas"
-                android:layout_width="wrap_content"
-                android:layout_height="64dp"
-                android:layout_margin="10dp"
-                android:background="@drawable/th"
-                android:gravity="center"
-                android:hint="@string/hinttxtApellidos"
-                android:inputType="textPersonName"
-                android:textColor="@color/white"
-                android:textColorHint="@color/white"
-                android:textSize="14sp" />
-
-            <EditText
-                android:id="@+id/txtDNICLIContratoGas"
                 android:layout_width="match_parent"
-                android:layout_height="64dp"
-                android:layout_margin="10dp"
-                android:background="@drawable/th"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
                 android:gravity="center"
-                android:hint="@string/hinttxtDNI"
-                android:inputType="textPersonName"
-                android:textColor="@color/white"
-                android:textColorHint="@color/white"
-                android:textSize="14sp" />
+                android:orientation="vertical">
 
-            <EditText
-                android:id="@+id/txtTelefono1CLIContratoGas"
-                android:layout_width="match_parent"
-                android:layout_height="64dp"
-                android:layout_margin="10dp"
-                android:background="@drawable/th"
-                android:ems="10"
-                android:gravity="center"
-                android:hint="@string/hinttxtTelefono"
-                android:inputType="textPersonName"
-                android:textColor="@color/white"
-                android:textColorHint="@color/white"
-                android:textSize="14sp" />
+                <TextView
+                    android:id="@+id/lblDatosClienteGas"
+                    android:layout_width="wrap_content"
+                    android:layout_height="64dp"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/fondogas"
+                    android:ems="10"
+                    android:gravity="center"
+                    android:text="@string/lblDatosCLiente"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white"
+                    android:textSize="20sp" />
 
-            <EditText
-                android:id="@+id/txtTelefono2CLIContratoGas"
-                android:layout_width="match_parent"
-                android:layout_height="64dp"
-                android:layout_margin="10dp"
-                android:background="@drawable/th"
-                android:ems="10"
-                android:gravity="center"
-                android:hint="@string/hinttxtTelefono2"
-                android:inputType="textPersonName"
-                android:textColor="@color/white"
-                android:textColorHint="@color/white"
-                android:textSize="14sp" />
+                <EditText
+                    android:id="@+id/txtTitularCLIContratoGas"
+                    android:layout_width="wrap_content"
+                    android:layout_height="64dp"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/th"
+                    android:ems="10"
+                    android:gravity="center"
+                    android:hint="@string/hinttxtTitular"
+                    android:inputType="textPersonName"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white"
+                    android:textSize="14sp" />
 
-            <EditText
-                android:id="@+id/txtEmailCLIContratoGas"
-                android:layout_width="match_parent"
-                android:layout_height="64dp"
-                android:layout_margin="10dp"
-                android:background="@drawable/th"
-                android:ems="10"
-                android:gravity="center"
-                android:hint="@string/hinttxtEmail"
-                android:inputType="textPersonName"
-                android:textColor="@color/white"
-                android:textColorHint="@color/white"
-                android:textSize="14sp" />
+                <EditText
+                    android:id="@+id/txtApellidosCLIContratoGas"
+                    android:layout_width="wrap_content"
+                    android:layout_height="64dp"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/th"
+                    android:gravity="center"
+                    android:hint="@string/hinttxtApellidos"
+                    android:inputType="textPersonName"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white"
+                    android:textSize="14sp" />
 
-            <EditText
-                android:id="@+id/txtDireccionCLIContratoGas"
-                android:layout_width="match_parent"
-                android:layout_height="64dp"
-                android:layout_margin="10dp"
-                android:background="@drawable/th"
-                android:ems="10"
-                android:gravity="center"
-                android:hint="@string/hinttxtDireccion"
-                android:inputType="textPersonName"
-                android:textColor="@color/white"
-                android:textColorHint="@color/white"
-                android:textSize="14sp" />
+                <EditText
+                    android:id="@+id/txtDNICLIContratoGas"
+                    android:layout_width="match_parent"
+                    android:layout_height="64dp"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/th"
+                    android:gravity="center"
+                    android:hint="@string/hinttxtDNI"
+                    android:inputType="textPersonName"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white"
+                    android:textSize="14sp" />
 
-            <EditText
-                android:id="@+id/txtNumeroCLIContratoGas"
-                android:layout_width="match_parent"
-                android:layout_height="64dp"
-                android:layout_margin="10dp"
-                android:background="@drawable/th"
-                android:ems="10"
-                android:gravity="center"
-                android:hint="@string/hinttxtNumero"
-                android:inputType="textPersonName"
-                android:textColor="@color/white"
-                android:textColorHint="@color/white"
-                android:textSize="14sp" />
+                <EditText
+                    android:id="@+id/txtTelefono1CLIContratoGas"
+                    android:layout_width="match_parent"
+                    android:layout_height="64dp"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/th"
+                    android:ems="10"
+                    android:gravity="center"
+                    android:hint="@string/hinttxtTelefono"
+                    android:inputType="textPersonName"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white"
+                    android:textSize="14sp" />
 
-            <EditText
-                android:id="@+id/txtPisoCLIContratoGas"
-                android:layout_width="match_parent"
-                android:layout_height="64dp"
-                android:layout_margin="10dp"
-                android:background="@drawable/th"
-                android:ems="10"
-                android:gravity="center"
-                android:hint="@string/hinttxtPiso"
-                android:inputType="textPersonName"
-                android:textColor="@color/white"
-                android:textColorHint="@color/white"
-                android:textSize="14sp" />
+                <EditText
+                    android:id="@+id/txtTelefono2CLIContratoGas"
+                    android:layout_width="match_parent"
+                    android:layout_height="64dp"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/th"
+                    android:ems="10"
+                    android:gravity="center"
+                    android:hint="@string/hinttxtTelefono2"
+                    android:inputType="textPersonName"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white"
+                    android:textSize="14sp" />
 
-            <EditText
-                android:id="@+id/txtPuertaCLIContratoGas"
-                android:layout_width="match_parent"
-                android:layout_height="64dp"
-                android:layout_margin="10dp"
-                android:background="@drawable/th"
-                android:ems="10"
-                android:gravity="center"
-                android:hint="@string/hinttxtPuerta"
-                android:inputType="textPersonName"
-                android:textColor="@color/white"
-                android:textColorHint="@color/white"
-                android:textSize="14sp" />
+                <EditText
+                    android:id="@+id/txtEmailCLIContratoGas"
+                    android:layout_width="match_parent"
+                    android:layout_height="64dp"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/th"
+                    android:ems="10"
+                    android:gravity="center"
+                    android:hint="@string/hinttxtEmail"
+                    android:inputType="textPersonName"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white"
+                    android:textSize="14sp" />
 
-            <EditText
-                android:id="@+id/txtLocalidadCLIContratoGas"
-                android:layout_width="match_parent"
-                android:layout_height="64dp"
-                android:layout_margin="10dp"
-                android:background="@drawable/th"
-                android:ems="10"
-                android:gravity="center"
-                android:hint="@string/hinttxtLocalidad"
-                android:inputType="textPersonName"
-                android:textColor="@color/white"
-                android:textColorHint="@color/white"
-                android:textSize="14sp" />
+                <EditText
+                    android:id="@+id/txtDireccionCLIContratoGas"
+                    android:layout_width="match_parent"
+                    android:layout_height="64dp"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/th"
+                    android:ems="10"
+                    android:gravity="center"
+                    android:hint="@string/hinttxtDireccion"
+                    android:inputType="textPersonName"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white"
+                    android:textSize="14sp" />
 
-            <EditText
-                android:id="@+id/txtProvinciaCLIContratoGas"
-                android:layout_width="match_parent"
-                android:layout_height="64dp"
-                android:layout_margin="10dp"
-                android:background="@drawable/th"
-                android:ems="10"
-                android:gravity="center"
-                android:hint="@string/hinttxtProvincia"
-                android:inputType="textPersonName"
-                android:textColor="@color/white"
-                android:textColorHint="@color/white"
-                android:textSize="14sp" />
+                <EditText
+                    android:id="@+id/txtNumeroCLIContratoGas"
+                    android:layout_width="match_parent"
+                    android:layout_height="64dp"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/th"
+                    android:ems="10"
+                    android:gravity="center"
+                    android:hint="@string/hinttxtNumero"
+                    android:inputType="textPersonName"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white"
+                    android:textSize="14sp" />
 
-            <EditText
-                android:id="@+id/txtCPCLIContratoGas"
-                android:layout_width="match_parent"
-                android:layout_height="64dp"
-                android:layout_margin="10dp"
-                android:background="@drawable/th"
-                android:ems="10"
-                android:gravity="center"
-                android:hint="@string/hinttxtCP"
-                android:inputType="textPersonName"
-                android:textColor="@color/white"
-                android:textColorHint="@color/white"
-                android:textSize="14sp" />
+                <EditText
+                    android:id="@+id/txtPisoCLIContratoGas"
+                    android:layout_width="match_parent"
+                    android:layout_height="64dp"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/th"
+                    android:ems="10"
+                    android:gravity="center"
+                    android:hint="@string/hinttxtPiso"
+                    android:inputType="textPersonName"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white"
+                    android:textSize="14sp" />
 
-            <EditText
-                android:id="@+id/txtRepresentanteCLIContratoGas"
-                android:layout_width="match_parent"
-                android:layout_height="64dp"
-                android:layout_margin="10dp"
-                android:background="@drawable/th"
-                android:ems="10"
-                android:gravity="center"
-                android:hint="@string/hinttxtRepresentante"
-                android:inputType="textPersonName"
-                android:textColor="@color/white"
-                android:textColorHint="@color/white"
-                android:textSize="14sp" />
+                <EditText
+                    android:id="@+id/txtPuertaCLIContratoGas"
+                    android:layout_width="match_parent"
+                    android:layout_height="64dp"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/th"
+                    android:ems="10"
+                    android:gravity="center"
+                    android:hint="@string/hinttxtPuerta"
+                    android:inputType="textPersonName"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white"
+                    android:textSize="14sp" />
 
-            <EditText
-                android:id="@+id/txtNIFRepresentanteCLIContratoGas"
-                android:layout_width="match_parent"
-                android:layout_height="64dp"
-                android:layout_margin="10dp"
-                android:background="@drawable/th"
-                android:ems="10"
-                android:gravity="center"
-                android:hint="@string/hinttxtNIFRepresentante"
-                android:inputType="textPersonName"
-                android:textColor="@color/white"
-                android:textColorHint="@color/white"
-                android:textSize="14sp" />
+                <EditText
+                    android:id="@+id/txtLocalidadCLIContratoGas"
+                    android:layout_width="match_parent"
+                    android:layout_height="64dp"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/th"
+                    android:ems="10"
+                    android:gravity="center"
+                    android:hint="@string/hinttxtLocalidad"
+                    android:inputType="textPersonName"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white"
+                    android:textSize="14sp" />
 
-            <CheckBox
-                android:id="@+id/chkRecordarDatosClienteGas"
-                android:layout_width="125dp"
-                android:layout_height="wrap_content"
-                android:text="@string/chkRecordarDatosClienteLuz" />
+                <EditText
+                    android:id="@+id/txtProvinciaCLIContratoGas"
+                    android:layout_width="match_parent"
+                    android:layout_height="64dp"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/th"
+                    android:ems="10"
+                    android:gravity="center"
+                    android:hint="@string/hinttxtProvincia"
+                    android:inputType="textPersonName"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/txtCPCLIContratoGas"
+                    android:layout_width="match_parent"
+                    android:layout_height="64dp"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/th"
+                    android:ems="10"
+                    android:gravity="center"
+                    android:hint="@string/hinttxtCP"
+                    android:inputType="textPersonName"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/txtRepresentanteCLIContratoGas"
+                    android:layout_width="match_parent"
+                    android:layout_height="64dp"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/th"
+                    android:ems="10"
+                    android:gravity="center"
+                    android:hint="@string/hinttxtRepresentante"
+                    android:inputType="textPersonName"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/txtNIFRepresentanteCLIContratoGas"
+                    android:layout_width="match_parent"
+                    android:layout_height="64dp"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/th"
+                    android:ems="10"
+                    android:gravity="center"
+                    android:hint="@string/hinttxtNIFRepresentante"
+                    android:inputType="textPersonName"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white"
+                    android:textSize="14sp" />
+
+                <CheckBox
+                    android:id="@+id/chkRecordarDatosClienteGas"
+                    android:layout_width="125dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/chkRecordarDatosClienteLuz" />
             </LinearLayout>
 
             <LinearLayout
