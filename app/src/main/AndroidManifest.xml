@@ -21,6 +21,9 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".ActivityContratoGasSuministro"
+            android:exported="false" />
+        <activity
             android:name=".ActivityContratoLuzSuministro"
             android:exported="false" />
         <activity
