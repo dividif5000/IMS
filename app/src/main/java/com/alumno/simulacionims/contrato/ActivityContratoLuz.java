@@ -229,7 +229,7 @@ public class ActivityContratoLuz extends AppCompatActivity {
                 "', DIRECCION_CLI = '" + direccion.getText().toString().toUpperCase().trim() + "', NUMERO_PORTAL_CLI = '"+numero.getText().toString().toUpperCase().trim()+
                 "', PISO_CLI = '"+piso.getText().toString().toUpperCase().trim()+"', PUERTA_CLI = '"+puerta.getText().toString().toUpperCase().trim()+
                 "', LOCALIDAD_CLI = '"+localidad.getText().toString().toUpperCase().trim()+"', PROVINCIA_CLI = '"+provincia.getText().toString().toUpperCase().trim()+
-                "', CODIGO_PORTAL_CLI = '"+cp.getText().toString().toUpperCase().trim()+"', REPRESENTATE_CLI = '"+representante.getText().toString().toUpperCase().trim()+
+                "', CODIGO_POSTAL_CLI = '"+cp.getText().toString().toUpperCase().trim()+"', REPRESENTATE_CLI = '"+representante.getText().toString().toUpperCase().trim()+
                 "', NIF_REPRESENTATE_CLI = '"+nifRepresentante.getText().toString().toUpperCase().trim()+"' WHERE ID = 1";
         System.out.println(actualizar);
         db.execSQL(actualizar);

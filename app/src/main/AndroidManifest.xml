@@ -20,12 +20,7 @@
         android:theme="@style/Theme.SimulacionIMS"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
-        <activity
-            android:name=".ActivityContratoGasSuministro"
-            android:exported="false" />
-        <activity
-            android:name=".ActivityContratoLuzSuministro"
-            android:exported="false" />
+
         <activity
             android:name=".sips.ActivitySipsGas"
             android:exported="false">
@@ -118,8 +113,36 @@
                 android:value="" />
         </activity>
         <activity
+            android:name=".contrato.ActivityContratoLuzSuministro"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".contrato.ActivityContratoLuzContacto"
+            android:exported="false" >
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".contrato.ActivityContratoGas"
             android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".contrato.ActivityContratoGasSuministro"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".contrato.ActivityContratoGasContacto"
+            android:exported="false" >
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />

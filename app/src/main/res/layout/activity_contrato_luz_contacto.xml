@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".contrato.ActivityContratoLuz">
+    tools:context=".contrato.ActivityContratoLuzContacto">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -27,231 +27,126 @@
                 app:srcCompat="@drawable/logo_escalax34" />
 
             <TextView
-                android:id="@+id/lblDatosContrato"
+                android:id="@+id/lblDatosContacto"
                 android:layout_width="wrap_content"
                 android:layout_height="44dp"
                 android:layout_margin="10dp"
                 android:background="@drawable/fondorelleno"
                 android:ems="10"
                 android:gravity="center"
-                android:text="@string/lblDatosCLiente"
+                android:text="@string/lblDatosContacto"
                 android:textColor="@color/white"
                 android:textColorHint="@color/white"
                 android:textSize="20sp" />
 
-            <EditText
-                android:id="@+id/txtTitularCLIContrato"
-                android:layout_width="wrap_content"
-                android:layout_height="64dp"
-                android:layout_margin="10dp"
-                android:background="@drawable/fondo_edittext"
-                android:ems="10"
-                android:gravity="center"
-                android:hint="@string/hinttxtTitular"
-                android:inputType="textPersonName"
-                android:textColor="@color/white"
-                android:textColorHint="@color/white"
-                android:textSize="14sp" />
+
 
             <EditText
-                android:id="@+id/txtApellidosCLIContrato"
-                android:layout_width="wrap_content"
-                android:layout_height="64dp"
-                android:layout_margin="10dp"
-                android:background="@drawable/fondo_edittext"
-                android:gravity="center"
-                android:hint="@string/hinttxtApellidos"
-                android:inputType="textPersonName"
-                android:textColor="@color/white"
-                android:textColorHint="@color/white"
-                android:textSize="14sp" />
-
-            <EditText
-                android:id="@+id/txtDNICLIContrato"
-                android:layout_width="match_parent"
-                android:layout_height="64dp"
-                android:layout_margin="10dp"
-                android:background="@drawable/fondo_edittext"
-                android:gravity="center"
-                android:hint="@string/hinttxtDNI"
-                android:inputType="textPersonName"
-                android:textColor="@color/white"
-                android:textColorHint="@color/white"
-                android:textSize="14sp" />
-
-            <EditText
-                android:id="@+id/txtTelefono1CLIContrato"
+                android:id="@+id/txtDireccionCONContrato"
                 android:layout_width="match_parent"
                 android:layout_height="64dp"
                 android:layout_margin="10dp"
                 android:background="@drawable/fondo_edittext"
                 android:ems="10"
                 android:gravity="center"
-                android:hint="@string/hinttxtTelefono"
+                android:hint="@string/hinttxtDireccionSumi"
                 android:inputType="textPersonName"
                 android:textColor="@color/white"
                 android:textColorHint="@color/white"
                 android:textSize="14sp" />
 
             <EditText
-                android:id="@+id/txtTelefono2CLIContrato"
+                android:id="@+id/txtNumeroCONContrato"
                 android:layout_width="match_parent"
                 android:layout_height="64dp"
                 android:layout_margin="10dp"
                 android:background="@drawable/fondo_edittext"
                 android:ems="10"
                 android:gravity="center"
-                android:hint="@string/hinttxtTelefono2"
+                android:hint="@string/hinttxtNumeroSumi"
                 android:inputType="textPersonName"
                 android:textColor="@color/white"
                 android:textColorHint="@color/white"
                 android:textSize="14sp" />
 
             <EditText
-                android:id="@+id/txtEmailCLIContrato"
+                android:id="@+id/txtPisoCONContrato"
                 android:layout_width="match_parent"
                 android:layout_height="64dp"
                 android:layout_margin="10dp"
                 android:background="@drawable/fondo_edittext"
                 android:ems="10"
                 android:gravity="center"
-                android:hint="@string/hinttxtEmail"
-                android:inputType="textPersonName"
-                android:textColor="@color/white"
-                android:textColorHint="@color/white"
-                android:textSize="14sp" />
-
-            <EditText
-                android:id="@+id/txtDireccionCLIContrato"
-                android:layout_width="match_parent"
-                android:layout_height="64dp"
-                android:layout_margin="10dp"
-                android:background="@drawable/fondo_edittext"
-                android:ems="10"
-                android:gravity="center"
-                android:hint="@string/hinttxtDireccion"
-                android:inputType="textPersonName"
-                android:textColor="@color/white"
-                android:textColorHint="@color/white"
-                android:textSize="14sp" />
-
-            <EditText
-                android:id="@+id/txtNumeroCLIContrato"
-                android:layout_width="match_parent"
-                android:layout_height="64dp"
-                android:layout_margin="10dp"
-                android:background="@drawable/fondo_edittext"
-                android:ems="10"
-                android:gravity="center"
-                android:hint="@string/hinttxtNumero"
-                android:inputType="textPersonName"
-                android:textColor="@color/white"
-                android:textColorHint="@color/white"
-                android:textSize="14sp" />
-
-            <EditText
-                android:id="@+id/txtPisoCLIContrato"
-                android:layout_width="match_parent"
-                android:layout_height="64dp"
-                android:layout_margin="10dp"
-                android:background="@drawable/fondo_edittext"
-                android:ems="10"
-                android:gravity="center"
-                android:hint="@string/hinttxtPiso"
+                android:hint="@string/hinttxtPisoSumi"
                 android:inputType="textPersonName"
                 android:textSize="14sp"
                 android:textColor="@color/white"
                 android:textColorHint="@color/white"/>
 
             <EditText
-                android:id="@+id/txtPuertaCLIContrato"
+                android:id="@+id/txtPuertaCONContrato"
                 android:layout_width="match_parent"
                 android:layout_height="64dp"
                 android:layout_margin="10dp"
                 android:background="@drawable/fondo_edittext"
                 android:ems="10"
                 android:gravity="center"
-                android:hint="@string/hinttxtPuerta"
+                android:hint="@string/hinttxtPuertaCon"
                 android:inputType="textPersonName"
                 android:textSize="14sp"
                 android:textColor="@color/white"
                 android:textColorHint="@color/white"/>
 
             <EditText
-                android:id="@+id/txtLocalidadCLIContrato"
+                android:id="@+id/txtLocalidadCONContrato"
                 android:layout_width="match_parent"
                 android:layout_height="64dp"
                 android:layout_margin="10dp"
                 android:background="@drawable/fondo_edittext"
                 android:ems="10"
                 android:gravity="center"
-                android:hint="@string/hinttxtLocalidad"
+                android:hint="@string/hinttxtLocalidadCon"
                 android:inputType="textPersonName"
                 android:textSize="14sp"
                 android:textColor="@color/white"
                 android:textColorHint="@color/white"/>
 
             <EditText
-                android:id="@+id/txtProvinciaCLIContrato"
+                android:id="@+id/txtProvinciaCONContrato"
                 android:layout_width="match_parent"
                 android:layout_height="64dp"
                 android:layout_margin="10dp"
                 android:background="@drawable/fondo_edittext"
                 android:ems="10"
                 android:gravity="center"
-                android:hint="@string/hinttxtProvincia"
+                android:hint="@string/hinttxtProvinciaCon"
                 android:inputType="textPersonName"
                 android:textSize="14sp"
                 android:textColor="@color/white"
                 android:textColorHint="@color/white"/>
 
             <EditText
-                android:id="@+id/txtCPCLIContrato"
+                android:id="@+id/txtCPCONContrato"
                 android:layout_width="match_parent"
                 android:layout_height="64dp"
                 android:layout_margin="10dp"
                 android:background="@drawable/fondo_edittext"
                 android:ems="10"
                 android:gravity="center"
-                android:hint="@string/hinttxtCP"
+                android:hint="@string/hinttxtCPSCONContrato"
                 android:inputType="textPersonName"
                 android:textSize="14sp"
                 android:textColor="@color/white"
                 android:textColorHint="@color/white"/>
 
-            <EditText
-                android:id="@+id/txtRepresentanteCLIContrato"
-                android:layout_width="match_parent"
-                android:layout_height="64dp"
-                android:layout_margin="10dp"
-                android:background="@drawable/fondo_edittext"
-                android:ems="10"
-                android:gravity="center"
-                android:hint="@string/hinttxtRepresentante"
-                android:inputType="textPersonName"
-                android:textSize="14sp"
-                android:textColor="@color/white"
-                android:textColorHint="@color/white"/>
 
-            <EditText
-                android:id="@+id/txtNIFRepresentanteCLIContrato"
-                android:layout_width="match_parent"
-                android:layout_height="64dp"
-                android:layout_margin="10dp"
-                android:background="@drawable/fondo_edittext"
-                android:ems="10"
-                android:gravity="center"
-                android:hint="@string/hinttxtNIFRepresentante"
-                android:inputType="textPersonName"
-                android:textSize="14sp"
-                android:textColor="@color/white"
-                android:textColorHint="@color/white"/>
+
 
             <CheckBox
-                android:id="@+id/chkRecordarDatosClienteLuz"
+                android:id="@+id/chkRecordarDatosContacto"
                 android:layout_width="125dp"
                 android:layout_height="wrap_content"
-                android:text="@string/chkRecordarDatosClienteLuz" />
+                android:text="@string/chkRecordarDatosContacto" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -261,27 +156,26 @@
                 android:orientation="horizontal">
 
                 <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/btnAnteriorContratoLuz1"
+                    android:id="@+id/btnAnteriorContratoLuz3"
                     android:layout_width="132dp"
                     android:layout_height="55dp"
                     android:layout_margin="10dp"
                     android:background="@drawable/boton_naranja"
                     android:gravity="center"
-                    android:text="@string/btnAnteriorClienteContrato"
+                    android:text="@string/btnAnteriorContactoContrato"
                     android:textColor="@color/white" />
 
                 <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/btnSiguienteContratoLuz1"
+                    android:id="@+id/btnSiguienteContratoLuz3"
                     android:layout_width="129dp"
                     android:layout_height="53dp"
                     android:layout_margin="10dp"
                     android:background="@drawable/boton_naranja"
                     android:gravity="center"
-                    android:text="@string/btnSiguienteClienteContrato"
+                    android:text="@string/btnSiguienteContactoContrato"
                     android:textColor="@color/white" />
             </LinearLayout>
 
         </LinearLayout>
     </ScrollView>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

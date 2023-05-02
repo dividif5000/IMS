@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".contrato.ActivityContratoGasSuministro">
-
+    tools:context=".contrato.ActivityContratoGasContacto">
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -42,7 +41,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/lblDatosContratoGas"
+                    android:id="@+id/lblDatosContactoGas"
                     android:layout_width="wrap_content"
                     android:layout_height="64dp"
                     android:layout_margin="10dp"
@@ -56,173 +55,108 @@
 
 
                 <EditText
-                    android:id="@+id/txtDireccionSUMIContratoGas"
+                    android:id="@+id/txtDireccionCONContratoGas"
                     android:layout_width="match_parent"
                     android:layout_height="64dp"
                     android:layout_margin="10dp"
                     android:background="@drawable/th"
                     android:ems="10"
                     android:gravity="center"
-                    android:hint="@string/hinttxtDireccionSumi"
+                    android:hint="@string/hinttxtDireccionCon"
                     android:inputType="textPersonName"
                     android:textColor="@color/white"
                     android:textColorHint="@color/white"
                     android:textSize="14sp" />
 
                 <EditText
-                    android:id="@+id/txtNumeroSUMIContratoGas"
+                    android:id="@+id/txtNumeroCONContratoGas"
                     android:layout_width="match_parent"
                     android:layout_height="64dp"
                     android:layout_margin="10dp"
                     android:background="@drawable/th"
                     android:ems="10"
                     android:gravity="center"
-                    android:hint="@string/hinttxtNumeroSumi"
+                    android:hint="@string/hinttxtNumeroCon"
                     android:inputType="textPersonName"
                     android:textColor="@color/white"
                     android:textColorHint="@color/white"
                     android:textSize="14sp" />
 
                 <EditText
-                    android:id="@+id/txtPisoSUMIContratoGas"
+                    android:id="@+id/txtPisoCONContratoGas"
                     android:layout_width="match_parent"
                     android:layout_height="64dp"
                     android:layout_margin="10dp"
                     android:background="@drawable/th"
                     android:ems="10"
                     android:gravity="center"
-                    android:hint="@string/hinttxtPisoSumi"
+                    android:hint="@string/hinttxtPisoCon"
                     android:inputType="textPersonName"
                     android:textColor="@color/white"
                     android:textColorHint="@color/white"
                     android:textSize="14sp" />
 
                 <EditText
-                    android:id="@+id/txtPuertaSUMIContratoGas"
+                    android:id="@+id/txtPuertaCONContratoGas"
                     android:layout_width="match_parent"
                     android:layout_height="64dp"
                     android:layout_margin="10dp"
                     android:background="@drawable/th"
                     android:ems="10"
                     android:gravity="center"
-                    android:hint="@string/hinttxtPuertaSumi"
+                    android:hint="@string/hinttxtPuertaCon"
                     android:inputType="textPersonName"
                     android:textColor="@color/white"
                     android:textColorHint="@color/white"
                     android:textSize="14sp" />
 
                 <EditText
-                    android:id="@+id/txtLocalidadSUMIContratoGas"
+                    android:id="@+id/txtLocalidadCONContratoGas"
                     android:layout_width="match_parent"
                     android:layout_height="64dp"
                     android:layout_margin="10dp"
                     android:background="@drawable/th"
                     android:ems="10"
                     android:gravity="center"
-                    android:hint="@string/hinttxtLocalidadSumi"
+                    android:hint="@string/hinttxtLocalidadCon"
                     android:inputType="textPersonName"
                     android:textColor="@color/white"
                     android:textColorHint="@color/white"
                     android:textSize="14sp" />
 
                 <EditText
-                    android:id="@+id/txtProvinciaSUMIContratoGas"
+                    android:id="@+id/txtProvinciaCONContratoGas"
                     android:layout_width="match_parent"
                     android:layout_height="64dp"
                     android:layout_margin="10dp"
                     android:background="@drawable/th"
                     android:ems="10"
                     android:gravity="center"
-                    android:hint="@string/hinttxtProvinciaSumi"
+                    android:hint="@string/hinttxtProvinciaCon"
                     android:inputType="textPersonName"
                     android:textColor="@color/white"
                     android:textColorHint="@color/white"
                     android:textSize="14sp" />
 
                 <EditText
-                    android:id="@+id/txtCPSUMIContratoGas"
+                    android:id="@+id/txtCPCONContratoGas"
                     android:layout_width="match_parent"
                     android:layout_height="64dp"
                     android:layout_margin="10dp"
                     android:background="@drawable/th"
                     android:ems="10"
                     android:gravity="center"
-                    android:hint="@string/hinttxtCPSSUMIContrato"
-                    android:inputType="textPersonName"
-                    android:textColor="@color/white"
-                    android:textColorHint="@color/white"
-                    android:textSize="14sp" />
-
-                <EditText
-                    android:id="@+id/txtDistribuidoraSUMIContratoGas"
-                    android:layout_width="match_parent"
-                    android:layout_height="64dp"
-                    android:layout_margin="10dp"
-                    android:background="@drawable/th"
-                    android:ems="10"
-                    android:gravity="center"
-                    android:hint="@string/hinttxtDistribuidoraSumi"
-                    android:inputType="textPersonName"
-                    android:textColor="@color/white"
-                    android:textColorHint="@color/white"
-                    android:textSize="14sp" />
-                <EditText
-                    android:id="@+id/txtCNAESUMIContratoGas"
-                    android:layout_width="match_parent"
-                    android:layout_height="64dp"
-                    android:layout_margin="10dp"
-                    android:background="@drawable/th"
-                    android:ems="10"
-                    android:gravity="center"
-                    android:hint="@string/hinttxtCNAESumi"
-                    android:inputType="textPersonName"
-                    android:textColor="@color/white"
-                    android:textColorHint="@color/white"
-                    android:textSize="14sp" />
-
-                <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/btnBuscaConsumoGas"
-                    android:layout_width="wrap_content"
-                    android:layout_height="55dp"
-                    android:layout_margin="10dp"
-                    android:background="@drawable/boton_verde_presionado"
-                    android:gravity="center"
-                    android:text="@string/btnBuscaConsumo"
-                    android:textColor="@color/white" />
-
-                <EditText
-                    android:id="@+id/txtCUPSSUMIContratoGas"
-                    android:layout_width="match_parent"
-                    android:layout_height="64dp"
-                    android:layout_margin="10dp"
-                    android:background="@drawable/th"
-                    android:ems="10"
-                    android:gravity="center"
-                    android:hint="@string/hinttxtCUPSSumi"
-                    android:inputType="textPersonName"
-                    android:textColor="@color/white"
-                    android:textColorHint="@color/white"
-                    android:textSize="14sp" />
-
-                <EditText
-                    android:id="@+id/txtConsumoSUMIContratoGas"
-                    android:layout_width="match_parent"
-                    android:layout_height="64dp"
-                    android:layout_margin="10dp"
-                    android:background="@drawable/th"
-                    android:ems="10"
-                    android:gravity="center"
-                    android:hint="@string/hinttxtConsumoSumi"
+                    android:hint="@string/hinttxtCPSCONContrato"
                     android:inputType="textPersonName"
                     android:textColor="@color/white"
                     android:textColorHint="@color/white"
                     android:textSize="14sp" />
 
                 <CheckBox
-                    android:id="@+id/chkRecordarDatosSuministroGas"
+                    android:id="@+id/chkRecordarDatosContactoGas"
                     android:layout_width="125dp"
                     android:layout_height="wrap_content"
-                    android:text="@string/chkRecordarDatosClienteLuz" />
+                    android:text="@string/chkRecordarDatosContacto" />
             </LinearLayout>
 
             <LinearLayout
@@ -233,7 +167,7 @@
                 android:orientation="horizontal">
 
                 <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/btnAnteriorContratoGas2"
+                    android:id="@+id/btnAnteriorContratoGas3"
                     android:layout_width="132dp"
                     android:layout_height="55dp"
                     android:layout_margin="10dp"
@@ -243,7 +177,7 @@
                     android:textColor="@color/white" />
 
                 <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/btnSiguienteContratoGas2"
+                    android:id="@+id/btnSiguienteContratoGas3"
                     android:layout_width="129dp"
                     android:layout_height="53dp"
                     android:layout_margin="10dp"

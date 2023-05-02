@@ -2,7 +2,6 @@ package com.alumno.simulacionims.gas;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
@@ -20,14 +19,15 @@ import android.widget.Toast;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.alumno.simulacionims.DataBaseHelper;
 import com.alumno.simulacionims.MainActivity;
 import com.alumno.simulacionims.R;
 import com.alumno.simulacionims.SQLPostgresHelper;
-import com.alumno.simulacionims.contrato.ActivityContratoGas;
+import com.alumno.simulacionims.contrato.ActivityContrato;
+import com.alumno.simulacionims.contrato.ActivityContratoLuz;
+import com.alumno.simulacionims.luz.ActivityLuz_Fecha;
 import com.alumno.simulacionims.models.CodigosPrecio;
 import com.alumno.simulacionims.models.Simulacion;
 
@@ -42,6 +42,9 @@ public class ActivityGas extends AppCompatActivity {
     //region Variables
     private EditText cliente;
     private EditText cups;
+    private Spinner pyme;
+    private Spinner tipoContrato;
+    private CheckBox permanencia;
     private Spinner tarifa;
     private Spinner peaje;
     private Spinner oferta;
@@ -58,6 +61,8 @@ public class ActivityGas extends AppCompatActivity {
 
     private ActivityResultLauncher activityLauncher;
 
+    private final String[] PYME = {"RESIDENCIAL", "PYME"};
+    private final String[] TIPOCONTRA = {"Cambio de comercializadore sin cambios", "Cambio de comercializadora con cambios", "Renovación sin cambios", "Renovación con cambios", "Multipunto", "Alta Nueva", "Recuperación"};
     private final String[] TARI ={"COSTE GESTION FIJO","COSTE GESTION INDEXADO"} ;
     private final String[] PEA ={"RL.1","RL.2","RL.3","RL.4"} ;
     //endregion
@@ -70,6 +75,9 @@ public class ActivityGas extends AppCompatActivity {
 
         cliente = findViewById(R.id.txtClienteGas);
         cups = findViewById(R.id.txtCUPSGas);
+        pyme = findViewById(R.id.spnPymeGas);
+        tipoContrato = findViewById(R.id.spnTipoContratoGas);
+        permanencia = findViewById(R.id.chkPermaneciaGas);
         tarifa = findViewById(R.id.spnTarifaGas);
         peaje = findViewById(R.id.spnPeajeGas);
         oferta = findViewById(R.id.spnOfertaGas);
@@ -80,6 +88,7 @@ public class ActivityGas extends AppCompatActivity {
         Bundle extras = getIntent().getExtras();
         tipo = extras.getString("tipo");
         Cargar(prefs);
+        ocultarCampos(cliente, cups, pyme, tipoContrato, permanencia, recordar, tipo);
         simula=recogeValores();
         cups.setText(simula.getCups());
 
@@ -91,6 +100,63 @@ public class ActivityGas extends AppCompatActivity {
 
         activityLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), null);
 
+        //region spnPyme
+        ArrayAdapter<String> adaptadorPyme = new ArrayAdapter<String>
+                (getApplicationContext(), R.layout.spinneriner, PYME);
+        adaptadorPyme.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        pyme.setAdapter(adaptadorPyme);
+        final String[] pym = {""};
+        pyme.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                pym[0] = (String) pyme.getSelectedItem();
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                // No seleccionaron nada
+            }
+
+
+        });
+        //endregion
+        //region spnTipoContrato
+        ArrayAdapter<String> adaptadorTContrato = new ArrayAdapter<String>
+                (getApplicationContext(), R.layout.spinneriner, TIPOCONTRA);
+        adaptadorTContrato.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        tipoContrato.setAdapter(adaptadorTContrato);
+        final String[] tCon = {""};
+        tipoContrato.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                tCon[0] = (String) tipoContrato.getSelectedItem();
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                // No seleccionaron nada
+            }
+
+
+        });
+        //endregion
+        //region chkPermanencia
+        permanencia.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (permanencia.isChecked()) {
+                    Toast.makeText(getApplicationContext(), "Ha seleccionado la opción de Permanencia", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(getApplicationContext(), "Ha deseleccionado la opción de Permanencia", Toast.LENGTH_SHORT).show();
+                }
+
+            }
+        });
+        //endregion
         //region spnTarifa
         ArrayAdapter<String> adaptador = new ArrayAdapter<String>
                 (getApplicationContext(), R.layout.spinnergas,TARI);
@@ -204,15 +270,24 @@ public class ActivityGas extends AppCompatActivity {
         siguiente.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(cliente.length() == 0 && cups.length() == 0 || oferta.getSelectedItem().toString().equalsIgnoreCase("No hay precios") ){
-                    Toast.makeText(getApplicationContext(), "Tiene que rellenar los campos o debe de haber una OFERTA", Toast.LENGTH_SHORT).show();
-                }else{
-                    actualizaDB();
-                    lanzarActividad_fecha(null);
+                if (tipo.equals("simulacion")) {
+                    if (cliente.length() == 0 && cups.length() == 0 || oferta.getSelectedItem().toString().equalsIgnoreCase("No hay precios")) {
+                        Toast.makeText(getApplicationContext(), "Tiene que rellenar los campos o debe de haber una OFERTA", Toast.LENGTH_SHORT).show();
+                    } else {
+                        actualizaSimulaDB();
+                        lanzarSimulacionActividad(null);
+                    }
+                } else if (tipo.equals("contrato")) {
+                    if (oferta.getSelectedItem().toString().equalsIgnoreCase("No hay precios")) {
+                        Toast.makeText(getApplicationContext(), "Debe de haber una OFERTA", Toast.LENGTH_SHORT).show();
+
+                    } else {
+                        actualizaContratoDB();
+                        lanzarContratoActividad(null);
+                    }
                 }
             }
         });
-        //endregion
     }
     //endregion
     //region onBackPress
@@ -225,6 +300,30 @@ public class ActivityGas extends AppCompatActivity {
     public void onBackPressed() {
         //super.onBackPressed();
         anteriorActividad();
+    }
+    //endregion
+    //region ModificaCampos
+
+    /**
+     * Mediante este método se que campos han de estar visible segun el tipo de actividad del que se provenga
+     * @param cli
+     * @param cup
+     * @param pyme
+     * @param tipoC
+     * @param permanecia
+     * @param rec
+     * @param tip
+     */
+    public void ocultarCampos(EditText cli, EditText cup, Spinner pyme, Spinner tipoC, CheckBox permanecia, CheckBox rec, String tip) {
+        if (tip.equals("simulacion")) {
+            pyme.setVisibility(View.GONE);
+            tipoC.setVisibility(View.GONE);
+            permanecia.setVisibility(View.GONE);
+        } else if (tip.equals("contrato")) {
+            cli.setVisibility(View.GONE);
+            cup.setVisibility(View.GONE);
+            rec.setVisibility(View.GONE);
+        }
     }
     //endregion
     //region Guardar_Cargar
@@ -241,6 +340,11 @@ public class ActivityGas extends AppCompatActivity {
         editor.commit();
     }
 
+    /**
+     * Mediante este metodo se cargan los datos guardados previamente con el Objeto SharedPreferences
+     *
+     * @param prefs este es el objeto utilizado para poder cargar los datos
+     */
     public void Cargar(SharedPreferences prefs){
         try {
             //Recuperar los valores guardados en SharedPreferences
@@ -265,6 +369,7 @@ public class ActivityGas extends AppCompatActivity {
 
     /**
      * Devuelve el Objeto Simulacion con los datos de el cups que recogeremos de la base de datos interna
+     *
      * @return
      */
     @SuppressLint("Range")
@@ -288,65 +393,83 @@ public class ActivityGas extends AppCompatActivity {
     /**
      * Mediante este método se recogen los valores de los spinner como string
      * y todos lo datos de la actividad se almacenan en la base de datos interna
+     * en la tabla de Simulación
      */
-    public void actualizaDB(){
+    public void actualizaSimulaDB() {
         System.out.println("Tarifa: ");
         System.out.println(tarifa.getSelectedItem().toString());
         System.out.println("Peaje: ");
         System.out.println(peaje.getSelectedItem().toString());
         System.out.println("Oferta: ");
         System.out.println(oferta.getSelectedItem().toString());
-        String actualizar= "UPDATE SIMULACION SET CLIENTE = '"+cliente.getText().toString().toUpperCase(Locale.ROOT).trim()+"', CUPS = '"+cups.getText().toString().toUpperCase(Locale.ROOT).trim()+"',TARIFA = '"+tarifa.getSelectedItem().toString()+"',PEAJE = '"+peaje.getSelectedItem().toString()+"',OFERTA = '"+oferta.getSelectedItem().toString()+"',FEE = '"+codigo.getFeecuota()+"',PRECIO_POTENCIA ='"+codigo.getPrpotencia()+"' WHERE ID = 1";
+        String actualizar;
+
+        actualizar = "UPDATE SIMULACION SET CLIENTE = '" + cliente.getText().toString().toUpperCase(Locale.ROOT).trim() + "', CUPS = '" + cups.getText().toString().toUpperCase(Locale.ROOT).trim() + "', TARIFA = '" + tarifa.getSelectedItem().toString() + "', PEAJE = '" + peaje.getSelectedItem().toString() + "', OFERTA = '" + oferta.getSelectedItem().toString() + "', FEE = '" + codigo.getFeecuota() + "', PRECIO_POTENCIA ='" + codigo.getPrpotencia() + "' WHERE ID = 1";
         System.out.println(actualizar);
         db.execSQL(actualizar);
-        Toast.makeText(getApplicationContext(),"Los datos fuerón guardados en la base de datos interna",Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), "Se han guardado los datos de la Simulación", Toast.LENGTH_SHORT).show();
+
+
+    }
+
+    /**
+     * Mediante este método se recogen los valores de los spinner como string
+     * y todos lo datos de la actividad se almacenan en la base de datos interna
+     * en la tabla de Contrato
+     */
+
+    public void actualizaContratoDB() {
+        System.out.println("Tarifa: ");
+        System.out.println(tarifa.getSelectedItem().toString());
+        System.out.println("Peaje: ");
+        System.out.println(peaje.getSelectedItem().toString());
+        System.out.println("Oferta: ");
+        System.out.println(oferta.getSelectedItem().toString());
+        String actualizar;
+        actualizar = "UPDATE CONTRATO SET PYME_CONTRATO = '" + pyme.getSelectedItem().toString().toUpperCase(Locale.ROOT).trim() + "', TIPO_CONTRATO = '" + tipoContrato.getSelectedItem().toString() + "', PERMANENCIA_CONTRATO = " + (permanencia.isChecked() ? 1 : 0) + ", TARIFA_CONTRATO = '" + tarifa.getSelectedItem().toString() + "', PEAJE_CONTRATO = '" + peaje.getSelectedItem().toString() + "', CODIGO_TARIFA_CONTRATO = '" + oferta.getSelectedItem().toString() + "' WHERE ID = 1";
+        System.out.println(actualizar);
+        db.execSQL(actualizar);
+        Toast.makeText(getApplicationContext(), "Se han guardado los datos del Contrato", Toast.LENGTH_SHORT).show();
     }
     //endregion
     //region ActividadLanzada
 
     /**
-     * Mediante este método se consigue ir a la siguiente actividad
+     * Metodo para poder lanza avanzar a la siguiente actividad de simulación guardando ciertos datos
      * @param view
      */
-    public void lanzarActividad_fecha(View view) {
+    public void lanzarSimulacionActividad(View view) {
         String peaj = peaje.getSelectedItem().toString();
         String ofer = oferta.getSelectedItem().toString();
-        if (tipo.equals("simulacion")) {
-            Intent intent = new Intent(getApplicationContext(), ActivityGas_Fecha.class);
-            intent.putExtra("peaje", peaj);
-            intent.putExtra("oferta", ofer);
-            activityLauncher.launch(intent);
-        }else if(tipo.equals("contrato")){
-            Intent intent = new Intent(getApplicationContext(), ActivityContratoGas.class);
-            activityLauncher.launch(intent);
-        }
+
+        Intent intent = new Intent(getApplicationContext(), ActivityLuz_Fecha.class);
+        intent.putExtra("peaje", peaj);
+        intent.putExtra("oferta", ofer);
+        activityLauncher.launch(intent);
+
+    }
+
+    /**
+     * Metodo para poder lanza avanzar a la siguiente actividad de contrato
+     * @param view
+     */
+
+    public void lanzarContratoActividad(View view){
+        Intent intent = new Intent(getApplicationContext(), ActivityContratoLuz.class);
+        activityLauncher.launch(intent);
     }
 
     /**
      * Mediante este método se consigue ir a la anterior actividad
      */
     public void anteriorActividad(){
-        AlertDialog.Builder builder = new AlertDialog.Builder(getApplicationContext());
-        builder.setTitle("Home");
-        builder.setMessage("¿Está seguro de que desea volver al Home?");
-
-        builder.setPositiveButton("Si", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                Intent i = new Intent(getApplicationContext(), MainActivity.class);
-                activityLauncher.launch(i);
-                finish();
-            }
-        });
-
-        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                dialog.dismiss();
-            }
-        });
-        AlertDialog dialog = builder.create();
-        dialog.show();
+        if (tipo.equals("simulacion")) {
+            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+            activityLauncher.launch(intent);
+        }else if(tipo.equals("contrato")){
+            Intent intent = new Intent(getApplicationContext(), ActivityContrato.class);
+            activityLauncher.launch(intent);
+        }
     }
     //endregion
 

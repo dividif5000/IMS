@@ -139,6 +139,38 @@
     <string name="hinttxtCP">C.P.</string>
     <string name="hinttxtRepresentante">Representate</string>
     <string name="hinttxtNIFRepresentante">NIF Representate</string>
-    <string name="chkRecordarDatosClienteLuz">Recordar</string>
+    <string name="chkRecordarDatosCliente">Recordar</string>
+    <string name="btnAnteriorClienteContrato">⬅️Anterior</string>
+    <string name="btnSiguienteClienteContrato">Siguiente➡️</string>
 
+    <!--Contratos parte 3-->
+    <string name="lblDatosSuministro">Datos de Punto de Suministro</string>
+    <string name="hinttxtDireccionSumi">Dirección</string>
+    <string name="hinttxtNumeroSumi">Número</string>
+    <string name="hinttxtPisoSumi">Piso</string>
+    <string name="hinttxtPuertaSumi">Puerta</string>
+    <string name="hinttxtLocalidadSumi">Localidad</string>
+    <string name="hinttxtProvinciaSumi">Provincia</string>
+    <string name="hinttxtCPSSUMIContrato">C.P.</string>
+    <string name="hinttxtDistribuidoraSumi">Distribuidora</string>
+    <string name="hinttxtCUPSSumi">CUPS</string>
+    <string name="hinttxtCNAESumi">CNAE</string>
+    <string name="btnBuscaConsumo">Obtener Consumo y Potencias del SIPS</string>
+    <string name="hinttxtConsumoSumi">Consumo Anual(kW/h)</string>
+    <string name="chkRecordarDatosSuministro">Recordar</string>
+    <string name="btnAnteriorSuministroContrato">⬅️Anterior</string>
+    <string name="btnSiguienteSuministroContrato">Siguiente➡️</string>
+
+    <!--Contratos parte 4-->
+    <string name="lblDatosContacto">Datos de contacto para notificaciones</string>
+    <string name="hinttxtDireccionCon">Dirección</string>
+    <string name="hinttxtNumeroCon">Número</string>
+    <string name="hinttxtPisoCon">Piso</string>
+    <string name="hinttxtPuertaCon">Puerta</string>
+    <string name="hinttxtLocalidadCon">Localidad</string>
+    <string name="hinttxtProvinciaCon">Provincia</string>
+    <string name="hinttxtCPSCONContrato">C.P.</string>
+    <string name="chkRecordarDatosContacto">Recordar</string>
+    <string name="btnAnteriorContactoContrato">⬅️Anterior</string>
+    <string name="btnSiguienteContactoContrato">Siguiente➡️</string>
 </resources>

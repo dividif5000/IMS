@@ -303,6 +303,17 @@ public class ActivityLuz extends AppCompatActivity {
 
     //endregion
     //region ModificaCampos
+
+    /**
+     * Mediante este método se que campos han de estar visible segun el tipo de actividad del que se provenga
+     * @param cli
+     * @param cup
+     * @param pyme
+     * @param tipoC
+     * @param permanecia
+     * @param rec
+     * @param tip
+     */
     public void ocultarCampos(EditText cli, EditText cup, Spinner pyme, Spinner tipoC, CheckBox permanecia, CheckBox rec, String tip) {
         if (tip.equals("simulacion")) {
             pyme.setVisibility(View.GONE);
@@ -384,6 +395,7 @@ public class ActivityLuz extends AppCompatActivity {
     /**
      * Mediante este método se recogen los valores de los spinner como string
      * y todos lo datos de la actividad se almacenan en la base de datos interna
+     * en la tabla de Simulación
      */
     public void actualizaSimulaDB() {
         System.out.println("Tarifa: ");
@@ -402,6 +414,11 @@ public class ActivityLuz extends AppCompatActivity {
 
     }
 
+    /**
+     * Mediante este método se recogen los valores de los spinner como string
+     * y todos lo datos de la actividad se almacenan en la base de datos interna
+     * en la tabla de Contrato
+     */
 
     public void actualizaContratoDB() {
         System.out.println("Tarifa: ");
@@ -420,8 +437,7 @@ public class ActivityLuz extends AppCompatActivity {
     //region ActividadLanzada
 
     /**
-     * Metodo para poder lanza avanzar a la siguiente actividad guardando ciertos datos
-     *
+     * Metodo para poder lanza avanzar a la siguiente actividad de simulación guardando ciertos datos
      * @param view
      */
     public void lanzarSimulacionActividad(View view) {
@@ -434,6 +450,11 @@ public class ActivityLuz extends AppCompatActivity {
         activityLauncher.launch(intent);
 
     }
+
+    /**
+     * Metodo para poder lanza avanzar a la siguiente actividad de contrato
+     * @param view
+     */
 
     public void lanzarContratoActividad(View view){
         Intent intent = new Intent(getApplicationContext(), ActivityContratoLuz.class);
