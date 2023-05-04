@@ -20,18 +20,7 @@
         android:theme="@style/Theme.SimulacionIMS"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
-        <activity
-            android:name=".ActivityContratoGasBanco"
-            android:exported="false" />
-        <activity
-            android:name=".ActivityContratoLuzBanco"
-            android:exported="false" />
-        <activity
-            android:name=".ActivityContratoGasProducto"
-            android:exported="false" />
-        <activity
-            android:name=".ActivityContratoLuzProducto"
-            android:exported="false" />
+
         <activity
             android:name=".sips.ActivitySipsGas"
             android:exported="false">
@@ -137,6 +126,21 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+
+        <activity
+            android:name=".contrato.ActivityContratoLuzProducto"
+            android:exported="false" >
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".contrato.ActivityContratoLuzBanco"
+            android:exported="false" >
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
         <activity
             android:name=".contrato.ActivityContratoGas"
             android:exported="false">
@@ -154,6 +158,20 @@
         <activity
             android:name=".contrato.ActivityContratoGasContacto"
             android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".contrato.ActivityContratoGasProducto"
+            android:exported="false" >
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".contrato.ActivityContratoGasBanco"
+            android:exported="false" >
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
