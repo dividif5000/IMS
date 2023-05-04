@@ -20,6 +20,10 @@ import com.alumno.simulacionims.gas.ActivityGas;
 
 import java.util.Locale;
 
+/**
+ * @author David Ruiz Garcia
+ * Objeto con el que mediante la actividad para rellenar campos del Apartado de Cliente Contratos Gas
+ */
 public class ActivityContratoGas extends AppCompatActivity {
     //region Variables
     private String tipo;

@@ -159,8 +159,8 @@ public class DataBaseHelper extends SQLiteOpenHelper {
                 "LOCALIDAD_CLI TEXT,"+
                 "PROVINCIA_CLI TEXT,"+
                 "CODIGO_POSTAL_CLI TEXT,"+
-                "REPRESENTATE_CLI TEXT,"+
-                "NIF_REPRESENTATE_CLI TEXT,"+
+                "REPRESENTANTE_CLI TEXT,"+
+                "NIF_REPRESENTANTE_CLI TEXT,"+
                 "DIRECCION_SUMI TEXT,"+
                 "NUMERO_PORTAL_SUMI TEXT,"+
                 "PISO_SUMI TEXT,"+

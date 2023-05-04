@@ -266,7 +266,7 @@
                     android:id="@+id/chkRecordarDatosClienteGas"
                     android:layout_width="125dp"
                     android:layout_height="wrap_content"
-                    android:text="@string/chkRecordarDatosClienteLuz" />
+                    android:text="@string/chkRecordarDatosCliente" />
             </LinearLayout>
 
             <LinearLayout

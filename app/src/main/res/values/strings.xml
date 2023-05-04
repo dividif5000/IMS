@@ -173,4 +173,20 @@
     <string name="chkRecordarDatosContacto">Recordar</string>
     <string name="btnAnteriorContactoContrato">⬅️Anterior</string>
     <string name="btnSiguienteContactoContrato">Siguiente➡️</string>
+
+    <!--Contratos parte 5-->
+    <string name="lblProductoContrato">Producto contratación</string>
+    <string name="chkGarantiaOrigen">Garantía de Origen - 0,01€/ día</string>
+    <string name="hinttxtInicioContrato">Fecha de Inicio de Contrato</string>
+    <string name="chkRecordarProductoContratado">Recordar</string>
+
+    <!--Contratos parte 6-->
+    <string name="lblDatosBanco">Datos Bancarios</string>
+    <string name="hinttxtNIFBanco">DNI/NIF/NIE</string>
+    <string name="hinttxtNombreBanco">Nombre de Titular</string>
+    <string name="hinttxtIBANBanco">IBAN </string>
+    <string name="chkRecordarBancoContrato">Recordar </string>
+    <string name="btnAnteriorBancoContrato">⬅️Anterior</string>
+    <string name="btnCreaContratoFinal">Crear Contrato</string>
+    <string name="btnHomeContrato">Home</string>
 </resources>

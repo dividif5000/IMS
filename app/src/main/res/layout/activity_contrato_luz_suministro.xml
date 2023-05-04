@@ -211,7 +211,7 @@
                 android:id="@+id/chkRecordarDatosSuministroLuz"
                 android:layout_width="125dp"
                 android:layout_height="wrap_content"
-                android:text="@string/chkRecordarDatosClienteLuz" />
+                android:text="@string/chkRecordarDatosSuministro" />
 
             <LinearLayout
                 android:layout_width="match_parent"

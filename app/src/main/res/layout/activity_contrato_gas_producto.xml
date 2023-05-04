@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".contrato.ActivityContratoGasProducto">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/pngwing_com">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="top"
+            android:layout_margin="20dp"
+            android:gravity="center"
+            android:orientation="vertical"
+            tools:layout_editor_absoluteX="40dp"
+            tools:layout_editor_absoluteY="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="196dp"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/imageView3Gas"
+                    android:layout_width="182dp"
+                    android:layout_height="111dp"
+                    android:layout_gravity="center"
+                    app:srcCompat="@drawable/inergas_logo_transparente" />
+
+                <TextView
+                    android:id="@+id/lblContratoProductoGas"
+                    android:layout_width="wrap_content"
+                    android:layout_height="64dp"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/fondogas"
+                    android:ems="10"
+                    android:gravity="center"
+                    android:text="@string/lblProductoContrato"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="347dp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <EditText
+                    android:id="@+id/txtInicioContratoGas"
+                    android:layout_width="match_parent"
+                    android:layout_height="64dp"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/th"
+                    android:ems="10"
+                    android:gravity="center"
+                    android:hint="@string/hinttxtInicioContrato"
+                    android:inputType="textPersonName"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white"
+                    android:textSize="14sp" />
+
+                <Spinner
+                    android:id="@+id/spnDuracionContratoGas"
+                    android:layout_width="match_parent"
+                    android:layout_height="64dp"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/th"
+                    android:gravity="center"
+                    android:textAppearance="@style/SpinnerTextStyle" />
+
+                <CheckBox
+                    android:id="@+id/chkRecordarDatosProductoGas"
+                    android:layout_width="125dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="@string/chkRecordarProductoContratado" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnAnteriorContratoGas4"
+                    android:layout_width="132dp"
+                    android:layout_height="55dp"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/boton_verde_presionado"
+                    android:gravity="center"
+                    android:text="@string/btnAnteriorContactoContrato"
+                    android:textColor="@color/white" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnSiguienteContratoGas4"
+                    android:layout_width="132dp"
+                    android:layout_height="55dp"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/boton_verde_presionado"
+                    android:gravity="center"
+                    android:text="@string/btnSiguienteContactoContrato"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

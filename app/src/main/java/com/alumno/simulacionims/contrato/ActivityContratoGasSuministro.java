@@ -22,6 +22,10 @@ import com.alumno.simulacionims.R;
 import com.alumno.simulacionims.models.Contrato;
 import com.alumno.simulacionims.sips.ActivitySipsGas;
 
+/**
+ * @author David Ruiz Garcia
+ * Objeto con el que mediante la actividad para rellenar campos del Apartado de Suministro Contratos Gas
+ */
 public class ActivityContratoGasSuministro extends AppCompatActivity {
 
     //region Variables

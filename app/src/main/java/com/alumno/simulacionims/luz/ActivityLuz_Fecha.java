@@ -158,12 +158,17 @@ public class ActivityLuz_Fecha extends AppCompatActivity {
                             @Override
                             public void onDateSet(DatePicker view, int year,
                                                   int monthOfYear, int dayOfMonth) {
-                                inicio = getMonthByNumber(monthOfYear);
-                                fechainicio.setText(dayOfMonth + "-" + (monthOfYear + 1) + "-" + year);
-                                calcularDiferenciaFechas();
-                                mesinicio.setText(inicio.toUpperCase(Locale.ROOT));
-                                ocultarCampos(peaje, inicio, E1inicio, E2inicio, E3inicio, E4inicio, E5inicio);
-
+                                if (year > mYear || (year == mYear && monthOfYear > mMonth)
+                                        || (year == mYear && monthOfYear == mMonth && dayOfMonth > mDay)) {
+                                    // La fecha seleccionada es mayor que la fecha actual, mostrar un mensaje de error
+                                    Toast.makeText(getApplicationContext(), "No puedes seleccionar una fecha mayor que la actual", Toast.LENGTH_SHORT).show();
+                                } else {
+                                    inicio = getMonthByNumber(monthOfYear);
+                                    fechainicio.setText(dayOfMonth + "-" + (monthOfYear + 1) + "-" + year);
+                                    calcularDiferenciaFechas();
+                                    mesinicio.setText(inicio.toUpperCase(Locale.ROOT));
+                                    ocultarCampos(peaje, inicio, E1inicio, E2inicio, E3inicio, E4inicio, E5inicio);
+                                }
                             }
                         }, mYear, mMonth, mDay);
                 datePickerDialog.show();
@@ -187,11 +192,17 @@ public class ActivityLuz_Fecha extends AppCompatActivity {
                             @Override
                             public void onDateSet(DatePicker view, int year,
                                                   int monthOfYear, int dayOfMonth) {
-                                fin = getMonthByNumber(monthOfYear);
-                                fechafin.setText(dayOfMonth + "-" + (monthOfYear + 1) + "-" + year);
-                                calcularDiferenciaFechas();
-                                mesfin.setText(fin.toUpperCase(Locale.ROOT));
-                                ocultarCampos(peaje, fin, E1fin, E2fin, E3fin, E4fin, E5fin);
+                                if (year > mYear || (year == mYear && monthOfYear > mMonth)
+                                        || (year == mYear && monthOfYear == mMonth && dayOfMonth > mDay)) {
+                                    // La fecha seleccionada es mayor que la fecha actual, mostrar un mensaje de error
+                                    Toast.makeText(getApplicationContext(), "No puedes seleccionar una fecha mayor que la actual", Toast.LENGTH_SHORT).show();
+                                } else {
+                                    fin = getMonthByNumber(monthOfYear);
+                                    fechafin.setText(dayOfMonth + "-" + (monthOfYear + 1) + "-" + year);
+                                    calcularDiferenciaFechas();
+                                    mesfin.setText(fin.toUpperCase(Locale.ROOT));
+                                    ocultarCampos(peaje, fin, E1fin, E2fin, E3fin, E4fin, E5fin);
+                                }
                             }
                         }, mYear, mMonth, mDay);
                 datePickerDialog.show();

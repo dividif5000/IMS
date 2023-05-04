@@ -22,6 +22,10 @@ import com.alumno.simulacionims.R;
 import com.alumno.simulacionims.models.Contrato;
 import com.alumno.simulacionims.sips.ActivitySipsLuz;
 
+/**
+ * @author David Ruiz Garcia
+ * Objeto con el que mediante la actividad para rellenar campos del Apartado de Suministro Contratos Luz
+ */
 public class ActivityContratoLuzSuministro extends AppCompatActivity {
     //region Variables
 
