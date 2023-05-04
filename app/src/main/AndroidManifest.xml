@@ -21,16 +21,16 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".ActivityContratoGasBanco"
+            android:name=".contrato.ActivityContratoGasBanco"
             android:exported="false" />
         <activity
-            android:name=".ActivityContratoLuzBanco"
+            android:name=".contrato.ActivityContratoLuzBanco"
             android:exported="false" />
         <activity
-            android:name=".ActivityContratoGasProducto"
+            android:name=".contrato.contratoGas.ActivityContratoGasProducto"
             android:exported="false" />
         <activity
-            android:name=".ActivityContratoLuzProducto"
+            android:name=".contrato.contratoLuz.ActivityContratoLuzProducto"
             android:exported="false" />
         <activity
             android:name=".sips.ActivitySipsGas"
