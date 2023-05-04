@@ -20,6 +20,10 @@ import com.alumno.simulacionims.gas.ActivityGas;
 
 import java.util.Locale;
 
+/**
+ * @author David Ruiz Garcia
+ * Objeto con el que mediante la actividad para rellenar campos del Apartado de Cliente Contratos Luz
+ */
 public class ActivityContratoLuz extends AppCompatActivity {
     //region Variables
     private String tipo;
@@ -229,8 +233,8 @@ public class ActivityContratoLuz extends AppCompatActivity {
                 "', DIRECCION_CLI = '" + direccion.getText().toString().toUpperCase().trim() + "', NUMERO_PORTAL_CLI = '"+numero.getText().toString().toUpperCase().trim()+
                 "', PISO_CLI = '"+piso.getText().toString().toUpperCase().trim()+"', PUERTA_CLI = '"+puerta.getText().toString().toUpperCase().trim()+
                 "', LOCALIDAD_CLI = '"+localidad.getText().toString().toUpperCase().trim()+"', PROVINCIA_CLI = '"+provincia.getText().toString().toUpperCase().trim()+
-                "', CODIGO_POSTAL_CLI = '"+cp.getText().toString().toUpperCase().trim()+"', REPRESENTATE_CLI = '"+representante.getText().toString().toUpperCase().trim()+
-                "', NIF_REPRESENTATE_CLI = '"+nifRepresentante.getText().toString().toUpperCase().trim()+"' WHERE ID = 1";
+                "', CODIGO_POSTAL_CLI = '"+cp.getText().toString().toUpperCase().trim()+"', REPRESENTANTE_CLI = '"+representante.getText().toString().toUpperCase().trim()+
+                "', NIF_REPRESENTANTE_CLI = '"+nifRepresentante.getText().toString().toUpperCase().trim()+"' WHERE ID = 1";
         System.out.println(actualizar);
         db.execSQL(actualizar);
         Toast.makeText(getApplicationContext(), "Se han guardado los datos del Contrato", Toast.LENGTH_SHORT).show();

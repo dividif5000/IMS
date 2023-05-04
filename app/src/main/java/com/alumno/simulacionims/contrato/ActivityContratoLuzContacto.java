@@ -1,10 +1,8 @@
 package com.alumno.simulacionims.contrato;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
@@ -17,10 +15,12 @@ import android.widget.Toast;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.alumno.simulacionims.DataBaseHelper;
 import com.alumno.simulacionims.R;
-import com.alumno.simulacionims.models.Contrato;
 
+/**
+ * @author David Ruiz Garcia
+ * Objeto con el que mediante la actividad para rellenar campos del Apartado de Contacto Contratos Luz
+ */
 public class ActivityContratoLuzContacto extends AppCompatActivity {
     //region Variables
 
@@ -176,7 +176,7 @@ public class ActivityContratoLuzContacto extends AppCompatActivity {
 
         String actualizar;
         actualizar = "UPDATE CONTRATO SET DIRECCION_CON = '" + direccion.getText().toString().toUpperCase().trim() + "', NUMERO_PORTAL_CON = '" + numero.getText().toString().toUpperCase().trim() +
-                "', PISO_CON = '" + piso.getText().toString().toUpperCase().trim() + "', PUERTA_SUMI = '" + puerta.getText().toString().toUpperCase().trim() +
+                "', PISO_CON = '" + piso.getText().toString().toUpperCase().trim() + "', PUERTA_CON = '" + puerta.getText().toString().toUpperCase().trim() +
                 "', LOCALIDAD_CON = '" + localidad.getText().toString().toUpperCase().trim() + "', PROVINCIA_CON = '" + provincia.getText().toString().toUpperCase().trim() +
                 "', CODIGO_POSTAL_CON = '" + cp.getText().toString().toUpperCase().trim() + "' WHERE ID = 1";
         System.out.println(actualizar);

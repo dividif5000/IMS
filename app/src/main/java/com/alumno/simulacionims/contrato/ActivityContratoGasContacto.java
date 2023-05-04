@@ -17,6 +17,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.alumno.simulacionims.R;
 
+/**
+ * @author David Ruiz Garcia
+ * Objeto con el que mediante la actividad para rellenar campos del Apartado de Contacto Contratos Gas
+ */
 public class ActivityContratoGasContacto extends AppCompatActivity {
     //region Variables
 
@@ -170,7 +174,7 @@ public class ActivityContratoGasContacto extends AppCompatActivity {
 
         String actualizar;
         actualizar = "UPDATE CONTRATO SET DIRECCION_CON = '" + direccion.getText().toString().toUpperCase().trim() + "', NUMERO_PORTAL_CON = '" + numero.getText().toString().toUpperCase().trim() +
-                "', PISO_CON = '" + piso.getText().toString().toUpperCase().trim() + "', PUERTA_SUMI = '" + puerta.getText().toString().toUpperCase().trim() +
+                "', PISO_CON = '" + piso.getText().toString().toUpperCase().trim() + "', PUERTA_CON = '" + puerta.getText().toString().toUpperCase().trim() +
                 "', LOCALIDAD_CON = '" + localidad.getText().toString().toUpperCase().trim() + "', PROVINCIA_CON = '" + provincia.getText().toString().toUpperCase().trim() +
                 "', CODIGO_POSTAL_CON = '" + cp.getText().toString().toUpperCase().trim() + "' WHERE ID = 1";
         System.out.println(actualizar);
