@@ -49,6 +49,12 @@ public class Contrato {
     private String provinciaCon;
     private String CPCon;
     //Producto contratación
+    private double e1Con;
+    private double e2Con;
+    private double e3Con;
+    private double e4Con;
+    private double e5Con;
+    private double e6Con;
     private double p1Con;
     private double p2Con;
     private double p3Con;
@@ -63,6 +69,7 @@ public class Contrato {
     private String nifCifNieBan;
     private String nombreBan;
     private String IBAN;
+
     //endregion
     //region Constructores
     /**
@@ -74,7 +81,6 @@ public class Contrato {
     /**
      * Este Constructor Contiene todos los atributos declarados anteriormente en privado para el uso del objeto Contrato
      * para usar tanto en Contrato-Luz como en Contrato-Gas
-     *
      * @param id
      * @param pymeCli
      * @param tipoContratoCli
@@ -114,6 +120,12 @@ public class Contrato {
      * @param localidadCon
      * @param provinciaCon
      * @param CPCon
+     * @param e1Con
+     * @param e2Con
+     * @param e3Con
+     * @param e4Con
+     * @param e5Con
+     * @param e6Con
      * @param p1Con
      * @param p2Con
      * @param p3Con
@@ -127,7 +139,7 @@ public class Contrato {
      * @param nombreBan
      * @param IBAN
      */
-    public Contrato(int id,String pymeCli, String tipoContratoCli, boolean permaneciaCli, String tarifaCli, String peajeCli, String codigoTarifaCli, String titularCli, String apellidosCli, String telefono1Cli, String telefono2Cli, String emailCli, String direccionCli, String numeroDireCli, String pisoDireCli, String puertaDireCli, String localidadCli, String provinciaCli, String CPCli, String representanteCli, String NIFRepresentanteCli, String direccionSumi, String numeroDireSumi, String pisoDireSumi, String puertaDireSumi, String localidadSumi, String provinciaSumi, String CPSumi, String distribuidoraSumi, String CUPSSumi, String CNAESumi, double consumoAnualSumi, String direccionCon, String numeroDireCon, String pisoDireCon, String puertaDireCon, String localidadCon, String provinciaCon, String CPCon, double p1Con, double p2Con, double p3Con, double p4Con, double p5Con, double p6Con, boolean garantiaDeOrigen, String fechaInicioContrato, String duracionContrato, String nifCifNieBan, String nombreBan, String IBAN) {
+    public Contrato(int id, String pymeCli, String tipoContratoCli, boolean permaneciaCli, String tarifaCli, String peajeCli, String codigoTarifaCli, String titularCli, String apellidosCli, String telefono1Cli, String telefono2Cli, String emailCli, String direccionCli, String numeroDireCli, String pisoDireCli, String puertaDireCli, String localidadCli, String provinciaCli, String CPCli, String representanteCli, String NIFRepresentanteCli, String direccionSumi, String numeroDireSumi, String pisoDireSumi, String puertaDireSumi, String localidadSumi, String provinciaSumi, String CPSumi, String distribuidoraSumi, String CUPSSumi, String CNAESumi, double consumoAnualSumi, String direccionCon, String numeroDireCon, String pisoDireCon, String puertaDireCon, String localidadCon, String provinciaCon, String CPCon, double e1Con, double e2Con, double e3Con, double e4Con, double e5Con, double e6Con, double p1Con, double p2Con, double p3Con, double p4Con, double p5Con, double p6Con, boolean garantiaDeOrigen, String fechaInicioContrato, String duracionContrato, String nifCifNieBan, String nombreBan, String IBAN) {
         this.id = id;
         this.pymeCli = pymeCli;
         this.tipoContratoCli = tipoContratoCli;
@@ -159,7 +171,7 @@ public class Contrato {
         this.distribuidoraSumi = distribuidoraSumi;
         this.CUPSSumi = CUPSSumi;
         this.CNAESumi = CNAESumi;
-        ConsumoAnualSumi = consumoAnualSumi;
+        this.ConsumoAnualSumi = consumoAnualSumi;
         this.direccionCon = direccionCon;
         this.numeroDireCon = numeroDireCon;
         this.pisoDireCon = pisoDireCon;
@@ -167,6 +179,12 @@ public class Contrato {
         this.localidadCon = localidadCon;
         this.provinciaCon = provinciaCon;
         this.CPCon = CPCon;
+        this.e1Con = e1Con;
+        this.e2Con = e2Con;
+        this.e3Con = e3Con;
+        this.e4Con = e4Con;
+        this.e5Con = e5Con;
+        this.e6Con = e6Con;
         this.p1Con = p1Con;
         this.p2Con = p2Con;
         this.p3Con = p3Con;
@@ -180,6 +198,7 @@ public class Contrato {
         this.nombreBan = nombreBan;
         this.IBAN = IBAN;
     }
+
     //endregion
     //region Getter&Setter
 
@@ -800,11 +819,107 @@ public class Contrato {
     }
 
     /**
-     * Llena el campo provinciaCon mediante un argumento String que se pasa
-     * @param CPCon este es el argumento que se pasa para rellenar el campo provinciaCon
+     * Llena el campo CPCon mediante un argumento String que se pasa
+     * @param CPCon este es el argumento que se pasa para rellenar el campo CPCon
      */
     public void setCPCon(String CPCon) {
         this.CPCon = CPCon;
+    }
+
+    /**
+     * Devuelve un double para el e1 del contacto de notificaciones del contrato
+     * @return
+     */
+    public double getE1Con() {
+        return e1Con;
+    }
+
+    /**
+     * Llena el campo e1Con mediante un argumento double que se pasa
+     * @param e1Con este es el argumento que se pasa para rellenar el campo e1Con
+     */
+    public void setE1Con(double e1Con) {
+        this.e1Con = e1Con;
+    }
+
+    /**
+     * Devuelve un double para el e2 del contacto de notificaciones del contrato
+     * @return
+     */
+    public double getE2Con() {
+        return e2Con;
+    }
+
+    /**
+     * Llena el campo e1Con mediante un argumento double que se pasa
+     * @param e2Con este es el argumento que se pasa para rellenar el campo e1Con
+     */
+    public void setE2Con(double e2Con) {
+        this.e2Con = e2Con;
+    }
+
+    /**
+     * Devuelve un double para el e3 del contacto de notificaciones del contrato
+     * @return
+     */
+    public double getE3Con() {
+        return e3Con;
+    }
+
+    /**
+     * Llena el campo e3Con mediante un argumento double que se pasa
+     * @param e3Con este es el argumento que se pasa para rellenar el campo e3Con
+     */
+    public void setE3Con(double e3Con) {
+        this.e3Con = e3Con;
+    }
+
+    /**
+     * Devuelve un double para el e4 del contacto de notificaciones del contrato
+     * @return
+     */
+    public double getE4Con() {
+        return e4Con;
+    }
+
+    /**
+     * Llena el campo e4Con mediante un argumento double que se pasa
+     * @param e4Con este es el argumento que se pasa para rellenar el campo e4Con
+     */
+    public void setE4Con(double e4Con) {
+        this.e4Con = e4Con;
+    }
+
+    /**
+     * Devuelve un double para el e5 del contacto de notificaciones del contrato
+     * @return
+     */
+    public double getE5Con() {
+        return e5Con;
+    }
+
+    /**
+     * Llena el campo e5Con mediante un argumento double que se pasa
+     * @param e5Con este es el argumento que se pasa para rellenar el campo e5Con
+     */
+    public void setE5Con(double e5Con) {
+        this.e5Con = e5Con;
+    }
+
+    /**
+     * Devuelve un double para el e6 del contacto de notificaciones del contrato
+     * @return
+     */
+    public double getE6Con() {
+        return e6Con;
+    }
+
+    /**
+     * Llena el campo e6Con mediante un argumento double que se pasa
+     * @param e6Con este es el argumento que se pasa para rellenar el campo e6Con
+     */
+    public void setE6Con(double e6Con) {
+        this.e6Con = e6Con;
     }
 
     /**
@@ -1000,5 +1115,73 @@ public class Contrato {
     }
 
     //endregion
-
+    //region toString
+    /**
+     * Devuelve un String con todos los atributos de la clase Molde Contrato mediate el método toString()
+     *
+     * @return
+     */
+    @Override
+    public String toString() {
+        return "Contrato{" +
+                "id=" + id +
+                ", pymeCli='" + pymeCli + '\'' +
+                ", tipoContratoCli='" + tipoContratoCli + '\'' +
+                ", permaneciaCli=" + permaneciaCli +
+                ", tarifaCli='" + tarifaCli + '\'' +
+                ", peajeCli='" + peajeCli + '\'' +
+                ", codigoTarifaCli='" + codigoTarifaCli + '\'' +
+                ", titularCli='" + titularCli + '\'' +
+                ", apellidosCli='" + apellidosCli + '\'' +
+                ", telefono1Cli='" + telefono1Cli + '\'' +
+                ", telefono2Cli='" + telefono2Cli + '\'' +
+                ", emailCli='" + emailCli + '\'' +
+                ", direccionCli='" + direccionCli + '\'' +
+                ", numeroDireCli='" + numeroDireCli + '\'' +
+                ", pisoDireCli='" + pisoDireCli + '\'' +
+                ", puertaDireCli='" + puertaDireCli + '\'' +
+                ", localidadCli='" + localidadCli + '\'' +
+                ", provinciaCli='" + provinciaCli + '\'' +
+                ", CPCli='" + CPCli + '\'' +
+                ", representanteCli='" + representanteCli + '\'' +
+                ", NIFRepresentanteCli='" + NIFRepresentanteCli + '\'' +
+                ", direccionSumi='" + direccionSumi + '\'' +
+                ", numeroDireSumi='" + numeroDireSumi + '\'' +
+                ", pisoDireSumi='" + pisoDireSumi + '\'' +
+                ", puertaDireSumi='" + puertaDireSumi + '\'' +
+                ", localidadSumi='" + localidadSumi + '\'' +
+                ", provinciaSumi='" + provinciaSumi + '\'' +
+                ", CPSumi='" + CPSumi + '\'' +
+                ", distribuidoraSumi='" + distribuidoraSumi + '\'' +
+                ", CUPSSumi='" + CUPSSumi + '\'' +
+                ", CNAESumi='" + CNAESumi + '\'' +
+                ", ConsumoAnualSumi=" + ConsumoAnualSumi +
+                ", direccionCon='" + direccionCon + '\'' +
+                ", numeroDireCon='" + numeroDireCon + '\'' +
+                ", pisoDireCon='" + pisoDireCon + '\'' +
+                ", puertaDireCon='" + puertaDireCon + '\'' +
+                ", localidadCon='" + localidadCon + '\'' +
+                ", provinciaCon='" + provinciaCon + '\'' +
+                ", CPCon='" + CPCon + '\'' +
+                ", e1Con=" + e1Con +
+                ", e2Con=" + e2Con +
+                ", e3Con=" + e3Con +
+                ", e4Con=" + e4Con +
+                ", e5Con=" + e5Con +
+                ", e6Con=" + e6Con +
+                ", p1Con=" + p1Con +
+                ", p2Con=" + p2Con +
+                ", p3Con=" + p3Con +
+                ", p4Con=" + p4Con +
+                ", p5Con=" + p5Con +
+                ", p6Con=" + p6Con +
+                ", garantiaDeOrigen=" + garantiaDeOrigen +
+                ", fechaInicioContrato='" + fechaInicioContrato + '\'' +
+                ", duracionContrato='" + duracionContrato + '\'' +
+                ", nifCifNieBan='" + nifCifNieBan + '\'' +
+                ", nombreBan='" + nombreBan + '\'' +
+                ", IBAN='" + IBAN + '\'' +
+                '}';
+    }
+    //endregion
 }
