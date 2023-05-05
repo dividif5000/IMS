@@ -1,4 +1,4 @@
-package com.alumno.simulacionims.contrato;
+package com.alumno.simulacionims.contrato.contratoGas;
 
 import android.app.DatePickerDialog;
 import android.content.Context;
@@ -18,15 +18,16 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.alumno.simulacionims.DataBaseHelper;
 import com.alumno.simulacionims.R;
 import com.alumno.simulacionims.models.Contrato;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.Locale;
 
 /**
  * @author David Ruiz Garcia
@@ -57,7 +58,12 @@ public class ActivityContratoGasProducto extends AppCompatActivity {
         fechainicio = findViewById(R.id.txtInicioContratoGas);
         duracioncontrato = findViewById(R.id.spnDuracionContratoGas);
         recordar = findViewById(R.id.chkRecordarDatosProductoGas);
+        anterior = findViewById(R.id.btnAnteriorContratoGas4);
+        siguiente = findViewById(R.id.btnSiguienteContratoGas4);
 
+        DataBaseHelper inerbase = new DataBaseHelper(getApplicationContext(), "IMS.db", null, 1);
+        db = inerbase.getWritableDatabase();
+        activityLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), null);
         Cargar(prefs);
 
         //region txtFechaInicio
@@ -70,7 +76,7 @@ public class ActivityContratoGasProducto extends AppCompatActivity {
                 mDay = c.get(Calendar.DAY_OF_MONTH);
 
 
-                DatePickerDialog datePickerDialog = new DatePickerDialog(getApplicationContext(),
+                DatePickerDialog datePickerDialog = new DatePickerDialog(ActivityContratoGasProducto.this,
                         new DatePickerDialog.OnDateSetListener() {
 
                             @Override
@@ -83,7 +89,6 @@ public class ActivityContratoGasProducto extends AppCompatActivity {
                                 } else {
                                     inicio = getMonthByNumber(monthOfYear);
                                     fechainicio.setText(dayOfMonth + "-" + (monthOfYear + 1) + "-" + year);
-                                    fechainicio.setText(inicio.toUpperCase(Locale.ROOT));
                                 }
 
                             }
@@ -224,7 +229,8 @@ public class ActivityContratoGasProducto extends AppCompatActivity {
     public void actualizaDB() {
 
         String actualizar;
-        actualizar = "UPDATE CONTRATO SET FECH_INI_CONTRATO = '" + fechainicio.getText().toString().toUpperCase().trim() + "', DURACION_CONTRATO = '" + duracioncontrato.getSelectedItem().toString().toUpperCase().trim() +
+        actualizar = "UPDATE CONTRATO SET FECH_INI_CONTRATO = '" + fechainicio.getText().toString().toUpperCase().trim() +
+                "', DURACION_CONTRATO = '" + duracioncontrato.getSelectedItem().toString().toUpperCase().trim() +
                 "' WHERE ID = 1";
         System.out.println(actualizar);
         db.execSQL(actualizar);

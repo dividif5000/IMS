@@ -106,21 +106,21 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".contrato.ActivityContratoLuz"
+            android:name=".contrato.contratoLuz.ActivityContratoLuz"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".contrato.ActivityContratoLuzSuministro"
+            android:name=".contrato.contratoLuz.ActivityContratoLuzSuministro"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".contrato.ActivityContratoLuzContacto"
+            android:name=".contrato.contratoLuz.ActivityContratoLuzContacto"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -128,49 +128,49 @@
         </activity>
 
         <activity
-            android:name=".contrato.ActivityContratoLuzProducto"
+            android:name=".contrato.contratoLuz.ActivityContratoLuzProducto"
             android:exported="false" >
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".contrato.ActivityContratoLuzBanco"
+            android:name=".contrato.contratoLuz.ActivityContratoLuzBanco"
             android:exported="false" >
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".contrato.ActivityContratoGas"
+            android:name=".contrato.contratoGas.ActivityContratoGas"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".contrato.ActivityContratoGasSuministro"
+            android:name=".contrato.contratoGas.ActivityContratoGasSuministro"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".contrato.ActivityContratoGasContacto"
+            android:name=".contrato.contratoGas.ActivityContratoGasContacto"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".contrato.ActivityContratoGasProducto"
+            android:name=".contrato.contratoGas.ActivityContratoGasProducto"
             android:exported="false" >
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".contrato.ActivityContratoGasBanco"
+            android:name=".contrato.contratoGas.ActivityContratoGasBanco"
             android:exported="false" >
             <meta-data
                 android:name="android.app.lib_name"

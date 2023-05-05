@@ -16,7 +16,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.alumno.simulacionims.DataBaseHelper;
 import com.alumno.simulacionims.MainActivity;
 import com.alumno.simulacionims.R;
-import com.alumno.simulacionims.contrato.ActivityContratoGasSuministro;
+import com.alumno.simulacionims.contrato.contratoGas.ActivityContratoGasSuministro;
 import com.alumno.simulacionims.gas.ActivityGas;
 import com.alumno.simulacionims.models.ClasesSipsExtensa;
 import com.google.gson.Gson;

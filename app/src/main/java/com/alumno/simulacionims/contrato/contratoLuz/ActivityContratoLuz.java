@@ -1,4 +1,4 @@
-package com.alumno.simulacionims.contrato;
+package com.alumno.simulacionims.contrato.contratoLuz;
 
 import android.content.Context;
 import android.content.Intent;
@@ -13,10 +13,13 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.alumno.simulacionims.DataBaseHelper;
 import com.alumno.simulacionims.R;
-import com.alumno.simulacionims.gas.ActivityGas;
+import com.alumno.simulacionims.contrato.ActivityContrato;
+import com.alumno.simulacionims.luz.ActivityLuz;
 
 import java.util.Locale;
 
@@ -77,9 +80,12 @@ public class ActivityContratoLuz extends AppCompatActivity {
         siguiente = findViewById(R.id.btnSiguienteContratoLuz1);
         anterior = findViewById(R.id.btnAnteriorContratoLuz1);
 
+        DataBaseHelper inerbase = new DataBaseHelper(getApplicationContext(), "IMS.db", null, 1);
+        db = inerbase.getWritableDatabase();
+        activityLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), null);
         Bundle extra = getIntent().getExtras();
         tipo = extra.getString("tipo");
-
+        System.out.println(tipo);
         Cargar(prefs);
 
         //region btnSiguiente
@@ -228,13 +234,20 @@ public class ActivityContratoLuz extends AppCompatActivity {
 
         String actualizar;
         actualizar = "UPDATE CONTRATO SET TITULAR_CLI = '" + titular.getText().toString().toUpperCase(Locale.ROOT).trim() +
-                "', APELLIDOS_CLI = '" +apellidos.getText().toString().toUpperCase().trim() + "', TELEFONO1_CLI = '" +telefono1.getText().toString().trim() +
-                "', TELEFONO2_CLI = '" + telefono2.getText().toString().trim() + "', MAIL_CLI = '" + email.getText().toString().toLowerCase().trim() +
-                "', DIRECCION_CLI = '" + direccion.getText().toString().toUpperCase().trim() + "', NUMERO_PORTAL_CLI = '"+numero.getText().toString().toUpperCase().trim()+
-                "', PISO_CLI = '"+piso.getText().toString().toUpperCase().trim()+"', PUERTA_CLI = '"+puerta.getText().toString().toUpperCase().trim()+
-                "', LOCALIDAD_CLI = '"+localidad.getText().toString().toUpperCase().trim()+"', PROVINCIA_CLI = '"+provincia.getText().toString().toUpperCase().trim()+
-                "', CODIGO_POSTAL_CLI = '"+cp.getText().toString().toUpperCase().trim()+"', REPRESENTANTE_CLI = '"+representante.getText().toString().toUpperCase().trim()+
-                "', NIF_REPRESENTANTE_CLI = '"+nifRepresentante.getText().toString().toUpperCase().trim()+"' WHERE ID = 1";
+                "', APELLIDOS_CLI = '" +apellidos.getText().toString().toUpperCase().trim() +
+                "', TELEFONO1_CLI = '" +telefono1.getText().toString().trim() +
+                "', TELEFONO2_CLI = '" + telefono2.getText().toString().trim() +
+                "', MAIL_CLI = '" + email.getText().toString().toLowerCase().trim() +
+                "', DIRECCION_CLI = '" + direccion.getText().toString().toUpperCase().trim() +
+                "', NUMERO_PORTAL_CLI = '"+numero.getText().toString().toUpperCase().trim()+
+                "', PISO_CLI = '"+piso.getText().toString().toUpperCase().trim()+
+                "', PUERTA_CLI = '"+puerta.getText().toString().toUpperCase().trim()+
+                "', LOCALIDAD_CLI = '"+localidad.getText().toString().toUpperCase().trim()+
+                "', PROVINCIA_CLI = '"+provincia.getText().toString().toUpperCase().trim()+
+                "', CODIGO_POSTAL_CLI = '"+cp.getText().toString().toUpperCase().trim()+
+                "', REPRESENTANTE_CLI = '"+representante.getText().toString().toUpperCase().trim()+
+                "', NIF_REPRESENTANTE_CLI = '"+nifRepresentante.getText().toString().toUpperCase().trim()+
+                "' WHERE ID = 1";
         System.out.println(actualizar);
         db.execSQL(actualizar);
         Toast.makeText(getApplicationContext(), "Se han guardado los datos del Contrato", Toast.LENGTH_SHORT).show();
@@ -246,7 +259,7 @@ public class ActivityContratoLuz extends AppCompatActivity {
      * Mediante este método se consigue ir a la siguiente actividad para el Contrato de Luz
      */
     public void siguienteActividad(){
-        Intent intent = new Intent(getApplicationContext(), ActivityContratoGasSuministro.class);
+        Intent intent = new Intent(getApplicationContext(), ActivityContratoLuzSuministro.class);
         activityLauncher.launch(intent);
     }
 
@@ -254,7 +267,7 @@ public class ActivityContratoLuz extends AppCompatActivity {
      * Mediante este método se consigue ir a la anterior actividad de luz
      */
     public void anteriorSimulacionActividad() {
-        Intent intent = new Intent(getApplicationContext(), ActivityGas.class);
+        Intent intent = new Intent(getApplicationContext(), ActivityLuz.class);
         activityLauncher.launch(intent);
     }
 

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".contrato.ActivityContratoLuzContacto">
+    tools:context=".contrato.contratoLuz.ActivityContratoLuzContacto">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -38,7 +38,6 @@
                 android:textColor="@color/white"
                 android:textColorHint="@color/white"
                 android:textSize="20sp" />
-
 
 
             <EditText
@@ -79,9 +78,9 @@
                 android:gravity="center"
                 android:hint="@string/hinttxtPisoSumi"
                 android:inputType="textPersonName"
-                android:textSize="14sp"
                 android:textColor="@color/white"
-                android:textColorHint="@color/white"/>
+                android:textColorHint="@color/white"
+                android:textSize="14sp" />
 
             <EditText
                 android:id="@+id/txtPuertaCONContrato"
@@ -93,9 +92,9 @@
                 android:gravity="center"
                 android:hint="@string/hinttxtPuertaCon"
                 android:inputType="textPersonName"
-                android:textSize="14sp"
                 android:textColor="@color/white"
-                android:textColorHint="@color/white"/>
+                android:textColorHint="@color/white"
+                android:textSize="14sp" />
 
             <EditText
                 android:id="@+id/txtLocalidadCONContrato"
@@ -107,9 +106,9 @@
                 android:gravity="center"
                 android:hint="@string/hinttxtLocalidadCon"
                 android:inputType="textPersonName"
-                android:textSize="14sp"
                 android:textColor="@color/white"
-                android:textColorHint="@color/white"/>
+                android:textColorHint="@color/white"
+                android:textSize="14sp" />
 
             <EditText
                 android:id="@+id/txtProvinciaCONContrato"
@@ -121,9 +120,9 @@
                 android:gravity="center"
                 android:hint="@string/hinttxtProvinciaCon"
                 android:inputType="textPersonName"
-                android:textSize="14sp"
                 android:textColor="@color/white"
-                android:textColorHint="@color/white"/>
+                android:textColorHint="@color/white"
+                android:textSize="14sp" />
 
             <EditText
                 android:id="@+id/txtCPCONContrato"
@@ -135,9 +134,9 @@
                 android:gravity="center"
                 android:hint="@string/hinttxtCPSCONContrato"
                 android:inputType="textPersonName"
-                android:textSize="14sp"
                 android:textColor="@color/white"
-                android:textColorHint="@color/white"/>
+                android:textColorHint="@color/white"
+                android:textSize="14sp" />
 
 
 

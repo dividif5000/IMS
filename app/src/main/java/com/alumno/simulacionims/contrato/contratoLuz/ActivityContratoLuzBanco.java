@@ -1,4 +1,4 @@
-package com.alumno.simulacionims.contrato;
+package com.alumno.simulacionims.contrato.contratoLuz;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -16,13 +16,13 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.alumno.simulacionims.DataBaseHelper;
 import com.alumno.simulacionims.MainActivity;
 import com.alumno.simulacionims.R;
-import com.alumno.simulacionims.gas.ActivityGas_Totales;
 import com.alumno.simulacionims.models.Contrato;
 
 /**
@@ -48,7 +48,8 @@ public class ActivityContratoLuzBanco extends AppCompatActivity {
     //region onCreate
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+        setTheme(androidx.appcompat.R.style.Theme_AppCompat_DayNight);
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contrato_luz_banco);
 
         nif = findViewById(R.id.txtNIFBANContrato);
@@ -60,6 +61,7 @@ public class ActivityContratoLuzBanco extends AppCompatActivity {
         home = findViewById(R.id.btnHomeContrato);
 
         contrato = recogeValores();
+        activityLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), null);
 
         //region chkRecordar
         recordar.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -200,7 +202,7 @@ public class ActivityContratoLuzBanco extends AppCompatActivity {
         contra.setPermaneciaCli(Boolean.parseBoolean(c.getString(c.getColumnIndex("PERMANENCIA_CONTRATO"))));
         contra.setTarifaCli(c.getString(c.getColumnIndex("TARIFA_CONTRATO")));
         contra.setPeajeCli(c.getString(c.getColumnIndex("PEAJE_CONTRATO")));
-        contra.setCodigoTarifaCli(c.getString(c.getColumnIndex("CODIGO_TARIFA_CONRTATO")));
+        contra.setCodigoTarifaCli(c.getString(c.getColumnIndex("CODIGO_TARIFA_CONTRATO")));
         contra.setTitularCli(c.getString(c.getColumnIndex("TITULAR_CLI")));
         contra.setApellidosCli(c.getString(c.getColumnIndex("APELLIDOS_CLI")));
         contra.setTelefono1Cli(c.getString(c.getColumnIndex("TELEFONO1_CLI")));
@@ -212,8 +214,8 @@ public class ActivityContratoLuzBanco extends AppCompatActivity {
         contra.setPuertaDireCli(c.getString(c.getColumnIndex("PUERTA_CLI")));
         contra.setLocalidadCli(c.getString(c.getColumnIndex("LOCALIDAD_CLI")));
         contra.setProvinciaCli(c.getString(c.getColumnIndex("PROVINCIA_CLI")));
-        contra.setCPCli(c.getString(c.getColumnIndex("CODIGO_POSTAL")));
-        contra.setRepresentanteCli(c.getString(c.getColumnIndex("REPRESENTANTE")));
+        contra.setCPCli(c.getString(c.getColumnIndex("CODIGO_POSTAL_CLI")));
+        contra.setRepresentanteCli(c.getString(c.getColumnIndex("REPRESENTANTE_CLI")));
         contra.setNIFRepresentanteCli(c.getString(c.getColumnIndex("NIF_REPRESENTANTE_CLI")));
         contra.setDireccionSumi(c.getString(c.getColumnIndex("DIRECCION_SUMI")));
         contra.setNumeroDireSumi(c.getString(c.getColumnIndex("NUMERO_PORTAL_SUMI")));
@@ -221,7 +223,7 @@ public class ActivityContratoLuzBanco extends AppCompatActivity {
         contra.setPuertaDireSumi(c.getString(c.getColumnIndex("PUERTA_SUMI")));
         contra.setLocalidadSumi(c.getString(c.getColumnIndex("LOCALIDAD_SUMI")));
         contra.setProvinciaSumi(c.getString(c.getColumnIndex("PROVINCIA_SUMI")));
-        contra.setCPSumi(c.getString(c.getColumnIndex("CODIGO_PORTAL_SUMI")));
+        contra.setCPSumi(c.getString(c.getColumnIndex("CODIGO_POSTAL_SUMI")));
         contra.setDistribuidoraSumi(c.getString(c.getColumnIndex("DISTRIBUIDORA_SUMI")));
         contra.setCUPSSumi(c.getString(c.getColumnIndex("CUPS_SUMI")));
         contra.setCNAESumi(c.getString(c.getColumnIndex("CNAE_SUMI")));

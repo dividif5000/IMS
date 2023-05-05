@@ -1,4 +1,4 @@
-package com.alumno.simulacionims.contrato;
+package com.alumno.simulacionims.contrato.contratoGas;
 
 import android.content.Context;
 import android.content.Intent;
@@ -13,8 +13,10 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.alumno.simulacionims.DataBaseHelper;
 import com.alumno.simulacionims.R;
 
 /**
@@ -57,6 +59,9 @@ public class ActivityContratoGasContacto extends AppCompatActivity {
         siguiente = findViewById(R.id.btnSiguienteContratoGas3);
         anterior = findViewById(R.id.btnAnteriorContratoGas3);
 
+        DataBaseHelper inerbase = new DataBaseHelper(getApplicationContext(), "IMS.db", null, 1);
+        db = inerbase.getWritableDatabase();
+        activityLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), null);
         Cargar(prefs);
 
         //region btnSiguiente
@@ -173,10 +178,14 @@ public class ActivityContratoGasContacto extends AppCompatActivity {
     public void actualizaDB() {
 
         String actualizar;
-        actualizar = "UPDATE CONTRATO SET DIRECCION_CON = '" + direccion.getText().toString().toUpperCase().trim() + "', NUMERO_PORTAL_CON = '" + numero.getText().toString().toUpperCase().trim() +
-                "', PISO_CON = '" + piso.getText().toString().toUpperCase().trim() + "', PUERTA_CON = '" + puerta.getText().toString().toUpperCase().trim() +
-                "', LOCALIDAD_CON = '" + localidad.getText().toString().toUpperCase().trim() + "', PROVINCIA_CON = '" + provincia.getText().toString().toUpperCase().trim() +
-                "', CODIGO_POSTAL_CON = '" + cp.getText().toString().toUpperCase().trim() + "' WHERE ID = 1";
+        actualizar = "UPDATE CONTRATO SET DIRECCION_CON = '" + direccion.getText().toString().toUpperCase().trim() +
+                "', NUMERO_PORTAL_CON = '" + numero.getText().toString().toUpperCase().trim() +
+                "', PISO_CON = '" + piso.getText().toString().toUpperCase().trim() +
+                "', PUERTA_CON = '" + puerta.getText().toString().toUpperCase().trim() +
+                "', LOCALIDAD_CON = '" + localidad.getText().toString().toUpperCase().trim() +
+                "', PROVINCIA_CON = '" + provincia.getText().toString().toUpperCase().trim() +
+                "', CODIGO_POSTAL_CON = '" + cp.getText().toString().toUpperCase().trim() +
+                "' WHERE ID = 1";
         System.out.println(actualizar);
         db.execSQL(actualizar);
         Toast.makeText(getApplicationContext(), "Se han guardado los datos del Contrato", Toast.LENGTH_SHORT).show();
