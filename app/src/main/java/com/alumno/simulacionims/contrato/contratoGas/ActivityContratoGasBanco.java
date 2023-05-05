@@ -1,4 +1,4 @@
-package com.alumno.simulacionims.contrato;
+package com.alumno.simulacionims.contrato.contratoGas;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -16,6 +16,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -57,6 +58,8 @@ public class ActivityContratoGasBanco extends AppCompatActivity {
         contrat = findViewById(R.id.btnCreaContratoFinalGas);
         home = findViewById(R.id.btnHomeContratoGas);
 
+
+        activityLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), null);
         contrato = recogeValores();
         Cargar(prefs);
 
@@ -198,7 +201,7 @@ public class ActivityContratoGasBanco extends AppCompatActivity {
         contra.setPermaneciaCli(Boolean.parseBoolean(c.getString(c.getColumnIndex("PERMANENCIA_CONTRATO"))));
         contra.setTarifaCli(c.getString(c.getColumnIndex("TARIFA_CONTRATO")));
         contra.setPeajeCli(c.getString(c.getColumnIndex("PEAJE_CONTRATO")));
-        contra.setCodigoTarifaCli(c.getString(c.getColumnIndex("CODIGO_TARIFA_CONRTATO")));
+        contra.setCodigoTarifaCli(c.getString(c.getColumnIndex("CODIGO_TARIFA_CONTRATO")));
         contra.setTitularCli(c.getString(c.getColumnIndex("TITULAR_CLI")));
         contra.setApellidosCli(c.getString(c.getColumnIndex("APELLIDOS_CLI")));
         contra.setTelefono1Cli(c.getString(c.getColumnIndex("TELEFONO1_CLI")));
@@ -210,8 +213,8 @@ public class ActivityContratoGasBanco extends AppCompatActivity {
         contra.setPuertaDireCli(c.getString(c.getColumnIndex("PUERTA_CLI")));
         contra.setLocalidadCli(c.getString(c.getColumnIndex("LOCALIDAD_CLI")));
         contra.setProvinciaCli(c.getString(c.getColumnIndex("PROVINCIA_CLI")));
-        contra.setCPCli(c.getString(c.getColumnIndex("CODIGO_POSTAL")));
-        contra.setRepresentanteCli(c.getString(c.getColumnIndex("REPRESENTANTE")));
+        contra.setCPCli(c.getString(c.getColumnIndex("CODIGO_POSTAL_CLI")));
+        contra.setRepresentanteCli(c.getString(c.getColumnIndex("REPRESENTANTE_CLI")));
         contra.setNIFRepresentanteCli(c.getString(c.getColumnIndex("NIF_REPRESENTANTE_CLI")));
         contra.setDireccionSumi(c.getString(c.getColumnIndex("DIRECCION_SUMI")));
         contra.setNumeroDireSumi(c.getString(c.getColumnIndex("NUMERO_PORTAL_SUMI")));
@@ -219,7 +222,7 @@ public class ActivityContratoGasBanco extends AppCompatActivity {
         contra.setPuertaDireSumi(c.getString(c.getColumnIndex("PUERTA_SUMI")));
         contra.setLocalidadSumi(c.getString(c.getColumnIndex("LOCALIDAD_SUMI")));
         contra.setProvinciaSumi(c.getString(c.getColumnIndex("PROVINCIA_SUMI")));
-        contra.setCPSumi(c.getString(c.getColumnIndex("CODIGO_PORTAL_SUMI")));
+        contra.setCPSumi(c.getString(c.getColumnIndex("CODIGO_POSTAL_SUMI")));
         contra.setDistribuidoraSumi(c.getString(c.getColumnIndex("DISTRIBUIDORA_SUMI")));
         contra.setCUPSSumi(c.getString(c.getColumnIndex("CUPS_SUMI")));
         contra.setCNAESumi(c.getString(c.getColumnIndex("CNAE_SUMI")));
@@ -254,7 +257,7 @@ public class ActivityContratoGasBanco extends AppCompatActivity {
      * Mediante este método se consigue ir a la siguiente actividad para el Contrato de Luz
      */
     public void siguienteActividad() {
-        Intent intent = new Intent(getApplicationContext(), ActivityContratoLuzBanco.class);
+        Intent intent = new Intent(getApplicationContext(), ActivityContratoGasBanco.class);
         activityLauncher.launch(intent);
     }
 
@@ -262,7 +265,7 @@ public class ActivityContratoGasBanco extends AppCompatActivity {
      * Mediante este método se consigue ir a la anterior actividad para el Contrato Luz
      */
     public void anteriorActividad() {
-        Intent intent = new Intent(getApplicationContext(), ActivityContratoLuzProducto.class);
+        Intent intent = new Intent(getApplicationContext(), ActivityContratoGasProducto.class);
         activityLauncher.launch(intent);
     }
     /**

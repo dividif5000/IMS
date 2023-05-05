@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".contrato.ActivityContratoGas">
+    tools:context=".contrato.contratoGas.ActivityContratoGas">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -103,7 +103,7 @@
                     android:ems="10"
                     android:gravity="center"
                     android:hint="@string/hinttxtTelefono"
-                    android:inputType="textPersonName"
+                    android:inputType="phone"
                     android:textColor="@color/white"
                     android:textColorHint="@color/white"
                     android:textSize="14sp" />
@@ -117,7 +117,7 @@
                     android:ems="10"
                     android:gravity="center"
                     android:hint="@string/hinttxtTelefono2"
-                    android:inputType="textPersonName"
+                    android:inputType="phone"
                     android:textColor="@color/white"
                     android:textColorHint="@color/white"
                     android:textSize="14sp" />
@@ -159,7 +159,7 @@
                     android:ems="10"
                     android:gravity="center"
                     android:hint="@string/hinttxtNumero"
-                    android:inputType="textPersonName"
+                    android:inputType="number"
                     android:textColor="@color/white"
                     android:textColorHint="@color/white"
                     android:textSize="14sp" />
@@ -173,7 +173,7 @@
                     android:ems="10"
                     android:gravity="center"
                     android:hint="@string/hinttxtPiso"
-                    android:inputType="textPersonName"
+                    android:inputType="number"
                     android:textColor="@color/white"
                     android:textColorHint="@color/white"
                     android:textSize="14sp" />
@@ -229,7 +229,7 @@
                     android:ems="10"
                     android:gravity="center"
                     android:hint="@string/hinttxtCP"
-                    android:inputType="textPersonName"
+                    android:inputType="number"
                     android:textColor="@color/white"
                     android:textColorHint="@color/white"
                     android:textSize="14sp" />

@@ -1,4 +1,4 @@
-package com.alumno.simulacionims.contrato;
+package com.alumno.simulacionims.contrato.contratoLuz;
 
 import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
@@ -20,6 +20,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.alumno.simulacionims.DataBaseHelper;
@@ -29,7 +30,6 @@ import com.alumno.simulacionims.models.Contrato;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.Locale;
 
 /**
  * @author David Ruiz Garcia
@@ -62,6 +62,7 @@ public class ActivityContratoLuzProducto extends AppCompatActivity {
     //region onCreate
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setTheme(androidx.appcompat.R.style.Theme_AppCompat_DayNight);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contrato_luz_producto);
 
@@ -75,11 +76,14 @@ public class ActivityContratoLuzProducto extends AppCompatActivity {
         fechainicio = findViewById(R.id.txtInicioContrato);
         duracioncontrato = findViewById(R.id.spnDuracionContrato);
         recordar = findViewById(R.id.chkRecordarDatosProducto);
+        anterior = findViewById(R.id.btnAnteriorContratoLuz4);
+        siguiente = findViewById(R.id.btnSiguienteContratoLuz4);
 
         deshabilitar();
         contrato = recogeValores();
         rellenaCampos();
         Cargar(prefs);
+        activityLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), null);
 
         //region txtFechaInicio
         fechainicio.setOnClickListener(new View.OnClickListener() {
@@ -91,7 +95,7 @@ public class ActivityContratoLuzProducto extends AppCompatActivity {
                 mDay = c.get(Calendar.DAY_OF_MONTH);
 
 
-                DatePickerDialog datePickerDialog = new DatePickerDialog(getApplicationContext(),
+                DatePickerDialog datePickerDialog = new DatePickerDialog(ActivityContratoLuzProducto.this,
                         new DatePickerDialog.OnDateSetListener() {
 
                             @Override
@@ -104,7 +108,7 @@ public class ActivityContratoLuzProducto extends AppCompatActivity {
                                 } else {
                                     inicio = getMonthByNumber(monthOfYear);
                                     fechainicio.setText(dayOfMonth + "-" + (monthOfYear + 1) + "-" + year);
-                                    fechainicio.setText(inicio.toUpperCase(Locale.ROOT));
+
                                 }
 
                             }

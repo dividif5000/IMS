@@ -1,4 +1,4 @@
-package com.alumno.simulacionims.contrato;
+package com.alumno.simulacionims.contrato.contratoGas;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -15,6 +15,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.alumno.simulacionims.DataBaseHelper;
@@ -75,6 +76,7 @@ public class ActivityContratoGasSuministro extends AppCompatActivity {
         siguiente = findViewById(R.id.btnSiguienteContratoGas2);
         anterior = findViewById(R.id.btnAnteriorContratoGas2);
 
+        activityLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), null);
         Cargar(prefs);
         contrato = recogeValores();
         CUPS.setText(contrato.getCUPSSumi());
@@ -222,10 +224,15 @@ public class ActivityContratoGasSuministro extends AppCompatActivity {
     public void actualizaDB() {
 
         String actualizar;
-        actualizar = "UPDATE CONTRATO SET DIRECCION_SUMI = '" + direccion.getText().toString().toUpperCase().trim() + "', NUMERO_PORTAL_SUMI = '"+numero.getText().toString().toUpperCase().trim()+
-                "', PISO_SUMI = '"+piso.getText().toString().toUpperCase().trim()+"', PUERTA_SUMI = '"+puerta.getText().toString().toUpperCase().trim()+
-                "', LOCALIDAD_SUMI = '"+localidad.getText().toString().toUpperCase().trim()+"', PROVINCIA_SUMI = '"+provincia.getText().toString().toUpperCase().trim()+
-                "', CODIGO_POSTAL_SUMI = '"+cp.getText().toString().toUpperCase().trim()+"', DISTRIBUIDORA_SUMI = '"+distribuidora.getText().toString().toUpperCase().trim()+
+        actualizar = "UPDATE CONTRATO SET DIRECCION_SUMI = '" + direccion.getText().toString().toUpperCase().trim() +
+                "', NUMERO_PORTAL_SUMI = '"+numero.getText().toString().toUpperCase().trim()+
+                "', PISO_SUMI = '"+piso.getText().toString().toUpperCase().trim()+
+                "', PUERTA_SUMI = '"+puerta.getText().toString().toUpperCase().trim()+
+                "', LOCALIDAD_SUMI = '"+localidad.getText().toString().toUpperCase().trim()+
+                "', PROVINCIA_SUMI = '"+provincia.getText().toString().toUpperCase().trim()+
+                "', CODIGO_POSTAL_SUMI = '"+cp.getText().toString().toUpperCase().trim()+
+                "', DISTRIBUIDORA_SUMI = '"+distribuidora.getText().toString().toUpperCase().trim()+
+                "', CUPS_SUMI = '"+CUPS.getText().toString().toUpperCase().trim()+
                 "',CNAE_SUMI = '"+Integer.parseInt(CNAE.getText().toString())+"' WHERE ID = 1";
         System.out.println(actualizar);
         db.execSQL(actualizar);
@@ -260,7 +267,7 @@ public class ActivityContratoGasSuministro extends AppCompatActivity {
      * Mediante este método se consigue ir a la siguiente actividad para el Contrato de Gas
      */
     public void siguienteActividad(){
-        Intent intent = new Intent(getApplicationContext(), ActivityContratoGasSuministro.class);
+        Intent intent = new Intent(getApplicationContext(), ActivityContratoGasContacto.class);
         activityLauncher.launch(intent);
     }
 

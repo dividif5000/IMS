@@ -27,7 +27,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.alumno.simulacionims.DataBaseHelper;
 import com.alumno.simulacionims.MainActivity;
 import com.alumno.simulacionims.R;
-import com.alumno.simulacionims.contrato.ActivityContratoGas;
+import com.alumno.simulacionims.contrato.contratoGas.ActivityContratoGas;
 import com.alumno.simulacionims.models.Simulacion;
 import com.alumno.simulacionims.pdf.PdfEditado_Simulacion;
 

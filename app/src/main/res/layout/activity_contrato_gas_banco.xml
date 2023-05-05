@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".contrato.ActivityContratoGasBanco">
+    tools:context=".contrato.contratoGas.ActivityContratoGasBanco">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -77,7 +77,7 @@
                     android:background="@drawable/th"
                     android:ems="10"
                     android:gravity="center"
-                    android:hint="@string/hinttxtNumeroSumi"
+                    android:hint="@string/hinttxtNombreBanco"
                     android:inputType="textPersonName"
                     android:textColor="@color/white"
                     android:textColorHint="@color/white"

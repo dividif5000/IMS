@@ -16,7 +16,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.alumno.simulacionims.DataBaseHelper;
 import com.alumno.simulacionims.MainActivity;
 import com.alumno.simulacionims.R;
-import com.alumno.simulacionims.contrato.ActivityContratoLuzSuministro;
+import com.alumno.simulacionims.contrato.contratoLuz.ActivityContratoLuzSuministro;
 import com.alumno.simulacionims.luz.ActivityLuz;
 import com.alumno.simulacionims.models.ClasesSipsExtensa;
 import com.alumno.simulacionims.models.ConsumosSips;

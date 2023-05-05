@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".contrato.ActivityContratoLuz">
+    tools:context=".contrato.contratoLuz.ActivityContratoLuz">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -144,7 +144,7 @@
                 android:ems="10"
                 android:gravity="center"
                 android:hint="@string/hinttxtNumero"
-                android:inputType="textPersonName"
+                android:inputType="number"
                 android:textColor="@color/white"
                 android:textColorHint="@color/white"
                 android:textSize="14sp" />
@@ -158,10 +158,10 @@
                 android:ems="10"
                 android:gravity="center"
                 android:hint="@string/hinttxtPiso"
-                android:inputType="textPersonName"
-                android:textSize="14sp"
+                android:inputType="number"
                 android:textColor="@color/white"
-                android:textColorHint="@color/white"/>
+                android:textColorHint="@color/white"
+                android:textSize="14sp" />
 
             <EditText
                 android:id="@+id/txtPuertaCLIContrato"
@@ -173,9 +173,9 @@
                 android:gravity="center"
                 android:hint="@string/hinttxtPuerta"
                 android:inputType="textPersonName"
-                android:textSize="14sp"
                 android:textColor="@color/white"
-                android:textColorHint="@color/white"/>
+                android:textColorHint="@color/white"
+                android:textSize="14sp" />
 
             <EditText
                 android:id="@+id/txtLocalidadCLIContrato"
@@ -187,9 +187,9 @@
                 android:gravity="center"
                 android:hint="@string/hinttxtLocalidad"
                 android:inputType="textPersonName"
-                android:textSize="14sp"
                 android:textColor="@color/white"
-                android:textColorHint="@color/white"/>
+                android:textColorHint="@color/white"
+                android:textSize="14sp" />
 
             <EditText
                 android:id="@+id/txtProvinciaCLIContrato"
@@ -201,9 +201,9 @@
                 android:gravity="center"
                 android:hint="@string/hinttxtProvincia"
                 android:inputType="textPersonName"
-                android:textSize="14sp"
                 android:textColor="@color/white"
-                android:textColorHint="@color/white"/>
+                android:textColorHint="@color/white"
+                android:textSize="14sp" />
 
             <EditText
                 android:id="@+id/txtCPCLIContrato"
@@ -215,9 +215,9 @@
                 android:gravity="center"
                 android:hint="@string/hinttxtCP"
                 android:inputType="textPersonName"
-                android:textSize="14sp"
                 android:textColor="@color/white"
-                android:textColorHint="@color/white"/>
+                android:textColorHint="@color/white"
+                android:textSize="14sp" />
 
             <EditText
                 android:id="@+id/txtRepresentanteCLIContrato"
@@ -228,10 +228,10 @@
                 android:ems="10"
                 android:gravity="center"
                 android:hint="@string/hinttxtRepresentante"
-                android:inputType="textPersonName"
-                android:textSize="14sp"
+                android:inputType="number"
                 android:textColor="@color/white"
-                android:textColorHint="@color/white"/>
+                android:textColorHint="@color/white"
+                android:textSize="14sp" />
 
             <EditText
                 android:id="@+id/txtNIFRepresentanteCLIContrato"
@@ -243,9 +243,9 @@
                 android:gravity="center"
                 android:hint="@string/hinttxtNIFRepresentante"
                 android:inputType="textPersonName"
-                android:textSize="14sp"
                 android:textColor="@color/white"
-                android:textColorHint="@color/white"/>
+                android:textColorHint="@color/white"
+                android:textSize="14sp" />
 
             <CheckBox
                 android:id="@+id/chkRecordarDatosClienteLuz"

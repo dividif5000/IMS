@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".contrato.ActivityContratoGasProducto">
+    tools:context=".contrato.contratoGas.ActivityContratoGasProducto">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -64,7 +64,7 @@
                     android:ems="10"
                     android:gravity="center"
                     android:hint="@string/hinttxtInicioContrato"
-                    android:inputType="textPersonName"
+                    android:inputType="date"
                     android:textColor="@color/white"
                     android:textColorHint="@color/white"
                     android:textSize="14sp" />

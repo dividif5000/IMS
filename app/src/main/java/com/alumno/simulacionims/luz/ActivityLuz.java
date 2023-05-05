@@ -26,7 +26,7 @@ import com.alumno.simulacionims.MainActivity;
 import com.alumno.simulacionims.R;
 import com.alumno.simulacionims.SQLPostgresHelper;
 import com.alumno.simulacionims.contrato.ActivityContrato;
-import com.alumno.simulacionims.contrato.ActivityContratoLuz;
+import com.alumno.simulacionims.contrato.contratoLuz.ActivityContratoLuz;
 import com.alumno.simulacionims.models.CodigosPrecio;
 import com.alumno.simulacionims.models.Simulacion;
 
@@ -458,6 +458,7 @@ public class ActivityLuz extends AppCompatActivity {
 
     public void lanzarContratoActividad(View view){
         Intent intent = new Intent(getApplicationContext(), ActivityContratoLuz.class);
+        intent.putExtra("tipo","contrato");
         activityLauncher.launch(intent);
     }
 
@@ -473,7 +474,6 @@ public class ActivityLuz extends AppCompatActivity {
 
         } else if (tipo.equals("contrato")) {
             Intent intent = new Intent(getApplicationContext(), ActivityContrato.class);
-            intent.putExtra("tipo","simulacion");
             activityLauncher.launch(intent);
         }
     }

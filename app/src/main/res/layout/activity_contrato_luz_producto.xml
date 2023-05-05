@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".contrato.ActivityContratoLuzProducto">
+    tools:context=".contrato.contratoLuz.ActivityContratoLuzProducto">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -77,6 +77,7 @@
                         android:ems="10"
                         android:gravity="center"
                         android:inputType="numberDecimal"
+                        android:text="0"
                         android:textColor="@color/white" />
 
                     <TextView
@@ -97,6 +98,7 @@
                         android:ems="10"
                         android:gravity="center"
                         android:inputType="numberDecimal"
+                        android:text="0"
                         android:textColor="@color/white" />
                 </LinearLayout>
 
@@ -125,6 +127,7 @@
                         android:ems="10"
                         android:gravity="center"
                         android:inputType="numberDecimal"
+                        android:text="0"
                         android:textColor="@color/white" />
 
                     <TextView
@@ -145,6 +148,7 @@
                         android:ems="10"
                         android:gravity="center"
                         android:inputType="numberDecimal"
+                        android:text="0"
                         android:textColor="@color/white" />
                 </LinearLayout>
 
@@ -172,6 +176,7 @@
                         android:ems="10"
                         android:gravity="center"
                         android:inputType="numberDecimal"
+                        android:text="0"
                         android:textColor="@color/white" />
 
                     <TextView
@@ -192,6 +197,7 @@
                         android:ems="10"
                         android:gravity="center"
                         android:inputType="numberDecimal"
+                        android:text="0"
                         android:textColor="@color/white" />
                 </LinearLayout>
 
@@ -207,19 +213,20 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical"
                 android:layout_gravity="center">
+
                 <EditText
-                android:id="@+id/txtInicioContrato"
-                android:layout_width="match_parent"
-                android:layout_height="64dp"
-                android:layout_margin="10dp"
-                android:background="@drawable/fondo_edittext"
-                android:ems="10"
-                android:gravity="center"
-                android:hint="@string/hinttxtInicioContrato"
-                android:inputType="textPersonName"
-                android:textColor="@color/white"
-                android:textColorHint="@color/white"
-                android:textSize="14sp" />
+                    android:id="@+id/txtInicioContrato"
+                    android:layout_width="match_parent"
+                    android:layout_height="64dp"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/fondo_edittext"
+                    android:ems="10"
+                    android:gravity="center"
+                    android:hint="@string/hinttxtInicioContrato"
+                    android:inputType="date"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white"
+                    android:textSize="14sp" />
 
                 <Spinner
                     android:id="@+id/spnDuracionContrato"

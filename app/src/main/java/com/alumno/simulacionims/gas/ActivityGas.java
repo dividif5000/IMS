@@ -26,8 +26,7 @@ import com.alumno.simulacionims.MainActivity;
 import com.alumno.simulacionims.R;
 import com.alumno.simulacionims.SQLPostgresHelper;
 import com.alumno.simulacionims.contrato.ActivityContrato;
-import com.alumno.simulacionims.contrato.ActivityContratoLuz;
-import com.alumno.simulacionims.luz.ActivityLuz_Fecha;
+import com.alumno.simulacionims.contrato.contratoGas.ActivityContratoGas;
 import com.alumno.simulacionims.models.CodigosPrecio;
 import com.alumno.simulacionims.models.Simulacion;
 
@@ -442,7 +441,7 @@ public class ActivityGas extends AppCompatActivity {
         String peaj = peaje.getSelectedItem().toString();
         String ofer = oferta.getSelectedItem().toString();
 
-        Intent intent = new Intent(getApplicationContext(), ActivityLuz_Fecha.class);
+        Intent intent = new Intent(getApplicationContext(), ActivityGas_Fecha.class);
         intent.putExtra("peaje", peaj);
         intent.putExtra("oferta", ofer);
         activityLauncher.launch(intent);
@@ -455,7 +454,8 @@ public class ActivityGas extends AppCompatActivity {
      */
 
     public void lanzarContratoActividad(View view){
-        Intent intent = new Intent(getApplicationContext(), ActivityContratoLuz.class);
+        Intent intent = new Intent(getApplicationContext(), ActivityContratoGas.class);
+        intent.putExtra("tipo","contrato");
         activityLauncher.launch(intent);
     }
 

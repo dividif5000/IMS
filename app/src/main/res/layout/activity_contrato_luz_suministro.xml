@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".contrato.ActivityContratoLuzSuministro">
+    tools:context=".contrato.contratoLuz.ActivityContratoLuzSuministro">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -40,7 +40,6 @@
                 android:textSize="20sp" />
 
 
-
             <EditText
                 android:id="@+id/txtDireccionSUMIContrato"
                 android:layout_width="match_parent"
@@ -64,7 +63,7 @@
                 android:ems="10"
                 android:gravity="center"
                 android:hint="@string/hinttxtNumeroSumi"
-                android:inputType="textPersonName"
+                android:inputType="number"
                 android:textColor="@color/white"
                 android:textColorHint="@color/white"
                 android:textSize="14sp" />
@@ -79,9 +78,9 @@
                 android:gravity="center"
                 android:hint="@string/hinttxtPisoSumi"
                 android:inputType="textPersonName"
-                android:textSize="14sp"
                 android:textColor="@color/white"
-                android:textColorHint="@color/white"/>
+                android:textColorHint="@color/white"
+                android:textSize="14sp" />
 
             <EditText
                 android:id="@+id/txtPuertaSUMIContrato"
@@ -93,9 +92,9 @@
                 android:gravity="center"
                 android:hint="@string/hinttxtPuertaSumi"
                 android:inputType="textPersonName"
-                android:textSize="14sp"
                 android:textColor="@color/white"
-                android:textColorHint="@color/white"/>
+                android:textColorHint="@color/white"
+                android:textSize="14sp" />
 
             <EditText
                 android:id="@+id/txtLocalidadSUMIContrato"
@@ -107,9 +106,9 @@
                 android:gravity="center"
                 android:hint="@string/hinttxtLocalidadSumi"
                 android:inputType="textPersonName"
-                android:textSize="14sp"
                 android:textColor="@color/white"
-                android:textColorHint="@color/white"/>
+                android:textColorHint="@color/white"
+                android:textSize="14sp" />
 
             <EditText
                 android:id="@+id/txtProvinciaSUMIContrato"
@@ -121,9 +120,9 @@
                 android:gravity="center"
                 android:hint="@string/hinttxtProvinciaSumi"
                 android:inputType="textPersonName"
-                android:textSize="14sp"
                 android:textColor="@color/white"
-                android:textColorHint="@color/white"/>
+                android:textColorHint="@color/white"
+                android:textSize="14sp" />
 
             <EditText
                 android:id="@+id/txtCPSUMIContrato"
@@ -135,9 +134,9 @@
                 android:gravity="center"
                 android:hint="@string/hinttxtCPSSUMIContrato"
                 android:inputType="textPersonName"
-                android:textSize="14sp"
                 android:textColor="@color/white"
-                android:textColorHint="@color/white"/>
+                android:textColorHint="@color/white"
+                android:textSize="14sp" />
 
             <EditText
                 android:id="@+id/txtDistribuidoraSUMIContrato"
@@ -149,9 +148,9 @@
                 android:gravity="center"
                 android:hint="@string/hinttxtDistribuidoraSumi"
                 android:inputType="textPersonName"
-                android:textSize="14sp"
                 android:textColor="@color/white"
-                android:textColorHint="@color/white"/>
+                android:textColorHint="@color/white"
+                android:textSize="14sp" />
 
 
             <EditText

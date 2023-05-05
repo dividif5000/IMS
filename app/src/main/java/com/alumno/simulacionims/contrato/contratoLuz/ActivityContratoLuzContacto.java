@@ -1,4 +1,4 @@
-package com.alumno.simulacionims.contrato;
+package com.alumno.simulacionims.contrato.contratoLuz;
 
 import android.content.Context;
 import android.content.Intent;
@@ -13,8 +13,10 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.alumno.simulacionims.DataBaseHelper;
 import com.alumno.simulacionims.R;
 
 /**
@@ -59,8 +61,11 @@ public class ActivityContratoLuzContacto extends AppCompatActivity {
         siguiente = findViewById(R.id.btnSiguienteContratoLuz3);
         anterior = findViewById(R.id.btnAnteriorContratoLuz3);
 
-        Cargar(prefs);
 
+        Cargar(prefs);
+        DataBaseHelper inerbase = new DataBaseHelper(getApplicationContext(), "IMS.db", null, 1);
+        db = inerbase.getWritableDatabase();
+        activityLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), null);
         //region btnSiguiente
         siguiente.setOnClickListener(new View.OnClickListener() {
             @Override

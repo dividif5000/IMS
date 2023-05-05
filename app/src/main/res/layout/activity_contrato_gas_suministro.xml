@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".contrato.ActivityContratoGasSuministro">
+    tools:context=".contrato.contratoGas.ActivityContratoGasSuministro">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -78,7 +78,7 @@
                     android:ems="10"
                     android:gravity="center"
                     android:hint="@string/hinttxtNumeroSumi"
-                    android:inputType="textPersonName"
+                    android:inputType="number"
                     android:textColor="@color/white"
                     android:textColorHint="@color/white"
                     android:textSize="14sp" />
@@ -92,7 +92,7 @@
                     android:ems="10"
                     android:gravity="center"
                     android:hint="@string/hinttxtPisoSumi"
-                    android:inputType="textPersonName"
+                    android:inputType="number"
                     android:textColor="@color/white"
                     android:textColorHint="@color/white"
                     android:textSize="14sp" />
@@ -148,7 +148,7 @@
                     android:ems="10"
                     android:gravity="center"
                     android:hint="@string/hinttxtCPSSUMIContrato"
-                    android:inputType="textPersonName"
+                    android:inputType="number"
                     android:textColor="@color/white"
                     android:textColorHint="@color/white"
                     android:textSize="14sp" />
@@ -166,6 +166,7 @@
                     android:textColor="@color/white"
                     android:textColorHint="@color/white"
                     android:textSize="14sp" />
+
                 <EditText
                     android:id="@+id/txtCNAESUMIContratoGas"
                     android:layout_width="match_parent"
@@ -175,7 +176,7 @@
                     android:ems="10"
                     android:gravity="center"
                     android:hint="@string/hinttxtCNAESumi"
-                    android:inputType="textPersonName"
+                    android:inputType="number"
                     android:textColor="@color/white"
                     android:textColorHint="@color/white"
                     android:textSize="14sp" />
@@ -222,7 +223,7 @@
                     android:id="@+id/chkRecordarDatosSuministroGas"
                     android:layout_width="125dp"
                     android:layout_height="wrap_content"
-                    android:text="@string/chkRecordarDatosClienteLuz" />
+                    android:text="@string/chkRecordarDatosSuministro" />
             </LinearLayout>
 
             <LinearLayout
